@@ -1,4 +1,6 @@
 """Export small, traceable summaries; never modify experimental source/results."""
+import argparse
+import datetime
 import hashlib
 import importlib.metadata
 import json
@@ -19,7 +21,7 @@ def dump(path, obj):
     path.write_text(json.dumps(obj, ensure_ascii=False, indent=2, allow_nan=False) + '\n', encoding='utf-8')
 
 
-def main():
+def main(snapshot_date=None):
     verification = json.loads((SOURCE / 'final_verification.json').read_text(encoding='utf-8'))
     assert verification['status'] == 'pass' and verification['all_9_runs_100epochs']
     raw = json.loads((SOURCE / 'three_seed_ABC_results.json').read_text(encoding='utf-8'))
@@ -44,9 +46,13 @@ def main():
         'verification_sha256': digest(SOURCE / 'final_verification.json'),
         'local_only_full_artifacts': True,
     }
-    raw['snapshot_date'] = '2026-10-26'
-    raw['status'] = {'ABC_training_complete': True, 'full_sensitivity_complete': False,
-                     'DE_formal_training_started': False, 'target_edge_device_verified': False}
+    raw['snapshot_date'] = snapshot_date or datetime.date.today().isoformat()
+    sensitivity = EXP / 'step_06_2026-10-26/ABC_sensitivity_001/final_verification.json'
+    training = EXP / 'step_07_2026-10-26/DE_seed42_training_001'
+    raw['status'] = {'ABC_training_complete': True,
+                     'full_sensitivity_complete': sensitivity.exists() and json.loads(sensitivity.read_text(encoding='utf-8')).get('status') == 'pass',
+                     'DE_formal_training_started': (training / 'D_seed42_epoch001/training_progress.json').exists(),
+                     'target_edge_device_verified': False}
     dest = ROOT / 'results'
     dest.mkdir(exist_ok=True)
     dump(dest / 'abc_summary.json', raw)
@@ -69,4 +75,6 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--snapshot-date', type=lambda s: datetime.date.fromisoformat(s).isoformat())
+    main(parser.parse_args().snapshot_date)

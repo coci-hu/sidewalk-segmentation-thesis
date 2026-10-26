@@ -230,11 +230,11 @@
     "verification_sha256": "4e3d56ee4fa5015ec170b9e71501396b663636aede6b38c8a2b44c35bd60bd9a",
     "local_only_full_artifacts": true
   },
-  "snapshot_date": "2026-10-26",
+  "snapshot_date": "2026-10-27",
   "status": {
     "ABC_training_complete": true,
-    "full_sensitivity_complete": false,
-    "DE_formal_training_started": false,
+    "full_sensitivity_complete": true,
+    "DE_formal_training_started": true,
     "target_edge_device_verified": false
   }
 }

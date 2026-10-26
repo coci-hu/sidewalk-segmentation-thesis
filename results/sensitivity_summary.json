@@ -1,0 +1,3384 @@
+{
+  "results": [
+    {
+      "variant": "A",
+      "seed": 42,
+      "selected_epoch": 92,
+      "weights_sha256": "71ca9c869b1aec4ee5fc6eaa637e98cb3e2e0ab10ccedf5a1adbc8c4261f8218",
+      "policies": {
+        "core": {
+          "confusion": [
+            [
+              370390021,
+              4272631
+            ],
+            [
+              3893902,
+              14659446
+            ]
+          ],
+          "global_miou_pct": 81.03267822047478,
+          "sidewalk_iou_pct": 64.22263859964123,
+          "precision_pct": 77.43178944391575,
+          "recall_pct": 79.01240250546694,
+          "false_positive_pixels": 4272631,
+          "false_negative_pixels": 3893902
+        },
+        "valid_pixels": {
+          "confusion": [
+            [
+              322414708,
+              2617081
+            ],
+            [
+              3893902,
+              14659446
+            ]
+          ],
+          "global_miou_pct": 83.63272388569763,
+          "sidewalk_iou_pct": 69.2449170491538,
+          "precision_pct": 84.85181078349832,
+          "recall_pct": 79.01240250546694,
+          "false_positive_pixels": 2617081,
+          "false_negative_pixels": 3893902
+        }
+      },
+      "core_boundary": {
+        "6": {
+          "mean_pct": 34.113483315401666,
+          "valid_images": 496,
+          "both_empty_excluded": 4
+        },
+        "13": {
+          "mean_pct": 46.05768444900706,
+          "valid_images": 496,
+          "both_empty_excluded": 4
+        },
+        "26": {
+          "mean_pct": 53.043149041492974,
+          "valid_images": 496,
+          "both_empty_excluded": 4
+        }
+      },
+      "cities": {
+        "frankfurt": {
+          "core": {
+            "confusion": [
+              [
+                197728287,
+                2354212
+              ],
+              [
+                2504793,
+                7390052
+              ]
+            ],
+            "global_miou_pct": 78.96656233815635,
+            "sidewalk_iou_pct": 60.33159940393779,
+            "precision_pct": 75.84002239676593,
+            "recall_pct": 74.68587936445695,
+            "false_positive_pixels": 2354212,
+            "false_negative_pixels": 2504793
+          },
+          "valid_pixels": {
+            "confusion": [
+              [
+                168535110,
+                1561157
+              ],
+              [
+                2504793,
+                7390052
+              ]
+            ],
+            "global_miou_pct": 81.07621592176142,
+            "sidewalk_iou_pct": 64.50812421296715,
+            "precision_pct": 82.55926098921385,
+            "recall_pct": 74.68587936445695,
+            "false_positive_pixels": 1561157,
+            "false_negative_pixels": 2504793
+          }
+        },
+        "lindau": {
+          "core": {
+            "confusion": [
+              [
+                44005382,
+                906060
+              ],
+              [
+                575849,
+                912197
+              ]
+            ],
+            "global_miou_pct": 67.42196355915209,
+            "sidewalk_iou_pct": 38.101779954605185,
+            "precision_pct": 50.168760521752425,
+            "recall_pct": 61.30166674954941,
+            "false_positive_pixels": 906060,
+            "false_negative_pixels": 575849
+          },
+          "valid_pixels": {
+            "confusion": [
+              [
+                36169136,
+                350622
+              ],
+              [
+                575849,
+                912197
+              ]
+            ],
+            "global_miou_pct": 73.55715821207208,
+            "sidewalk_iou_pct": 49.61183857009531,
+            "precision_pct": 72.23497587540257,
+            "recall_pct": 61.30166674954941,
+            "false_positive_pixels": 350622,
+            "false_negative_pixels": 575849
+          }
+        },
+        "munster": {
+          "core": {
+            "confusion": [
+              [
+                128656352,
+                1012359
+              ],
+              [
+                813260,
+                6357197
+              ]
+            ],
+            "global_miou_pct": 88.14523235431359,
+            "sidewalk_iou_pct": 77.68959976614408,
+            "precision_pct": 86.26295803980592,
+            "recall_pct": 88.65818454806995,
+            "false_positive_pixels": 1012359,
+            "false_negative_pixels": 813260
+          },
+          "valid_pixels": {
+            "confusion": [
+              [
+                117710462,
+                705302
+              ],
+              [
+                813260,
+                6357197
+              ]
+            ],
+            "global_miou_pct": 89.7224400470262,
+            "sidewalk_iou_pct": 80.71853138218171,
+            "precision_pct": 90.01342159482076,
+            "recall_pct": 88.65818454806995,
+            "false_positive_pixels": 705302,
+            "false_negative_pixels": 813260
+          }
+        }
+      },
+      "foreground_groups": {
+        "zero": {
+          "images": 34,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  26045840,
+                  692848
+                ],
+                [
+                  0,
+                  0
+                ]
+              ],
+              "sidewalk_iou_pct": 0.0,
+              "global_miou_pct": 48.70440913181679,
+              "precision_pct": 0.0,
+              "recall_pct": null,
+              "false_positive_pixels": 692848,
+              "false_negative_pixels": 0
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  19539163,
+                  171536
+                ],
+                [
+                  0,
+                  0
+                ]
+              ],
+              "sidewalk_iou_pct": 0.0,
+              "global_miou_pct": 49.56486576148314,
+              "precision_pct": 0.0,
+              "recall_pct": null,
+              "false_positive_pixels": 171536,
+              "false_negative_pixels": 0
+            }
+          }
+        },
+        "(0,1%]": {
+          "images": 61,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  47247508,
+                  487179
+                ],
+                [
+                  98767,
+                  138898
+                ]
+              ],
+              "sidewalk_iou_pct": 19.16246806209336,
+              "global_miou_pct": 58.96874846811827,
+              "precision_pct": 22.18545003250399,
+              "recall_pct": 58.44276607830349,
+              "false_positive_pixels": 487179,
+              "false_negative_pixels": 98767
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  41607475,
+                  198848
+                ],
+                [
+                  98767,
+                  138898
+                ]
+              ],
+              "sidewalk_iou_pct": 31.819899980069323,
+              "global_miou_pct": 65.55484396353526,
+              "precision_pct": 41.12498741657932,
+              "recall_pct": 58.44276607830349,
+              "false_positive_pixels": 198848,
+              "false_negative_pixels": 98767
+            }
+          }
+        },
+        "(1%,5%]": {
+          "images": 210,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  158876558,
+                  1739291
+                ],
+                [
+                  1114171,
+                  3420700
+                ]
+              ],
+              "sidewalk_iou_pct": 54.52042838549595,
+              "global_miou_pct": 76.37804587297654,
+              "precision_pct": 66.2927512858065,
+              "recall_pct": 75.43103210653622,
+              "false_positive_pixels": 1739291,
+              "false_negative_pixels": 1114171
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  139503046,
+                  1181777
+                ],
+                [
+                  1114171,
+                  3420700
+                ]
+              ],
+              "sidewalk_iou_pct": 59.83751317205467,
+              "global_miou_pct": 79.10917820495644,
+              "precision_pct": 74.32302214655283,
+              "recall_pct": 75.43103210653622,
+              "false_positive_pixels": 1181777,
+              "false_negative_pixels": 1114171
+            }
+          }
+        },
+        ">5%": {
+          "images": 195,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  138220115,
+                  1353313
+                ],
+                [
+                  2680964,
+                  11099848
+                ]
+              ],
+              "sidewalk_iou_pct": 73.34317643074839,
+              "global_miou_pct": 85.25360844572322,
+              "precision_pct": 89.13277520462475,
+              "recall_pct": 80.54567466706607,
+              "false_positive_pixels": 1353313,
+              "false_negative_pixels": 2680964
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  121765024,
+                  1064920
+                ],
+                [
+                  2680964,
+                  11099848
+                ]
+              ],
+              "sidewalk_iou_pct": 74.76794003825476,
+              "global_miou_pct": 85.89171565666194,
+              "precision_pct": 91.24586675224714,
+              "recall_pct": 80.54567466706607,
+              "false_positive_pixels": 1064920,
+              "false_negative_pixels": 2680964
+            }
+          }
+        }
+      }
+    },
+    {
+      "variant": "B",
+      "seed": 42,
+      "selected_epoch": 84,
+      "weights_sha256": "2af2d3f8b2ece6ea1aab1d6224260e92e77070207177b030a00dd822715687f7",
+      "policies": {
+        "core": {
+          "confusion": [
+            [
+              370637997,
+              4024655
+            ],
+            [
+              3807874,
+              14745474
+            ]
+          ],
+          "global_miou_pct": 81.61975257085498,
+          "sidewalk_iou_pct": 65.30902666635309,
+          "precision_pct": 78.5581921147159,
+          "recall_pct": 79.47608162149494,
+          "false_positive_pixels": 4024655,
+          "false_negative_pixels": 3807874
+        },
+        "valid_pixels": {
+          "confusion": [
+            [
+              322661087,
+              2370702
+            ],
+            [
+              3807874,
+              14745474
+            ]
+          ],
+          "global_miou_pct": 84.29625608510507,
+          "sidewalk_iou_pct": 70.47141447281955,
+          "precision_pct": 86.14934784498594,
+          "recall_pct": 79.47608162149494,
+          "false_positive_pixels": 2370702,
+          "false_negative_pixels": 3807874
+        }
+      },
+      "core_boundary": {
+        "6": {
+          "mean_pct": 34.21292639683993,
+          "valid_images": 499,
+          "both_empty_excluded": 1
+        },
+        "13": {
+          "mean_pct": 46.38934034077607,
+          "valid_images": 499,
+          "both_empty_excluded": 1
+        },
+        "26": {
+          "mean_pct": 53.56698597261666,
+          "valid_images": 499,
+          "both_empty_excluded": 1
+        }
+      },
+      "cities": {
+        "frankfurt": {
+          "core": {
+            "confusion": [
+              [
+                197832033,
+                2250466
+              ],
+              [
+                2499728,
+                7395117
+              ]
+            ],
+            "global_miou_pct": 79.27191816403862,
+            "sidewalk_iou_pct": 60.88865900593241,
+            "precision_pct": 76.6684294769948,
+            "recall_pct": 74.73706763471283,
+            "false_positive_pixels": 2250466,
+            "false_negative_pixels": 2499728
+          },
+          "valid_pixels": {
+            "confusion": [
+              [
+                168613386,
+                1482881
+              ],
+              [
+                2499728,
+                7395117
+              ]
+            ],
+            "global_miou_pct": 81.34448327239767,
+            "sidewalk_iou_pct": 64.99644129239886,
+            "precision_pct": 83.29712396871457,
+            "recall_pct": 74.73706763471283,
+            "false_positive_pixels": 1482881,
+            "false_negative_pixels": 2499728
+          }
+        },
+        "lindau": {
+          "core": {
+            "confusion": [
+              [
+                43994273,
+                917169
+              ],
+              [
+                399586,
+                1088460
+              ]
+            ],
+            "global_miou_pct": 71.17406499719165,
+            "sidewalk_iou_pct": 45.25416646744678,
+            "precision_pct": 54.27025636346503,
+            "recall_pct": 73.14693228569547,
+            "false_positive_pixels": 917169,
+            "false_negative_pixels": 399586
+          },
+          "valid_pixels": {
+            "confusion": [
+              [
+                36158280,
+                361478
+              ],
+              [
+                399586,
+                1088460
+              ]
+            ],
+            "global_miou_pct": 78.39469721107044,
+            "sidewalk_iou_pct": 58.850817832047596,
+            "precision_pct": 75.06941676126841,
+            "recall_pct": 73.14693228569547,
+            "false_positive_pixels": 361478,
+            "false_negative_pixels": 399586
+          }
+        },
+        "munster": {
+          "core": {
+            "confusion": [
+              [
+                128811691,
+                857020
+              ],
+              [
+                908560,
+                6261897
+              ]
+            ],
+            "global_miou_pct": 88.32682880506711,
+            "sidewalk_iou_pct": 78.00579185714265,
+            "precision_pct": 87.96137109057459,
+            "recall_pct": 87.32912002679885,
+            "false_positive_pixels": 857020,
+            "false_negative_pixels": 908560
+          },
+          "valid_pixels": {
+            "confusion": [
+              [
+                117889421,
+                526343
+              ],
+              [
+                908560,
+                6261897
+              ]
+            ],
+            "global_miou_pct": 90.07731247829625,
+            "sidewalk_iou_pct": 81.35714842531961,
+            "precision_pct": 92.24625234228607,
+            "recall_pct": 87.32912002679885,
+            "false_positive_pixels": 526343,
+            "false_negative_pixels": 908560
+          }
+        }
+      },
+      "foreground_groups": {
+        "zero": {
+          "images": 34,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  26090298,
+                  648390
+                ],
+                [
+                  0,
+                  0
+                ]
+              ],
+              "sidewalk_iou_pct": 0.0,
+              "global_miou_pct": 48.78754335291246,
+              "precision_pct": 0.0,
+              "recall_pct": null,
+              "false_positive_pixels": 648390,
+              "false_negative_pixels": 0
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  19557113,
+                  153586
+                ],
+                [
+                  0,
+                  0
+                ]
+              ],
+              "sidewalk_iou_pct": 0.0,
+              "global_miou_pct": 49.61039940795606,
+              "precision_pct": 0.0,
+              "recall_pct": null,
+              "false_positive_pixels": 153586,
+              "false_negative_pixels": 0
+            }
+          }
+        },
+        "(0,1%]": {
+          "images": 61,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  47273058,
+                  461629
+                ],
+                [
+                  97672,
+                  139993
+                ]
+              ],
+              "sidewalk_iou_pct": 20.01919078384771,
+              "global_miou_pct": 59.42494829141184,
+              "precision_pct": 23.269262094803715,
+              "recall_pct": 58.90349862200997,
+              "false_positive_pixels": 461629,
+              "false_negative_pixels": 97672
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  41635560,
+                  170763
+                ],
+                [
+                  97672,
+                  139993
+                ]
+              ],
+              "sidewalk_iou_pct": 34.276053551666394,
+              "global_miou_pct": 66.81772915265908,
+              "precision_pct": 45.049170410225386,
+              "recall_pct": 58.90349862200997,
+              "false_positive_pixels": 170763,
+              "false_negative_pixels": 97672
+            }
+          }
+        },
+        "(1%,5%]": {
+          "images": 210,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  159042275,
+                  1573574
+                ],
+                [
+                  1144372,
+                  3390499
+                ]
+              ],
+              "sidewalk_iou_pct": 55.50510809215766,
+              "global_miou_pct": 76.9124383541004,
+              "precision_pct": 68.30074819608818,
+              "recall_pct": 74.76505946916681,
+              "false_positive_pixels": 1573574,
+              "false_negative_pixels": 1144372
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  139653945,
+                  1030878
+                ],
+                [
+                  1144372,
+                  3390499
+                ]
+              ],
+              "sidewalk_iou_pct": 60.91720988495888,
+              "global_miou_pct": 79.69174943011473,
+              "precision_pct": 76.68423208425791,
+              "recall_pct": 74.76505946916681,
+              "false_positive_pixels": 1030878,
+              "false_negative_pixels": 1144372
+            }
+          }
+        },
+        ">5%": {
+          "images": 195,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  138232366,
+                  1341062
+                ],
+                [
+                  2565830,
+                  11214982
+                ]
+              ],
+              "sidewalk_iou_pct": 74.16396935988224,
+              "global_miou_pct": 85.70766626327962,
+              "precision_pct": 89.31939072529532,
+              "recall_pct": 81.3811406758905,
+              "false_positive_pixels": 1341062,
+              "false_negative_pixels": 2565830
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  121814469,
+                  1015475
+                ],
+                [
+                  2565830,
+                  11214982
+                ]
+              ],
+              "sidewalk_iou_pct": 75.79592096314434,
+              "global_miou_pct": 86.46995980588753,
+              "precision_pct": 91.69716225648804,
+              "recall_pct": 81.3811406758905,
+              "false_positive_pixels": 1015475,
+              "false_negative_pixels": 2565830
+            }
+          }
+        }
+      }
+    },
+    {
+      "variant": "A",
+      "seed": 43,
+      "selected_epoch": 61,
+      "weights_sha256": "b4975507cb89ec4286281c6a3cc56f485eaeeb0f08b3e66a453ede4cb1d32646",
+      "policies": {
+        "core": {
+          "confusion": [
+            [
+              370534920,
+              4127732
+            ],
+            [
+              3997965,
+              14555383
+            ]
+          ],
+          "global_miou_pct": 81.01410642043612,
+          "sidewalk_iou_pct": 64.17411781096844,
+          "precision_pct": 77.90661782042234,
+          "recall_pct": 78.45151721403597,
+          "false_positive_pixels": 4127732,
+          "false_negative_pixels": 3997965
+        },
+        "valid_pixels": {
+          "confusion": [
+            [
+              322685303,
+              2346486
+            ],
+            [
+              3997965,
+              14555383
+            ]
+          ],
+          "global_miou_pct": 83.85765191812825,
+          "sidewalk_iou_pct": 69.6435340108443,
+          "precision_pct": 86.11700280010453,
+          "recall_pct": 78.45151721403597,
+          "false_positive_pixels": 2346486,
+          "false_negative_pixels": 3997965
+        }
+      },
+      "core_boundary": {
+        "6": {
+          "mean_pct": 33.69653375643532,
+          "valid_images": 499,
+          "both_empty_excluded": 1
+        },
+        "13": {
+          "mean_pct": 45.56491740184646,
+          "valid_images": 499,
+          "both_empty_excluded": 1
+        },
+        "26": {
+          "mean_pct": 52.729559115652606,
+          "valid_images": 499,
+          "both_empty_excluded": 1
+        }
+      },
+      "cities": {
+        "frankfurt": {
+          "core": {
+            "confusion": [
+              [
+                197856292,
+                2226207
+              ],
+              [
+                2653276,
+                7241569
+              ]
+            ],
+            "global_miou_pct": 78.66845726996938,
+            "sidewalk_iou_pct": 59.74373346471907,
+            "precision_pct": 76.48648425987264,
+            "recall_pct": 73.18526970356787,
+            "false_positive_pixels": 2226207,
+            "false_negative_pixels": 2653276
+          },
+          "valid_pixels": {
+            "confusion": [
+              [
+                168697534,
+                1398733
+              ],
+              [
+                2653276,
+                7241569
+              ]
+            ],
+            "global_miou_pct": 80.88776255974257,
+            "sidewalk_iou_pct": 64.12112264155787,
+            "precision_pct": 83.81152649525445,
+            "recall_pct": 73.18526970356787,
+            "false_positive_pixels": 1398733,
+            "false_negative_pixels": 2653276
+          }
+        },
+        "lindau": {
+          "core": {
+            "confusion": [
+              [
+                43948298,
+                963144
+              ],
+              [
+                504359,
+                983687
+              ]
+            ],
+            "global_miou_pct": 68.44986837070994,
+            "sidewalk_iou_pct": 40.130997597085496,
+            "precision_pct": 50.52760100902441,
+            "recall_pct": 66.10595371379648,
+            "false_positive_pixels": 963144,
+            "false_negative_pixels": 504359
+          },
+          "valid_pixels": {
+            "confusion": [
+              [
+                36177875,
+                341883
+              ],
+              [
+                504359,
+                983687
+              ]
+            ],
+            "global_miou_pct": 75.73491142216628,
+            "sidewalk_iou_pct": 53.755473573018406,
+            "precision_pct": 74.20860460028516,
+            "recall_pct": 66.10595371379648,
+            "false_positive_pixels": 341883,
+            "false_negative_pixels": 504359
+          }
+        },
+        "munster": {
+          "core": {
+            "confusion": [
+              [
+                128730330,
+                938381
+              ],
+              [
+                840330,
+                6330127
+              ]
+            ],
+            "global_miou_pct": 88.35081822506916,
+            "sidewalk_iou_pct": 78.06453896353584,
+            "precision_pct": 87.08977138086661,
+            "recall_pct": 88.28066328268896,
+            "false_positive_pixels": 938381,
+            "false_negative_pixels": 840330
+          },
+          "valid_pixels": {
+            "confusion": [
+              [
+                117809894,
+                605870
+              ],
+              [
+                840330,
+                6330127
+              ]
+            ],
+            "global_miou_pct": 90.09492334046087,
+            "sidewalk_iou_pct": 81.40253104068283,
+            "precision_pct": 91.26484627948945,
+            "recall_pct": 88.28066328268896,
+            "false_positive_pixels": 605870,
+            "false_negative_pixels": 840330
+          }
+        }
+      },
+      "foreground_groups": {
+        "zero": {
+          "images": 34,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  26004435,
+                  734253
+                ],
+                [
+                  0,
+                  0
+                ]
+              ],
+              "sidewalk_iou_pct": 0.0,
+              "global_miou_pct": 48.62698386697208,
+              "precision_pct": 0.0,
+              "recall_pct": null,
+              "false_positive_pixels": 734253,
+              "false_negative_pixels": 0
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  19563525,
+                  147174
+                ],
+                [
+                  0,
+                  0
+                ]
+              ],
+              "sidewalk_iou_pct": 0.0,
+              "global_miou_pct": 49.62666468601646,
+              "precision_pct": 0.0,
+              "recall_pct": null,
+              "false_positive_pixels": 147174,
+              "false_negative_pixels": 0
+            }
+          }
+        },
+        "(0,1%]": {
+          "images": 61,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  47231724,
+                  502963
+                ],
+                [
+                  111353,
+                  126312
+                ]
+              ],
+              "sidewalk_iou_pct": 17.05471572773376,
+              "global_miou_pct": 57.885386239882955,
+              "precision_pct": 20.07262325692265,
+              "recall_pct": 53.14707676771927,
+              "false_positive_pixels": 502963,
+              "false_negative_pixels": 111353
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  41625053,
+                  181270
+                ],
+                [
+                  111353,
+                  126312
+                ]
+              ],
+              "sidewalk_iou_pct": 30.150739374843354,
+              "global_miou_pct": 64.72632481193764,
+              "precision_pct": 41.066122204810426,
+              "recall_pct": 53.14707676771927,
+              "false_positive_pixels": 181270,
+              "false_negative_pixels": 111353
+            }
+          }
+        },
+        "(1%,5%]": {
+          "images": 210,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  158959612,
+                  1656237
+                ],
+                [
+                  1179001,
+                  3355870
+                ]
+              ],
+              "sidewalk_iou_pct": 54.20467547973642,
+              "global_miou_pct": 76.22615472168191,
+              "precision_pct": 66.95527449832974,
+              "recall_pct": 74.00144348097223,
+              "false_positive_pixels": 1656237,
+              "false_negative_pixels": 1179001
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  139599445,
+                  1085378
+                ],
+                [
+                  1179001,
+                  3355870
+                ]
+              ],
+              "sidewalk_iou_pct": 59.71034379437638,
+              "global_miou_pct": 79.05708999859225,
+              "precision_pct": 75.5614187723811,
+              "recall_pct": 74.00144348097223,
+              "false_positive_pixels": 1085378,
+              "false_negative_pixels": 1179001
+            }
+          }
+        },
+        ">5%": {
+          "images": 195,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  138339149,
+                  1234279
+                ],
+                [
+                  2707611,
+                  11073201
+                ]
+              ],
+              "sidewalk_iou_pct": 73.7471454551957,
+              "global_miou_pct": 85.488324901287,
+              "precision_pct": 89.97131013009974,
+              "recall_pct": 80.35231160544096,
+              "false_positive_pixels": 1234279,
+              "false_negative_pixels": 2707611
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  121897280,
+                  932664
+                ],
+                [
+                  2707611,
+                  11073201
+                ]
+              ],
+              "sidewalk_iou_pct": 75.25890550947987,
+              "global_miou_pct": 86.17957785475483,
+              "precision_pct": 92.23159680706055,
+              "recall_pct": 80.35231160544096,
+              "false_positive_pixels": 932664,
+              "false_negative_pixels": 2707611
+            }
+          }
+        }
+      }
+    },
+    {
+      "variant": "B",
+      "seed": 43,
+      "selected_epoch": 72,
+      "weights_sha256": "718d7a9d48288791cb870449ea8949c38e37f92a56ad8b9489d72d8faae7708d",
+      "policies": {
+        "core": {
+          "confusion": [
+            [
+              369958437,
+              4704215
+            ],
+            [
+              3405201,
+              15148147
+            ]
+          ],
+          "global_miou_pct": 81.49358523072297,
+          "sidewalk_iou_pct": 65.13213357736578,
+          "precision_pct": 76.30400352361094,
+          "recall_pct": 81.64643384040444,
+          "false_positive_pixels": 4704215,
+          "false_negative_pixels": 3405201
+        },
+        "valid_pixels": {
+          "confusion": [
+            [
+              322279082,
+              2752707
+            ],
+            [
+              3405201,
+              15148147
+            ]
+          ],
+          "global_miou_pct": 84.61146841470999,
+          "sidewalk_iou_pct": 71.09784988351903,
+          "precision_pct": 84.62248225699176,
+          "recall_pct": 81.64643384040444,
+          "false_positive_pixels": 2752707,
+          "false_negative_pixels": 3405201
+        }
+      },
+      "core_boundary": {
+        "6": {
+          "mean_pct": 33.78807755436379,
+          "valid_images": 500,
+          "both_empty_excluded": 0
+        },
+        "13": {
+          "mean_pct": 46.03488330115886,
+          "valid_images": 500,
+          "both_empty_excluded": 0
+        },
+        "26": {
+          "mean_pct": 53.30391897023995,
+          "valid_images": 500,
+          "both_empty_excluded": 0
+        }
+      },
+      "cities": {
+        "frankfurt": {
+          "core": {
+            "confusion": [
+              [
+                197437764,
+                2644735
+              ],
+              [
+                2179022,
+                7715823
+              ]
+            ],
+            "global_miou_pct": 79.57341949864886,
+            "sidewalk_iou_pct": 61.531749867220434,
+            "precision_pct": 74.47304479160292,
+            "recall_pct": 77.97820986584429,
+            "false_positive_pixels": 2644735,
+            "false_negative_pixels": 2179022
+          },
+          "valid_pixels": {
+            "confusion": [
+              [
+                168317042,
+                1779225
+              ],
+              [
+                2179022,
+                7715823
+              ]
+            ],
+            "global_miou_pct": 81.89802777520083,
+            "sidewalk_iou_pct": 66.09368455046098,
+            "precision_pct": 81.2615481248752,
+            "recall_pct": 77.97820986584429,
+            "false_positive_pixels": 1779225,
+            "false_negative_pixels": 2179022
+          }
+        },
+        "lindau": {
+          "core": {
+            "confusion": [
+              [
+                43730125,
+                1181317
+              ],
+              [
+                411741,
+                1076305
+              ]
+            ],
+            "global_miou_pct": 68.40289136825649,
+            "sidewalk_iou_pct": 40.320668264301254,
+            "precision_pct": 47.67427851075158,
+            "recall_pct": 72.33008925799336,
+            "false_positive_pixels": 1181317,
+            "false_negative_pixels": 411741
+          },
+          "valid_pixels": {
+            "confusion": [
+              [
+                36176491,
+                343267
+              ],
+              [
+                411741,
+                1076305
+              ]
+            ],
+            "global_miou_pct": 78.36398276046556,
+            "sidewalk_iou_pct": 58.77231254296781,
+            "precision_pct": 75.81897924163057,
+            "recall_pct": 72.33008925799336,
+            "false_positive_pixels": 343267,
+            "false_negative_pixels": 411741
+          }
+        },
+        "munster": {
+          "core": {
+            "confusion": [
+              [
+                128790548,
+                878163
+              ],
+              [
+                814438,
+                6356019
+              ]
+            ],
+            "global_miou_pct": 88.83655788409311,
+            "sidewalk_iou_pct": 78.97029552892297,
+            "precision_pct": 87.86092193975767,
+            "recall_pct": 88.64175602754469,
+            "false_positive_pixels": 878163,
+            "false_negative_pixels": 814438
+          },
+          "valid_pixels": {
+            "confusion": [
+              [
+                117785549,
+                630215
+              ],
+              [
+                814438,
+                6356019
+              ]
+            ],
+            "global_miou_pct": 90.13437650542892,
+            "sidewalk_iou_pct": 81.48040322679893,
+            "precision_pct": 90.97918850127265,
+            "recall_pct": 88.64175602754469,
+            "false_positive_pixels": 630215,
+            "false_negative_pixels": 814438
+          }
+        }
+      },
+      "foreground_groups": {
+        "zero": {
+          "images": 34,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  25823422,
+                  915266
+                ],
+                [
+                  0,
+                  0
+                ]
+              ],
+              "sidewalk_iou_pct": 0.0,
+              "global_miou_pct": 48.28849867278454,
+              "precision_pct": 0.0,
+              "recall_pct": null,
+              "false_positive_pixels": 915266,
+              "false_negative_pixels": 0
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  19571175,
+                  139524
+                ],
+                [
+                  0,
+                  0
+                ]
+              ],
+              "sidewalk_iou_pct": 0.0,
+              "global_miou_pct": 49.64607039050213,
+              "precision_pct": 0.0,
+              "recall_pct": null,
+              "false_positive_pixels": 139524,
+              "false_negative_pixels": 0
+            }
+          }
+        },
+        "(0,1%]": {
+          "images": 61,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  47218092,
+                  516595
+                ],
+                [
+                  96915,
+                  140750
+                ]
+              ],
+              "sidewalk_iou_pct": 18.660674038130086,
+              "global_miou_pct": 58.68901415473782,
+              "precision_pct": 21.41189177676867,
+              "recall_pct": 59.222014179622576,
+              "false_positive_pixels": 516595,
+              "false_negative_pixels": 96915
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  41592183,
+                  214140
+                ],
+                [
+                  96915,
+                  140750
+                ]
+              ],
+              "sidewalk_iou_pct": 31.152820353913746,
+              "global_miou_pct": 65.20525150897996,
+              "precision_pct": 39.66017639268506,
+              "recall_pct": 59.222014179622576,
+              "false_positive_pixels": 214140,
+              "false_negative_pixels": 96915
+            }
+          }
+        },
+        "(1%,5%]": {
+          "images": 210,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  158857592,
+                  1758257
+                ],
+                [
+                  1090076,
+                  3444795
+                ]
+              ],
+              "sidewalk_iou_pct": 54.738994662113974,
+              "global_miou_pct": 76.48878346729472,
+              "precision_pct": 66.20719915926269,
+              "recall_pct": 75.96235923800258,
+              "false_positive_pixels": 1758257,
+              "false_negative_pixels": 1090076
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  139449937,
+                  1234886
+                ],
+                [
+                  1090076,
+                  3444795
+                ]
+              ],
+              "sidewalk_iou_pct": 59.70433416866603,
+              "global_miou_pct": 79.03221869558473,
+              "precision_pct": 73.61174832216128,
+              "recall_pct": 75.96235923800258,
+              "false_positive_pixels": 1234886,
+              "false_negative_pixels": 1090076
+            }
+          }
+        },
+        ">5%": {
+          "images": 195,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  138059331,
+                  1514097
+                ],
+                [
+                  2218210,
+                  11562602
+                ]
+              ],
+              "sidewalk_iou_pct": 75.5977168612118,
+              "global_miou_pct": 86.48273462646449,
+              "precision_pct": 88.421412773973,
+              "recall_pct": 83.90363354496093,
+              "false_positive_pixels": 1514097,
+              "false_negative_pixels": 2218210
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  121665787,
+                  1164157
+                ],
+                [
+                  2218210,
+                  11562602
+                ]
+              ],
+              "sidewalk_iou_pct": 77.36785536323293,
+              "global_miou_pct": 87.33150187931315,
+              "precision_pct": 90.85268291793692,
+              "recall_pct": 83.90363354496093,
+              "false_positive_pixels": 1164157,
+              "false_negative_pixels": 2218210
+            }
+          }
+        }
+      }
+    },
+    {
+      "variant": "A",
+      "seed": 44,
+      "selected_epoch": 68,
+      "weights_sha256": "afee3d237f8c9aa48a4170ee948e56ce478bc44a4fee78e566320b72cb235bd0",
+      "policies": {
+        "core": {
+          "confusion": [
+            [
+              370401329,
+              4261323
+            ],
+            [
+              3907680,
+              14645668
+            ]
+          ],
+          "global_miou_pct": 81.01811161388915,
+          "sidewalk_iou_pct": 64.19407932728902,
+          "precision_pct": 77.46165426322993,
+          "recall_pct": 78.93814097595755,
+          "false_positive_pixels": 4261323,
+          "false_negative_pixels": 3907680
+        },
+        "valid_pixels": {
+          "confusion": [
+            [
+              322277816,
+              2753973
+            ],
+            [
+              3907680,
+              14645668
+            ]
+          ],
+          "global_miou_pct": 83.3550942931316,
+          "sidewalk_iou_pct": 68.7353797316894,
+          "precision_pct": 84.17224240431167,
+          "recall_pct": 78.93814097595755,
+          "false_positive_pixels": 2753973,
+          "false_negative_pixels": 3907680
+        }
+      },
+      "core_boundary": {
+        "6": {
+          "mean_pct": 33.42793569398732,
+          "valid_images": 498,
+          "both_empty_excluded": 2
+        },
+        "13": {
+          "mean_pct": 45.72372917659028,
+          "valid_images": 498,
+          "both_empty_excluded": 2
+        },
+        "26": {
+          "mean_pct": 52.992263828949206,
+          "valid_images": 498,
+          "both_empty_excluded": 2
+        }
+      },
+      "cities": {
+        "frankfurt": {
+          "core": {
+            "confusion": [
+              [
+                197684756,
+                2397743
+              ],
+              [
+                2544942,
+                7349903
+              ]
+            ],
+            "global_miou_pct": 78.67602117276941,
+            "sidewalk_iou_pct": 59.79133930137412,
+            "precision_pct": 75.40182522016084,
+            "recall_pct": 74.28012262951061,
+            "false_positive_pixels": 2397743,
+            "false_negative_pixels": 2544942
+          },
+          "valid_pixels": {
+            "confusion": [
+              [
+                168462143,
+                1634124
+              ],
+              [
+                2544942,
+                7349903
+              ]
+            ],
+            "global_miou_pct": 80.66547076875936,
+            "sidewalk_iou_pct": 63.751606930333494,
+            "precision_pct": 81.81078485182647,
+            "recall_pct": 74.28012262951061,
+            "false_positive_pixels": 1634124,
+            "false_negative_pixels": 2544942
+          }
+        },
+        "lindau": {
+          "core": {
+            "confusion": [
+              [
+                44117889,
+                793553
+              ],
+              [
+                571350,
+                916696
+              ]
+            ],
+            "global_miou_pct": 68.58843292012735,
+            "sidewalk_iou_pct": 40.17778759545389,
+            "precision_pct": 53.60014828250156,
+            "recall_pct": 61.6040095534681,
+            "false_positive_pixels": 793553,
+            "false_negative_pixels": 571350
+          },
+          "valid_pixels": {
+            "confusion": [
+              [
+                36172888,
+                346870
+              ],
+              [
+                571350,
+                916696
+              ]
+            ],
+            "global_miou_pct": 73.74144617604539,
+            "sidewalk_iou_pct": 49.95847221344192,
+            "precision_pct": 72.5483275111866,
+            "recall_pct": 61.6040095534681,
+            "false_positive_pixels": 346870,
+            "false_negative_pixels": 571350
+          }
+        },
+        "munster": {
+          "core": {
+            "confusion": [
+              [
+                128598684,
+                1070027
+              ],
+              [
+                791388,
+                6379069
+              ]
+            ],
+            "global_miou_pct": 87.99226552238319,
+            "sidewalk_iou_pct": 77.41133894562505,
+            "precision_pct": 85.63547845268741,
+            "recall_pct": 88.96321392067479,
+            "false_positive_pixels": 1070027,
+            "false_negative_pixels": 791388
+          },
+          "valid_pixels": {
+            "confusion": [
+              [
+                117642785,
+                772979
+              ],
+              [
+                791388,
+                6379069
+              ]
+            ],
+            "global_miou_pct": 89.49692878567143,
+            "sidewalk_iou_pct": 80.30616725558059,
+            "precision_pct": 89.192200611629,
+            "recall_pct": 88.96321392067479,
+            "false_positive_pixels": 772979,
+            "false_negative_pixels": 791388
+          }
+        }
+      },
+      "foreground_groups": {
+        "zero": {
+          "images": 34,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  26186215,
+                  552473
+                ],
+                [
+                  0,
+                  0
+                ]
+              ],
+              "sidewalk_iou_pct": 0.0,
+              "global_miou_pct": 48.96690331253351,
+              "precision_pct": 0.0,
+              "recall_pct": null,
+              "false_positive_pixels": 552473,
+              "false_negative_pixels": 0
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  19557566,
+                  153133
+                ],
+                [
+                  0,
+                  0
+                ]
+              ],
+              "sidewalk_iou_pct": 0.0,
+              "global_miou_pct": 49.611548530064816,
+              "precision_pct": 0.0,
+              "recall_pct": null,
+              "false_positive_pixels": 153133,
+              "false_negative_pixels": 0
+            }
+          }
+        },
+        "(0,1%]": {
+          "images": 61,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  47263797,
+                  470890
+                ],
+                [
+                  98581,
+                  139084
+                ]
+              ],
+              "sidewalk_iou_pct": 19.629245436134106,
+              "global_miou_pct": 59.21935605136136,
+              "precision_pct": 22.801627610357162,
+              "recall_pct": 58.521027496686514,
+              "false_positive_pixels": 470890,
+              "false_negative_pixels": 98581
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  41587378,
+                  218945
+                ],
+                [
+                  98581,
+                  139084
+                ]
+              ],
+              "sidewalk_iou_pct": 30.460130089135145,
+              "global_miou_pct": 64.85120007926423,
+              "precision_pct": 38.84713249485377,
+              "recall_pct": 58.521027496686514,
+              "false_positive_pixels": 218945,
+              "false_negative_pixels": 98581
+            }
+          }
+        },
+        "(1%,5%]": {
+          "images": 210,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  158799109,
+                  1816740
+                ],
+                [
+                  1104936,
+                  3429935
+                ]
+              ],
+              "sidewalk_iou_pct": 54.00102430706163,
+              "global_miou_pct": 76.09720340444207,
+              "precision_pct": 65.37349845378263,
+              "recall_pct": 75.63467626752778,
+              "false_positive_pixels": 1816740,
+              "false_negative_pixels": 1104936
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  139399171,
+                  1285652
+                ],
+                [
+                  1104936,
+                  3429935
+                ]
+              ],
+              "sidewalk_iou_pct": 58.928295618795765,
+              "global_miou_pct": 78.62114334389202,
+              "precision_pct": 72.73611959656348,
+              "recall_pct": 75.63467626752778,
+              "false_positive_pixels": 1285652,
+              "false_negative_pixels": 1104936
+            }
+          }
+        },
+        ">5%": {
+          "images": 195,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  138152208,
+                  1421220
+                ],
+                [
+                  2704163,
+                  11076649
+                ]
+              ],
+              "sidewalk_iou_pct": 72.86295016350446,
+              "global_miou_pct": 84.98170953153287,
+              "precision_pct": 88.62830135281463,
+              "recall_pct": 80.37733190177764,
+              "false_positive_pixels": 1421220,
+              "false_negative_pixels": 2704163
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  121733701,
+                  1096243
+                ],
+                [
+                  2704163,
+                  11076649
+                ]
+              ],
+              "sidewalk_iou_pct": 74.45458123264316,
+              "global_miou_pct": 85.71359601537938,
+              "precision_pct": 90.99439147246193,
+              "recall_pct": 80.37733190177764,
+              "false_positive_pixels": 1096243,
+              "false_negative_pixels": 2704163
+            }
+          }
+        }
+      }
+    },
+    {
+      "variant": "B",
+      "seed": 44,
+      "selected_epoch": 87,
+      "weights_sha256": "a6ad75120b09af526688af5a31c5c290719a22d9d16e69b24a7dbf8759f89c64",
+      "policies": {
+        "core": {
+          "confusion": [
+            [
+              370700498,
+              3962154
+            ],
+            [
+              3813997,
+              14739351
+            ]
+          ],
+          "global_miou_pct": 81.70426600816153,
+          "sidewalk_iou_pct": 65.46312402894681,
+          "precision_pct": 78.81371579453098,
+          "recall_pct": 79.44307949163677,
+          "false_positive_pixels": 3962154,
+          "false_negative_pixels": 3813997
+        },
+        "valid_pixels": {
+          "confusion": [
+            [
+              322537576,
+              2494213
+            ],
+            [
+              3813997,
+              14739351
+            ]
+          ],
+          "global_miou_pct": 84.05524781500114,
+          "sidewalk_iou_pct": 70.02878385766408,
+          "precision_pct": 85.5270041646638,
+          "recall_pct": 79.44307949163677,
+          "false_positive_pixels": 2494213,
+          "false_negative_pixels": 3813997
+        }
+      },
+      "core_boundary": {
+        "6": {
+          "mean_pct": 33.93594917831792,
+          "valid_images": 498,
+          "both_empty_excluded": 2
+        },
+        "13": {
+          "mean_pct": 46.42202074805483,
+          "valid_images": 498,
+          "both_empty_excluded": 2
+        },
+        "26": {
+          "mean_pct": 53.608526141059556,
+          "valid_images": 498,
+          "both_empty_excluded": 2
+        }
+      },
+      "cities": {
+        "frankfurt": {
+          "core": {
+            "confusion": [
+              [
+                197833490,
+                2249009
+              ],
+              [
+                2565741,
+                7329104
+              ]
+            ],
+            "global_miou_pct": 78.98822872510141,
+            "sidewalk_iou_pct": 60.35237248405655,
+            "precision_pct": 76.51928934227442,
+            "recall_pct": 74.069922267605,
+            "false_positive_pixels": 2249009,
+            "false_negative_pixels": 2565741
+          },
+          "valid_pixels": {
+            "confusion": [
+              [
+                168565916,
+                1530351
+              ],
+              [
+                2565741,
+                7329104
+              ]
+            ],
+            "global_miou_pct": 80.88814411501197,
+            "sidewalk_iou_pct": 64.148606290868,
+            "precision_pct": 82.72635280612634,
+            "recall_pct": 74.069922267605,
+            "false_positive_pixels": 1530351,
+            "false_negative_pixels": 2565741
+          }
+        },
+        "lindau": {
+          "core": {
+            "confusion": [
+              [
+                44215756,
+                695686
+              ],
+              [
+                415236,
+                1072810
+              ]
+            ],
+            "global_miou_pct": 73.3382211967595,
+            "sidewalk_iou_pct": 49.127365445943,
+            "precision_pct": 60.66228026526495,
+            "recall_pct": 72.0952174865562,
+            "false_positive_pixels": 695686,
+            "false_negative_pixels": 415236
+          },
+          "valid_pixels": {
+            "confusion": [
+              [
+                36221806,
+                297952
+              ],
+              [
+                415236,
+                1072810
+              ]
+            ],
+            "global_miou_pct": 79.0684444034637,
+            "sidewalk_iou_pct": 60.06781642532635,
+            "precision_pct": 78.26376861920596,
+            "recall_pct": 72.0952174865562,
+            "false_positive_pixels": 297952,
+            "false_negative_pixels": 415236
+          }
+        },
+        "munster": {
+          "core": {
+            "confusion": [
+              [
+                128651252,
+                1017459
+              ],
+              [
+                833020,
+                6337437
+              ]
+            ],
+            "global_miou_pct": 87.99095265092089,
+            "sidewalk_iou_pct": 77.39987806421072,
+            "precision_pct": 86.16623538932434,
+            "recall_pct": 88.38260936506558,
+            "false_positive_pixels": 1017459,
+            "false_negative_pixels": 833020
+          },
+          "valid_pixels": {
+            "confusion": [
+              [
+                117749854,
+                665910
+              ],
+              [
+                833020,
+                6337437
+              ]
+            ],
+            "global_miou_pct": 89.80757700105538,
+            "sidewalk_iou_pct": 80.87213118017571,
+            "precision_pct": 90.49154639917171,
+            "recall_pct": 88.38260936506558,
+            "false_positive_pixels": 665910,
+            "false_negative_pixels": 833020
+          }
+        }
+      },
+      "foreground_groups": {
+        "zero": {
+          "images": 34,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  26267766,
+                  470922
+                ],
+                [
+                  0,
+                  0
+                ]
+              ],
+              "sidewalk_iou_pct": 0.0,
+              "global_miou_pct": 49.11939957562615,
+              "precision_pct": 0.0,
+              "recall_pct": null,
+              "false_positive_pixels": 470922,
+              "false_negative_pixels": 0
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  19597187,
+                  113512
+                ],
+                [
+                  0,
+                  0
+                ]
+              ],
+              "sidewalk_iou_pct": 0.0,
+              "global_miou_pct": 49.7120548591402,
+              "precision_pct": 0.0,
+              "recall_pct": null,
+              "false_positive_pixels": 113512,
+              "false_negative_pixels": 0
+            }
+          }
+        },
+        "(0,1%]": {
+          "images": 61,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  47247614,
+                  487073
+                ],
+                [
+                  94658,
+                  143007
+                ]
+              ],
+              "sidewalk_iou_pct": 19.732234269487734,
+              "global_miou_pct": 59.25798524416498,
+              "precision_pct": 22.696641696292534,
+              "recall_pct": 60.171670208065976,
+              "false_positive_pixels": 487073,
+              "false_negative_pixels": 94658
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  41614414,
+                  191909
+                ],
+                [
+                  94658,
+                  143007
+                ]
+              ],
+              "sidewalk_iou_pct": 33.29042260472003,
+              "global_miou_pct": 66.30325391477523,
+              "precision_pct": 42.699363422470114,
+              "recall_pct": 60.171670208065976,
+              "false_positive_pixels": 191909,
+              "false_negative_pixels": 94658
+            }
+          }
+        },
+        "(1%,5%]": {
+          "images": 210,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  158962274,
+                  1653575
+                ],
+                [
+                  1132448,
+                  3402423
+                ]
+              ],
+              "sidewalk_iou_pct": 54.98024867632358,
+              "global_miou_pct": 76.62890259682871,
+              "precision_pct": 67.29478532230432,
+              "recall_pct": 75.02799969392734,
+              "false_positive_pixels": 1653575,
+              "false_negative_pixels": 1132448
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  139545082,
+                  1139741
+                ],
+                [
+                  1132448,
+                  3402423
+                ]
+              ],
+              "sidewalk_iou_pct": 59.95868968662526,
+              "global_miou_pct": 79.17824742267477,
+              "precision_pct": 74.90753306133377,
+              "recall_pct": 75.02799969392734,
+              "false_positive_pixels": 1139741,
+              "false_negative_pixels": 1132448
+            }
+          }
+        },
+        ">5%": {
+          "images": 195,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  138222844,
+                  1350584
+                ],
+                [
+                  2586891,
+                  11193921
+                ]
+              ],
+              "sidewalk_iou_pct": 73.97811147101035,
+              "global_miou_pct": 85.60418440583406,
+              "precision_pct": 89.23366047524394,
+              "recall_pct": 81.22831223588277,
+              "false_positive_pixels": 1350584,
+              "false_negative_pixels": 2586891
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  121780893,
+                  1049051
+                ],
+                [
+                  2586891,
+                  11193921
+                ]
+              ],
+              "sidewalk_iou_pct": 75.48229541972168,
+              "global_miou_pct": 86.2916046720382,
+              "precision_pct": 91.43140244051853,
+              "recall_pct": 81.22831223588277,
+              "false_positive_pixels": 1049051,
+              "false_negative_pixels": 2586891
+            }
+          }
+        }
+      }
+    },
+    {
+      "variant": "C",
+      "seed": 42,
+      "selected_epoch": 83,
+      "weights_sha256": "0db2ce76106624669d4dd3ff2bdcc8dd59f30c20a5eb47813476917b1c31b960",
+      "policies": {
+        "core": {
+          "confusion": [
+            [
+              370235206,
+              4427446
+            ],
+            [
+              3491688,
+              15061660
+            ]
+          ],
+          "global_miou_pct": 81.7230266230949,
+          "sidewalk_iou_pct": 65.54020718344196,
+          "precision_pct": 77.28245718402886,
+          "recall_pct": 81.18028077735619,
+          "false_positive_pixels": 4427446,
+          "false_negative_pixels": 3491688
+        },
+        "valid_pixels": {
+          "confusion": [
+            [
+              322378403,
+              2653386
+            ],
+            [
+              3491688,
+              15061660
+            ]
+          ],
+          "global_miou_pct": 84.57624664398264,
+          "sidewalk_iou_pct": 71.0230061828474,
+          "precision_pct": 85.02185091701145,
+          "recall_pct": 81.18028077735619,
+          "false_positive_pixels": 2653386,
+          "false_negative_pixels": 3491688
+        }
+      },
+      "core_boundary": {
+        "6": {
+          "mean_pct": 34.74774223785666,
+          "valid_images": 498,
+          "both_empty_excluded": 2
+        },
+        "13": {
+          "mean_pct": 46.9738466282319,
+          "valid_images": 498,
+          "both_empty_excluded": 2
+        },
+        "26": {
+          "mean_pct": 54.066143393412716,
+          "valid_images": 498,
+          "both_empty_excluded": 2
+        }
+      },
+      "cities": {
+        "frankfurt": {
+          "core": {
+            "confusion": [
+              [
+                197588721,
+                2493778
+              ],
+              [
+                2318509,
+                7576336
+              ]
+            ],
+            "global_miou_pct": 79.38899690772196,
+            "sidewalk_iou_pct": 61.15559412858072,
+            "precision_pct": 75.23585135183177,
+            "recall_pct": 76.56851623244225,
+            "false_positive_pixels": 2493778,
+            "false_negative_pixels": 2318509
+          },
+          "valid_pixels": {
+            "confusion": [
+              [
+                168483055,
+                1613212
+              ],
+              [
+                2318509,
+                7576336
+              ]
+            ],
+            "global_miou_pct": 81.77733640730284,
+            "sidewalk_iou_pct": 65.83505799458588,
+            "precision_pct": 82.44514311258834,
+            "recall_pct": 76.56851623244225,
+            "false_positive_pixels": 1613212,
+            "false_negative_pixels": 2318509
+          }
+        },
+        "lindau": {
+          "core": {
+            "confusion": [
+              [
+                43885778,
+                1025664
+              ],
+              [
+                383344,
+                1104702
+              ]
+            ],
+            "global_miou_pct": 70.41816163174055,
+            "sidewalk_iou_pct": 43.94707424484129,
+            "precision_pct": 51.85503336046482,
+            "recall_pct": 74.23843080119835,
+            "false_positive_pixels": 1025664,
+            "false_negative_pixels": 383344
+          },
+          "valid_pixels": {
+            "confusion": [
+              [
+                36091566,
+                428192
+              ],
+              [
+                383344,
+                1104702
+              ]
+            ],
+            "global_miou_pct": 77.72520992094138,
+            "sidewalk_iou_pct": 57.64951952732385,
+            "precision_pct": 72.06643120789826,
+            "recall_pct": 74.23843080119835,
+            "false_positive_pixels": 428192,
+            "false_negative_pixels": 383344
+          }
+        },
+        "munster": {
+          "core": {
+            "confusion": [
+              [
+                128760707,
+                908004
+              ],
+              [
+                789835,
+                6380622
+              ]
+            ],
+            "global_miou_pct": 88.84084926927231,
+            "sidewalk_iou_pct": 78.98313800116135,
+            "precision_pct": 87.54217873162925,
+            "recall_pct": 88.98487223338763,
+            "false_positive_pixels": 908004,
+            "false_negative_pixels": 789835
+          },
+          "valid_pixels": {
+            "confusion": [
+              [
+                117803782,
+                611982
+              ],
+              [
+                789835,
+                6380622
+              ]
+            ],
+            "global_miou_pct": 90.40573388311155,
+            "sidewalk_iou_pct": 81.98743350253051,
+            "precision_pct": 91.24815304856388,
+            "recall_pct": 88.98487223338763,
+            "false_positive_pixels": 611982,
+            "false_negative_pixels": 789835
+          }
+        }
+      },
+      "foreground_groups": {
+        "zero": {
+          "images": 34,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  26001329,
+                  737359
+                ],
+                [
+                  0,
+                  0
+                ]
+              ],
+              "sidewalk_iou_pct": 0.0,
+              "global_miou_pct": 48.6211758033902,
+              "precision_pct": 0.0,
+              "recall_pct": null,
+              "false_positive_pixels": 737359,
+              "false_negative_pixels": 0
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  19505647,
+                  205052
+                ],
+                [
+                  0,
+                  0
+                ]
+              ],
+              "sidewalk_iou_pct": 0.0,
+              "global_miou_pct": 49.479845945595336,
+              "precision_pct": 0.0,
+              "recall_pct": null,
+              "false_positive_pixels": 205052,
+              "false_negative_pixels": 0
+            }
+          }
+        },
+        "(0,1%]": {
+          "images": 61,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  47245064,
+                  489623
+                ],
+                [
+                  90247,
+                  147418
+                ]
+              ],
+              "sidewalk_iou_pct": 20.26954933946387,
+              "global_miou_pct": 59.52853232760973,
+              "precision_pct": 23.141053715537932,
+              "recall_pct": 62.02764395262239,
+              "false_positive_pixels": 489623,
+              "false_negative_pixels": 90247
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  41592080,
+                  214243
+                ],
+                [
+                  90247,
+                  147418
+                ]
+              ],
+              "sidewalk_iou_pct": 32.62124149163104,
+              "global_miou_pct": 65.94723777675624,
+              "precision_pct": 40.76137598469285,
+              "recall_pct": 62.02764395262239,
+              "false_positive_pixels": 214243,
+              "false_negative_pixels": 90247
+            }
+          }
+        },
+        "(1%,5%]": {
+          "images": 210,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  158879638,
+                  1736211
+                ],
+                [
+                  1053008,
+                  3481863
+                ]
+              ],
+              "sidewalk_iou_pct": 55.52252386430284,
+              "global_miou_pct": 76.89862856795314,
+              "precision_pct": 66.7269762751544,
+              "recall_pct": 76.7797584539891,
+              "false_positive_pixels": 1736211,
+              "false_negative_pixels": 1053008
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  139556938,
+                  1127885
+                ],
+                [
+                  1053008,
+                  3481863
+                ]
+              ],
+              "sidewalk_iou_pct": 61.48707449164329,
+              "global_miou_pct": 79.97419677242326,
+              "precision_pct": 75.53261045940039,
+              "recall_pct": 76.7797584539891,
+              "false_positive_pixels": 1127885,
+              "false_negative_pixels": 1053008
+            }
+          }
+        },
+        ">5%": {
+          "images": 195,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  138109175,
+                  1464253
+                ],
+                [
+                  2348433,
+                  11432379
+                ]
+              ],
+              "sidewalk_iou_pct": 74.99068715023517,
+              "global_miou_pct": 86.15210935695863,
+              "precision_pct": 88.64623725015957,
+              "recall_pct": 82.9586747137977,
+              "false_positive_pixels": 1464253,
+              "false_negative_pixels": 2348433
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  121723738,
+                  1106206
+                ],
+                [
+                  2348433,
+                  11432379
+                ]
+              ],
+              "sidewalk_iou_pct": 76.79428479229354,
+              "global_miou_pct": 87.01725591623179,
+              "precision_pct": 91.17758503052777,
+              "recall_pct": 82.9586747137977,
+              "false_positive_pixels": 1106206,
+              "false_negative_pixels": 2348433
+            }
+          }
+        }
+      }
+    },
+    {
+      "variant": "C",
+      "seed": 43,
+      "selected_epoch": 69,
+      "weights_sha256": "da2905e198ba2a97960c934953a4a4cee804f28c80f7c1426227bd090b493d28",
+      "policies": {
+        "core": {
+          "confusion": [
+            [
+              370293594,
+              4369058
+            ],
+            [
+              3742500,
+              14810848
+            ]
+          ],
+          "global_miou_pct": 81.23467789054044,
+          "sidewalk_iou_pct": 64.61297300117623,
+          "precision_pct": 77.2206495693983,
+          "recall_pct": 79.82843851147513,
+          "false_positive_pixels": 4369058,
+          "false_negative_pixels": 3742500
+        },
+        "valid_pixels": {
+          "confusion": [
+            [
+              322475862,
+              2555927
+            ],
+            [
+              3742500,
+              14810848
+            ]
+          ],
+          "global_miou_pct": 84.12351047141638,
+          "sidewalk_iou_pct": 70.16275073397831,
+          "precision_pct": 85.28266186439336,
+          "recall_pct": 79.82843851147513,
+          "false_positive_pixels": 2555927,
+          "false_negative_pixels": 3742500
+        }
+      },
+      "core_boundary": {
+        "6": {
+          "mean_pct": 33.7870835732299,
+          "valid_images": 498,
+          "both_empty_excluded": 2
+        },
+        "13": {
+          "mean_pct": 45.981651114337254,
+          "valid_images": 498,
+          "both_empty_excluded": 2
+        },
+        "26": {
+          "mean_pct": 53.16393722359029,
+          "valid_images": 498,
+          "both_empty_excluded": 2
+        }
+      },
+      "cities": {
+        "frankfurt": {
+          "core": {
+            "confusion": [
+              [
+                197648451,
+                2434048
+              ],
+              [
+                2444933,
+                7449912
+              ]
+            ],
+            "global_miou_pct": 79.0087000291038,
+            "sidewalk_iou_pct": 60.426447045975664,
+            "precision_pct": 75.37375707712293,
+            "recall_pct": 75.29084083681957,
+            "false_positive_pixels": 2434048,
+            "false_negative_pixels": 2444933
+          },
+          "valid_pixels": {
+            "confusion": [
+              [
+                168518226,
+                1578041
+              ],
+              [
+                2444933,
+                7449912
+              ]
+            ],
+            "global_miou_pct": 81.30167058760293,
+            "sidewalk_iou_pct": 64.93494313462193,
+            "precision_pct": 82.52050049440886,
+            "recall_pct": 75.29084083681957,
+            "false_positive_pixels": 1578041,
+            "false_negative_pixels": 2444933
+          }
+        },
+        "lindau": {
+          "core": {
+            "confusion": [
+              [
+                43881891,
+                1029551
+              ],
+              [
+                456392,
+                1031654
+              ]
+            ],
+            "global_miou_pct": 68.85120160315552,
+            "sidewalk_iou_pct": 40.977725982355395,
+            "precision_pct": 50.051013848695305,
+            "recall_pct": 69.32944277260246,
+            "false_positive_pixels": 1029551,
+            "false_negative_pixels": 456392
+          },
+          "valid_pixels": {
+            "confusion": [
+              [
+                36196945,
+                322813
+              ],
+              [
+                456392,
+                1031654
+              ]
+            ],
+            "global_miou_pct": 77.43155169742295,
+            "sidewalk_iou_pct": 56.970421219984544,
+            "precision_pct": 76.1667873783562,
+            "recall_pct": 69.32944277260246,
+            "false_positive_pixels": 322813,
+            "false_negative_pixels": 456392
+          }
+        },
+        "munster": {
+          "core": {
+            "confusion": [
+              [
+                128763252,
+                905459
+              ],
+              [
+                841175,
+                6329282
+              ]
+            ],
+            "global_miou_pct": 88.51699774037995,
+            "sidewalk_iou_pct": 78.37231095519071,
+            "precision_pct": 87.48456924719213,
+            "recall_pct": 88.26887881762627,
+            "false_positive_pixels": 905459,
+            "false_negative_pixels": 841175
+          },
+          "valid_pixels": {
+            "confusion": [
+              [
+                117760691,
+                655073
+              ],
+              [
+                841175,
+                6329282
+              ]
+            ],
+            "global_miou_pct": 89.81263627241178,
+            "sidewalk_iou_pct": 80.87991484282854,
+            "precision_pct": 90.62085188968774,
+            "recall_pct": 88.26887881762627,
+            "false_positive_pixels": 655073,
+            "false_negative_pixels": 841175
+          }
+        }
+      },
+      "foreground_groups": {
+        "zero": {
+          "images": 34,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  25943689,
+                  794999
+                ],
+                [
+                  0,
+                  0
+                ]
+              ],
+              "sidewalk_iou_pct": 0.0,
+              "global_miou_pct": 48.513391906139894,
+              "precision_pct": 0.0,
+              "recall_pct": null,
+              "false_positive_pixels": 794999,
+              "false_negative_pixels": 0
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  19566574,
+                  144125
+                ],
+                [
+                  0,
+                  0
+                ]
+              ],
+              "sidewalk_iou_pct": 0.0,
+              "global_miou_pct": 49.63439906418336,
+              "precision_pct": 0.0,
+              "recall_pct": null,
+              "false_positive_pixels": 144125,
+              "false_negative_pixels": 0
+            }
+          }
+        },
+        "(0,1%]": {
+          "images": 61,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  47255505,
+                  479182
+                ],
+                [
+                  98545,
+                  139120
+                ]
+              ],
+              "sidewalk_iou_pct": 19.40720962771693,
+              "global_miou_pct": 59.09970771570712,
+              "precision_pct": 22.50033155318922,
+              "recall_pct": 58.53617486798645,
+              "false_positive_pixels": 479182,
+              "false_negative_pixels": 98545
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  41622163,
+                  184160
+                ],
+                [
+                  98545,
+                  139120
+                ]
+              ],
+              "sidewalk_iou_pct": 32.98050139275766,
+              "global_miou_pct": 66.1529330844966,
+              "precision_pct": 43.03390249938134,
+              "recall_pct": 58.53617486798645,
+              "false_positive_pixels": 184160,
+              "false_negative_pixels": 98545
+            }
+          }
+        },
+        "(1%,5%]": {
+          "images": 210,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  158938749,
+                  1677100
+                ],
+                [
+                  1158061,
+                  3376810
+                ]
+              ],
+              "sidewalk_iou_pct": 54.35971932257894,
+              "global_miou_pct": 76.30358702869995,
+              "precision_pct": 66.81579212926229,
+              "recall_pct": 74.46319862240844,
+              "false_positive_pixels": 1677100,
+              "false_negative_pixels": 1158061
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  139531992,
+                  1152831
+                ],
+                [
+                  1158061,
+                  3376810
+                ]
+              ],
+              "sidewalk_iou_pct": 59.37037488954239,
+              "global_miou_pct": 78.87059176861446,
+              "precision_pct": 74.54917508915166,
+              "recall_pct": 74.46319862240844,
+              "false_positive_pixels": 1152831,
+              "false_negative_pixels": 1158061
+            }
+          }
+        },
+        ">5%": {
+          "images": 195,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  138155651,
+                  1417777
+                ],
+                [
+                  2485894,
+                  11294918
+                ]
+              ],
+              "sidewalk_iou_pct": 74.31556968873888,
+              "global_miou_pct": 85.78382678760777,
+              "precision_pct": 88.84754963444021,
+              "recall_pct": 81.96119357843355,
+              "false_positive_pixels": 1417777,
+              "false_negative_pixels": 2485894
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  121755133,
+                  1074811
+                ],
+                [
+                  2485894,
+                  11294918
+                ]
+              ],
+              "sidewalk_iou_pct": 76.03126439059473,
+              "global_miou_pct": 86.59493986429287,
+              "precision_pct": 91.31095758039646,
+              "recall_pct": 81.96119357843355,
+              "false_positive_pixels": 1074811,
+              "false_negative_pixels": 2485894
+            }
+          }
+        }
+      }
+    },
+    {
+      "variant": "C",
+      "seed": 44,
+      "selected_epoch": 69,
+      "weights_sha256": "4df40167ba63fae6442842f62f4766f466c9d8d50eeeed232299246785d2b044",
+      "policies": {
+        "core": {
+          "confusion": [
+            [
+              370627695,
+              4034957
+            ],
+            [
+              3831949,
+              14721399
+            ]
+          ],
+          "global_miou_pct": 81.54709329461039,
+          "sidewalk_iou_pct": 65.17265903749751,
+          "precision_pct": 78.48752177661801,
+          "recall_pct": 79.34632067484532,
+          "false_positive_pixels": 4034957,
+          "false_negative_pixels": 3831949
+        },
+        "valid_pixels": {
+          "confusion": [
+            [
+              322483207,
+              2548582
+            ],
+            [
+              3831949,
+              14721399
+            ]
+          ],
+          "global_miou_pct": 83.91155381434996,
+          "sidewalk_iou_pct": 69.76328231588296,
+          "precision_pct": 85.24270524675157,
+          "recall_pct": 79.34632067484532,
+          "false_positive_pixels": 2548582,
+          "false_negative_pixels": 3831949
+        }
+      },
+      "core_boundary": {
+        "6": {
+          "mean_pct": 33.56015252906522,
+          "valid_images": 499,
+          "both_empty_excluded": 1
+        },
+        "13": {
+          "mean_pct": 45.87339738916887,
+          "valid_images": 499,
+          "both_empty_excluded": 1
+        },
+        "26": {
+          "mean_pct": 53.039871664808224,
+          "valid_images": 499,
+          "both_empty_excluded": 1
+        }
+      },
+      "cities": {
+        "frankfurt": {
+          "core": {
+            "confusion": [
+              [
+                197675610,
+                2406889
+              ],
+              [
+                2589800,
+                7305045
+              ]
+            ],
+            "global_miou_pct": 78.45841763954911,
+            "sidewalk_iou_pct": 59.38223830884329,
+            "precision_pct": 75.21720184671766,
+            "recall_pct": 73.82677545732146,
+            "false_positive_pixels": 2406889,
+            "false_negative_pixels": 2589800
+          },
+          "valid_pixels": {
+            "confusion": [
+              [
+                168461246,
+                1635021
+              ],
+              [
+                2589800,
+                7305045
+              ]
+            ],
+            "global_miou_pct": 80.45552769023337,
+            "sidewalk_iou_pct": 63.35758802400653,
+            "precision_pct": 81.71130951382239,
+            "recall_pct": 73.82677545732146,
+            "false_positive_pixels": 1635021,
+            "false_negative_pixels": 2589800
+          }
+        },
+        "lindau": {
+          "core": {
+            "confusion": [
+              [
+                44212570,
+                698872
+              ],
+              [
+                433411,
+                1054635
+              ]
+            ],
+            "global_miou_pct": 72.8638338410071,
+            "sidewalk_iou_pct": 48.224716244504826,
+            "precision_pct": 60.14432790972605,
+            "recall_pct": 70.87381707285931,
+            "false_positive_pixels": 698872,
+            "false_negative_pixels": 433411
+          },
+          "valid_pixels": {
+            "confusion": [
+              [
+                36257650,
+                262108
+              ],
+              [
+                433411,
+                1054635
+              ]
+            ],
+            "global_miou_pct": 79.18869548088536,
+            "sidewalk_iou_pct": 60.259554302078556,
+            "precision_pct": 80.09421732259067,
+            "recall_pct": 70.87381707285931,
+            "false_positive_pixels": 262108,
+            "false_negative_pixels": 433411
+          }
+        },
+        "munster": {
+          "core": {
+            "confusion": [
+              [
+                128739515,
+                929196
+              ],
+              [
+                808738,
+                6361719
+              ]
+            ],
+            "global_miou_pct": 88.60556256234567,
+            "sidewalk_iou_pct": 78.54310548859316,
+            "precision_pct": 87.25542678799575,
+            "recall_pct": 88.72124886879595,
+            "false_positive_pixels": 929196,
+            "false_negative_pixels": 808738
+          },
+          "valid_pixels": {
+            "confusion": [
+              [
+                117764311,
+                651453
+              ],
+              [
+                808738,
+                6361719
+              ]
+            ],
+            "global_miou_pct": 90.05364984215277,
+            "sidewalk_iou_pct": 81.33204038399828,
+            "precision_pct": 90.71100780074978,
+            "recall_pct": 88.72124886879595,
+            "false_positive_pixels": 651453,
+            "false_negative_pixels": 808738
+          }
+        }
+      },
+      "foreground_groups": {
+        "zero": {
+          "images": 34,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  26231683,
+                  507005
+                ],
+                [
+                  0,
+                  0
+                ]
+              ],
+              "sidewalk_iou_pct": 0.0,
+              "global_miou_pct": 49.051926182765584,
+              "precision_pct": 0.0,
+              "recall_pct": null,
+              "false_positive_pixels": 507005,
+              "false_negative_pixels": 0
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  19584807,
+                  125892
+                ],
+                [
+                  0,
+                  0
+                ]
+              ],
+              "sidewalk_iou_pct": 0.0,
+              "global_miou_pct": 49.680650594887574,
+              "precision_pct": 0.0,
+              "recall_pct": null,
+              "false_positive_pixels": 125892,
+              "false_negative_pixels": 0
+            }
+          }
+        },
+        "(0,1%]": {
+          "images": 61,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  47263753,
+                  470934
+                ],
+                [
+                  97016,
+                  140649
+                ]
+              ],
+              "sidewalk_iou_pct": 19.848884912341113,
+              "global_miou_pct": 59.33074626266476,
+              "precision_pct": 22.997532632529026,
+              "recall_pct": 59.17951738791997,
+              "false_positive_pixels": 470934,
+              "false_negative_pixels": 97016
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  41626147,
+                  180176
+                ],
+                [
+                  97016,
+                  140649
+                ]
+              ],
+              "sidewalk_iou_pct": 33.6608901472091,
+              "global_miou_pct": 66.49969338816011,
+              "precision_pct": 43.83978804644276,
+              "recall_pct": 59.17951738791997,
+              "false_positive_pixels": 180176,
+              "false_negative_pixels": 97016
+            }
+          }
+        },
+        "(1%,5%]": {
+          "images": 210,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  158934820,
+                  1681029
+                ],
+                [
+                  1194100,
+                  3340771
+                ]
+              ],
+              "sidewalk_iou_pct": 53.745571839958814,
+              "global_miou_pct": 75.98435816329061,
+              "precision_pct": 66.52536938946194,
+              "recall_pct": 73.6684902393034,
+              "false_positive_pixels": 1681029,
+              "false_negative_pixels": 1194100
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  139515426,
+                  1169397
+                ],
+                [
+                  1194100,
+                  3340771
+                ]
+              ],
+              "sidewalk_iou_pct": 58.5661648435873,
+              "global_miou_pct": 78.45015496857354,
+              "precision_pct": 74.07198578855599,
+              "recall_pct": 73.6684902393034,
+              "false_positive_pixels": 1169397,
+              "false_negative_pixels": 1194100
+            }
+          }
+        },
+        ">5%": {
+          "images": 195,
+          "policies": {
+            "core": {
+              "confusion": [
+                [
+                  138197439,
+                  1375989
+                ],
+                [
+                  2540833,
+                  11239979
+                ]
+              ],
+              "sidewalk_iou_pct": 74.15799019859138,
+              "global_miou_pct": 85.70094128103744,
+              "precision_pct": 89.09327449150156,
+              "recall_pct": 81.56253056786494,
+              "false_positive_pixels": 1375989,
+              "false_negative_pixels": 2540833
+            },
+            "valid_pixels": {
+              "confusion": [
+                [
+                  121756827,
+                  1073117
+                ],
+                [
+                  2540833,
+                  11239979
+                ]
+              ],
+              "sidewalk_iou_pct": 75.67007355427646,
+              "global_miou_pct": 86.3937319984337,
+              "precision_pct": 91.28475080515899,
+              "recall_pct": 81.56253056786494,
+              "false_positive_pixels": 1073117,
+              "false_negative_pixels": 2540833
+            }
+          }
+        }
+      }
+    }
+  ],
+  "summary": {
+    "A": {
+      "core_sidewalk_iou_pct": {
+        "mean": 64.19694524596623,
+        "sample_std_ddof1": 0.024387022178930705
+      },
+      "valid_pixels_sidewalk_iou_pct": {
+        "mean": 69.20794359722917,
+        "sample_std_ddof1": 0.45520470757369813
+      },
+      "boundary_6px_pct": {
+        "mean": 33.74598425527477,
+        "sample_std_ddof1": 0.34543870539260474
+      },
+      "boundary_13px_pct": {
+        "mean": 45.78211034248127,
+        "sample_std_ddof1": 0.25151761586405535
+      },
+      "boundary_26px_pct": {
+        "mean": 52.92165732869826,
+        "sample_std_ddof1": 0.16829622338426614
+      }
+    },
+    "B": {
+      "core_sidewalk_iou_pct": {
+        "mean": 65.30142809088856,
+        "sample_std_ddof1": 0.16562600496682647
+      },
+      "valid_pixels_sidewalk_iou_pct": {
+        "mean": 70.53268273800089,
+        "sample_std_ddof1": 0.5371600247115129
+      },
+      "boundary_6px_pct": {
+        "mean": 33.97898437650721,
+        "sample_std_ddof1": 0.21566908900146972
+      },
+      "boundary_13px_pct": {
+        "mean": 46.28208146332992,
+        "sample_std_ddof1": 0.21470258682777751
+      },
+      "boundary_26px_pct": {
+        "mean": 53.493143694638725,
+        "sample_std_ddof1": 0.1651844231197666
+      }
+    },
+    "C": {
+      "core_sidewalk_iou_pct": {
+        "mean": 65.10861307403857,
+        "sample_std_ddof1": 0.46692314278373465
+      },
+      "valid_pixels_sidewalk_iou_pct": {
+        "mean": 70.3163464109029,
+        "sample_std_ddof1": 0.6437544401613063
+      },
+      "boundary_6px_pct": {
+        "mean": 34.03165944671726,
+        "sample_std_ddof1": 0.6304405979360109
+      },
+      "boundary_13px_pct": {
+        "mean": 46.27629837724601,
+        "sample_std_ddof1": 0.6065145415349188
+      },
+      "boundary_26px_pct": {
+        "mean": 53.42331742727041,
+        "sample_std_ddof1": 0.5601490719255623
+      }
+    }
+  },
+  "paired_percentage_points": {
+    "B_minus_A": {
+      "core_sidewalk_iou_pct": {
+        "per_seed": {
+          "42": 1.0863880667118622,
+          "43": 0.9580157663973381,
+          "44": 1.2690447016577906
+        },
+        "mean": 1.1044828449223303,
+        "sample_std_ddof1": 0.1563020005987678,
+        "positive_seeds": 3,
+        "negative_seeds": 0
+      },
+      "valid_pixels_sidewalk_iou_pct": {
+        "per_seed": {
+          "42": 1.226497423665748,
+          "43": 1.4543158726747265,
+          "44": 1.293404125974675
+        },
+        "mean": 1.3247391407717164,
+        "sample_std_ddof1": 0.1170970699525067,
+        "positive_seeds": 3,
+        "negative_seeds": 0
+      },
+      "boundary_6px_pct": {
+        "per_seed": {
+          "42": 0.09944308143826674,
+          "43": 0.09154379792846612,
+          "44": 0.508013484330597
+        },
+        "mean": 0.2330001212324433,
+        "sample_std_ddof1": 0.23820130579388046,
+        "positive_seeds": 3,
+        "negative_seeds": 0
+      },
+      "boundary_13px_pct": {
+        "per_seed": {
+          "42": 0.3316558917690102,
+          "43": 0.46996589931239896,
+          "44": 0.6982915714645443
+        },
+        "mean": 0.4999711208486512,
+        "sample_std_ddof1": 0.18515038589220184,
+        "positive_seeds": 3,
+        "negative_seeds": 0
+      },
+      "boundary_26px_pct": {
+        "per_seed": {
+          "42": 0.5238369311236895,
+          "43": 0.5743598545873425,
+          "44": 0.6162623121103508
+        },
+        "mean": 0.5714863659404609,
+        "sample_std_ddof1": 0.0462796441795439,
+        "positive_seeds": 3,
+        "negative_seeds": 0
+      }
+    },
+    "C_minus_A": {
+      "core_sidewalk_iou_pct": {
+        "per_seed": {
+          "42": 1.3175685838007354,
+          "43": 0.4388551902077893,
+          "44": 0.9785797102084928
+        },
+        "mean": 0.9116678280723391,
+        "sample_std_ddof1": 0.44316160370474317,
+        "positive_seeds": 3,
+        "negative_seeds": 0
+      },
+      "valid_pixels_sidewalk_iou_pct": {
+        "per_seed": {
+          "42": 1.778089133693598,
+          "43": 0.5192167231340079,
+          "44": 1.027902584193555
+        },
+        "mean": 1.1084028136737203,
+        "sample_std_ddof1": 0.6332852056749768,
+        "positive_seeds": 3,
+        "negative_seeds": 0
+      },
+      "boundary_6px_pct": {
+        "per_seed": {
+          "42": 0.6342589224549968,
+          "43": 0.09054981679457796,
+          "44": 0.13221683507789805
+        },
+        "mean": 0.28567519144249093,
+        "sample_std_ddof1": 0.30260039366812613,
+        "positive_seeds": 3,
+        "negative_seeds": 0
+      },
+      "boundary_13px_pct": {
+        "per_seed": {
+          "42": 0.916162179224834,
+          "43": 0.41673371249079594,
+          "44": 0.14966821257858953
+        },
+        "mean": 0.4941880347647398,
+        "sample_std_ddof1": 0.389072781437433,
+        "positive_seeds": 3,
+        "negative_seeds": 0
+      },
+      "boundary_26px_pct": {
+        "per_seed": {
+          "42": 1.022994351919742,
+          "43": 0.4343781079376825,
+          "44": 0.04760783585901862
+        },
+        "mean": 0.5016600985721477,
+        "sample_std_ddof1": 0.4911617489443484,
+        "positive_seeds": 3,
+        "negative_seeds": 0
+      }
+    },
+    "C_minus_B": {
+      "core_sidewalk_iou_pct": {
+        "per_seed": {
+          "42": 0.23118051708887322,
+          "43": -0.5191605761895488,
+          "44": -0.2904649914492978
+        },
+        "mean": -0.19281501684999114,
+        "sample_std_ddof1": 0.38458364138376755,
+        "positive_seeds": 1,
+        "negative_seeds": 2
+      },
+      "valid_pixels_sidewalk_iou_pct": {
+        "per_seed": {
+          "42": 0.55159171002785,
+          "43": -0.9350991495407186,
+          "44": -0.26550154178111995
+        },
+        "mean": -0.2163363270979962,
+        "sample_std_ddof1": 0.7445638600766965,
+        "positive_seeds": 1,
+        "negative_seeds": 2
+      },
+      "boundary_6px_pct": {
+        "per_seed": {
+          "42": 0.5348158410167301,
+          "43": -0.0009939811338881555,
+          "44": -0.37579664925269896
+        },
+        "mean": 0.05267507021004766,
+        "sample_std_ddof1": 0.45767242888641574,
+        "positive_seeds": 1,
+        "negative_seeds": 2
+      },
+      "boundary_13px_pct": {
+        "per_seed": {
+          "42": 0.5845062874558238,
+          "43": -0.05323218682160302,
+          "44": -0.5486233588859548
+        },
+        "mean": -0.0057830860839113525,
+        "sample_std_ddof1": 0.568053044816479,
+        "positive_seeds": 1,
+        "negative_seeds": 2
+      },
+      "boundary_26px_pct": {
+        "per_seed": {
+          "42": 0.4991574207960525,
+          "43": -0.13998174664966,
+          "44": -0.5686544762513321
+        },
+        "mean": -0.06982626736831321,
+        "sample_std_ddof1": 0.5373517519501357,
+        "positive_seeds": 1,
+        "negative_seeds": 2
+      }
+    }
+  },
+  "grouping_predeclared_in": "experiments\\attention_gate\\step_07_2026-10-24\\literature_plan_001\\plan_addendum.json",
+  "grouping_plan_sha256": "23afb86f64d5c2cd6078b1a546c0adc6a750f687a414bedb88afbaf590fe7c01",
+  "group_image_counts": {
+    "zero": 34,
+    "(0,1%]": 61,
+    "(1%,5%]": 210,
+    ">5%": 195
+  },
+  "total_pixels": 393216000,
+  "valid_pixels": 343585137,
+  "ignored_fraction": 0.12621781158447265,
+  "inputs": {
+    "experiments\\attention_gate\\step_06_2026-10-26\\ABC_sensitivity_001\\final_verification.json": "c1cc48f56e3f3a0140c948dde5552518292169dbf80ece6873054feb307c427f",
+    "experiments\\attention_gate\\step_06_2026-10-26\\ABC_sensitivity_001\\A_seed42_per_image.json": "6a9a5853b2c686167caff073bdd3456fb602a843f4bc305787a104c26f535cc8",
+    "experiments\\attention_gate\\step_06_2026-10-26\\ABC_sensitivity_001\\B_seed42_per_image.json": "6b50c1de46a2a3ae43bf2331b3b034e70242c27e5f6e78ef112a07253250a2f0",
+    "experiments\\attention_gate\\step_06_2026-10-26\\ABC_sensitivity_001\\A_seed43_per_image.json": "dc82ff741e872a8f080766c320939a1714e462ea521a895a54c1a795344dd58b",
+    "experiments\\attention_gate\\step_06_2026-10-26\\ABC_sensitivity_001\\B_seed43_per_image.json": "51be46125274706c82af61c157819601f613417a9e13aeea6dd7800eb05c3abf",
+    "experiments\\attention_gate\\step_06_2026-10-26\\ABC_sensitivity_001\\A_seed44_per_image.json": "42ed4b8e664c0c4f8af84b8828de809382d40916dfa59fcc1df707a8951c9e38",
+    "experiments\\attention_gate\\step_06_2026-10-26\\ABC_sensitivity_001\\B_seed44_per_image.json": "38f0f92d5c979ae6b67535bd798b094ed1261777d0a3bb13869ff6cf62d376b5",
+    "experiments\\attention_gate\\step_06_2026-10-26\\ABC_sensitivity_001\\C_seed42_per_image.json": "180c4e477df677abcb8dbec048c739d379083b01fd2030a2477dc0b3782504de",
+    "experiments\\attention_gate\\step_06_2026-10-26\\ABC_sensitivity_001\\C_seed43_per_image.json": "0a0e2d1dc89724b042671282755cc772b3680b643c71370858897e2093bb7349",
+    "experiments\\attention_gate\\step_06_2026-10-26\\ABC_sensitivity_001\\C_seed44_per_image.json": "f9e32968c4789f91bedb485003d11aba1f5b14509bcb95e8083120b0ab0f0067"
+  },
+  "independent_test": false,
+  "interpretation": "Separate same-weight sensitivity, no retraining or checkpoint reselection",
+  "source": {
+    "results_path": "experiments/attention_gate/step_06_2026-10-26/sensitivity_analysis_001/results.json",
+    "results_sha256": "0d6052b4d704746952f820dd6bba108695108a251cdacf07de19d55c9b56eba0",
+    "verification_sha256": "f4d5dc6eb97a1415af927a2409072ce9d84e13846f218474709babeee23adc7f",
+    "full_raw_artifacts_local_only": true
+  },
+  "verification": {
+    "status": "pass",
+    "script_sha256": "675160505cda24791d08d43fa0724680696c356034bc19d643e991f4e2774e7d",
+    "inputs": {
+      "experiments\\attention_gate\\step_06_2026-10-26\\ABC_sensitivity_001\\final_verification.json": "c1cc48f56e3f3a0140c948dde5552518292169dbf80ece6873054feb307c427f",
+      "experiments\\attention_gate\\step_06_2026-10-26\\ABC_sensitivity_001\\A_seed42_per_image.json": "6a9a5853b2c686167caff073bdd3456fb602a843f4bc305787a104c26f535cc8",
+      "experiments\\attention_gate\\step_06_2026-10-26\\ABC_sensitivity_001\\B_seed42_per_image.json": "6b50c1de46a2a3ae43bf2331b3b034e70242c27e5f6e78ef112a07253250a2f0",
+      "experiments\\attention_gate\\step_06_2026-10-26\\ABC_sensitivity_001\\A_seed43_per_image.json": "dc82ff741e872a8f080766c320939a1714e462ea521a895a54c1a795344dd58b",
+      "experiments\\attention_gate\\step_06_2026-10-26\\ABC_sensitivity_001\\B_seed43_per_image.json": "51be46125274706c82af61c157819601f613417a9e13aeea6dd7800eb05c3abf",
+      "experiments\\attention_gate\\step_06_2026-10-26\\ABC_sensitivity_001\\A_seed44_per_image.json": "42ed4b8e664c0c4f8af84b8828de809382d40916dfa59fcc1df707a8951c9e38",
+      "experiments\\attention_gate\\step_06_2026-10-26\\ABC_sensitivity_001\\B_seed44_per_image.json": "38f0f92d5c979ae6b67535bd798b094ed1261777d0a3bb13869ff6cf62d376b5",
+      "experiments\\attention_gate\\step_06_2026-10-26\\ABC_sensitivity_001\\C_seed42_per_image.json": "180c4e477df677abcb8dbec048c739d379083b01fd2030a2477dc0b3782504de",
+      "experiments\\attention_gate\\step_06_2026-10-26\\ABC_sensitivity_001\\C_seed43_per_image.json": "0a0e2d1dc89724b042671282755cc772b3680b643c71370858897e2093bb7349",
+      "experiments\\attention_gate\\step_06_2026-10-26\\ABC_sensitivity_001\\C_seed44_per_image.json": "f9e32968c4789f91bedb485003d11aba1f5b14509bcb95e8083120b0ab0f0067"
+    },
+    "images_per_model": 500,
+    "models": 9,
+    "per_image_and_city_confusion_reconstructed": true,
+    "boundary_means_and_excluded_counts_reconstructed": true,
+    "identical_image_partition_and_valid_support": true
+  }
+}

@@ -48,6 +48,30 @@ def main():
                 differences.append(value)
             assert abs(statistics.mean(differences) - pairs['mean']) < 1e-10
             assert abs(statistics.stdev(differences) - pairs['sample_std_ddof1']) < 1e-10
+    if data['status']['full_sensitivity_complete']:
+        sensitivity=read('results/sensitivity_summary.json')
+        assert sensitivity['verification']['status']=='pass'
+        assert len(sensitivity['results'])==9 and sensitivity['verification']['images_per_model']==500
+        by_run={(r['variant'],r['seed']):r for r in rows}
+        for r in sensitivity['results']:
+            old=by_run[(r['variant'],r['seed'])]
+            assert r['weights_sha256']==old['best_weights_sha256'] and r['selected_epoch']==old['best_epoch']
+            assert abs(r['policies']['core']['sidewalk_iou_pct']-old['best_sidewalk_iou_pct'])<1e-7
+            assert abs(r['core_boundary']['26']['mean_pct']-old['best_boundary_iou_pct'])<1e-7
+        diagnosis=read('results/bc_diagnosis_summary.json')
+        assert diagnosis['verification']['status']=='pass' and len(diagnosis['results'])==6
+        assert diagnosis['verification']['images_per_model']==54
+        for r in diagnosis['results']:
+            assert r['weights_sha256']==by_run[(r['variant'],r['seed'])]['best_weights_sha256']
+            assert len(r['conditions'])==10 and all(c['images']==54 for c in r['conditions'].values())
+        acceptance_path=ROOT/'results/de_acceptance.json'
+        if acceptance_path.exists():
+            proof=read('results/de_acceptance.json')
+            assert proof['status']=='pass' and proof['gpu_fullsize_D_E'] and proof['fresh_process_full_state_resume_D_E']
+            assert proof['sensitivity_and_diagnosis_reviewed'] and proof['diagnostic_raw_aggregates_reconstructed']
+            for relative,expected in proof['source_hashes'].items():
+                assert hashlib.sha256((ROOT/relative.replace('\\','/')).read_bytes()).hexdigest()==expected
+        print('PASS: same-weight sensitivity and diagnosis linkage; D/E proof source identity when present.')
     print(f'PASS: {len(hashes)} exact-byte source hashes, loader proof, 9 results and paired statistics.')
 
 

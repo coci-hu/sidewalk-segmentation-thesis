@@ -1,0 +1,49 @@
+{
+  "access_date": "2026-10-26",
+  "scope": "Targeted update from publisher papers and official repositories; not an exhaustive systematic review",
+  "references": [
+    {
+      "name": "GCNet Golden Cudgel Network",
+      "publication": "CVPR 2025",
+      "urls": [
+        "https://openaccess.thecvf.com/content/CVPR2025/html/Yang_Golden_Cudgel_Network_for_Real-Time_Semantic_Segmentation_CVPR_2025_paper.html",
+        "https://github.com/gyyang23/GCNet/tree/8b4c0abf82cfe13a39ae10d8431a554fc5b3284b",
+        "https://github.com/gyyang23/GCNet/blob/8b4c0abf82cfe13a39ae10d8431a554fc5b3284b/gcnet-s_4xb3-120k_cityscapes-1024x1024.py",
+        "https://github.com/gyyang23/GCNet/blob/8b4c0abf82cfe13a39ae10d8431a554fc5b3284b/torch_speed.py"
+      ],
+      "read_scope": "CVF abstract; official README, training configuration and speed script. Full CVF PDF access failed.",
+      "method": "Training-time vertical and horizontal convolution paths are reparameterized for inference.",
+      "comparability": "Official config uses 19 classes, ImageNet-style normalization, augmentation, OHEM and 120k iterations. Speed script times synthetic-input model inference plus resize with CUDA synchronization; not real-image end-to-end latency.",
+      "decision": "Use as deployment and related-work reference. Do not transplant reparameterization into input-dependent nonlinear CA, replace the controlled backbone, or import author FPS as local RTX4060 performance.",
+      "recency_note": "2026-04-16 repository update adds a license; does not make the CVPR2025 method a 2026 model."
+    },
+    {
+      "name": "TBMSNet",
+      "publication": "Scientific Reports, 2026-04-19",
+      "urls": ["https://www.nature.com/articles/s41598-026-48759-x"],
+      "read_scope": "Publisher article including architecture, implementation and code-availability statement",
+      "method": "Detail, semantic and boundary branches with a stem, dilated convolution and multi-scale pooling.",
+      "comparability": "Paper reports ImageNet pretraining, 484 Cityscapes epochs, batch12,1024x1024 crops and augmentation; main model22.9M parameters. Final inference training includes train+val; such weights cannot provide independent validation-set comparison here.",
+      "code_availability": "Upon request to corresponding author; no freely downloadable official implementation verified.",
+      "decision": "Borrow the motivation for boundary and detail analysis. Do not add its full multi-branch model or training as a required <=50CNY undergraduate experiment."
+    },
+    {
+      "name": "PILOT",
+      "publication": "Electronics 2026,15(13),2833",
+      "urls": ["https://www.mdpi.com/2079-9292/15/13/2833","https://github.com/U1overground/PILOT"],
+      "read_scope": "Official repository README; publisher full-text access returned429, not independently checked",
+      "method": "Incremental segmentation with a frozen PIDNet backbone and a parallel lightweight branch; uses new-class data without retaining previous training data.",
+      "decision": "Different problem from fixed binary sidewalk segmentation; keep as future work, no continual-learning experiments or performance claims based on unread full text."
+    }
+  ],
+  "updated_decisions": [
+    "Preserve all ABC results and the predeclared D/E comparison. Novelty is a controlled task-specific investigation plus engineering validation, not invention of scalar residual gating.",
+    "Current evidence supports useful learned attention structure. Do not frame the thesis as having established universal attention failure or selective sidewalk suppression.",
+    "Complete bounded D/E experiments, then deployment accuracy equivalence and local latency/P95/memory measurements. No new paid server or hardware.",
+    "At most one optional modern pretrained inference reference after core work; pin source, count actual parameters, check training split, and present separately from controlled ablations.",
+    "Real local road images and human annotation review remain necessary for field validation. Semantic sidewalk labels alone do not establish safe traversability."
+  ],
+  "external_code_executed": false,
+  "training_environment_changed": false,
+  "paid_services_or_hardware_purchased": false
+}
