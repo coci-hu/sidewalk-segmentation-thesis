@@ -1,0 +1,45 @@
+# ============================================================
+# 梯度累加 + AMP 混合精度训练配置
+# 适用于显存不足的大模型（如 U-Net, SegFormer）
+# 等效 batch_size = 2 * 2 = 4
+# 用法: python pipeline/train_main.py --config pipeline/configs/accum_amp.yaml
+# ============================================================
+
+data:
+  dataset: cityscapes
+  root_dir: ../dataset/cityscapes
+  crop_size: [768, 1024]
+  num_workers: 1
+  pin_memory: true
+  persistent_workers: false
+
+model:
+  name: unet                # 大模型示例
+  num_classes: 2
+  pretrained: null
+  freeze_backbone: false
+
+train:
+  epochs: 100
+  batch_size: 2             # 单步 batch 减半
+  accum_steps: 2            # ★ 梯度累加 2 步，等效 batch=4
+  lr: 0.0001
+  weight_decay: 0.0001
+  optimizer: adamw
+  scheduler: cosine
+  t_max: 100
+  eta_min: 0.000001
+  ce_weight: 0.4
+  dice_weight: 0.6
+  grad_clip: 1.0            # ★ 开启梯度裁剪防止 AMP 下梯度爆炸
+  amp: true                 # ★ 开启 AMP 混合精度
+  compile_model: false
+  ddp: false
+  ddp_backend: nccl
+
+log:
+  weight_dir: ../weights
+  log_dir: ../train_logs
+  csv_dir: ../train_logs
+  experiment_name: unet_accum_amp
+  save_interval: 10

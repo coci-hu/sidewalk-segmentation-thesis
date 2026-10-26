@@ -1,0 +1,44 @@
+# ============================================================
+# 单卡训练配置模板（通用）
+# 复制此模板修改 model.name 即可切换模型
+# 用法: python pipeline/train_main.py --config pipeline/configs/single_gpu.yaml
+# ============================================================
+
+data:
+  dataset: cityscapes
+  root_dir: ../dataset/cityscapes
+  crop_size: [768, 1024]
+  num_workers: 0
+  pin_memory: false
+  persistent_workers: false
+
+model:
+  name: bisenetv2           # 可选: bisenetv2, bisenetv2_ca, unet, stdc_seg, ppliteseg, fastscnn, enet, segformer_b0
+  num_classes: 2
+  pretrained: null
+  freeze_backbone: false
+
+train:
+  epochs: 100
+  batch_size: 4
+  accum_steps: 1
+  lr: 0.0001
+  weight_decay: 0.0001
+  optimizer: adamw
+  scheduler: cosine
+  t_max: 100
+  eta_min: 0.000001
+  ce_weight: 0.4
+  dice_weight: 0.6
+  grad_clip: 0.0
+  amp: false
+  compile_model: false
+  ddp: false
+  ddp_backend: nccl
+
+log:
+  weight_dir: ../weights
+  log_dir: ../train_logs
+  csv_dir: ../train_logs
+  experiment_name: bisenetv2
+  save_interval: 10

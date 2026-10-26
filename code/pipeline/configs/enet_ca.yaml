@@ -1,0 +1,41 @@
+# ENet + CA 坐标注意力实验配置
+# 与 ENet 基线完全相同的超参数，唯一差异是增加了 CA 模块
+
+data:
+  dataset: cityscapes
+  root_dir: ../dataset/cityscapes
+  crop_size: [768, 1024]
+  num_workers: 1
+  pin_memory: true
+  persistent_workers: false
+
+model:
+  name: enet_ca
+  num_classes: 2
+  pretrained: null
+  freeze_backbone: false
+
+train:
+  epochs: 100
+  batch_size: 4              # ENet 仅 0.27M 参数，显存充足
+  accum_steps: 1             # 无需梯度累加
+  lr: 0.0001
+  weight_decay: 0.0001
+  optimizer: adamw
+  scheduler: cosine
+  t_max: 100
+  eta_min: 0.000001
+  ce_weight: 0.4
+  dice_weight: 0.6
+  grad_clip: 0.0
+  amp: false
+  compile_model: false
+  ddp: false
+  ddp_backend: nccl
+
+log:
+  weight_dir: ../weights
+  log_dir: ../train_logs
+  csv_dir: ../train_logs
+  experiment_name: enet_ca
+  save_interval: 10

@@ -1,0 +1,63 @@
+{
+  "id": "attention_diagnostics_v1_2026-10-14",
+  "parent_training_protocol": "protocol_v1_1.json",
+  "purpose": "Characterize existing historical CA checkpoints and inference interventions; hypothesis screening only, not matched training ablation or independent generalization evaluation.",
+  "selection": {
+    "split": "train",
+    "seed": 20261014,
+    "per_city": 3,
+    "algorithm": "sort cities/files; one NumPy default_rng; choose 3 indices without replacement per city; sort chosen indices within city",
+    "selection_uses_model_outputs": false,
+    "selection_uses_labels": false,
+    "expected_cities": 18,
+    "expected_images": 54,
+    "smoke": "first 3 of the same fixed manifest, in a separate output"
+  },
+  "models": ["ENet+CA", "ENet-CBR", "SBNet+CA", "SBNet-CBR"],
+  "reference_models": ["ENet", "SBNet"],
+  "interventions": [
+    {"id": "original", "definition": "unchanged trained CA output x*a_vertical*a_horizontal; checked against unwrapped model"},
+    {"id": "bypass", "definition": "return x; changes magnitude and patterns; not equivalent to a separately trained model without CA"},
+    {"id": "global_mean", "definition": "x*mean(g), g=a_vertical*a_horizontal; removes channel and spatial patterns"},
+    {"id": "channel_mean", "definition": "x*mean_hw(g) per channel; removes spatial patterns"},
+    {"id": "energy_uniform", "definition": "x*L2(original_CA_output)_hw/L2(x)_hw per channel; removes spatial patterns while preserving per-channel output feature energy"},
+    {"id": "shuffle_42", "definition": "permute H and W axis maps using seed42 plus stable sample-id hash; preserve gate value distributions"},
+    {"id": "shuffle_43", "definition": "same independent permutation rule, seed43"},
+    {"id": "energy_shuffle_42", "definition": "shuffle42 followed by per-channel scaling to original CA output L2 energy"},
+    {"id": "energy_shuffle_43", "definition": "shuffle43 followed by per-channel scaling to original CA output L2 energy"},
+    {"id": "mixed_0_1", "definition": "x*((1-0.1)+0.1*g); inference stress test only, not a trained mixed-gate candidate"}
+  ],
+  "gate_statistics": {
+    "near_zero_threshold": 0.05,
+    "near_one_threshold": 0.95,
+    "quantiles": [0.01, 0.05, 0.25, 0.5, 0.75, 0.95, 0.99],
+    "statistics_units": "per-image channel/pixel gate values; aggregate by image, not pooled unequal feature resolutions",
+    "spatial_display": "mean_channels(a_vertical*a_horizontal), fixed color scale 0..1; never product of separately averaged axes",
+    "regional_masks": "foreground/background and author foreground boundary; area downsample to feature grid, fractional occupancy weights"
+  },
+  "metrics": {
+    "global": "sum confusion over fixed selected images, compute foreground IoU and mIoU",
+    "boundary": "author foreground Boundary IoU, per-image mean; both-empty excluded with count",
+    "paired_differences": "within checkpoint and image, intervention minus original; report positive/negative/unchanged counts",
+    "historical_references": "separate trained ENet/SBNet weights, observational only",
+    "validation": "none in this stage; train samples are diagnostics, not an independent test"
+  },
+  "controls": {
+    "strict_checkpoint_load": true,
+    "all_modules_eval": true,
+    "no_optimizer_or_training": true,
+    "source_features_identical_across_interventions": true,
+    "original_wrapper_logits_bitwise_equal_to_unwrapped": true,
+    "energy_matching_max_channel_relative_error_tolerance": 0.00002,
+    "keep_BN_running_statistics_fixed": true,
+    "preserve_all_old_files": true,
+    "fresh_output_required": true
+  },
+  "interpretation": [
+    "A gate below 1 necessarily attenuates features algebraically; this alone is not a failure mechanism.",
+    "Interventions may shift the trained decoder or BN input distribution even after energy matching.",
+    "Shuffle sensitivity supports reliance on learned positions within the checkpoint; it does not prove improved training or universal directional reasoning.",
+    "Fixed train-set sample results cannot replace full validation or repeated matched training.",
+    "No automatic decision to implement/train mixed-gate candidates solely from this stage."
+  ]
+}

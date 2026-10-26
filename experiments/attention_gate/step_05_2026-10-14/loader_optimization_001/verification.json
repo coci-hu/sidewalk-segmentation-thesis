@@ -1,0 +1,59 @@
+{
+  "status": "pass",
+  "selected_workers": 4,
+  "profiles": [
+    {
+      "workers": 1,
+      "input_and_order_equal": true,
+      "images": 192,
+      "loader_total_seconds": 66.55618220000001,
+      "steady_images": 160,
+      "steady_seconds": 42.89395480000002,
+      "steady_images_per_second": 3.730129356130154,
+      "available_ram_bytes_after": 4167598080,
+      "A_two_toy_epochs_model_optimizer_scheduler_rng_metrics_exact": true,
+      "B_two_toy_epochs_model_optimizer_scheduler_rng_metrics_exact": true
+    },
+    {
+      "workers": 2,
+      "input_and_order_equal": true,
+      "images": 192,
+      "loader_total_seconds": 48.53924810000001,
+      "steady_images": 160,
+      "steady_seconds": 18.28838350000001,
+      "steady_images_per_second": 8.74872292567574,
+      "available_ram_bytes_after": 3350175744,
+      "A_two_toy_epochs_model_optimizer_scheduler_rng_metrics_exact": true,
+      "B_two_toy_epochs_model_optimizer_scheduler_rng_metrics_exact": true
+    },
+    {
+      "workers": 4,
+      "input_and_order_equal": true,
+      "images": 192,
+      "loader_total_seconds": 62.37086539999996,
+      "steady_images": 160,
+      "steady_seconds": 9.304799400000093,
+      "steady_images_per_second": 17.1954271254895,
+      "available_ram_bytes_after": 3229138944,
+      "A_two_toy_epochs_model_optimizer_scheduler_rng_metrics_exact": true,
+      "B_two_toy_epochs_model_optimizer_scheduler_rng_metrics_exact": true
+    }
+  ],
+  "core_source_hashes": {
+    "experiments\\attention_gate\\common_runner.py": "2d0ba323e7638538b9c4c2f3b229213a5b92d5232c856f9bd536534e8fcd49f0",
+    "experiments\\attention_gate\\metrics_v1.py": "2426f7838b90cce6f11b11315828c740846f735ffcba4523972fbce9a4ee2751",
+    "experiments\\attention_gate\\protocol_v1_1.json": "3990842dd4f56304506fb6d4abe5b3a8b3f8e5628675a3e412ea81419a377d58",
+    "code\\model_enet.py": "e0b99d9d862b09eec0781f374071a8f9b7c584d537d3f4761bc5d0c4d4da909b",
+    "code\\model_enet_ca.py": "a875c11bd9d95e8235622677d47cd7ea88c0064e283e0a53320fcd5a3f44b945",
+    "code\\components\\ca_attention.py": "b676ac179e5ee2e9c5bfefbc7f4837aee08832e713fe48f927ed576bf06ab322"
+  },
+  "test_source_sha256": "20aa7af0c67d00ebc26aedda2386444deb21300c8d80a648928c5e6dad70a9c7",
+  "free_ram_bytes_at_start": 4356308992,
+  "input_train_images": 36,
+  "input_val_images": 3,
+  "same_dataset_class_transform_labels_and_sampler": true,
+  "model_optimizer_scheduler_rng_and_metrics_exact": true,
+  "scientific_conditions_unchanged": true,
+  "old_results_and_checkpoints_unchanged": true,
+  "completed": "2026-10-14T12:54:40+08:00"
+}

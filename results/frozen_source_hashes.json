@@ -1,0 +1,18 @@
+{
+  "experiments/attention_gate/common_runner.py": "2d0ba323e7638538b9c4c2f3b229213a5b92d5232c856f9bd536534e8fcd49f0",
+  "experiments/attention_gate/metrics_v1.py": "2426f7838b90cce6f11b11315828c740846f735ffcba4523972fbce9a4ee2751",
+  "experiments/attention_gate/protocol_v1_1.json": "3990842dd4f56304506fb6d4abe5b3a8b3f8e5628675a3e412ea81419a377d58",
+  "code/model_enet.py": "e0b99d9d862b09eec0781f374071a8f9b7c584d537d3f4761bc5d0c4d4da909b",
+  "code/model_enet_ca.py": "a875c11bd9d95e8235622677d47cd7ea88c0064e283e0a53320fcd5a3f44b945",
+  "code/components/ca_attention.py": "b676ac179e5ee2e9c5bfefbc7f4837aee08832e713fe48f927ed576bf06ab322",
+  "experiments/attention_gate/common_runner_v2.py": "03a7238c77ec95ecde1480bd10c807ff5ee93e7072db6fdb93506cd85f05d5f4",
+  "experiments/attention_gate/protocol_v1_2.json": "2c50a1cbabfe3b4c4f0258dbbd7e976cbe80ca14fbc170c6e2b8b68e338e9765",
+  "experiments/attention_gate/step_05_2026-10-14/loader_optimization_001/verification.json": "8e594844a9ce77ed7188671d34814f57f9648ee841ef0a9dc4e63f92bb9887c0",
+  "experiments/attention_gate/common_runner_c.py": "05c9f3dcfbcdbb620882e57bef7a7409c2cd765176388bfe7c18565b57f24fbc",
+  "experiments/attention_gate/ca_hswish_control.py": "75d16afe2e9922df2d366d50eaa841321cfef2bba841da959d3818164b8be416",
+  "experiments/attention_gate/step_06_2026-10-14/preparation_001/author_reference/coordatt.py": "c40cc881d0a23b64c886274a9d8df7d13f04b6ec4fc935c3b281a82998f9ebfc",
+  "experiments/attention_gate/step_06_2026-10-14/preparation_001/author_reference/source.json": "59cabe2e37b1b258b72eab764202330be0187cab5063d5f2b738faa98bf80a6a",
+  "experiments/attention_gate/common_runner_mixed.py": "5baf19ff803717d7eebf27a5555ddf16728ad6eb152d8e749780540a9bc58fd5",
+  "experiments/attention_gate/mixed_ca_candidate.py": "9546a2381bdbff95969695747a454ac748c5c025584a1db35402fb89356c3d35",
+  "experiments/attention_gate/check_loader_optimization.py": "20aa7af0c67d00ebc26aedda2386444deb21300c8d80a648928c5e6dad70a9c7"
+}

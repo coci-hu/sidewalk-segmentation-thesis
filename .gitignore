@@ -1,0 +1,61 @@
+# 数据集（太大，不提交）
+dataset/
+
+# 权重文件
+weights/
+*.pth
+*.ckpt
+
+# 日志
+train_logs/
+logs/
+csv/
+
+# SAM2
+sam2/
+
+# IDE
+.idea/
+.vscode/
+__pycache__/
+*.pyc
+
+# 图片输出
+figures/
+
+# Large artifacts and local runtime files remain on disk.
+*.pt
+*.onnx
+*.safetensors
+*.engine
+*.plan
+*.zip
+*.7z
+*.tar
+*.gz
+*.npy
+*.npz
+*.mp4
+*.avi
+*.log
+*.tmp
+*.lock
+.env
+.env.*
+*.pem
+*.key
+credentials*.json
+secrets*.json
+.venv/
+.pytest_cache/
+
+# Historical outputs stay local; retain necessary immutable proofs.
+/experiments/attention_gate/step_*/**
+!/experiments/attention_gate/step_05_2026-10-14/loader_optimization_001/
+!/experiments/attention_gate/step_05_2026-10-14/loader_optimization_001/verification.json
+!/experiments/attention_gate/step_06_2026-10-14/preparation_001/
+!/experiments/attention_gate/step_06_2026-10-14/preparation_001/author_reference/
+!/experiments/attention_gate/step_06_2026-10-14/preparation_001/author_reference/coordatt.py
+!/experiments/attention_gate/step_06_2026-10-14/preparation_001/author_reference/source.json
+/experiments/attention_gate/current_*_job.json
+/experiments/attention_gate/README.md

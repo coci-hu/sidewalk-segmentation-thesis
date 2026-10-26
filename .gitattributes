@@ -1,0 +1,5 @@
+# Preserve exact source bytes for experimental hashes, including line endings.
+* -text
+*.png binary
+*.jpg binary
+*.jpeg binary

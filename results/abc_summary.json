@@ -1,0 +1,240 @@
+{
+  "results": [
+    {
+      "variant": "A",
+      "seed": 42,
+      "epochs": 100,
+      "best_epoch": 92,
+      "best_global_miou_pct": 81.03267822047478,
+      "best_sidewalk_iou_pct": 64.22263859964123,
+      "best_boundary_iou_pct": 53.043149041492974,
+      "best_weights": "experiments/attention_gate/step_05_2026-10-14/seed42_training_003/A_seed42_epochs002_100/best_weights/epoch_092.pth",
+      "final_checkpoint": "experiments/attention_gate/step_05_2026-10-14/seed42_training_003/A_seed42_epochs002_100/checkpoints/epoch_100.pth",
+      "final_checkpoint_sha256": "68c2424d7142fa747e04c7c569430cba03f54b0ccc779e48be4d30c5bc3bdf21",
+      "best_weights_sha256": "71ca9c869b1aec4ee5fc6eaa637e98cb3e2e0ab10ccedf5a1adbc8c4261f8218"
+    },
+    {
+      "variant": "B",
+      "seed": 42,
+      "epochs": 100,
+      "best_epoch": 84,
+      "best_global_miou_pct": 81.61975257085498,
+      "best_sidewalk_iou_pct": 65.30902666635309,
+      "best_boundary_iou_pct": 53.56698597261666,
+      "best_weights": "experiments/attention_gate/step_05_2026-10-14/seed42_training_003/B_seed42_epochs002_100/best_weights/epoch_084.pth",
+      "final_checkpoint": "experiments/attention_gate/step_05_2026-10-14/seed42_training_003/B_seed42_epochs002_100/checkpoints/epoch_100.pth",
+      "final_checkpoint_sha256": "d10dfe37e8d5dbe7c5f4754ec781edbc95fd39a0df120352b6b1db36eef9d770",
+      "best_weights_sha256": "2af2d3f8b2ece6ea1aab1d6224260e92e77070207177b030a00dd822715687f7"
+    },
+    {
+      "variant": "A",
+      "seed": 43,
+      "epochs": 100,
+      "best_epoch": 61,
+      "best_global_miou_pct": 81.01410642043612,
+      "best_sidewalk_iou_pct": 64.17411781096844,
+      "best_boundary_iou_pct": 52.729559115652606,
+      "best_weights": "experiments/attention_gate/step_05_2026-10-20/seeds43_44_recovery_001/A_seed43_epochs094_100/best_weights/epoch_061.pth",
+      "final_checkpoint": "experiments/attention_gate/step_05_2026-10-20/seeds43_44_recovery_001/A_seed43_epochs094_100/checkpoints/epoch_100.pth",
+      "final_checkpoint_sha256": "4202160298b7db0a2135c0a1ba87fece9885d0b080985685d2cb5eed57084ede",
+      "best_weights_sha256": "b4975507cb89ec4286281c6a3cc56f485eaeeb0f08b3e66a453ede4cb1d32646"
+    },
+    {
+      "variant": "B",
+      "seed": 43,
+      "epochs": 100,
+      "best_epoch": 72,
+      "best_global_miou_pct": 81.49358523072297,
+      "best_sidewalk_iou_pct": 65.13213357736578,
+      "best_boundary_iou_pct": 53.30391897023995,
+      "best_weights": "experiments/attention_gate/step_05_2026-10-20/seeds43_44_recovery_001/B_seed43_epochs001_100/best_weights/epoch_072.pth",
+      "final_checkpoint": "experiments/attention_gate/step_05_2026-10-20/seeds43_44_recovery_001/B_seed43_epochs001_100/checkpoints/epoch_100.pth",
+      "final_checkpoint_sha256": "719a84b0dcbf158af467724b651cf97cd5f18ff2053f920c4c70a7e76441e7be",
+      "best_weights_sha256": "718d7a9d48288791cb870449ea8949c38e37f92a56ad8b9489d72d8faae7708d"
+    },
+    {
+      "variant": "A",
+      "seed": 44,
+      "epochs": 100,
+      "best_epoch": 68,
+      "best_global_miou_pct": 81.01811161388915,
+      "best_sidewalk_iou_pct": 64.19407932728902,
+      "best_boundary_iou_pct": 52.992263828949206,
+      "best_weights": "experiments/attention_gate/step_05_2026-10-20/seeds43_44_recovery_001/A_seed44_epochs001_100/best_weights/epoch_068.pth",
+      "final_checkpoint": "experiments/attention_gate/step_05_2026-10-20/seeds43_44_recovery_001/A_seed44_epochs001_100/checkpoints/epoch_100.pth",
+      "final_checkpoint_sha256": "1f2ad47b96b2631104a4b9574d726640b11c0cf2581f9225959df3f5149bb0e5",
+      "best_weights_sha256": "afee3d237f8c9aa48a4170ee948e56ce478bc44a4fee78e566320b72cb235bd0"
+    },
+    {
+      "variant": "B",
+      "seed": 44,
+      "epochs": 100,
+      "best_epoch": 87,
+      "best_global_miou_pct": 81.70426600816153,
+      "best_sidewalk_iou_pct": 65.46312402894681,
+      "best_boundary_iou_pct": 53.608526141059556,
+      "best_weights": "experiments/attention_gate/step_05_2026-10-20/seeds43_44_recovery_001/B_seed44_epochs001_100/best_weights/epoch_087.pth",
+      "final_checkpoint": "experiments/attention_gate/step_05_2026-10-20/seeds43_44_recovery_001/B_seed44_epochs001_100/checkpoints/epoch_100.pth",
+      "final_checkpoint_sha256": "a57f455fd86f8c7065f7261014c67a9595539fbeb17a39a5a6734d8bc0d0f419",
+      "best_weights_sha256": "a6ad75120b09af526688af5a31c5c290719a22d9d16e69b24a7dbf8759f89c64"
+    },
+    {
+      "variant": "C",
+      "seed": 42,
+      "epochs": 100,
+      "best_epoch": 83,
+      "best_global_miou_pct": 81.7230266230949,
+      "best_sidewalk_iou_pct": 65.54020718344196,
+      "best_boundary_iou_pct": 54.066143393412716,
+      "best_weights": "experiments/attention_gate/step_06_2026-10-22/C_seed42_training_001/C_seed42_epochs002_100/best_weights/epoch_083.pth",
+      "final_checkpoint": "experiments/attention_gate/step_06_2026-10-22/C_seed42_training_001/C_seed42_epochs002_100/checkpoints/epoch_100.pth",
+      "final_checkpoint_sha256": "e6b9e3a782063a5341514e9016304b99ba37dfe4b60b646eab15b79a2e5fb49e",
+      "best_weights_sha256": "0db2ce76106624669d4dd3ff2bdcc8dd59f30c20a5eb47813476917b1c31b960"
+    },
+    {
+      "variant": "C",
+      "seed": 43,
+      "epochs": 100,
+      "best_epoch": 69,
+      "best_global_miou_pct": 81.23467789054044,
+      "best_sidewalk_iou_pct": 64.61297300117623,
+      "best_boundary_iou_pct": 53.16393722359029,
+      "best_weights": "experiments/attention_gate/step_06_2026-10-24/C_seeds43_44_training_001/C_seed43_epochs002_100/best_weights/epoch_069.pth",
+      "final_checkpoint": "experiments/attention_gate/step_06_2026-10-24/C_seeds43_44_training_001/C_seed43_epochs002_100/checkpoints/epoch_100.pth",
+      "final_checkpoint_sha256": "f2601a4a87c182708900b432f36c2554bb45b2934599d7bc0194fa82a45f5f15",
+      "best_weights_sha256": "da2905e198ba2a97960c934953a4a4cee804f28c80f7c1426227bd090b493d28"
+    },
+    {
+      "variant": "C",
+      "seed": 44,
+      "epochs": 100,
+      "best_epoch": 69,
+      "best_global_miou_pct": 81.54709329461039,
+      "best_sidewalk_iou_pct": 65.17265903749751,
+      "best_boundary_iou_pct": 53.039871664808224,
+      "best_weights": "experiments/attention_gate/step_06_2026-10-24/C_seeds43_44_training_001/C_seed44_epochs002_100/best_weights/epoch_069.pth",
+      "final_checkpoint": "experiments/attention_gate/step_06_2026-10-24/C_seeds43_44_training_001/C_seed44_epochs002_100/checkpoints/epoch_100.pth",
+      "final_checkpoint_sha256": "f19499ecfd0bcf6b744e78f9c64b31069ed19f5fa4cd068336d94a980a0bcccb",
+      "best_weights_sha256": "4df40167ba63fae6442842f62f4766f466c9d8d50eeeed232299246785d2b044"
+    }
+  ],
+  "summary": {
+    "A": {
+      "best_global_miou_pct": {
+        "mean": 81.02163208493334,
+        "sample_std_ddof1": 0.009773598439099402
+      },
+      "best_sidewalk_iou_pct": {
+        "mean": 64.19694524596623,
+        "sample_std_ddof1": 0.024387022178930705
+      },
+      "best_boundary_iou_pct": {
+        "mean": 52.92165732869826,
+        "sample_std_ddof1": 0.16829622338426614
+      }
+    },
+    "B": {
+      "best_global_miou_pct": {
+        "mean": 81.60586793657983,
+        "sample_std_ddof1": 0.10602445377008356
+      },
+      "best_sidewalk_iou_pct": {
+        "mean": 65.30142809088856,
+        "sample_std_ddof1": 0.16562600496682647
+      },
+      "best_boundary_iou_pct": {
+        "mean": 53.493143694638725,
+        "sample_std_ddof1": 0.1651844231197666
+      }
+    },
+    "C": {
+      "best_global_miou_pct": {
+        "mean": 81.50159926941524,
+        "sample_std_ddof1": 0.24733257143617107
+      },
+      "best_sidewalk_iou_pct": {
+        "mean": 65.10861307403857,
+        "sample_std_ddof1": 0.46692314278373465
+      },
+      "best_boundary_iou_pct": {
+        "mean": 53.42331742727041,
+        "sample_std_ddof1": 0.5601490719255623
+      }
+    }
+  },
+  "paired_percentage_points": {
+    "C_minus_A": {
+      "best_global_miou_pct": {
+        "per_seed": {
+          "42": 0.690348402620117,
+          "43": 0.22057147010431777,
+          "44": 0.5289816807212446
+        },
+        "mean": 0.4799671844818931,
+        "sample_std_ddof1": 0.23869312351256894
+      },
+      "best_sidewalk_iou_pct": {
+        "per_seed": {
+          "42": 1.3175685838007354,
+          "43": 0.4388551902077893,
+          "44": 0.9785797102084928
+        },
+        "mean": 0.9116678280723391,
+        "sample_std_ddof1": 0.44316160370474317
+      },
+      "best_boundary_iou_pct": {
+        "per_seed": {
+          "42": 1.022994351919742,
+          "43": 0.4343781079376825,
+          "44": 0.04760783585901862
+        },
+        "mean": 0.5016600985721477,
+        "sample_std_ddof1": 0.4911617489443484
+      }
+    },
+    "C_minus_B": {
+      "best_global_miou_pct": {
+        "per_seed": {
+          "42": 0.10327405223991093,
+          "43": -0.2589073401825317,
+          "44": -0.15717271355113382
+        },
+        "mean": -0.10426866716458487,
+        "sample_std_ddof1": 0.1867965975260723
+      },
+      "best_sidewalk_iou_pct": {
+        "per_seed": {
+          "42": 0.23118051708887322,
+          "43": -0.5191605761895488,
+          "44": -0.2904649914492978
+        },
+        "mean": -0.19281501684999114,
+        "sample_std_ddof1": 0.38458364138376755
+      },
+      "best_boundary_iou_pct": {
+        "per_seed": {
+          "42": 0.4991574207960525,
+          "43": -0.13998174664966,
+          "44": -0.5686544762513321
+        },
+        "mean": -0.06982626736831321,
+        "sample_std_ddof1": 0.5373517519501357
+      }
+    }
+  },
+  "selection": "same earliest best global validation mIoU checkpoint for all metrics",
+  "interpretation": "three paired seeds under one protocol; not independent-test performance or a significance claim",
+  "source": {
+    "path": "experiments/attention_gate/step_06_2026-10-24/C_seeds43_44_training_001/three_seed_ABC_results.json",
+    "sha256": "baab935204eab6fc3a672a6a56061832f52f1d3ec691b30c77eeb5e8d94ac719",
+    "verification_sha256": "4e3d56ee4fa5015ec170b9e71501396b663636aede6b38c8a2b44c35bd60bd9a",
+    "local_only_full_artifacts": true
+  },
+  "snapshot_date": "2026-10-26",
+  "status": {
+    "ABC_training_complete": true,
+    "full_sensitivity_complete": false,
+    "DE_formal_training_started": false,
+    "target_edge_device_verified": false
+  }
+}

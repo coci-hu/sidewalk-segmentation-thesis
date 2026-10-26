@@ -1,0 +1,9 @@
+{
+  "repository": "https://github.com/houqb/CoordAttention",
+  "commit": "a3f3490ceba779a8443a231d0f792866bd24436d",
+  "commit_date": "2021-03-06T07:29:47Z",
+  "url": "https://raw.githubusercontent.com/houqb/CoordAttention/a3f3490ceba779a8443a231d0f792866bd24436d/coordatt.py",
+  "sha256": "c40cc881d0a23b64c886274a9d8df7d13f04b6ec4fc935c3b281a82998f9ebfc",
+  "downloaded_utc": "2026-10-14T08:48:40.441802+00:00",
+  "role": "read-only official implementation reference; not a project-authored method or training result"
+}

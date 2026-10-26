@@ -1,0 +1,44 @@
+# ============================================================
+# bisenetv2_ca 单卡训练配置
+# 与旧版 train_bisenetv2_ca.py 参数完全对齐，可直接复现历史实验
+# 用法: python pipeline/train_main.py --config pipeline/configs/bisenetv2_ca.yaml
+# ============================================================
+
+data:
+  dataset: cityscapes
+  root_dir: ../dataset/cityscapes
+  crop_size: [768, 1024]
+  num_workers: 0
+  pin_memory: false
+  persistent_workers: false
+
+model:
+  name: bisenetv2_ca
+  num_classes: 2
+  pretrained: null          # 设为权重路径可加载预训练
+  freeze_backbone: false
+
+train:
+  epochs: 100
+  batch_size: 4
+  accum_steps: 1            # 等效 batch = 4
+  lr: 0.0001
+  weight_decay: 0.0001
+  optimizer: adamw
+  scheduler: cosine
+  t_max: 100
+  eta_min: 0.000001
+  ce_weight: 0.4
+  dice_weight: 0.6
+  grad_clip: 0.0
+  amp: false
+  compile_model: false
+  ddp: false
+  ddp_backend: nccl
+
+log:
+  weight_dir: ../weights
+  log_dir: ../train_logs
+  csv_dir: ../train_logs
+  experiment_name: bisenetv2_ca
+  save_interval: 10
