@@ -28,6 +28,10 @@ D/E 已通过完整输入尺寸的 GPU 检查、独立进程恢复逐位一致�
 
 随后开展部署误差与延迟验证。已有 ONNX 和视频原型仅通过有限 CPU 检查，真实边缘设备和长视频验证尚未完成。全量 FP32 一致性通过后才做 FP16 与公平计时，不与训练并行测速。
 
+2026-10-27 继续检查：D 的第 58 轮完整断点、E 的首轮断点通过中途审计；D 继续训练，完成后自动续跑 E 的第 2—100 轮。详见[断点核验快照](results/de_checkpoint_audit.json)，不据中途精度决定候选优劣。
+
+已准备 FP32 部署一致性入口，并在 A/C 两个冻结模型、各 3 张既有验证图上通过 CPU 试运行：逐元素数值、argmax、区域及边界指标符合既定阈值，实际节点后端确认为 CPU。9 项合成检查覆盖错误拒绝与指标聚合；实际 CUDA 入口在训练占用 GPU 锁时拒绝启动。GPU 路径、完整 500 图和性能测量仍待训练结束后验证，见[部署准备凭据](results/deployment_readiness.json)。新入口显式记录精度设置与实际执行后端，禁止无提示回退；首张静态图的节点 profile 用于确认后端，其余图继续数值验证。
+
 ## 固定实验条件
 
 [冻结协议 v1.2](experiments/attention_gate/protocol_v1_2.json)：Cityscapes train 2975 张 / val 500 张；输入 768×1024；原始标签 8 为人行道，其余映射背景，忽略区域另做敏感性分析；batch 4、保留尾批；100 轮；AdamW，lr 1e-4、weight decay 0.01；余弦调度；0.4 CE + 0.6 Dice；不使用预训练、增广、AMP 或早停；配对骨干初始化和样本顺序。Boundary IoU 使用 26 像素边界、逐图均值，双方均空时剔除并记录。
@@ -58,6 +62,7 @@ python experiments/attention_gate/common_runner_v2.py --help
 python experiments/attention_gate/common_runner_c.py --help
 python experiments/attention_gate/common_runner_mixed.py --help
 python experiments/attention_gate/sidewalk_demo.py --help
+python experiments/attention_gate/validate_deployment_fp32.py --help
 
 # 旧入口仅列出脚本或显示解析路径。
 .\run.ps1 -List

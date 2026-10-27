@@ -1,0 +1,233 @@
+{
+  "snapshot_date": "2026-10-27",
+  "pilot": {
+    "results": [
+      {
+        "status": "pass",
+        "images": 3,
+        "limits": {
+          "logit_rtol": 0.001,
+          "logit_atol": 0.0001,
+          "argmax_disagreement_fraction": 0.001,
+          "metric_difference_pp": 0.05
+        },
+        "checks": {
+          "logits_allclose": true,
+          "argmax_disagreement": true,
+          "regional_metrics": true
+        },
+        "metrics": {
+          "pytorch": {
+            "confusion": [
+              [
+                2250743,
+                12066
+              ],
+              [
+                12319,
+                84168
+              ]
+            ],
+            "sidewalk_iou_pct": 77.53631866461545,
+            "boundary_iou_pct": 62.303405851123074,
+            "boundary_valid_images": 3,
+            "boundary_excluded_images": 0
+          },
+          "onnx": {
+            "confusion": [
+              [
+                2250743,
+                12066
+              ],
+              [
+                12319,
+                84168
+              ]
+            ],
+            "sidewalk_iou_pct": 77.53631866461545,
+            "boundary_iou_pct": 62.303405851123074,
+            "boundary_valid_images": 3,
+            "boundary_excluded_images": 0
+          }
+        },
+        "absolute_metric_difference_pp": {
+          "sidewalk_iou_pct": 0.0,
+          "boundary_iou_pct": 0.0
+        },
+        "argmax_disagreement_fraction": 0.0,
+        "maximum_absolute_logit_error": 5.257129669189453e-05,
+        "name": "A_seed42",
+        "variant": "A",
+        "seed": 42,
+        "selected_epoch": 92,
+        "weights_sha256": "71ca9c869b1aec4ee5fc6eaa637e98cb3e2e0ab10ccedf5a1adbc8c4261f8218",
+        "onnx_sha256": "06233d62bd9ac2cddc88bc30c9d0dd3fc7876abe116c77f1872fbbeb47f046c8",
+        "provider_evidence": {
+          "provider": "CPUExecutionProvider",
+          "node_executions": {
+            "CPUExecutionProvider": 242
+          },
+          "unique_node_names": 242
+        },
+        "provider_options": {
+          "CPUExecutionProvider": {}
+        },
+        "profiled_images": 1,
+        "profile_sha256": "9b2b34281de2b474ed5edb0347600a2dbfcb55f116c235a246366bf0088ba882"
+      },
+      {
+        "status": "pass",
+        "images": 3,
+        "limits": {
+          "logit_rtol": 0.001,
+          "logit_atol": 0.0001,
+          "argmax_disagreement_fraction": 0.001,
+          "metric_difference_pp": 0.05
+        },
+        "checks": {
+          "logits_allclose": true,
+          "argmax_disagreement": true,
+          "regional_metrics": true
+        },
+        "metrics": {
+          "pytorch": {
+            "confusion": [
+              [
+                2246260,
+                16549
+              ],
+              [
+                11047,
+                85440
+              ]
+            ],
+            "sidewalk_iou_pct": 75.58653880179766,
+            "boundary_iou_pct": 60.31816142951517,
+            "boundary_valid_images": 3,
+            "boundary_excluded_images": 0
+          },
+          "onnx": {
+            "confusion": [
+              [
+                2246260,
+                16549
+              ],
+              [
+                11047,
+                85440
+              ]
+            ],
+            "sidewalk_iou_pct": 75.58653880179766,
+            "boundary_iou_pct": 60.31816142951517,
+            "boundary_valid_images": 3,
+            "boundary_excluded_images": 0
+          }
+        },
+        "absolute_metric_difference_pp": {
+          "sidewalk_iou_pct": 0.0,
+          "boundary_iou_pct": 0.0
+        },
+        "argmax_disagreement_fraction": 0.0,
+        "maximum_absolute_logit_error": 4.113838076591492e-05,
+        "name": "C_seed42",
+        "variant": "C",
+        "seed": 42,
+        "selected_epoch": 83,
+        "weights_sha256": "0db2ce76106624669d4dd3ff2bdcc8dd59f30c20a5eb47813476917b1c31b960",
+        "onnx_sha256": "141d4e485247ca416b8b551d7430af4649c3f86b8a5635bb3cb42707a754e3e7",
+        "provider_evidence": {
+          "provider": "CPUExecutionProvider",
+          "node_executions": {
+            "CPUExecutionProvider": 263
+          },
+          "unique_node_names": 263
+        },
+        "provider_options": {
+          "CPUExecutionProvider": {}
+        },
+        "profiled_images": 1,
+        "profile_sha256": "1f7a6cb4dcdeaf78c813b14a962b43903e1149ccc25dd13d6993a6c368f1c1f0"
+      }
+    ],
+    "mode": "pilot",
+    "backend": "cpu"
+  },
+  "verification": {
+    "status": "pass",
+    "mode": "pilot",
+    "backend": "cpu",
+    "models": 2,
+    "images_per_model": 3,
+    "source_hashes": {
+      "experiments\\attention_gate\\common_runner.py": "2d0ba323e7638538b9c4c2f3b229213a5b92d5232c856f9bd536534e8fcd49f0",
+      "experiments\\attention_gate\\metrics_v1.py": "2426f7838b90cce6f11b11315828c740846f735ffcba4523972fbce9a4ee2751",
+      "experiments\\attention_gate\\protocol_v1_1.json": "3990842dd4f56304506fb6d4abe5b3a8b3f8e5628675a3e412ea81419a377d58",
+      "code\\model_enet.py": "e0b99d9d862b09eec0781f374071a8f9b7c584d537d3f4761bc5d0c4d4da909b",
+      "code\\model_enet_ca.py": "a875c11bd9d95e8235622677d47cd7ea88c0064e283e0a53320fcd5a3f44b945",
+      "code\\components\\ca_attention.py": "b676ac179e5ee2e9c5bfefbc7f4837aee08832e713fe48f927ed576bf06ab322",
+      "experiments\\attention_gate\\common_runner_v2.py": "03a7238c77ec95ecde1480bd10c807ff5ee93e7072db6fdb93506cd85f05d5f4",
+      "experiments\\attention_gate\\protocol_v1_2.json": "2c50a1cbabfe3b4c4f0258dbbd7e976cbe80ca14fbc170c6e2b8b68e338e9765",
+      "experiments\\attention_gate\\step_05_2026-10-14\\loader_optimization_001\\verification.json": "8e594844a9ce77ed7188671d34814f57f9648ee841ef0a9dc4e63f92bb9887c0",
+      "experiments\\attention_gate\\common_runner_c.py": "05c9f3dcfbcdbb620882e57bef7a7409c2cd765176388bfe7c18565b57f24fbc",
+      "experiments\\attention_gate\\ca_hswish_control.py": "75d16afe2e9922df2d366d50eaa841321cfef2bba841da959d3818164b8be416",
+      "experiments\\attention_gate\\step_06_2026-10-14\\preparation_001\\author_reference\\coordatt.py": "c40cc881d0a23b64c886274a9d8df7d13f04b6ec4fc935c3b281a82998f9ebfc",
+      "experiments\\attention_gate\\step_06_2026-10-14\\preparation_001\\author_reference\\source.json": "59cabe2e37b1b258b72eab764202330be0187cab5063d5f2b738faa98bf80a6a",
+      "experiments\\attention_gate\\common_runner_mixed.py": "5baf19ff803717d7eebf27a5555ddf16728ad6eb152d8e749780540a9bc58fd5",
+      "experiments\\attention_gate\\mixed_ca_candidate.py": "9546a2381bdbff95969695747a454ac748c5c025584a1db35402fb89356c3d35",
+      "experiments\\attention_gate\\validate_deployment_fp32.py": "89cf966c3124bd75166b77000f60259bec0cdf5b8118860bab71bbc802a9b0fb",
+      "experiments\\attention_gate\\deployment_equivalence.py": "036bd43c2046809452cc4cf290dc2b29a25498934fffa14a209cb5512f3c870d"
+    },
+    "model_and_graph_hashes_unchanged": true,
+    "same_input_metrics_and_actual_node_provider_checked": true,
+    "full500_metrics_verified": false,
+    "GPU_verified": false,
+    "latency_measured": false,
+    "training_modified": false
+  },
+  "synthetic_checks": {
+    "status": "pass",
+    "checks": [
+      "exact_logits_and_empty_boundary_exclusion",
+      "wrong_labels_fail_all_three_gates",
+      "argmax_identity_does_not_hide_logit_failure",
+      "global_confusion_aggregation_not_mean_image_iou",
+      "nan_rejected",
+      "inf_rejected",
+      "duplicate_image_rejected",
+      "missing_or_fallback_provider_rejected",
+      "missing_or_fallback_provider_rejected"
+    ],
+    "source_hashes": {
+      "experiments/attention_gate/check_deployment_equivalence.py": "bea8e0844a76440ecf511bf06b4da54a9a8113ca78129718313a2fcf590b5c74",
+      "experiments/attention_gate/deployment_equivalence.py": "036bd43c2046809452cc4cf290dc2b29a25498934fffa14a209cb5512f3c870d"
+    },
+    "real_model_validation": false,
+    "full500_verified": false,
+    "GPU_used": false
+  },
+  "GPU_concurrency_guard": {
+    "status": "pass",
+    "occupied_training_lock_rejected_before_model_or_ORT_session": true,
+    "validation_output_not_created": true,
+    "training_stopped": false,
+    "GPU_inference_executed": false,
+    "script_sha256": "3351b2ad49090020e246ee12c972ac1b6d587cc8d911cec8afd34c1407426acb",
+    "validator_sha256": "89cf966c3124bd75166b77000f60259bec0cdf5b8118860bab71bbc802a9b0fb"
+  },
+  "sources": {
+    "experiments\\attention_gate\\step_10_2026-10-27\\fp32_cpu_pilot_002\\results.json": "47d17f35d80d937cf58019398d5da6424fb7a7cc94cc1cbeb8d5c14fe448ab96",
+    "experiments\\attention_gate\\step_10_2026-10-27\\fp32_cpu_pilot_002\\verification.json": "240f8999b56f991fea6708172f36e820469d5281fabc5cd87280cb19646e3df3",
+    "experiments\\attention_gate\\step_10_2026-10-27\\equivalence_checks_001\\verification.json": "15850c17c92da145cd984a2e759b87e3f3fe2985aba32d596d14abb44ccd6d17",
+    "experiments\\attention_gate\\step_10_2026-10-27\\gpu_guard_check_002\\verification.json": "cfd4c93a89edf1d976a84e6e8cba437ab24ee0df16d8206c3d6c3069317237d9"
+  },
+  "next_steps": [
+    "After training: CUDA pilot and full500 equivalence",
+    "Only after FP32 acceptance: FP16 and isolated latency/memory benchmark"
+  ],
+  "documentation_checked": [
+    "https://onnxruntime.ai/docs/api/python/api_summary.html",
+    "https://onnxruntime.ai/docs/performance/tune-performance/profiling-tools.html",
+    "https://onnxruntime.ai/docs/execution-providers/CUDA-ExecutionProvider.html#use_tf32"
+  ],
+  "limitations": "Two frozen A/C models, three existing validation images each, CPU only. No500-image acceptance, GPU inference, FPS, or physical embedded-device claim."
+}

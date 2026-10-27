@@ -72,6 +72,21 @@ def main():
             for relative,expected in proof['source_hashes'].items():
                 assert hashlib.sha256((ROOT/relative.replace('\\','/')).read_bytes()).hexdigest()==expected
         print('PASS: same-weight sensitivity and diagnosis linkage; D/E proof source identity when present.')
+    if (ROOT/'results/deployment_readiness.json').exists():
+        readiness=read('results/deployment_readiness.json')
+        verification=readiness['verification']
+        assert verification['status']=='pass' and verification['mode']=='pilot' and verification['backend']=='cpu'
+        assert verification['models']==2 and verification['images_per_model']==3
+        assert not verification['full500_metrics_verified'] and not verification['GPU_verified'] and not verification['latency_measured']
+        for relative,expected in verification['source_hashes'].items():
+            assert hashlib.sha256((ROOT/relative.replace('\\','/')).read_bytes()).hexdigest()==expected
+        assert readiness['GPU_concurrency_guard']['occupied_training_lock_rejected_before_model_or_ORT_session']
+        by_run={(r['variant'],r['seed']):r for r in rows}
+        for r in readiness['pilot']['results']:
+            assert r['status']=='pass' and r['images']==3 and r['profiled_images']==1
+            assert r['provider_evidence']['provider']=='CPUExecutionProvider'
+            assert r['weights_sha256']==by_run[(r['variant'],r['seed'])]['best_weights_sha256']
+        print('PASS: CPU-only deployment pilot scope, selected weights and source identity.')
     print(f'PASS: {len(hashes)} exact-byte source hashes, loader proof, 9 results and paired statistics.')
 
 

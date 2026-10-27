@@ -1,0 +1,38 @@
+{
+  "status": "pass",
+  "variants": {
+    "D": {
+      "completed_epochs": 58,
+      "completed_updates": 43152,
+      "checkpoint": "experiments/attention_gate/step_07_2026-10-26/DE_seed42_training_001/D_seed42_epochs002_100/checkpoints/epoch_058.pth",
+      "checkpoint_sha256": "253e542d93db277b80c37720f34c8cc9aa6178d567beea8705217b09edc56eeb",
+      "all_completed_history_verified": true,
+      "recent_mean_epoch_seconds": 480.89479228999915,
+      "timed_recent_epochs": 10
+    },
+    "E": {
+      "completed_epochs": 1,
+      "completed_updates": 744,
+      "checkpoint": "experiments/attention_gate/step_07_2026-10-26/DE_seed42_training_001/E_seed42_epoch001/checkpoints/epoch_001.pth",
+      "checkpoint_sha256": "1123b2b76687b08f3ad168b574afef70569dee799b3d4a247db1adc4c6268367",
+      "all_completed_history_verified": true,
+      "recent_mean_epoch_seconds": 492.2687241,
+      "timed_recent_epochs": 1
+    }
+  },
+  "completed_epochs": 59,
+  "target_epochs": 200,
+  "remaining_hours_rough": 18.8350460313583,
+  "estimate_basis": "D latest up to10 complete epochs; current partial epoch and launch overhead not deducted",
+  "training_interrupted": false,
+  "training_parameters_changed": false,
+  "GPU_used": false,
+  "sources_and_reviewed_evidence_unchanged": true,
+  "job_plan_sha256": "fc5c018541707cce87f29d6d01e0b4c95bd048ecf85fe72eafd01b023f8585ec",
+  "script_sha256": "a556a16b90ce7805364c1ba74657ec8e86b9f300b45fc2971f0d1f5f28bc286e",
+  "scope": "Interim checkpoint integrity, not final model comparison",
+  "source": {
+    "path": "experiments/attention_gate/step_07_2026-10-27/progress_audit_001/verification.json",
+    "sha256": "c6d3f3f808016fbf22eec27a50e235358254a9f543215e9a4e8cec87b81969bf"
+  }
+}
