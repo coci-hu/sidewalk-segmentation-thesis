@@ -1,0 +1,92 @@
+{
+  "snapshot_at": "2026-10-27T18:39:44+08:00",
+  "status": "D_complete_E_pending",
+  "results": [
+    {
+      "variant": "A",
+      "seed": 42,
+      "epochs": 100,
+      "best_epoch": 92,
+      "best_global_miou_pct": 81.03267822047478,
+      "best_sidewalk_iou_pct": 64.22263859964123,
+      "best_boundary_iou_pct": 53.043149041492974,
+      "best_weights": "experiments/attention_gate/step_05_2026-10-14/seed42_training_003/A_seed42_epochs002_100/best_weights/epoch_092.pth",
+      "final_checkpoint": "experiments/attention_gate/step_05_2026-10-14/seed42_training_003/A_seed42_epochs002_100/checkpoints/epoch_100.pth",
+      "final_checkpoint_sha256": "68c2424d7142fa747e04c7c569430cba03f54b0ccc779e48be4d30c5bc3bdf21",
+      "best_weights_sha256": "71ca9c869b1aec4ee5fc6eaa637e98cb3e2e0ab10ccedf5a1adbc8c4261f8218"
+    },
+    {
+      "variant": "B",
+      "seed": 42,
+      "epochs": 100,
+      "best_epoch": 84,
+      "best_global_miou_pct": 81.61975257085498,
+      "best_sidewalk_iou_pct": 65.30902666635309,
+      "best_boundary_iou_pct": 53.56698597261666,
+      "best_weights": "experiments/attention_gate/step_05_2026-10-14/seed42_training_003/B_seed42_epochs002_100/best_weights/epoch_084.pth",
+      "final_checkpoint": "experiments/attention_gate/step_05_2026-10-14/seed42_training_003/B_seed42_epochs002_100/checkpoints/epoch_100.pth",
+      "final_checkpoint_sha256": "d10dfe37e8d5dbe7c5f4754ec781edbc95fd39a0df120352b6b1db36eef9d770",
+      "best_weights_sha256": "2af2d3f8b2ece6ea1aab1d6224260e92e77070207177b030a00dd822715687f7"
+    },
+    {
+      "variant": "C",
+      "seed": 42,
+      "epochs": 100,
+      "best_epoch": 83,
+      "best_global_miou_pct": 81.7230266230949,
+      "best_sidewalk_iou_pct": 65.54020718344196,
+      "best_boundary_iou_pct": 54.066143393412716,
+      "best_weights": "experiments/attention_gate/step_06_2026-10-22/C_seed42_training_001/C_seed42_epochs002_100/best_weights/epoch_083.pth",
+      "final_checkpoint": "experiments/attention_gate/step_06_2026-10-22/C_seed42_training_001/C_seed42_epochs002_100/checkpoints/epoch_100.pth",
+      "final_checkpoint_sha256": "e6b9e3a782063a5341514e9016304b99ba37dfe4b60b646eab15b79a2e5fb49e",
+      "best_weights_sha256": "0db2ce76106624669d4dd3ff2bdcc8dd59f30c20a5eb47813476917b1c31b960"
+    },
+    {
+      "variant": "D",
+      "seed": 42,
+      "epochs": 100,
+      "best_epoch": 70,
+      "best_global_miou_pct": 81.69554741903772,
+      "best_sidewalk_iou_pct": 65.40561850555633,
+      "best_boundary_iou_pct": 53.35969885127867,
+      "alpha_at_selected_epoch": 0.10000000149011612,
+      "final_alpha": 0.10000000149011612,
+      "best_weights": "experiments/attention_gate/step_07_2026-10-26/DE_seed42_training_001/D_seed42_epochs002_100/best_weights/epoch_070.pth",
+      "best_weights_sha256": "590f227ac343c4a8b49408ecab4f89f66ee704e48adfe5b3e6ea97bcabb12b3a",
+      "final_checkpoint": "experiments/attention_gate/step_07_2026-10-26/DE_seed42_training_001/D_seed42_epochs002_100/checkpoints/epoch_100.pth",
+      "final_checkpoint_sha256": "c575c361ef61373cec33dfec9a5b39e282973dc9624f2bf57106d235f440d979"
+    }
+  ],
+  "D_minus_reference_percentage_points": {
+    "A": {
+      "best_global_miou_pct": 0.6628691985629445,
+      "best_sidewalk_iou_pct": 1.1829799059151043,
+      "best_boundary_iou_pct": 0.31654980978569824
+    },
+    "B": {
+      "best_global_miou_pct": 0.0757948481827384,
+      "best_sidewalk_iou_pct": 0.0965918392032421,
+      "best_boundary_iou_pct": -0.2072871213379912
+    },
+    "C": {
+      "best_global_miou_pct": -0.027479204057172524,
+      "best_sidewalk_iou_pct": -0.13458867788563111,
+      "best_boundary_iou_pct": -0.7064445421340437
+    }
+  },
+  "D_individual_screen_passed": false,
+  "pair_decision": "pending_E_100_epochs",
+  "full_DE_comparison_available": false,
+  "exploratory_seed_only": true,
+  "automatic_repeat_training_started": false,
+  "selection": "Earliest maximum validation global mIoU; all metrics use that same checkpoint",
+  "limitations": "One exploratory seed; validation used for checkpoint selection, not an independent test. Preserve frozen protocol and complete E before pair decision.",
+  "sources": {
+    "experiments\\attention_gate\\step_07_2026-10-27\\progress_audit_002\\verification.json": "a07f5f58acacd5f311fbd4522a2fc44b6bcf0338e2207e9328e52b9a2598c9df",
+    "results\\abc_summary.json": "0380173dbbc7a185db69b2f625211bddb48fbe110a33e4a81c74f41185b9ff78"
+  },
+  "audited_epochs": {
+    "D": 100,
+    "E": 27
+  }
+}

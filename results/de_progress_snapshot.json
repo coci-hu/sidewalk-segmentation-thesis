@@ -8,27 +8,27 @@
   ],
   "automatic_promotion": false,
   "scope": "Progress snapshot, not live telemetry or final accuracy",
-  "variant": "D",
+  "variant": "E",
   "stage": "remaining",
-  "completed_runs": 0,
-  "saved_completed_epoch": 60,
+  "completed_runs": 1,
+  "saved_completed_epoch": 28,
   "verified_first_epochs": {
     "D": true,
     "E": true
   },
   "verified_resumed_second_epochs": {
     "D": true,
-    "E": false
+    "E": true
   },
   "training": {
     "status": "running",
-    "variant": "D",
+    "variant": "E",
     "seed": 42,
-    "epoch": 61,
+    "epoch": 28,
     "target_epochs": 100,
-    "phase": "train",
-    "batches_completed": 50,
-    "batches_total": 744,
-    "elapsed_seconds": 28360.6984137
+    "phase": "validation",
+    "batches_completed": 500,
+    "batches_total": 500,
+    "elapsed_seconds": 12956.0648048
   }
 }
