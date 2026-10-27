@@ -11,28 +11,29 @@
       "timed_recent_epochs": 10
     },
     "E": {
-      "completed_epochs": 27,
-      "completed_updates": 20088,
-      "checkpoint": "experiments/attention_gate/step_07_2026-10-26/DE_seed42_training_001/E_seed42_epochs002_100/checkpoints/epoch_027.pth",
-      "checkpoint_sha256": "024a34e465210df5d5040dd3805652132378d1296a4476523b3b4ed135e7b859",
+      "completed_epochs": 54,
+      "completed_updates": 40176,
+      "checkpoint": "experiments/attention_gate/step_07_2026-10-26/DE_seed42_training_001/E_seed42_epochs002_100/checkpoints/epoch_054.pth",
+      "checkpoint_sha256": "082c4ef3b05e9138f8cd2ca0ddabc8a5d9d62dfa556e229de1db27822f5d4d7e",
       "all_completed_history_verified": true,
-      "recent_mean_epoch_seconds": 473.0113048299998,
+      "recent_mean_epoch_seconds": 533.4173022199997,
       "timed_recent_epochs": 10
     }
   },
-  "completed_epochs": 127,
+  "completed_epochs": 154,
   "target_epochs": 200,
-  "remaining_hours_rough": 9.716132986138913,
-  "estimate_basis": "D latest up to10 complete epochs; current partial epoch and launch overhead not deducted",
+  "snapshot_at": "2026-10-27T22:23:26+08:00",
+  "remaining_hours_rough": 6.815887750588884,
+  "estimate_basis": "Each variant latest up to10 complete epochs; current partial epoch and launch overhead not deducted",
   "training_interrupted": false,
   "training_parameters_changed": false,
   "GPU_used": false,
   "sources_and_reviewed_evidence_unchanged": true,
   "job_plan_sha256": "fc5c018541707cce87f29d6d01e0b4c95bd048ecf85fe72eafd01b023f8585ec",
-  "script_sha256": "a556a16b90ce7805364c1ba74657ec8e86b9f300b45fc2971f0d1f5f28bc286e",
+  "script_sha256": "8fd7bd9aeb2b8158432e40fd73a51038a3fd10c0d5e7f624929ed0c73f29c167",
   "scope": "Interim checkpoint integrity, not final model comparison",
   "source": {
-    "path": "experiments/attention_gate/step_07_2026-10-27/progress_audit_002/verification.json",
-    "sha256": "a07f5f58acacd5f311fbd4522a2fc44b6bcf0338e2207e9328e52b9a2598c9df"
+    "path": "experiments/attention_gate/step_07_2026-10-27/progress_audit_004/verification.json",
+    "sha256": "2d9896c26ced1fbcdef3d953e328851ad748a8d7b287ca31214076f27a3e893d"
   }
 }

@@ -2,6 +2,7 @@
 import os
 os.environ['CUDA_VISIBLE_DEVICES']='-1'
 import argparse
+import datetime
 import statistics
 from pathlib import Path
 import common_runner as core
@@ -28,16 +29,16 @@ def main(a):
         progress[entry['variant']]=dict(completed_epochs=epoch,completed_updates=epoch*744,
             checkpoint=str(checkpoint),checkpoint_sha256=before,all_completed_history_verified=True,
             recent_mean_epoch_seconds=statistics.mean(recent),timed_recent_epochs=len(recent))
-    elapsed_basis=progress['D']['recent_mean_epoch_seconds']
-    remaining=sum(100-r['completed_epochs'] for r in progress.values())
+    remaining_hours=sum((100-r['completed_epochs'])*r['recent_mean_epoch_seconds']/3600 for r in progress.values())
     a.output.mkdir(parents=True)
     core.json_write(a.output/'verification.json',dict(status='pass',variants=progress,
         completed_epochs=sum(r['completed_epochs'] for r in progress.values()),target_epochs=200,
-        remaining_hours_rough=remaining*elapsed_basis/3600,estimate_basis='D latest up to10 complete epochs; current partial epoch and launch overhead not deducted',
+        snapshot_at=datetime.datetime.now().astimezone().isoformat(timespec='seconds'),
+        remaining_hours_rough=remaining_hours,estimate_basis='Each variant latest up to10 complete epochs; current partial epoch and launch overhead not deducted',
         training_interrupted=False,training_parameters_changed=False,GPU_used=False,
         sources_and_reviewed_evidence_unchanged=True,job_plan_sha256=core.digest(a.job/'job_plan.json'),
         script_sha256=core.digest(__file__),scope='Interim checkpoint integrity, not final model comparison'))
-    print({v:r['completed_epochs'] for v,r in progress.items()},'remaining hours~',round(remaining*elapsed_basis/3600,1))
+    print({v:r['completed_epochs'] for v,r in progress.items()},'remaining hours~',round(remaining_hours,1))
 
 
 if __name__=='__main__':

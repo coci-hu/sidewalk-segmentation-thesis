@@ -86,6 +86,22 @@ def main():
             assert r['status']=='pass' and r['images']==3 and r['profiled_images']==1
             assert r['provider_evidence']['provider']=='CPUExecutionProvider'
             assert r['weights_sha256']==by_run[(r['variant'],r['seed'])]['best_weights_sha256']
+        seen={(r['variant'],r['seed']) for r in readiness['pilot']['results']}
+        for additional in readiness.get('additional_pilots',[]):
+            proof=additional['verification']
+            assert proof['status']=='pass' and proof['mode']=='pilot' and proof['backend']=='cpu'
+            assert proof['images_per_model']==3 and proof['models']==len(additional['pilot']['results'])
+            assert not proof['GPU_verified'] and not proof['full500_metrics_verified'] and not proof['latency_measured']
+            for relative,expected in proof['source_hashes'].items():
+                assert hashlib.sha256((ROOT/relative.replace('\\','/')).read_bytes()).hexdigest()==expected
+            for r in additional['pilot']['results']:
+                identity=(r['variant'],r['seed'])
+                assert identity not in seen
+                seen.add(identity)
+                assert r['status']=='pass' and r['images']==3 and r['profiled_images']==1
+                assert r['provider_evidence']['provider']=='CPUExecutionProvider'
+                assert r['weights_sha256']==by_run[identity]['best_weights_sha256']
+                assert r['selected_epoch']==by_run[identity]['best_epoch']
         print('PASS: CPU-only deployment pilot scope, selected weights and source identity.')
     print(f'PASS: {len(hashes)} exact-byte source hashes, loader proof, 9 results and paired statistics.')
 

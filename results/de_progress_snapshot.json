@@ -11,7 +11,7 @@
   "variant": "E",
   "stage": "remaining",
   "completed_runs": 1,
-  "saved_completed_epoch": 28,
+  "saved_completed_epoch": 54,
   "verified_first_epochs": {
     "D": true,
     "E": true
@@ -24,11 +24,11 @@
     "status": "running",
     "variant": "E",
     "seed": 42,
-    "epoch": 28,
+    "epoch": 55,
     "target_epochs": 100,
-    "phase": "validation",
-    "batches_completed": 500,
-    "batches_total": 500,
-    "elapsed_seconds": 12956.0648048
+    "phase": "train",
+    "batches_completed": 400,
+    "batches_total": 744,
+    "elapsed_seconds": 26413.7051216
   }
 }

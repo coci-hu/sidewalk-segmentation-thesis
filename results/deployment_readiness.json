@@ -229,5 +229,124 @@
     "https://onnxruntime.ai/docs/performance/tune-performance/profiling-tools.html",
     "https://onnxruntime.ai/docs/execution-providers/CUDA-ExecutionProvider.html#use_tf32"
   ],
-  "limitations": "Two frozen A/C models, three existing validation images each, CPU only. No500-image acceptance, GPU inference, FPS, or physical embedded-device claim."
+  "limitations": "Frozen selected models, three existing validation images each, CPU only. No500-image acceptance, GPU inference, FPS, or physical embedded-device claim.",
+  "additional_pilots": [
+    {
+      "pilot": {
+        "results": [
+          {
+            "status": "pass",
+            "images": 3,
+            "limits": {
+              "logit_rtol": 0.001,
+              "logit_atol": 0.0001,
+              "argmax_disagreement_fraction": 0.001,
+              "metric_difference_pp": 0.05
+            },
+            "checks": {
+              "logits_allclose": true,
+              "argmax_disagreement": true,
+              "regional_metrics": true
+            },
+            "metrics": {
+              "pytorch": {
+                "confusion": [
+                  [
+                    2247190,
+                    15619
+                  ],
+                  [
+                    12836,
+                    83651
+                  ]
+                ],
+                "sidewalk_iou_pct": 74.6177724653453,
+                "boundary_iou_pct": 59.992782770469,
+                "boundary_valid_images": 3,
+                "boundary_excluded_images": 0
+              },
+              "onnx": {
+                "confusion": [
+                  [
+                    2247190,
+                    15619
+                  ],
+                  [
+                    12836,
+                    83651
+                  ]
+                ],
+                "sidewalk_iou_pct": 74.6177724653453,
+                "boundary_iou_pct": 59.992782770469,
+                "boundary_valid_images": 3,
+                "boundary_excluded_images": 0
+              }
+            },
+            "absolute_metric_difference_pp": {
+              "sidewalk_iou_pct": 0.0,
+              "boundary_iou_pct": 0.0
+            },
+            "argmax_disagreement_fraction": 0.0,
+            "maximum_absolute_logit_error": 5.650520324707031e-05,
+            "name": "B_seed42",
+            "variant": "B",
+            "seed": 42,
+            "selected_epoch": 84,
+            "weights_sha256": "2af2d3f8b2ece6ea1aab1d6224260e92e77070207177b030a00dd822715687f7",
+            "onnx_sha256": "a0e17ef86a5bd7ebd56d186424d3555c7d7f90ed63f1efabfc4d99a3229a1736",
+            "provider_evidence": {
+              "provider": "CPUExecutionProvider",
+              "node_executions": {
+                "CPUExecutionProvider": 259
+              },
+              "unique_node_names": 259
+            },
+            "provider_options": {
+              "CPUExecutionProvider": {}
+            },
+            "profiled_images": 1,
+            "profile_sha256": "34b7cab9540ba32a030cc314d672ba7813c526ecc760e5d2d8c68419d6f7460e"
+          }
+        ],
+        "mode": "pilot",
+        "backend": "cpu"
+      },
+      "verification": {
+        "status": "pass",
+        "mode": "pilot",
+        "backend": "cpu",
+        "models": 1,
+        "images_per_model": 3,
+        "source_hashes": {
+          "experiments\\attention_gate\\common_runner.py": "2d0ba323e7638538b9c4c2f3b229213a5b92d5232c856f9bd536534e8fcd49f0",
+          "experiments\\attention_gate\\metrics_v1.py": "2426f7838b90cce6f11b11315828c740846f735ffcba4523972fbce9a4ee2751",
+          "experiments\\attention_gate\\protocol_v1_1.json": "3990842dd4f56304506fb6d4abe5b3a8b3f8e5628675a3e412ea81419a377d58",
+          "code\\model_enet.py": "e0b99d9d862b09eec0781f374071a8f9b7c584d537d3f4761bc5d0c4d4da909b",
+          "code\\model_enet_ca.py": "a875c11bd9d95e8235622677d47cd7ea88c0064e283e0a53320fcd5a3f44b945",
+          "code\\components\\ca_attention.py": "b676ac179e5ee2e9c5bfefbc7f4837aee08832e713fe48f927ed576bf06ab322",
+          "experiments\\attention_gate\\common_runner_v2.py": "03a7238c77ec95ecde1480bd10c807ff5ee93e7072db6fdb93506cd85f05d5f4",
+          "experiments\\attention_gate\\protocol_v1_2.json": "2c50a1cbabfe3b4c4f0258dbbd7e976cbe80ca14fbc170c6e2b8b68e338e9765",
+          "experiments\\attention_gate\\step_05_2026-10-14\\loader_optimization_001\\verification.json": "8e594844a9ce77ed7188671d34814f57f9648ee841ef0a9dc4e63f92bb9887c0",
+          "experiments\\attention_gate\\common_runner_c.py": "05c9f3dcfbcdbb620882e57bef7a7409c2cd765176388bfe7c18565b57f24fbc",
+          "experiments\\attention_gate\\ca_hswish_control.py": "75d16afe2e9922df2d366d50eaa841321cfef2bba841da959d3818164b8be416",
+          "experiments\\attention_gate\\step_06_2026-10-14\\preparation_001\\author_reference\\coordatt.py": "c40cc881d0a23b64c886274a9d8df7d13f04b6ec4fc935c3b281a82998f9ebfc",
+          "experiments\\attention_gate\\step_06_2026-10-14\\preparation_001\\author_reference\\source.json": "59cabe2e37b1b258b72eab764202330be0187cab5063d5f2b738faa98bf80a6a",
+          "experiments\\attention_gate\\common_runner_mixed.py": "5baf19ff803717d7eebf27a5555ddf16728ad6eb152d8e749780540a9bc58fd5",
+          "experiments\\attention_gate\\mixed_ca_candidate.py": "9546a2381bdbff95969695747a454ac748c5c025584a1db35402fb89356c3d35",
+          "experiments\\attention_gate\\validate_deployment_fp32.py": "89cf966c3124bd75166b77000f60259bec0cdf5b8118860bab71bbc802a9b0fb",
+          "experiments\\attention_gate\\deployment_equivalence.py": "036bd43c2046809452cc4cf290dc2b29a25498934fffa14a209cb5512f3c870d"
+        },
+        "model_and_graph_hashes_unchanged": true,
+        "same_input_metrics_and_actual_node_provider_checked": true,
+        "full500_metrics_verified": false,
+        "GPU_verified": false,
+        "latency_measured": false,
+        "training_modified": false
+      },
+      "sources": {
+        "experiments\\attention_gate\\step_10_2026-10-27\\B_fp32_cpu_pilot_001\\results.json": "ae07cb6c04419d5a4862a5135778823c68a83e0c0c0fe11502a1a41682eb4157",
+        "experiments\\attention_gate\\step_10_2026-10-27\\B_fp32_cpu_pilot_001\\verification.json": "854d4b7fb6ef8fe430c5019946bd5cce4b27204dfb4b57d54bdd22c81ce1ca52"
+      }
+    }
+  ]
 }
