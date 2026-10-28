@@ -50,6 +50,17 @@ def main(a):
                     for relative,expected in item['verification']['source_hashes'].items(): assert digest(ROOT/relative)==expected
                 report['additional_pilots']=old['additional_pilots']
                 report['limitations']=old['limitations']
+    # CPU pilot evidence stays intact; expose the latest GPU acceptance separately.
+    for relative in ('results/deployment_cuda_fp32_preserved_bn.json','results/deployment_cuda_fp32.json'):
+        path=ROOT/relative
+        if not path.exists(): continue
+        gpu=read(path)
+        report['latest_cuda_full_validation']=dict(path=relative,sha256=digest(path),status=gpu['status'],
+            full500_acceptance_passed=gpu['full500_acceptance_passed'],execution=gpu['execution'])
+        report['next_steps']=(['FP16 equivalence under a separately declared precision protocol','Isolated latency/memory benchmark and application validation']
+            if gpu['full500_acceptance_passed'] else ['Resolve FP32 numerical gate failures without silent tolerance relaxation','Repeat full500 acceptance before FP16 or latency conclusions'])
+        report['limitations']='CPU pilot evidence is historical; latest CUDA full-validation state is reported separately. NoFPS or physical embedded-device claim.'
+        break
     dump(ROOT/'results/deployment_readiness.json',sanitize(report))
     audit=read(progress)
     assert audit['status']=='pass'

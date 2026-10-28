@@ -11,19 +11,19 @@
       "timed_recent_epochs": 10
     },
     "E": {
-      "completed_epochs": 54,
-      "completed_updates": 40176,
-      "checkpoint": "experiments/attention_gate/step_07_2026-10-26/DE_seed42_training_001/E_seed42_epochs002_100/checkpoints/epoch_054.pth",
-      "checkpoint_sha256": "082c4ef3b05e9138f8cd2ca0ddabc8a5d9d62dfa556e229de1db27822f5d4d7e",
+      "completed_epochs": 100,
+      "completed_updates": 74400,
+      "checkpoint": "experiments/attention_gate/step_07_2026-10-26/DE_seed42_training_001/E_seed42_epochs002_100/checkpoints/epoch_100.pth",
+      "checkpoint_sha256": "03e9bf72c7ecc6b8806e2364a571f3522c4d5d216973aaf7cc44c692406eed92",
       "all_completed_history_verified": true,
-      "recent_mean_epoch_seconds": 533.4173022199997,
+      "recent_mean_epoch_seconds": 485.25549215000063,
       "timed_recent_epochs": 10
     }
   },
-  "completed_epochs": 154,
+  "completed_epochs": 200,
   "target_epochs": 200,
-  "snapshot_at": "2026-10-27T22:23:26+08:00",
-  "remaining_hours_rough": 6.815887750588884,
+  "snapshot_at": "2026-10-28T18:31:43+08:00",
+  "remaining_hours_rough": 0.0,
   "estimate_basis": "Each variant latest up to10 complete epochs; current partial epoch and launch overhead not deducted",
   "training_interrupted": false,
   "training_parameters_changed": false,
@@ -33,7 +33,7 @@
   "script_sha256": "8fd7bd9aeb2b8158432e40fd73a51038a3fd10c0d5e7f624929ed0c73f29c167",
   "scope": "Interim checkpoint integrity, not final model comparison",
   "source": {
-    "path": "experiments/attention_gate/step_07_2026-10-27/progress_audit_004/verification.json",
-    "sha256": "2d9896c26ced1fbcdef3d953e328851ad748a8d7b287ca31214076f27a3e893d"
+    "path": "experiments/attention_gate/step_07_2026-10-28/final_audit_001/verification.json",
+    "sha256": "ac4f3337b34bfb43915732913d21ec38aa7f4407987d2a094698a9bfb19cab0f"
   }
 }

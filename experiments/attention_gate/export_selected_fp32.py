@@ -24,6 +24,7 @@ def main(a):
     if not out.is_relative_to(core.HERE) or out==core.HERE or out.exists():
         raise ValueError('Use a new output directory inside attention_gate')
     torch.set_num_threads(1)
+    disabled=['ConvBNFusion','ConvActivationFusion'] if a.preserve_bn else []
     registry_hash=core.digest(a.selected_results)
     rows=json.loads(a.selected_results.read_text(encoding='utf-8'))['results']
     selected=[]
@@ -60,10 +61,13 @@ def main(a):
             with torch.inference_mode():
                 reference=model(tensor).numpy()
                 torch.onnx.export(model,tensor,str(path),export_params=True,opset_version=17,
-                    input_names=['image'],output_names=['logits'],do_constant_folding=True)
+                    input_names=['image'],output_names=['logits'],do_constant_folding=not a.preserve_bn)
             onnx.checker.check_model(onnx.load(str(path)))
             options=ort.SessionOptions(); options.intra_op_num_threads=1; options.inter_op_num_threads=1
-            session=ort.InferenceSession(str(path),sess_options=options,providers=['CPUExecutionProvider'])
+            if a.preserve_bn:
+                assert any(n.op_type=='BatchNormalization' for n in onnx.load(str(path)).graph.node)
+                options.graph_optimization_level=ort.GraphOptimizationLevel.ORT_ENABLE_EXTENDED
+            session=ort.InferenceSession(str(path),sess_options=options,providers=['CPUExecutionProvider'],disabled_optimizers=disabled)
             session.disable_fallback()
             assert session.get_providers()==['CPUExecutionProvider']
             exported=session.run(['logits'],{'image':tensor.numpy()})[0]
@@ -88,9 +92,11 @@ def main(a):
         for path,sha in sources.items(): assert core.digest(core.PROJECT/path)==sha
         core.json_write(out/'models.json',dict(models=entries,height=768,width=1024,
             mean=[.485,.456,.406],std=[.229,.224,.225],
+            execution=dict(disabled_optimizers=disabled),
             scope='One-image CPU export preflight. Run validate_deployment_fp32 for profiled pilot and full500 acceptance.'))
         core.json_write(out/'verification.json',dict(status='pass',models=len(entries),images_per_model=1,
             source_hashes=sources,selected_results_sha256=registry_hash,data_manifest=manifest,
+            preserve_bn=a.preserve_bn,disabled_optimizers=disabled,
             weights_and_model_state_unchanged=True,onnx_checker_pass=True,CPU_logits_checked=True,
             CUDA_initialized=False,GPU_verified=False,full500_metrics_verified=False,latency_measured=False))
     except Exception:
@@ -103,4 +109,5 @@ if __name__=='__main__':
     p.add_argument('--selected-results',type=Path,default=core.PROJECT/'results/abc_summary.json')
     p.add_argument('--variants',nargs='+',choices=list('ABCDE'),required=True)
     p.add_argument('--output',type=Path,required=True)
+    p.add_argument('--preserve-bn',action='store_true',help='Keep BatchNormalization explicit and disable ConvBN/ConvActivation fusion')
     main(p.parse_args())

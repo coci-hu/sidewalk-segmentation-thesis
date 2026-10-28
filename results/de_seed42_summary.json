@@ -1,0 +1,80 @@
+{
+  "results": [
+    {
+      "variant": "A",
+      "seed": 42,
+      "epochs": 100,
+      "best_epoch": 92,
+      "best_global_miou_pct": 81.03267822047478,
+      "best_sidewalk_iou_pct": 64.22263859964123,
+      "best_boundary_iou_pct": 53.043149041492974,
+      "best_weights": "experiments/attention_gate/step_05_2026-10-14/seed42_training_003/A_seed42_epochs002_100/best_weights/epoch_092.pth",
+      "final_checkpoint": "experiments/attention_gate/step_05_2026-10-14/seed42_training_003/A_seed42_epochs002_100/checkpoints/epoch_100.pth",
+      "final_checkpoint_sha256": "68c2424d7142fa747e04c7c569430cba03f54b0ccc779e48be4d30c5bc3bdf21"
+    },
+    {
+      "variant": "B",
+      "seed": 42,
+      "epochs": 100,
+      "best_epoch": 84,
+      "best_global_miou_pct": 81.61975257085498,
+      "best_sidewalk_iou_pct": 65.30902666635309,
+      "best_boundary_iou_pct": 53.56698597261666,
+      "best_weights": "experiments/attention_gate/step_05_2026-10-14/seed42_training_003/B_seed42_epochs002_100/best_weights/epoch_084.pth",
+      "final_checkpoint": "experiments/attention_gate/step_05_2026-10-14/seed42_training_003/B_seed42_epochs002_100/checkpoints/epoch_100.pth",
+      "final_checkpoint_sha256": "d10dfe37e8d5dbe7c5f4754ec781edbc95fd39a0df120352b6b1db36eef9d770"
+    },
+    {
+      "variant": "C",
+      "seed": 42,
+      "epochs": 100,
+      "best_epoch": 83,
+      "best_global_miou_pct": 81.7230266230949,
+      "best_sidewalk_iou_pct": 65.54020718344196,
+      "best_boundary_iou_pct": 54.066143393412716,
+      "best_weights": "experiments/attention_gate/step_06_2026-10-22/C_seed42_training_001/C_seed42_epochs002_100/best_weights/epoch_083.pth",
+      "final_checkpoint": "experiments/attention_gate/step_06_2026-10-22/C_seed42_training_001/C_seed42_epochs002_100/checkpoints/epoch_100.pth",
+      "final_checkpoint_sha256": "e6b9e3a782063a5341514e9016304b99ba37dfe4b60b646eab15b79a2e5fb49e"
+    },
+    {
+      "variant": "D",
+      "seed": 42,
+      "epochs": 100,
+      "best_epoch": 70,
+      "best_global_miou_pct": 81.69554741903772,
+      "best_sidewalk_iou_pct": 65.40561850555633,
+      "best_boundary_iou_pct": 53.35969885127867,
+      "alpha_at_selected_epoch": 0.10000000149011612,
+      "final_alpha": 0.10000000149011612,
+      "best_weights": "experiments/attention_gate/step_07_2026-10-26/DE_seed42_training_001/D_seed42_epochs002_100/best_weights/epoch_070.pth",
+      "final_checkpoint": "experiments/attention_gate/step_07_2026-10-26/DE_seed42_training_001/D_seed42_epochs002_100/checkpoints/epoch_100.pth",
+      "best_weights_sha256": "590f227ac343c4a8b49408ecab4f89f66ee704e48adfe5b3e6ea97bcabb12b3a",
+      "final_checkpoint_sha256": "c575c361ef61373cec33dfec9a5b39e282973dc9624f2bf57106d235f440d979"
+    },
+    {
+      "variant": "E",
+      "seed": 42,
+      "epochs": 100,
+      "best_epoch": 73,
+      "best_global_miou_pct": 81.7592515910063,
+      "best_sidewalk_iou_pct": 65.57732616341589,
+      "best_boundary_iou_pct": 53.54318621654583,
+      "alpha_at_selected_epoch": 0.2067127823829651,
+      "final_alpha": 0.20879653096199036,
+      "best_weights": "experiments/attention_gate/step_07_2026-10-26/DE_seed42_training_001/E_seed42_epochs002_100/best_weights/epoch_073.pth",
+      "final_checkpoint": "experiments/attention_gate/step_07_2026-10-26/DE_seed42_training_001/E_seed42_epochs002_100/checkpoints/epoch_100.pth",
+      "best_weights_sha256": "90b8c042387f9f96dc8b809f78652cf25d6e6657bd002873e22f1433305bca1b",
+      "final_checkpoint_sha256": "03e9bf72c7ecc6b8806e2364a571f3522c4d5d216973aaf7cc44c692406eed92"
+    }
+  ],
+  "promotion_screen_passed": false,
+  "candidates_passing_screen": [],
+  "exploratory_seed_only": true,
+  "automatic_repeat_training_started": false,
+  "decision_rule": "If any candidate passes, review then repeat BOTH D/E seeds43/44. Compare A/B/C as well.",
+  "source": {
+    "path": "experiments/attention_gate/step_07_2026-10-26/DE_seed42_training_001/seed42_ABCDE_results.json",
+    "sha256": "6f4469a6ab1d867534d3e3d1d90e0aa3e5d2a9358865a5b01b0b8507c4c4a391",
+    "verification_sha256": "4af48e137130c4e2d73e16ac29a2c8669e4b322f5a5fb5f7f3320373cad68db7"
+  }
+}

@@ -103,6 +103,77 @@ def main():
                 assert r['weights_sha256']==by_run[identity]['best_weights_sha256']
                 assert r['selected_epoch']==by_run[identity]['best_epoch']
         print('PASS: CPU-only deployment pilot scope, selected weights and source identity.')
+    if (ROOT/'results/de_review.json').exists():
+        review=read('results/de_review.json')
+        assert review['status']=='pass' and review['exploratory_seed_only']
+        indexed={r['variant']:r for r in review['results']}
+        assert len(review['results'])==5 and set(indexed)==set('ABCDE')
+        assert all(r['seed']==42 and r['epochs']==100 for r in indexed.values())
+        for old in rows:
+            if old['seed']==42:
+                assert all(indexed[old['variant']][k]==old[k] for k in metrics+('best_epoch','best_weights_sha256'))
+        passing=[v for v in 'DE' if all(indexed[v][k]>=indexed['C'][k] for k in metrics[1:])
+            and any(indexed[v][k]>indexed['C'][k] for k in metrics[1:])]
+        assert passing==review['candidates_passing_screen']
+        assert review['decision']==('review_and_repeat_both_candidates' if passing else 'stop_DE_branch_and_continue_baseline_deployment')
+        for name,difference in review['paired_percentage_points'].items():
+            first,second=name.split('_minus_')
+            for metric in metrics: assert abs(difference[metric]-(indexed[first][metric]-indexed[second][metric]))<1e-12
+        for relative,expected in review['sources'].items():
+            relative=relative.replace('\\','/')
+            if relative.startswith(('tools/','results/')):
+                assert hashlib.sha256((ROOT/relative).read_bytes()).hexdigest()==expected
+        print('PASS: D/E full results, paired differences and frozen screening decision.')
+    for cuda_path in ('results/deployment_cuda_fp32.json','results/deployment_cuda_fp32_preserved_bn.json'):
+        if not (ROOT/cuda_path).exists(): continue
+        cuda=read(cuda_path)
+        assert cuda['raw_aggregate_reconstruction_passed'] and cuda['actual_cuda_nodes_verified']
+        assert cuda['precision']==dict(dtype='float32',pytorch_tf32=False,onnx_cuda_use_tf32=0)
+        assert len(cuda['results'])==3 and {r['variant'] for r in cuda['results']}==set('ABC')
+        passed=all(r['status']=='pass' for r in cuda['results'])
+        assert (cuda['status']=='pass')==cuda['full500_acceptance_passed']==cuda['FP16_may_start']==passed
+        assert not cuda['latency_measured']
+        for relative,expected in cuda['verification']['source_hashes'].items():
+            assert hashlib.sha256((ROOT/relative.replace('\\','/')).read_bytes()).hexdigest()==expected
+        by_run={(r['variant'],r['seed']):r for r in rows}
+        for r in cuda['results']:
+            original=by_run[(r['variant'],42)]
+            assert r['images']==500 and r['seed']==42 and r['selected_epoch']==original['best_epoch']
+            assert r['weights_sha256']==original['best_weights_sha256']
+            assert r['provider_evidence']['provider']=='CUDAExecutionProvider'
+            assert set(r['provider_evidence']['node_executions'])=={'CUDAExecutionProvider'}
+            assert r['provider_options']['CUDAExecutionProvider']['use_tf32']=='0'
+            assert r['limits']==dict(logit_rtol=.001,logit_atol=.0001,argmax_disagreement_fraction=.001,metric_difference_pp=.05)
+            assert (r['status']=='pass')==all(r['checks'].values())
+            for backend in ('pytorch','onnx'):
+                matrix=r['metrics'][backend]['confusion']
+                assert sum(map(sum,matrix))==500*768*1024
+        if cuda.get('execution',{}).get('export_variant')=='preserved_BN':
+            assert cuda['execution']['disabled_optimizers']==['ConvBNFusion','ConvActivationFusion']
+            for r in cuda['results']:
+                assert r['disabled_optimizers']==cuda['execution']['disabled_optimizers']
+                assert r['original_BN_nodes']==r['optimized_BN_nodes']>0
+        print('PASS: CUDA full500 evidence scope, source identity, provider and acceptance linkage.')
+    if (ROOT/'results/de_exploration_plot.json').exists():
+        plot=read('results/de_exploration_plot.json')
+        for field,relative in [('review_sha256','results/de_review.json'),('script_sha256','tools/plot_de_exploration.py'),
+                ('png_sha256','results/de_exploration.png'),('svg_sha256','results/de_exploration.svg')]:
+            assert hashlib.sha256((ROOT/relative).read_bytes()).hexdigest()==plot[field]
+    if (ROOT/'results/fp32_numerical_diagnosis.json').exists():
+        diagnosis=read('results/fp32_numerical_diagnosis.json')
+        assert diagnosis['status']=='diagnosis_complete' and not diagnosis['tolerance_or_weights_changed']
+        assert diagnosis['reexport']['all_three_graph_hashes_equal_probe']
+        for relative,expected in diagnosis['reexport']['source_hashes'].items():
+            assert hashlib.sha256((ROOT/relative.replace('\\','/')).read_bytes()).hexdigest()==expected
+        guard=diagnosis['GPU_guard']
+        assert guard['status']=='pass' and guard['GPU_validation_lock_rejected'] and not guard['model_or_ORT_session_started']
+        assert hashlib.sha256((ROOT/'experiments/attention_gate/validate_deployment_fp32_preserved_bn.py').read_bytes()).hexdigest()==guard['validator_sha256']
+        repaired=diagnosis['repaired_full500']
+        if repaired['status']!='pending':
+            path=ROOT/'results/deployment_cuda_fp32_preserved_bn.json'
+            assert hashlib.sha256(path.read_bytes()).hexdigest()==repaired['source_sha256']
+            assert repaired['passed']==read(path)['full500_acceptance_passed']
+        print('PASS: failed-gate history, reproducible BN export and actual GPU lock guard.')
     print(f'PASS: {len(hashes)} exact-byte source hashes, loader proof, 9 results and paired statistics.')
 
 

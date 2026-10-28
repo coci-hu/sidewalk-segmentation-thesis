@@ -1,17 +1,17 @@
 {
-  "snapshot_date": "2026-10-27",
-  "status": "running",
-  "results_available": false,
+  "snapshot_date": "2026-10-28",
+  "status": "complete",
+  "results_available": true,
   "planned": [
     "D42: fixed alpha=.1,100 epochs",
     "E42: learned alpha from .1,100 epochs"
   ],
   "automatic_promotion": false,
-  "scope": "Progress snapshot, not live telemetry or final accuracy",
-  "variant": "E",
-  "stage": "remaining",
-  "completed_runs": 1,
-  "saved_completed_epoch": 54,
+  "scope": "Completed D/E seed42 exploration; final metrics available in de_seed42_summary.json",
+  "variant": null,
+  "stage": null,
+  "completed_runs": 2,
+  "saved_completed_epoch": 100,
   "verified_first_epochs": {
     "D": true,
     "E": true
@@ -20,15 +20,9 @@
     "D": true,
     "E": true
   },
-  "training": {
-    "status": "running",
-    "variant": "E",
-    "seed": 42,
-    "epoch": 55,
-    "target_epochs": 100,
-    "phase": "train",
-    "batches_completed": 400,
-    "batches_total": 744,
-    "elapsed_seconds": 26413.7051216
+  "training": {},
+  "completed_epochs_by_variant": {
+    "D": 100,
+    "E": 100
   }
 }

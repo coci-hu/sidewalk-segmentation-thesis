@@ -1,5 +1,5 @@
 {
-  "snapshot_date": "2026-10-27",
+  "snapshot_date": "2026-10-28",
   "pilot": {
     "results": [
       {
@@ -221,15 +221,15 @@
     "experiments\\attention_gate\\step_10_2026-10-27\\gpu_guard_check_002\\verification.json": "cfd4c93a89edf1d976a84e6e8cba437ab24ee0df16d8206c3d6c3069317237d9"
   },
   "next_steps": [
-    "After training: CUDA pilot and full500 equivalence",
-    "Only after FP32 acceptance: FP16 and isolated latency/memory benchmark"
+    "FP16 equivalence under a separately declared precision protocol",
+    "Isolated latency/memory benchmark and application validation"
   ],
   "documentation_checked": [
     "https://onnxruntime.ai/docs/api/python/api_summary.html",
     "https://onnxruntime.ai/docs/performance/tune-performance/profiling-tools.html",
     "https://onnxruntime.ai/docs/execution-providers/CUDA-ExecutionProvider.html#use_tf32"
   ],
-  "limitations": "Frozen selected models, three existing validation images each, CPU only. No500-image acceptance, GPU inference, FPS, or physical embedded-device claim.",
+  "limitations": "CPU pilot evidence is historical; latest CUDA full-validation state is reported separately. NoFPS or physical embedded-device claim.",
   "additional_pilots": [
     {
       "pilot": {
@@ -348,5 +348,18 @@
         "experiments\\attention_gate\\step_10_2026-10-27\\B_fp32_cpu_pilot_001\\verification.json": "854d4b7fb6ef8fe430c5019946bd5cce4b27204dfb4b57d54bdd22c81ce1ca52"
       }
     }
-  ]
+  ],
+  "latest_cuda_full_validation": {
+    "path": "results/deployment_cuda_fp32_preserved_bn.json",
+    "sha256": "d48abaa943674d737382024f770b6fd0905102a4b8e48a7430bb542c9ce0ae71",
+    "status": "pass",
+    "full500_acceptance_passed": true,
+    "execution": {
+      "export_variant": "preserved_BN",
+      "disabled_optimizers": [
+        "ConvBNFusion",
+        "ConvActivationFusion"
+      ]
+    }
+  }
 }

@@ -60,6 +60,8 @@ def main(snapshot_date=None):
             sha256=digest(folder/'seed42_ABCDE_results.json'),verification_sha256=digest(folder/'final_verification.json'))
         dump(ROOT/'results/de_seed42_summary.json',sanitize(final))
         snapshot['results_available']=True
+        snapshot.update(status='complete',completed_epochs_by_variant={v:100 for v in 'DE'},
+            saved_completed_epoch=100,training={},scope='Completed D/E seed42 exploration; final metrics available in de_seed42_summary.json')
     dump(ROOT/'results/de_progress_snapshot.json',snapshot)
     print('Exported verified sensitivity, diagnosis and actual D/E progress snapshot.')
 

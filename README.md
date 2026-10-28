@@ -6,7 +6,7 @@
 
 ## 当前进度
 
-截至 2026-10-27，A/B/C 各三个配对种子（42、43、44），共 9 次 100 轮训练已完成且通过完整性核验。以下使用各自最早达到最高验证集 global mIoU 的同一权重，报告均值 ± 样本标准差，单位为百分数。
+截至 2026-10-28，A/B/C 各三个配对种子（42、43、44），共 9 次 100 轮训练已完成且通过完整性核验。以下使用各自最早达到最高验证集 global mIoU 的同一权重，报告均值 ± 样本标准差，单位为百分数。
 
 | 方案 | global mIoU | 人行道 IoU | 人行道 Boundary IoU |
 |---|---:|---:|---:|
@@ -24,15 +24,23 @@ B 相对 A 在三个种子上均提升；C 相对 B 的平均人行道 IoU 下�
 
 B/C 六组权重在原固定 54 张训练图上各完成 10 种诊断干预。能量匹配后打乱门控仍使表现下降，但人行道特征保留比例没有低于背景；现有证据不支持普遍失效、门控塌缩或选择性压制人行道。推理干预可能改变解码器和 BN 输入分布，不能代替训练对照。见 [诊断结果](results/bc_diagnosis_summary.json)。
 
-D/E 已通过完整输入尺寸的 GPU 检查、独立进程恢复逐位一致性和 19 项监督验收检查，进入种子 42 正式训练。D 固定 α=0.1；E 从相同 α 开始学习一个标量，β 单独使用零权重衰减。两组均完整 100 轮，先分别检查首轮，再恢复余下轮次；不会按短跑精度挑选。完成后按事先约定的规则判断是否同时补两组的 43、44 种子，并同时比较 A/B/C 和 E 相对 D 的收益。[验收依据](results/de_acceptance.json)与[进度快照](results/de_progress_snapshot.json)可追溯；快照并非实时监控，尚无 D/E 最终精度结论。
+D/E 各完成种子 42 的 100 轮探索，并通过完整检查点、配对样本顺序、最终随机状态及历史文件保护核验。D 固定 α=0.1；E 学习 α，最终为 0.208797。以下为同一种子、按验证集 global mIoU 选定同一权重的结果，不能与上面的三种子均值混为一组。
 
-随后开展部署误差与延迟验证。已有 ONNX 和视频原型仅通过有限 CPU 检查，真实边缘设备和长视频验证尚未完成。全量 FP32 一致性通过后才做 FP16 与公平计时，不与训练并行测速。
+| 方案 | 所选轮次 | global mIoU | 人行道 IoU | Boundary IoU |
+|---|---:|---:|---:|---:|
+| C：h-swish CA | 83 | 81.723 | 65.540 | 54.066 |
+| D：固定混合系数 | 70 | 81.696 | 65.406 | 53.360 |
+| E：学习混合系数 | 73 | 81.759 | 65.577 | 53.543 |
 
-2026-10-27 结果检查：D 已完成 100 轮并通过完整断点核验；E 已自动恢复训练，本次核验覆盖其前 27 轮。D 按既定规则选中第 70 轮，人行道 IoU 为 65.406%，26 像素 Boundary IoU 为 53.360%，相对同种子 C 分别下降 0.135、0.706 个百分点，未通过单候选筛选条件。该结果仅为种子 42 的探索性结果；继续完成 E 的 100 轮，再按原规则判断是否补齐两组种子，不据中途精度调整方案。详见[已完成 D 的结果与限制](results/de_seed42_partial.json)和[断点核验快照](results/de_checkpoint_audit.json)。
+E 相对 C 的人行道 IoU 提升 0.037 个百分点，Boundary IoU 下降 0.523 个百分点；D 两项均低于 C。两者都未通过事先声明的“至少一项提高、另一项不下降”条件，因此结束这条探索分支，不补 D/E 的 43、44 种子。E 相对 D 的两项提升仅属单种子观察；不会改用 global mIoU 绕过原筛选条件。完整结果和决定见 [D/E 结果](results/de_seed42_summary.json)及[结果复核](results/de_review.json)。
 
-已准备 FP32 部署一致性入口，并在 A/C 两个冻结模型、各 3 张既有验证图上通过 CPU 试运行：逐元素数值、argmax、区域及边界指标符合既定阈值，实际节点后端确认为 CPU。9 项合成检查覆盖错误拒绝与指标聚合；实际 CUDA 入口在训练占用 GPU 锁时拒绝启动。GPU 路径、完整 500 图和性能测量仍待训练结束后验证，见[部署准备凭据](results/deployment_readiness.json)。新入口显式记录精度设置与实际执行后端，禁止无提示回退；首张静态图的节点 profile 用于确认后端，其余图继续数值验证。
+![D/E 全部100轮与学习系数](results/de_exploration.png)
 
-2026-10-27 晚间推进：E 的第 54 轮完整检查点通过核验，继续训练。剩余时间改用各组自己的最近完整轮次估算，避免用 D 的速度代替 E。为完整比较已有基线，补充 B 第 84 轮已选权重的 FP32 导出及同三张图 CPU 验证：最大输出误差约 5.65×10⁻⁵，标签不一致比例、人行道及边界 IoU 差值均为 0，实际执行节点均为 CPU。A/B/C 的部署基线均已准备；这仍是小样本流程验收，不能替代全量 GPU 验证或性能测试。B 的详细凭据保存在部署准备结果的 `additional_pilots` 中。
+随后开展 A/B/C 的部署误差与延迟验证；保留 B 是因为它在现有三种子实验中的平均表现最好，工程比较统一使用种子 42。已有 A/B/C 各三张图的 CPU 预检通过，GPU 小样本也通过且实际节点确认为 CUDA。首次各 500 张 GPU 验收出现逐元素数值超限，完整失败记录已保留；标签与区域/边界指标差异均在原范围内。针对失败样本诊断后，保留独立 BatchNormalization 并关闭 ConvBN/ConvActivation 融合，重新完成各 500 张 GPU 验收，全部通过原来的数值与指标阈值。权重、数据和容差均未修改，实际图节点为 CUDA；原图与修正图分别留档。下一步开展 FP16 精度验证与独立性能测试，当前没有 FPS 结论。
+
+[首次完整验收](results/deployment_cuda_fp32.json)、[数值诊断](results/fp32_numerical_diagnosis.json)和[修正后的完整验收](results/deployment_cuda_fp32_preserved_bn.json)分别记录失败、修正依据与复验结果。保留归一化的配置可能影响速度，后续实测后再作准确率与延迟取舍；不能将组合修改归因为单个优化器缺陷。
+
+CPU 预检、GPU 并发保护和最新阶段入口见[部署准备结果](results/deployment_readiness.json)。真实边缘设备、长视频稳定性和本地自采标注验证尚未完成；当前平台为本机 RTX 4060 Laptop。
 
 ## 固定实验条件
 
@@ -66,6 +74,7 @@ python experiments/attention_gate/common_runner_mixed.py --help
 python experiments/attention_gate/sidewalk_demo.py --help
 python experiments/attention_gate/validate_deployment_fp32.py --help
 python experiments/attention_gate/export_selected_fp32.py --help
+python experiments/attention_gate/validate_deployment_fp32_preserved_bn.py --help
 
 # 旧入口仅列出脚本或显示解析路径。
 .\run.ps1 -List

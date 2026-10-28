@@ -1,0 +1,12 @@
+{
+  "status": "pass",
+  "source_checkpoints": {
+    "experiments\\attention_gate\\step_07_2026-10-26\\DE_seed42_training_001\\D_seed42_epochs002_100\\checkpoints\\epoch_100.pth": "c575c361ef61373cec33dfec9a5b39e282973dc9624f2bf57106d235f440d979",
+    "experiments\\attention_gate\\step_07_2026-10-26\\DE_seed42_training_001\\E_seed42_epochs002_100\\checkpoints\\epoch_100.pth": "03e9bf72c7ecc6b8806e2364a571f3522c4d5d216973aaf7cc44c692406eed92"
+  },
+  "review_sha256": "a4cb2578151a40653112f7b26b8ffaf91f8c4dda3e411cb9c22507e77991bdad",
+  "script_sha256": "af429ab24d3227c5dc8bc50ca2a8320c0c0cb37e3db26d164314c9ee02f2f7a7",
+  "png_sha256": "2523a26ac179232cfab2a05a0974be35bfdf7330747c92e77427beb65df5aaa5",
+  "svg_sha256": "7aa053b5b0953406085f8872ea3234c77215f8b57cae6651075b7e5313d6d30e",
+  "scope": "All100 epochs, one exploratory seed, C selected checkpoint reference; not three-seed confirmation."
+}

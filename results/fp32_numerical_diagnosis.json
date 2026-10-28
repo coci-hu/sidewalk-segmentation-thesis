@@ -1,0 +1,304 @@
+{
+  "status": "diagnosis_complete",
+  "initial_full_validation": [
+    {
+      "name": "A_seed42",
+      "failing_images": [
+        41,
+        161,
+        185,
+        278,
+        280,
+        324
+      ],
+      "changed_prediction_pixels": 12,
+      "total_pixels": 393216000,
+      "maximum_absolute_logit_error": 0.0002491474151611328,
+      "absolute_metric_difference_pp": {
+        "sidewalk_iou_pct": 2.4719749163182314e-05,
+        "boundary_iou_pct": 2.3633248211751834e-05
+      },
+      "checks": {
+        "logits_allclose": false,
+        "argmax_disagreement": true,
+        "regional_metrics": true
+      }
+    },
+    {
+      "name": "B_seed42",
+      "failing_images": [
+        284,
+        288
+      ],
+      "changed_prediction_pixels": 16,
+      "total_pixels": 393216000,
+      "maximum_absolute_logit_error": 0.00021767616271972656,
+      "absolute_metric_difference_pp": {
+        "sidewalk_iou_pct": 1.1754360400573205e-06,
+        "boundary_iou_pct": 1.457146460381864e-06
+      },
+      "checks": {
+        "logits_allclose": false,
+        "argmax_disagreement": true,
+        "regional_metrics": true
+      }
+    },
+    {
+      "name": "C_seed42",
+      "failing_images": [
+        401,
+        452
+      ],
+      "changed_prediction_pixels": 8,
+      "total_pixels": 393216000,
+      "maximum_absolute_logit_error": 0.00023293495178222656,
+      "absolute_metric_difference_pp": {
+        "sidewalk_iou_pct": 1.1408264199985751e-05,
+        "boundary_iou_pct": 1.744267319025994e-05
+      },
+      "checks": {
+        "logits_allclose": false,
+        "argmax_disagreement": true,
+        "regional_metrics": true
+      }
+    }
+  ],
+  "backend_probes": [
+    {
+      "name": "A_seed42",
+      "CPU_comparisons": {
+        "pytorch_cuda_vs_cpu": {
+          "failed_images": [],
+          "maximum_tolerance_ratio": 0.7811906337738037
+        },
+        "onnx_cpu_vs_pytorch_cpu": {
+          "failed_images": [
+            185,
+            278,
+            280
+          ],
+          "maximum_tolerance_ratio": 1.5027555227279663
+        }
+      },
+      "conditions": [
+        {
+          "name": "original",
+          "status": "evaluated",
+          "subset_allclose": false,
+          "provider": "CUDAExecutionProvider",
+          "failed_images": [
+            41,
+            161,
+            185,
+            278,
+            280
+          ],
+          "maximum_tolerance_ratio": 2.030456066131592
+        },
+        {
+          "name": "default_algorithm",
+          "status": "evaluated",
+          "subset_allclose": false,
+          "provider": "CUDAExecutionProvider",
+          "failed_images": [
+            41,
+            185,
+            278,
+            280
+          ],
+          "maximum_tolerance_ratio": 1.8785761594772339
+        },
+        {
+          "name": "no_graph_optimizations",
+          "status": "failed",
+          "error": "[ONNXRuntimeError] : 1 : FAIL : This session contains graph nodes that are assigned to the default CPU EP, but fallback to CPU EP has been explicitly disabled by the user."
+        }
+      ]
+    },
+    {
+      "name": "B_seed42",
+      "CPU_comparisons": {
+        "pytorch_cuda_vs_cpu": {
+          "failed_images": [],
+          "maximum_tolerance_ratio": 0.6771489381790161
+        },
+        "onnx_cpu_vs_pytorch_cpu": {
+          "failed_images": [
+            284
+          ],
+          "maximum_tolerance_ratio": 1.126416802406311
+        }
+      },
+      "conditions": [
+        {
+          "name": "original",
+          "status": "evaluated",
+          "subset_allclose": false,
+          "provider": "CUDAExecutionProvider",
+          "failed_images": [
+            284,
+            288
+          ],
+          "maximum_tolerance_ratio": 1.6023448705673218
+        },
+        {
+          "name": "default_algorithm",
+          "status": "evaluated",
+          "subset_allclose": false,
+          "provider": "CUDAExecutionProvider",
+          "failed_images": [
+            284,
+            288
+          ],
+          "maximum_tolerance_ratio": 1.6295775175094604
+        },
+        {
+          "name": "no_graph_optimizations",
+          "status": "failed",
+          "error": "[ONNXRuntimeError] : 1 : FAIL : This session contains graph nodes that are assigned to the default CPU EP, but fallback to CPU EP has been explicitly disabled by the user."
+        }
+      ]
+    },
+    {
+      "name": "C_seed42",
+      "CPU_comparisons": {
+        "pytorch_cuda_vs_cpu": {
+          "failed_images": [
+            452
+          ],
+          "maximum_tolerance_ratio": 1.595009207725525
+        },
+        "onnx_cpu_vs_pytorch_cpu": {
+          "failed_images": [],
+          "maximum_tolerance_ratio": 0.708040714263916
+        }
+      },
+      "conditions": [
+        {
+          "name": "original",
+          "status": "evaluated",
+          "subset_allclose": false,
+          "provider": "CUDAExecutionProvider",
+          "failed_images": [
+            401,
+            452
+          ],
+          "maximum_tolerance_ratio": 1.4383630752563477
+        },
+        {
+          "name": "default_algorithm",
+          "status": "evaluated",
+          "subset_allclose": false,
+          "provider": "CUDAExecutionProvider",
+          "failed_images": [
+            401,
+            452
+          ],
+          "maximum_tolerance_ratio": 1.572403907775879
+        },
+        {
+          "name": "no_graph_optimizations",
+          "status": "failed",
+          "error": "[ONNXRuntimeError] : 1 : FAIL : This session contains graph nodes that are assigned to the default CPU EP, but fallback to CPU EP has been explicitly disabled by the user."
+        }
+      ]
+    }
+  ],
+  "preserved_BN_probe": [
+    {
+      "name": "A_seed42",
+      "indices": [
+        0,
+        41,
+        161,
+        185,
+        278,
+        280
+      ],
+      "maximum_tolerance_ratio": 0.34867361187934875,
+      "original_BN_nodes": 54,
+      "optimized_BN_nodes": 54,
+      "weights_sha256": "71ca9c869b1aec4ee5fc6eaa637e98cb3e2e0ab10ccedf5a1adbc8c4261f8218",
+      "onnx_sha256": "2c702720842bd016aa3db3abb9563e06119d8608d6b598a10fb5e28434fc9386"
+    },
+    {
+      "name": "B_seed42",
+      "indices": [
+        0,
+        284,
+        288
+      ],
+      "maximum_tolerance_ratio": 0.12026462703943253,
+      "original_BN_nodes": 55,
+      "optimized_BN_nodes": 55,
+      "weights_sha256": "2af2d3f8b2ece6ea1aab1d6224260e92e77070207177b030a00dd822715687f7",
+      "onnx_sha256": "e2f3daa6d168781fd99535327fbbb90969aa98118c1a3742361c93e1eb22d0a4"
+    },
+    {
+      "name": "C_seed42",
+      "indices": [
+        0,
+        401,
+        452
+      ],
+      "maximum_tolerance_ratio": 0.05719408765435219,
+      "original_BN_nodes": 55,
+      "optimized_BN_nodes": 55,
+      "weights_sha256": "0db2ce76106624669d4dd3ff2bdcc8dd59f30c20a5eb47813476917b1c31b960",
+      "onnx_sha256": "42bb362829705994c6e509519fa2d58206402a4be0447a2a095b64be3ceb87aa"
+    }
+  ],
+  "reexport": {
+    "status": "pass",
+    "all_three_graph_hashes_equal_probe": true,
+    "source_hashes": {
+      "experiments\\attention_gate\\common_runner.py": "2d0ba323e7638538b9c4c2f3b229213a5b92d5232c856f9bd536534e8fcd49f0",
+      "experiments\\attention_gate\\metrics_v1.py": "2426f7838b90cce6f11b11315828c740846f735ffcba4523972fbce9a4ee2751",
+      "experiments\\attention_gate\\protocol_v1_1.json": "3990842dd4f56304506fb6d4abe5b3a8b3f8e5628675a3e412ea81419a377d58",
+      "code\\model_enet.py": "e0b99d9d862b09eec0781f374071a8f9b7c584d537d3f4761bc5d0c4d4da909b",
+      "code\\model_enet_ca.py": "a875c11bd9d95e8235622677d47cd7ea88c0064e283e0a53320fcd5a3f44b945",
+      "code\\components\\ca_attention.py": "b676ac179e5ee2e9c5bfefbc7f4837aee08832e713fe48f927ed576bf06ab322",
+      "experiments\\attention_gate\\common_runner_v2.py": "03a7238c77ec95ecde1480bd10c807ff5ee93e7072db6fdb93506cd85f05d5f4",
+      "experiments\\attention_gate\\protocol_v1_2.json": "2c50a1cbabfe3b4c4f0258dbbd7e976cbe80ca14fbc170c6e2b8b68e338e9765",
+      "experiments\\attention_gate\\step_05_2026-10-14\\loader_optimization_001\\verification.json": "8e594844a9ce77ed7188671d34814f57f9648ee841ef0a9dc4e63f92bb9887c0",
+      "experiments\\attention_gate\\common_runner_c.py": "05c9f3dcfbcdbb620882e57bef7a7409c2cd765176388bfe7c18565b57f24fbc",
+      "experiments\\attention_gate\\ca_hswish_control.py": "75d16afe2e9922df2d366d50eaa841321cfef2bba841da959d3818164b8be416",
+      "experiments\\attention_gate\\step_06_2026-10-14\\preparation_001\\author_reference\\coordatt.py": "c40cc881d0a23b64c886274a9d8df7d13f04b6ec4fc935c3b281a82998f9ebfc",
+      "experiments\\attention_gate\\step_06_2026-10-14\\preparation_001\\author_reference\\source.json": "59cabe2e37b1b258b72eab764202330be0187cab5063d5f2b738faa98bf80a6a",
+      "experiments\\attention_gate\\common_runner_mixed.py": "5baf19ff803717d7eebf27a5555ddf16728ad6eb152d8e749780540a9bc58fd5",
+      "experiments\\attention_gate\\mixed_ca_candidate.py": "9546a2381bdbff95969695747a454ac748c5c025584a1db35402fb89356c3d35",
+      "experiments\\attention_gate\\export_selected_fp32.py": "36e8a91e22e6d98b0c1dc026b2f9c42a7d031932cb7cd2e0ed22770ad5a5bfc1",
+      "experiments\\attention_gate\\deployment_equivalence.py": "036bd43c2046809452cc4cf290dc2b29a25498934fffa14a209cb5512f3c870d"
+    }
+  },
+  "GPU_guard": {
+    "status": "pass",
+    "GPU_validation_lock_rejected": true,
+    "model_or_ORT_session_started": false,
+    "active_full_validation_interrupted": false,
+    "validator_sha256": "e16b9396043e12ffdf74fa4723a04c7ca6b069a6a86eacd10bcde8002b172f01"
+  },
+  "tolerance_or_weights_changed": false,
+  "finding": "Selected failing inputs pass when exporting with explicit BN and disabling ConvBN/ConvActivation fusion. Algorithm change alone did not resolve the gates; disabling all graph optimizations required CPU nodes and was rejected.",
+  "limitation": "This is a combined export/execution change, not proof of a single faulty optimizer or general ONNX inaccuracy. Subset repair does not establish full500 acceptance; no speed benefit is claimed.",
+  "official_references": [
+    "https://onnxruntime.ai/docs/execution-providers/CUDA-ExecutionProvider.html",
+    "https://docs.pytorch.org/docs/stable/notes/numerical_accuracy.html"
+  ],
+  "sources": {
+    "experiments\\attention_gate\\step_10_2026-10-28\\ABC_fp32_cuda_full_001\\verification.json": "7c01c28e5869a5d5743c9de024146ffd18afb29f3155986d7d6851a372a48fc6",
+    "experiments\\attention_gate\\step_10_2026-10-28\\ABC_fp32_cuda_full_001\\results.json": "3c505c97231fd996ed46267f03bfeed34e8e44a27653d7c45872b0b948d54eb2",
+    "experiments\\attention_gate\\step_10_2026-10-28\\fp32_numerical_diagnosis_001\\plan.json": "6f8a9333b9bc05e51471f00ce6fee8a973a6066b2903fb096ff353a6abba5e11",
+    "experiments\\attention_gate\\step_10_2026-10-28\\fp32_numerical_diagnosis_001\\results.json": "9cbf6bd3e977333920421e16cb9ffa023942142bad4e57e8b984fe315ccfe249",
+    "experiments\\attention_gate\\step_10_2026-10-28\\preserved_bn_probe_001\\plan.json": "71319aba3099f8c3b47b495ec082085698ba3a1cd598697d4ecf6c020f67435d",
+    "experiments\\attention_gate\\step_10_2026-10-28\\preserved_bn_probe_001\\results.json": "22e979279f46afb4aad5d45f2283cbe466f7819543551d92f25945145028d4d1",
+    "experiments\\attention_gate\\step_10_2026-10-28\\preserved_bn_reexport_cpu_001\\verification.json": "4213243f567ad3afc698678a834121c66da725ec8d1cda876ee3e692b083c5a4",
+    "experiments\\attention_gate\\step_10_2026-10-28\\preserved_bn_reexport_cpu_001\\reproduction_verification.json": "3fb8c9938c39ff6cba55232d311e727641a2c4732af2b88834fc0e5989c9ee8b",
+    "experiments\\attention_gate\\step_10_2026-10-28\\preserved_bn_guard_001\\verification.json": "6f2da6b7719f8e86e3ba860f00358872700f49c2860e338ab6f57c5c42cd9d0c"
+  },
+  "repaired_full500": {
+    "status": "pass",
+    "passed": true,
+    "source_sha256": "d48abaa943674d737382024f770b6fd0905102a4b8e48a7430bb542c9ce0ae71"
+  }
+}
