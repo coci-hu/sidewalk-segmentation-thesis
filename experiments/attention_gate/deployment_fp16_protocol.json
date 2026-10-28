@@ -1,0 +1,51 @@
+{
+  "protocol_id": "fp16_cuda_v1_20261029",
+  "declared_before_candidate_conversion_or_inference": true,
+  "scope": "Fixed A/B/C seed42 selected weights on local RTX4060 Laptop; precision conversion only, no retraining or new checkpoint selection",
+  "prerequisite": "results/deployment_cuda_fp32_preserved_bn.json must pass all500 for all three matching graphs and weights",
+  "reference": "Unchanged PyTorch FP32 CUDA, TF32 off, deterministic algorithms",
+  "conversion": {
+    "implementation": "onnxruntime.transformers.float16.convert_float_to_float16",
+    "required_onnxruntime_version": "1.19.2",
+    "keep_io_types": true,
+    "min_positive_val": 5.96e-8,
+    "max_finite_val": 65504.0,
+    "disable_shape_infer": false,
+    "op_block_list": "installed converter DEFAULT_OP_BLOCK_LIST, recorded verbatim with source hash",
+    "force_fp16_initializers": false,
+    "candidate_count": 1,
+    "description": "FP16 internal tensors with FP32 input/output and unsupported operations retained by the converter. Report mixed precision; do not claim every operation is FP16."
+  },
+  "execution": {
+    "provider": "CUDAExecutionProvider",
+    "use_tf32": 0,
+    "disabled_optimizers": ["ConvBNFusion", "ConvActivationFusion"],
+    "cpu_fallback": false,
+    "gpu_lock": "seed42_training.lock byte0"
+  },
+  "data": {
+    "split": "Cityscapes validation already used for checkpoint selection, not independent test data",
+    "images": 500,
+    "height": 768,
+    "width": 1024,
+    "batch": 1,
+    "pilot_indices": [0, 1, 2],
+    "full_indices": "0 through499 in original dataset order",
+    "labels": "original id8 foreground, all other ids background",
+    "boundary_width_pixels": 26,
+    "boundary_aggregation": "per-image mean excluding both-empty"
+  },
+  "acceptance_limits": {
+    "logit_rtol": 0.01,
+    "logit_atol": 0.01,
+    "argmax_disagreement_fraction": 0.001,
+    "metric_difference_pp": 0.05
+  },
+  "acceptance_rationale": "Project engineering tolerances, not universal standards: logit allowance explicitly differs from FP32 for lower precision; retain the FP32 label-disagreement and absolute regional/boundary metric limits. All outputs must be finite; all gates must pass. Compare candidate to FP32 reference in np.allclose(candidate, reference). Record both signed metric changes and absolute changes.",
+  "decision": "Run three fixed pilot images for every model. Start full500 only if all three pilots pass. If any pilot or full gate fails, preserve evidence, reject this candidate configuration and retain verified FP32 deployment. No silent tolerance changes or validation-driven precision search.",
+  "timing": "Separate future job, only accepted full500 configurations; conversion/pilot duration is not an FPS benchmark",
+  "primary_sources": [
+    "https://onnxruntime.ai/docs/performance/model-optimizations/float16.html",
+    "https://github.com/microsoft/onnxruntime/blob/v1.19.2/onnxruntime/python/tools/transformers/float16.py"
+  ]
+}

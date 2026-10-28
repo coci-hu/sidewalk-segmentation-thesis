@@ -1,5 +1,5 @@
 {
-  "snapshot_date": "2026-10-28",
+  "snapshot_date": "2026-10-29",
   "pilot": {
     "results": [
       {
@@ -221,8 +221,9 @@
     "experiments\\attention_gate\\step_10_2026-10-27\\gpu_guard_check_002\\verification.json": "cfd4c93a89edf1d976a84e6e8cba437ab24ee0df16d8206c3d6c3069317237d9"
   },
   "next_steps": [
-    "FP16 equivalence under a separately declared precision protocol",
-    "Isolated latency/memory benchmark and application validation"
+    "Use accepted FP32 configuration in prototype",
+    "Isolated FP32 latency/memory comparison under fixed measured power conditions",
+    "Application stability and human-reviewed local image validation"
   ],
   "documentation_checked": [
     "https://onnxruntime.ai/docs/api/python/api_summary.html",
@@ -361,5 +362,13 @@
         "ConvActivationFusion"
       ]
     }
+  },
+  "latest_fp16_validation": {
+    "path": "results/deployment_cuda_fp16.json",
+    "sha256": "08ff252e2dfc1241456ace44d54c53654a36941eb0bf3df20a3259e1d2ea09cb",
+    "status": "fail",
+    "mode": "pilot",
+    "decision": "retain_accepted_FP32_no_FP16_search",
+    "full500_acceptance_passed": false
   }
 }

@@ -61,6 +61,16 @@ def main(a):
             if gpu['full500_acceptance_passed'] else ['Resolve FP32 numerical gate failures without silent tolerance relaxation','Repeat full500 acceptance before FP16 or latency conclusions'])
         report['limitations']='CPU pilot evidence is historical; latest CUDA full-validation state is reported separately. NoFPS or physical embedded-device claim.'
         break
+    fp16_path=ROOT/'results/deployment_cuda_fp16.json'
+    if fp16_path.exists():
+        fp16=read(fp16_path)
+        report['latest_fp16_validation']=dict(path='results/deployment_cuda_fp16.json',sha256=digest(fp16_path),
+            status=fp16['status'],mode=fp16['mode'],decision=fp16['decision'],
+            full500_acceptance_passed=fp16['full500_acceptance_passed'])
+        if fp16['decision']=='retain_accepted_FP32_no_FP16_search':
+            report['next_steps']=['Use accepted FP32 configuration in prototype',
+                'Isolated FP32 latency/memory comparison under fixed measured power conditions',
+                'Application stability and human-reviewed local image validation']
     dump(ROOT/'results/deployment_readiness.json',sanitize(report))
     audit=read(progress)
     assert audit['status']=='pass'

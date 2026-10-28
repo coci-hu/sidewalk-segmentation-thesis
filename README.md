@@ -36,11 +36,13 @@ E 相对 C 的人行道 IoU 提升 0.037 个百分点，Boundary IoU 下降 0.52
 
 ![D/E 全部100轮与学习系数](results/de_exploration.png)
 
-随后开展 A/B/C 的部署误差与延迟验证；保留 B 是因为它在现有三种子实验中的平均表现最好，工程比较统一使用种子 42。已有 A/B/C 各三张图的 CPU 预检通过，GPU 小样本也通过且实际节点确认为 CUDA。首次各 500 张 GPU 验收出现逐元素数值超限，完整失败记录已保留；标签与区域/边界指标差异均在原范围内。针对失败样本诊断后，保留独立 BatchNormalization 并关闭 ConvBN/ConvActivation 融合，重新完成各 500 张 GPU 验收，全部通过原来的数值与指标阈值。权重、数据和容差均未修改，实际图节点为 CUDA；原图与修正图分别留档。下一步开展 FP16 精度验证与独立性能测试，当前没有 FPS 结论。
+随后开展 A/B/C 的部署误差与延迟验证；保留 B 是因为它在现有三种子实验中的平均表现最好，工程比较统一使用种子 42。已有 A/B/C 各三张图的 CPU 预检通过，GPU 小样本也通过且实际节点确认为 CUDA。首次各 500 张 GPU 验收出现逐元素数值超限，完整失败记录已保留；标签与区域/边界指标差异均在原范围内。针对失败样本诊断后，保留独立 BatchNormalization 并关闭 ConvBN/ConvActivation 融合，重新完成各 500 张 GPU 验收，全部通过原来的数值与指标阈值。权重、数据和容差均未修改，实际图节点为 CUDA；原图与修正图分别留档。FP16 小样本验证已完成，当前转换配置未通过；下一步对已验收的 FP32 开展独立性能测试，当前没有 FPS 结论。
 
 [首次完整验收](results/deployment_cuda_fp32.json)、[数值诊断](results/fp32_numerical_diagnosis.json)和[修正后的完整验收](results/deployment_cuda_fp32_preserved_bn.json)分别记录失败、修正依据与复验结果。保留归一化的配置可能影响速度，后续实测后再作准确率与延迟取舍；不能将组合修改归因为单个优化器缺陷。
 
-CPU 预检、GPU 并发保护和最新阶段入口见[部署准备结果](results/deployment_readiness.json)。真实边缘设备、长视频稳定性和本地自采标注验证尚未完成；当前平台为本机 RTX 4060 Laptop。
+FP16 混合精度按[独立预声明协议](experiments/attention_gate/deployment_fp16_protocol.json)完成 A/B/C 各 3 张固定图的 GPU 预检。三组逐元素数值均未达标；A 的人行道 IoU 差异为 0.056 个百分点、Boundary IoU 差异为 0.187 个百分点，超过 0.05 个百分点限值。B/C 的区域与边界差异达标，但仍不能绕过数值检查。按预先规定拒绝这一个转换配置，不运行其全量验收、不追加精度搜索，保留已通过全量验收的 FP32。该观察不代表所有 FP16 方案不可行，也不是 500 图 FP16 指标。完整数值、实际 CUDA 节点和决定见[半精度预检](results/deployment_cuda_fp16.json)。转换未重训、未升级环境，原 FP32 容差和权重未改。
+
+CPU 预检、GPU 并发保护和最新阶段入口见[部署准备结果](results/deployment_readiness.json)。[FP32 测速协议](experiments/attention_gate/benchmark_fp32_protocol.json)已固定为 3 轮轮换模型顺序、每组 50 次预热与 500 帧测量，纯推理和完整 PNG 流程分开统计。预检不作为正式性能结果；显存使用 Windows 进程计数器快照，不声称真实峰值。当前电源条件为接通电源且系统节能模式，将按该条件报告。真实边缘设备、长视频稳定性和本地自采标注验证尚未完成；当前平台为本机 RTX 4060 Laptop。
 
 ## 固定实验条件
 
@@ -75,6 +77,9 @@ python experiments/attention_gate/sidewalk_demo.py --help
 python experiments/attention_gate/validate_deployment_fp32.py --help
 python experiments/attention_gate/export_selected_fp32.py --help
 python experiments/attention_gate/validate_deployment_fp32_preserved_bn.py --help
+python experiments/attention_gate/convert_selected_fp16.py --help
+python experiments/attention_gate/validate_deployment_fp16.py --help
+python experiments/attention_gate/benchmark_verified_fp32.py --help
 
 # 旧入口仅列出脚本或显示解析路径。
 .\run.ps1 -List

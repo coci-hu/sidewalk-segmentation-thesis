@@ -1,0 +1,475 @@
+{
+  "status": "fail",
+  "snapshot_date": "2026-10-29",
+  "mode": "pilot",
+  "images_per_model": 3,
+  "results": [
+    {
+      "status": "fail",
+      "images": 3,
+      "limits": {
+        "logit_rtol": 0.01,
+        "logit_atol": 0.01,
+        "argmax_disagreement_fraction": 0.001,
+        "metric_difference_pp": 0.05
+      },
+      "checks": {
+        "logits_allclose": false,
+        "argmax_disagreement": true,
+        "regional_metrics": false
+      },
+      "metrics": {
+        "pytorch": {
+          "confusion": [
+            [
+              2250743,
+              12066
+            ],
+            [
+              12319,
+              84168
+            ]
+          ],
+          "sidewalk_iou_pct": 77.53631866461545,
+          "boundary_iou_pct": 62.303405851123074,
+          "boundary_valid_images": 3,
+          "boundary_excluded_images": 0
+        },
+        "onnx": {
+          "confusion": [
+            [
+              2250663,
+              12146
+            ],
+            [
+              12318,
+              84169
+            ]
+          ],
+          "sidewalk_iou_pct": 77.48013955243802,
+          "boundary_iou_pct": 62.11601795151104,
+          "boundary_valid_images": 3,
+          "boundary_excluded_images": 0
+        }
+      },
+      "absolute_metric_difference_pp": {
+        "sidewalk_iou_pct": 0.05617911217743199,
+        "boundary_iou_pct": 0.18738789961203395
+      },
+      "argmax_disagreement_fraction": 5.7220458984375e-05,
+      "maximum_absolute_logit_error": 0.18046516180038452,
+      "protocol_id": "fp16_cuda_v1_20261029",
+      "signed_metric_difference_pp": {
+        "sidewalk_iou_pct": -0.05617911217743199,
+        "boundary_iou_pct": -0.18738789961203395
+      },
+      "name": "A_seed42",
+      "variant": "A",
+      "seed": 42,
+      "selected_epoch": 92,
+      "weights_sha256": "71ca9c869b1aec4ee5fc6eaa637e98cb3e2e0ab10ccedf5a1adbc8c4261f8218",
+      "onnx_sha256": "37d7cb8657deac727175817c57999eaf92846b060e35f06e8ad187ffb8bca9eb",
+      "fp32_onnx_sha256": "2c702720842bd016aa3db3abb9563e06119d8608d6b598a10fb5e28434fc9386",
+      "provider_evidence": {
+        "provider": "CUDAExecutionProvider",
+        "node_executions": {
+          "CUDAExecutionProvider": 189
+        },
+        "unique_node_names": 189
+      },
+      "provider_options": {
+        "CUDAExecutionProvider": {
+          "device_id": "0",
+          "has_user_compute_stream": "0",
+          "cudnn_conv1d_pad_to_nc1d": "0",
+          "user_compute_stream": "0",
+          "gpu_external_alloc": "0",
+          "gpu_mem_limit": "18446744073709551615",
+          "enable_cuda_graph": "0",
+          "gpu_external_free": "0",
+          "gpu_external_empty_cache": "0",
+          "arena_extend_strategy": "kNextPowerOfTwo",
+          "cudnn_conv_algo_search": "EXHAUSTIVE",
+          "do_copy_in_default_stream": "1",
+          "cudnn_conv_use_max_workspace": "1",
+          "tunable_op_enable": "0",
+          "tunable_op_tuning_enable": "0",
+          "tunable_op_max_tuning_duration_ms": "0",
+          "enable_skip_layer_norm_strict_mode": "0",
+          "prefer_nhwc": "0",
+          "use_ep_level_unified_stream": "0",
+          "use_tf32": "0",
+          "sdpa_kernel": "0"
+        },
+        "CPUExecutionProvider": {}
+      },
+      "profiled_images": 1,
+      "profile_sha256": "8dd7e8ba58866134c057d2744d960dccc9b23cee3b4454529ad4f9c92da11601",
+      "disabled_optimizers": [
+        "ConvBNFusion",
+        "ConvActivationFusion"
+      ],
+      "original_BN_nodes": 54,
+      "optimized_BN_nodes": 54,
+      "graph_bytes": 646327,
+      "fp32_graph_bytes": 1158950,
+      "initializer_types": {
+        "FLOAT16": 326
+      }
+    },
+    {
+      "status": "fail",
+      "images": 3,
+      "limits": {
+        "logit_rtol": 0.01,
+        "logit_atol": 0.01,
+        "argmax_disagreement_fraction": 0.001,
+        "metric_difference_pp": 0.05
+      },
+      "checks": {
+        "logits_allclose": false,
+        "argmax_disagreement": true,
+        "regional_metrics": true
+      },
+      "metrics": {
+        "pytorch": {
+          "confusion": [
+            [
+              2247190,
+              15619
+            ],
+            [
+              12836,
+              83651
+            ]
+          ],
+          "sidewalk_iou_pct": 74.6177724653453,
+          "boundary_iou_pct": 59.992782770469,
+          "boundary_valid_images": 3,
+          "boundary_excluded_images": 0
+        },
+        "onnx": {
+          "confusion": [
+            [
+              2247204,
+              15605
+            ],
+            [
+              12831,
+              83656
+            ]
+          ],
+          "sidewalk_iou_pct": 74.63155265317775,
+          "boundary_iou_pct": 60.006568311979166,
+          "boundary_valid_images": 3,
+          "boundary_excluded_images": 0
+        }
+      },
+      "absolute_metric_difference_pp": {
+        "sidewalk_iou_pct": 0.013780187832452384,
+        "boundary_iou_pct": 0.013785541510166865
+      },
+      "argmax_disagreement_fraction": 4.4504801432291664e-05,
+      "maximum_absolute_logit_error": 0.1564481258392334,
+      "protocol_id": "fp16_cuda_v1_20261029",
+      "signed_metric_difference_pp": {
+        "sidewalk_iou_pct": 0.013780187832452384,
+        "boundary_iou_pct": 0.013785541510166865
+      },
+      "name": "B_seed42",
+      "variant": "B",
+      "seed": 42,
+      "selected_epoch": 84,
+      "weights_sha256": "2af2d3f8b2ece6ea1aab1d6224260e92e77070207177b030a00dd822715687f7",
+      "onnx_sha256": "08b88116d5a8ae04f8a41cbcf40935f19de00867a6f24d7cdbb130468dd75d4d",
+      "fp32_onnx_sha256": "e2f3daa6d168781fd99535327fbbb90969aa98118c1a3742361c93e1eb22d0a4",
+      "provider_evidence": {
+        "provider": "CUDAExecutionProvider",
+        "node_executions": {
+          "CUDAExecutionProvider": 204
+        },
+        "unique_node_names": 204
+      },
+      "provider_options": {
+        "CUDAExecutionProvider": {
+          "device_id": "0",
+          "has_user_compute_stream": "0",
+          "cudnn_conv1d_pad_to_nc1d": "0",
+          "user_compute_stream": "0",
+          "gpu_external_alloc": "0",
+          "gpu_mem_limit": "18446744073709551615",
+          "enable_cuda_graph": "0",
+          "gpu_external_free": "0",
+          "gpu_external_empty_cache": "0",
+          "arena_extend_strategy": "kNextPowerOfTwo",
+          "cudnn_conv_algo_search": "EXHAUSTIVE",
+          "do_copy_in_default_stream": "1",
+          "cudnn_conv_use_max_workspace": "1",
+          "tunable_op_enable": "0",
+          "tunable_op_tuning_enable": "0",
+          "tunable_op_max_tuning_duration_ms": "0",
+          "enable_skip_layer_norm_strict_mode": "0",
+          "prefer_nhwc": "0",
+          "use_ep_level_unified_stream": "0",
+          "use_tf32": "0",
+          "sdpa_kernel": "0"
+        },
+        "CPUExecutionProvider": {}
+      },
+      "profiled_images": 1,
+      "profile_sha256": "c05ea692ba5d3c4c2f1c403e5c2a267b94e85f90acbcc79b5b6d8dc0401bc669",
+      "disabled_optimizers": [
+        "ConvBNFusion",
+        "ConvActivationFusion"
+      ],
+      "original_BN_nodes": 55,
+      "optimized_BN_nodes": 55,
+      "graph_bytes": 658295,
+      "fp32_graph_bytes": 1176063,
+      "initializer_types": {
+        "FLOAT16": 336
+      }
+    },
+    {
+      "status": "fail",
+      "images": 3,
+      "limits": {
+        "logit_rtol": 0.01,
+        "logit_atol": 0.01,
+        "argmax_disagreement_fraction": 0.001,
+        "metric_difference_pp": 0.05
+      },
+      "checks": {
+        "logits_allclose": false,
+        "argmax_disagreement": true,
+        "regional_metrics": true
+      },
+      "metrics": {
+        "pytorch": {
+          "confusion": [
+            [
+              2246260,
+              16549
+            ],
+            [
+              11047,
+              85440
+            ]
+          ],
+          "sidewalk_iou_pct": 75.58653880179766,
+          "boundary_iou_pct": 60.31816142951517,
+          "boundary_valid_images": 3,
+          "boundary_excluded_images": 0
+        },
+        "onnx": {
+          "confusion": [
+            [
+              2246246,
+              16563
+            ],
+            [
+              11063,
+              85424
+            ]
+          ],
+          "sidewalk_iou_pct": 75.56302521008404,
+          "boundary_iou_pct": 60.30130583365004,
+          "boundary_valid_images": 3,
+          "boundary_excluded_images": 0
+        }
+      },
+      "absolute_metric_difference_pp": {
+        "sidewalk_iou_pct": 0.023513591713623327,
+        "boundary_iou_pct": 0.01685559586513108
+      },
+      "argmax_disagreement_fraction": 6.018744574652778e-05,
+      "maximum_absolute_logit_error": 0.1420171856880188,
+      "protocol_id": "fp16_cuda_v1_20261029",
+      "signed_metric_difference_pp": {
+        "sidewalk_iou_pct": -0.023513591713623327,
+        "boundary_iou_pct": -0.01685559586513108
+      },
+      "name": "C_seed42",
+      "variant": "C",
+      "seed": 42,
+      "selected_epoch": 83,
+      "weights_sha256": "0db2ce76106624669d4dd3ff2bdcc8dd59f30c20a5eb47813476917b1c31b960",
+      "onnx_sha256": "59843aabdd650830004571261ce909e7c7b5cfc3a17ae425c7156369f1ba0cfd",
+      "fp32_onnx_sha256": "42bb362829705994c6e509519fa2d58206402a4be0447a2a095b64be3ceb87aa",
+      "provider_evidence": {
+        "provider": "CUDAExecutionProvider",
+        "node_executions": {
+          "CUDAExecutionProvider": 207
+        },
+        "unique_node_names": 207
+      },
+      "provider_options": {
+        "CUDAExecutionProvider": {
+          "device_id": "0",
+          "has_user_compute_stream": "0",
+          "cudnn_conv1d_pad_to_nc1d": "0",
+          "user_compute_stream": "0",
+          "gpu_external_alloc": "0",
+          "gpu_mem_limit": "18446744073709551615",
+          "enable_cuda_graph": "0",
+          "gpu_external_free": "0",
+          "gpu_external_empty_cache": "0",
+          "arena_extend_strategy": "kNextPowerOfTwo",
+          "cudnn_conv_algo_search": "EXHAUSTIVE",
+          "do_copy_in_default_stream": "1",
+          "cudnn_conv_use_max_workspace": "1",
+          "tunable_op_enable": "0",
+          "tunable_op_tuning_enable": "0",
+          "tunable_op_max_tuning_duration_ms": "0",
+          "enable_skip_layer_norm_strict_mode": "0",
+          "prefer_nhwc": "0",
+          "use_ep_level_unified_stream": "0",
+          "use_tf32": "0",
+          "sdpa_kernel": "0"
+        },
+        "CPUExecutionProvider": {}
+      },
+      "profiled_images": 1,
+      "profile_sha256": "db18aee93be4b82a20295a2458761a05854f67a2fab4fb423d7b412206c16fb1",
+      "disabled_optimizers": [
+        "ConvBNFusion",
+        "ConvActivationFusion"
+      ],
+      "original_BN_nodes": 55,
+      "optimized_BN_nodes": 55,
+      "graph_bytes": 659557,
+      "fp32_graph_bytes": 1176942,
+      "initializer_types": {
+        "FLOAT16": 336
+      }
+    }
+  ],
+  "precision": {
+    "reference": "pytorch_float32",
+    "candidate": "FP16_mixed_FP32_IO",
+    "pytorch_tf32": false,
+    "onnx_cuda_use_tf32": 0
+  },
+  "protocol": {
+    "protocol_id": "fp16_cuda_v1_20261029",
+    "declared_before_candidate_conversion_or_inference": true,
+    "scope": "Fixed A/B/C seed42 selected weights on local RTX4060 Laptop; precision conversion only, no retraining or new checkpoint selection",
+    "prerequisite": "results/deployment_cuda_fp32_preserved_bn.json must pass all500 for all three matching graphs and weights",
+    "reference": "Unchanged PyTorch FP32 CUDA, TF32 off, deterministic algorithms",
+    "conversion": {
+      "implementation": "onnxruntime.transformers.float16.convert_float_to_float16",
+      "required_onnxruntime_version": "1.19.2",
+      "keep_io_types": true,
+      "min_positive_val": 5.96e-08,
+      "max_finite_val": 65504.0,
+      "disable_shape_infer": false,
+      "op_block_list": "installed converter DEFAULT_OP_BLOCK_LIST, recorded verbatim with source hash",
+      "force_fp16_initializers": false,
+      "candidate_count": 1,
+      "description": "FP16 internal tensors with FP32 input/output and unsupported operations retained by the converter. Report mixed precision; do not claim every operation is FP16."
+    },
+    "execution": {
+      "provider": "CUDAExecutionProvider",
+      "use_tf32": 0,
+      "disabled_optimizers": [
+        "ConvBNFusion",
+        "ConvActivationFusion"
+      ],
+      "cpu_fallback": false,
+      "gpu_lock": "seed42_training.lock byte0"
+    },
+    "data": {
+      "split": "Cityscapes validation already used for checkpoint selection, not independent test data",
+      "images": 500,
+      "height": 768,
+      "width": 1024,
+      "batch": 1,
+      "pilot_indices": [
+        0,
+        1,
+        2
+      ],
+      "full_indices": "0 through499 in original dataset order",
+      "labels": "original id8 foreground, all other ids background",
+      "boundary_width_pixels": 26,
+      "boundary_aggregation": "per-image mean excluding both-empty"
+    },
+    "acceptance_limits": {
+      "logit_rtol": 0.01,
+      "logit_atol": 0.01,
+      "argmax_disagreement_fraction": 0.001,
+      "metric_difference_pp": 0.05
+    },
+    "acceptance_rationale": "Project engineering tolerances, not universal standards: logit allowance explicitly differs from FP32 for lower precision; retain the FP32 label-disagreement and absolute regional/boundary metric limits. All outputs must be finite; all gates must pass. Compare candidate to FP32 reference in np.allclose(candidate, reference). Record both signed metric changes and absolute changes.",
+    "decision": "Run three fixed pilot images for every model. Start full500 only if all three pilots pass. If any pilot or full gate fails, preserve evidence, reject this candidate configuration and retain verified FP32 deployment. No silent tolerance changes or validation-driven precision search.",
+    "timing": "Separate future job, only accepted full500 configurations; conversion/pilot duration is not an FPS benchmark",
+    "primary_sources": [
+      "https://onnxruntime.ai/docs/performance/model-optimizations/float16.html",
+      "https://github.com/microsoft/onnxruntime/blob/v1.19.2/onnxruntime/python/tools/transformers/float16.py"
+    ]
+  },
+  "protocol_sha256": "945177e16a0f5db1fc84b632f38f5809e06a284bdd474e0e3e7e3cadd31593a4",
+  "verification": {
+    "status": "fail",
+    "mode": "pilot",
+    "backend": "cuda",
+    "models": 3,
+    "images_per_model": 3,
+    "source_hashes": {
+      "experiments\\attention_gate\\common_runner.py": "2d0ba323e7638538b9c4c2f3b229213a5b92d5232c856f9bd536534e8fcd49f0",
+      "experiments\\attention_gate\\metrics_v1.py": "2426f7838b90cce6f11b11315828c740846f735ffcba4523972fbce9a4ee2751",
+      "experiments\\attention_gate\\protocol_v1_1.json": "3990842dd4f56304506fb6d4abe5b3a8b3f8e5628675a3e412ea81419a377d58",
+      "code\\model_enet.py": "e0b99d9d862b09eec0781f374071a8f9b7c584d537d3f4761bc5d0c4d4da909b",
+      "code\\model_enet_ca.py": "a875c11bd9d95e8235622677d47cd7ea88c0064e283e0a53320fcd5a3f44b945",
+      "code\\components\\ca_attention.py": "b676ac179e5ee2e9c5bfefbc7f4837aee08832e713fe48f927ed576bf06ab322",
+      "experiments\\attention_gate\\common_runner_v2.py": "03a7238c77ec95ecde1480bd10c807ff5ee93e7072db6fdb93506cd85f05d5f4",
+      "experiments\\attention_gate\\protocol_v1_2.json": "2c50a1cbabfe3b4c4f0258dbbd7e976cbe80ca14fbc170c6e2b8b68e338e9765",
+      "experiments\\attention_gate\\step_05_2026-10-14\\loader_optimization_001\\verification.json": "8e594844a9ce77ed7188671d34814f57f9648ee841ef0a9dc4e63f92bb9887c0",
+      "experiments\\attention_gate\\common_runner_c.py": "05c9f3dcfbcdbb620882e57bef7a7409c2cd765176388bfe7c18565b57f24fbc",
+      "experiments\\attention_gate\\ca_hswish_control.py": "75d16afe2e9922df2d366d50eaa841321cfef2bba841da959d3818164b8be416",
+      "experiments\\attention_gate\\step_06_2026-10-14\\preparation_001\\author_reference\\coordatt.py": "c40cc881d0a23b64c886274a9d8df7d13f04b6ec4fc935c3b281a82998f9ebfc",
+      "experiments\\attention_gate\\step_06_2026-10-14\\preparation_001\\author_reference\\source.json": "59cabe2e37b1b258b72eab764202330be0187cab5063d5f2b738faa98bf80a6a",
+      "experiments\\attention_gate\\common_runner_mixed.py": "5baf19ff803717d7eebf27a5555ddf16728ad6eb152d8e749780540a9bc58fd5",
+      "experiments\\attention_gate\\mixed_ca_candidate.py": "9546a2381bdbff95969695747a454ac748c5c025584a1db35402fb89356c3d35",
+      "experiments\\attention_gate\\validate_deployment_fp16.py": "f339a204a3325ea8236fc7bac496307cb640383c18b1dcfaa4dac85ec5a6e514",
+      "experiments\\attention_gate\\deployment_equivalence_fp16.py": "b78e3e1413b744bf38fd68148fa16a33f06060c6aaa8aebc6d804251a5b45454",
+      "experiments\\attention_gate\\validate_deployment_fp32.py": "89cf966c3124bd75166b77000f60259bec0cdf5b8118860bab71bbc802a9b0fb",
+      "experiments\\attention_gate\\validate_deployment_fp32_preserved_bn.py": "e16b9396043e12ffdf74fa4723a04c7ca6b069a6a86eacd10bcde8002b172f01",
+      "experiments\\attention_gate\\deployment_fp16_protocol.json": "945177e16a0f5db1fc84b632f38f5809e06a284bdd474e0e3e7e3cadd31593a4",
+      "experiments\\attention_gate\\convert_selected_fp16.py": "7b0d48b4745910af9b81b327aed148d35366e8b90976b87e9df5ef3ccc7512a0",
+      "experiments\\attention_gate\\deployment_equivalence.py": "036bd43c2046809452cc4cf290dc2b29a25498934fffa14a209cb5512f3c870d"
+    },
+    "model_and_graph_hashes_unchanged": true,
+    "export_variant": "FP16_mixed_preserved_BN",
+    "disabled_optimizers": [
+      "ConvBNFusion",
+      "ConvActivationFusion"
+    ],
+    "same_input_metrics_and_actual_node_provider_checked": true,
+    "full500_metrics_verified": false,
+    "GPU_verified": false,
+    "latency_measured": false,
+    "training_modified": false
+  },
+  "aggregate_reconstruction_passed": true,
+  "data_manifest_matches_FP32": true,
+  "actual_cuda_nodes_verified": true,
+  "full500_acceptance_passed": false,
+  "latency_measured": false,
+  "decision": "retain_accepted_FP32_no_FP16_search",
+  "sources": {
+    "experiments\\attention_gate\\deployment_fp16_protocol.json": "945177e16a0f5db1fc84b632f38f5809e06a284bdd474e0e3e7e3cadd31593a4",
+    "tools\\export_fp16_validation.py": "e3cb89016ae0cb653cc36c6d742d8e98a61f246badfe849319c76efe4a631d52",
+    "experiments\\attention_gate\\step_10_2026-10-29\\ABC_fp16_cuda_pilot_001\\verification.json": "c12b9d91a66b989c7397ebc318a5e44ec64c93a8aab010998f8c9469ef90c91a",
+    "experiments\\attention_gate\\step_10_2026-10-29\\ABC_fp16_cuda_pilot_001\\results.json": "2555ede8754eaf73185917a21b680789478149493aea6844fa35822a66462a22",
+    "experiments\\attention_gate\\step_10_2026-10-29\\ABC_fp16_cuda_pilot_001\\plan.json": "7461c3692eaf098a5b961bb1d9b37fd324e348e6ef19c57b38596ba22c3eebfa",
+    "experiments\\attention_gate\\step_10_2026-10-29\\ABC_fp16_conversion_002\\models.json": "ff45e4587e31dee4b9737540dc2b91d7a82c2f4d4ccbab5745c9ce7db01da333",
+    "experiments\\attention_gate\\step_10_2026-10-29\\ABC_fp16_cuda_pilot_001\\A_seed42_per_image.json": "37d4ffeb6b9ebcdcecede143c867b1eb71962dd5ffaf6fb83a4bcc323570f758",
+    "experiments\\attention_gate\\step_10_2026-10-29\\ABC_fp16_cuda_pilot_001\\A_seed42_provider_2026-10-29_00-18-13.json": "8dd7e8ba58866134c057d2744d960dccc9b23cee3b4454529ad4f9c92da11601",
+    "experiments\\attention_gate\\step_10_2026-10-29\\ABC_fp16_cuda_pilot_001\\B_seed42_per_image.json": "790774fd6128dd9b07cd6549535c9d76e56062aaa5740d923bc78fd624e52287",
+    "experiments\\attention_gate\\step_10_2026-10-29\\ABC_fp16_cuda_pilot_001\\B_seed42_provider_2026-10-29_00-18-20.json": "c05ea692ba5d3c4c2f1c403e5c2a267b94e85f90acbcc79b5b6d8dc0401bc669",
+    "experiments\\attention_gate\\step_10_2026-10-29\\ABC_fp16_cuda_pilot_001\\C_seed42_per_image.json": "88f48625bd9dd57598f1b88fb15d860507b434e9a672b769c2c7eeb4af1d206e",
+    "experiments\\attention_gate\\step_10_2026-10-29\\ABC_fp16_cuda_pilot_001\\C_seed42_provider_2026-10-29_00-18-25.json": "db18aee93be4b82a20295a2458761a05854f67a2fab4fb423d7b412206c16fb1"
+  },
+  "limitation": "Pilot failures reject this conversion only. No full500 FP16 accuracy estimate, FPS, retraining or universal FP16-failure claim."
+}

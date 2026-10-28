@@ -174,6 +174,28 @@ def main():
             assert hashlib.sha256(path.read_bytes()).hexdigest()==repaired['source_sha256']
             assert repaired['passed']==read(path)['full500_acceptance_passed']
         print('PASS: failed-gate history, reproducible BN export and actual GPU lock guard.')
+    if (ROOT/'results/deployment_cuda_fp16.json').exists():
+        fp16=read('results/deployment_cuda_fp16.json')
+        protocol=read('experiments/attention_gate/deployment_fp16_protocol.json')
+        assert fp16['protocol']==protocol and fp16['aggregate_reconstruction_passed']
+        assert fp16['actual_cuda_nodes_verified'] and fp16['data_manifest_matches_FP32']
+        for relative,expected in fp16['verification']['source_hashes'].items():
+            assert hashlib.sha256((ROOT/relative.replace('\\','/')).read_bytes()).hexdigest()==expected
+        assert hashlib.sha256((ROOT/'experiments/attention_gate/deployment_fp16_protocol.json').read_bytes()).hexdigest()==fp16['protocol_sha256']
+        assert len(fp16['results'])==3 and {r['variant'] for r in fp16['results']}==set('ABC')
+        count=3 if fp16['mode']=='pilot' else 500
+        for r in fp16['results']:
+            original=next(x for x in rows if x['variant']==r['variant'] and x['seed']==42)
+            assert r['weights_sha256']==original['best_weights_sha256'] and r['selected_epoch']==original['best_epoch']
+            assert r['images']==count and r['limits']==protocol['acceptance_limits']
+            assert (r['status']=='pass')==all(r['checks'].values())
+            assert r['provider_evidence']['provider']=='CUDAExecutionProvider'
+            assert set(r['provider_evidence']['node_executions'])=={'CUDAExecutionProvider'}
+            for key in ('pytorch','onnx'): assert sum(map(sum,r['metrics'][key]['confusion']))==count*768*1024
+        passed=all(r['status']=='pass' for r in fp16['results'])
+        assert fp16['full500_acceptance_passed']==(passed and count==500)
+        if not passed: assert fp16['decision']=='retain_accepted_FP32_no_FP16_search'
+        print('PASS: distinct FP16 protocol, pilot scope and honest failed-candidate decision.')
     print(f'PASS: {len(hashes)} exact-byte source hashes, loader proof, 9 results and paired statistics.')
 
 

@@ -1,0 +1,21 @@
+{
+  "protocol_id": "ort_fp32_latency_v1_20261029",
+  "declared_before_timing": true,
+  "models": ["A_seed42", "B_seed42", "C_seed42"],
+  "precision": "Previously full500-accepted preserved-BN FP32 only, TF32 off",
+  "round_orders": [["A", "B", "C"], ["B", "C", "A"], ["C", "A", "B"]],
+  "warmup_each_pipeline": 50,
+  "measured_frames_each_pipeline": 500,
+  "sessions": "Fresh Python process and ORT session for each model in each round",
+  "batch": 1,
+  "height": 768,
+  "width": 1024,
+  "power": "Keep observed AC connection and Windows power-saver scheme a1841308-3541-4fab-bc81-f71556f20b4a unchanged. No maximum-hardware-performance claim.",
+  "model_only": "Repeat fixed validation image0 tensor500 times, resident CUDA input and preallocated CUDA output via IOBinding. Synchronize CUDA before and after every sample. Excludes transfers, preprocessing, argmax and session construction; includes Python run dispatch and synchronization.",
+  "end_to_end": "Read/decode all500 validation PNGs in original sorted order. Use frozen dataset PIL/torchvision preprocessing, H2D, inference, D2H, argmax, restore mask to original image size, and blend overlay. Excludes labels, file saving, UI, model load. First50 images are also warmup images; OS disk cache is not cleared. This is local PNG pipeline latency, not camera/video throughput.",
+  "statistics": ["mean_ms", "median_ms", "p95_ms", "actual_frames_divided_by_loop_wall_seconds"],
+  "memory": "Windows GPU Process Memory dedicated/shared snapshots before session, after warmup and after run; aggregate adapters explicitly. Report maximum observed snapshot, never true peak or PyTorch allocator memory. NVIDIA device totals are context only.",
+  "acceptance": "Full500 FP32 acceptance identity, first-image IOBinding and ordinary ORT output agreement, actual CUDA nodes, no CPU fallback, same power and AC, unchanged source/model/data hashes, exactly9 sessions with500 samples per pipeline",
+  "exclusions": "No concurrent project training/GPU validation. Preserve rejected or interrupted jobs. No FPS claim from smoke mode. Other desktop background processes are recorded, not killed.",
+  "primary_source": "https://onnxruntime.ai/docs/performance/tune-performance/iobinding.html"
+}
