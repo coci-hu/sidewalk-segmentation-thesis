@@ -196,6 +196,36 @@ def main():
         assert fp16['full500_acceptance_passed']==(passed and count==500)
         if not passed: assert fp16['decision']=='retain_accepted_FP32_no_FP16_search'
         print('PASS: distinct FP16 protocol, pilot scope and honest failed-candidate decision.')
+    if (ROOT/'results/deployment_benchmark.json').exists():
+        timing=read('results/deployment_benchmark.json')
+        assert timing['status']=='pass' and timing['raw_statistics_and_provider_reconstructed']
+        assert timing['sessions']==9 and timing['samples_per_pipeline']==4500
+        for relative,expected in timing['source_hashes'].items():
+            assert hashlib.sha256((ROOT/relative.replace('\\','/')).read_bytes()).hexdigest()==expected
+        for variant in 'ABC':
+            selected=[r for r in timing['session_results'] if r['variant']==variant]
+            assert len(selected)==3 and {r['round'] for r in selected}=={1,2,3}
+            for key in ('model_only','end_to_end'):
+                pooled=timing['summary'][variant][key]
+                assert pooled['frames']==1500
+                assert abs(pooled['mean_ms']-statistics.mean(r[key]['mean_ms'] for r in selected))<1e-8
+                assert abs(pooled['actual_fps']-1500/sum(r[key]['loop_wall_seconds'] for r in selected))<1e-8
+        print('PASS: nine completed FP32 timing sessions, pooled statistics and frozen source identity.')
+    if (ROOT/'results/application_validation.json').exists():
+        application=read('results/application_validation.json')
+        proof=application['input_implementation_proof']
+        assert application['status']=='pass' and proof['status']=='pass' and proof['images']==500
+        assert proof['all_input_pixels_and_tensors_bitwise_equal'] and proof['binary_argmax_and_ties_equal']
+        assert application['GPU_lock_rejected_before_inference'] and application['constructed_video_only']
+        assert not application['self_collected_dataset_required']
+        assert sorted(x['frames'] for x in application['demo_cases'])==[1,1,1,32]
+        for sources in (proof['source_hashes'],application['demo_source_hashes']):
+            for relative,expected in sources.items():
+                assert hashlib.sha256((ROOT/relative.replace('\\','/')).read_bytes()).hexdigest()==expected
+        assert hashlib.sha256((ROOT/'tools/export_application_validation.py').read_bytes()).hexdigest()==application['exporter_sha256']
+        for case in application['demo_cases']:
+            assert set(case['provider']['node_executions'])=={'CUDAExecutionProvider'}
+        print('PASS: exact500-input implementation, actual CLI CUDA proofs and constructed-video scope.')
     print(f'PASS: {len(hashes)} exact-byte source hashes, loader proof, 9 results and paired statistics.')
 
 

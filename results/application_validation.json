@@ -1,0 +1,120 @@
+{
+  "status": "pass",
+  "input_implementation_proof": {
+    "status": "pass",
+    "images": 500,
+    "all_input_pixels_and_tensors_bitwise_equal": true,
+    "binary_argmax_and_ties_equal": true,
+    "overlays_bitwise_equal": true,
+    "nonfinite_rejected": true,
+    "source_hashes": {
+      "experiments\\attention_gate\\verify_pipeline_cpu.py": "16bc4d8f63d4fa57e6bcff33a3e2e93f0bdca3d064875533e4db96e11e101b5c",
+      "experiments\\attention_gate\\deployment_pipeline.py": "d5e749a84aaef8edf54cda00e68432cb10796802a6f88b63d8639119468bdd5e",
+      "experiments\\attention_gate\\common_runner.py": "2d0ba323e7638538b9c4c2f3b229213a5b92d5232c856f9bd536534e8fcd49f0",
+      "experiments\\attention_gate\\common_runner_v2.py": "03a7238c77ec95ecde1480bd10c807ff5ee93e7072db6fdb93506cd85f05d5f4",
+      "experiments\\attention_gate\\safe_progress_io.py": "409794a6c9b5ccecfd1a65c7f2a0691b51e6b182f4dc86d54281c825139f69f8"
+    },
+    "elapsed_seconds": 275.2163595,
+    "CUDA_inference": false,
+    "meaning": "Same exact model input and binary output rule; this is implementation equivalence, not new model accuracy"
+  },
+  "demo_cases": [
+    {
+      "variant": "A",
+      "frames": 1,
+      "media": "experiments/attention_gate/step_11_2026-10-29/demo_acceptance_002/A_image_0.png",
+      "media_sha256": "a1948784e701de85d62bcc5718061e225a73008a4e519c34c727cccbbb34ed00",
+      "report_sha256": "be442b0062461556ce5e7875979b517004ae4d34963a7e4673d922dd2b0f544a",
+      "provider": {
+        "provider": "CUDAExecutionProvider",
+        "node_executions": {
+          "CUDAExecutionProvider": 187
+        },
+        "unique_node_names": 187
+      },
+      "onnx_sha256": "2c702720842bd016aa3db3abb9563e06119d8608d6b598a10fb5e28434fc9386",
+      "source_note": "Existing Cityscapes validation image; not independent test"
+    },
+    {
+      "variant": "B",
+      "frames": 1,
+      "media": "experiments/attention_gate/step_11_2026-10-29/demo_acceptance_002/B_image_250.png",
+      "media_sha256": "6714ec71167d19a359fc5a13c4cadf940aebfcbe2576278959e36f3e419b29ba",
+      "report_sha256": "f0d9e3699459de0d18d073aa9214dfc5128b29453dbd277eaa45271333e65c7f",
+      "provider": {
+        "provider": "CUDAExecutionProvider",
+        "node_executions": {
+          "CUDAExecutionProvider": 202
+        },
+        "unique_node_names": 202
+      },
+      "onnx_sha256": "e2f3daa6d168781fd99535327fbbb90969aa98118c1a3742361c93e1eb22d0a4",
+      "source_note": "Existing Cityscapes validation image; not independent test"
+    },
+    {
+      "variant": "C",
+      "frames": 1,
+      "media": "experiments/attention_gate/step_11_2026-10-29/demo_acceptance_002/C_image_499.png",
+      "media_sha256": "29bbc6bd02f19d9ed262e0ef367f4b4b2b81ef63a2b5f2db46febce78efb2e46",
+      "report_sha256": "f417d309edfaff7cec61db8b744d355cc5312588ae0dab149d7b9862347fa3fe",
+      "provider": {
+        "provider": "CUDAExecutionProvider",
+        "node_executions": {
+          "CUDAExecutionProvider": 205
+        },
+        "unique_node_names": 205
+      },
+      "onnx_sha256": "42bb362829705994c6e509519fa2d58206402a4be0447a2a095b64be3ceb87aa",
+      "source_note": "Existing Cityscapes validation image; not independent test"
+    },
+    {
+      "variant": "B",
+      "frames": 32,
+      "media": "experiments/attention_gate/step_11_2026-10-29/demo_acceptance_002/B_constructed_video_overlay.mp4",
+      "media_sha256": "daf0bf21d5f33e447585fb8db910a34aeec552718a43b64ae61f4bf2db9b2317",
+      "report_sha256": "c7bafc492282dfafe5e8cf7b5c4dc2e58b3238b5fc59824daf9358563d632a0d",
+      "provider": {
+        "provider": "CUDAExecutionProvider",
+        "node_executions": {
+          "CUDAExecutionProvider": 202
+        },
+        "unique_node_names": 202
+      },
+      "onnx_sha256": "e2f3daa6d168781fd99535327fbbb90969aa98118c1a3742361c93e1eb22d0a4",
+      "source_note": "Constructed clip from8 existing Cityscapes validation still images,4 repeats each; no natural temporal sequence or new dataset"
+    }
+  ],
+  "GPU_lock_rejected_before_inference": true,
+  "model_parameter_counts": {
+    "A": 263640,
+    "B": 266992,
+    "C": 266992
+  },
+  "demo_source_hashes": {
+    "experiments/attention_gate/verify_demo_cli.py": "73a6d9d72dcbc0cd28f6268456ca8967245d022a720690cb2c9f26f5ccf31d51",
+    "experiments/attention_gate/sidewalk_demo.py": "ae7d3f2859e3a19ea285513f643c3e93ae00846fb43b88ae7e2e354e577750e0",
+    "experiments/attention_gate/deployment_pipeline.py": "d5e749a84aaef8edf54cda00e68432cb10796802a6f88b63d8639119468bdd5e",
+    "experiments/attention_gate/verified_deployment_runtime.py": "1f74fddc21a42ab3f0b374fc25fd97531fabc3761f1043f5a3b1c9e58752cfd9"
+  },
+  "exporter_sha256": "5eb194d49b51bc22d5956f8c4e0e41722eaee1836f334badf026e4f9ef3cbee5",
+  "sources": {
+    "experiments/attention_gate/step_11_2026-10-29/pipeline_equivalence_002/verification.json": "dca5cf4184b6d61d548a1f8a7c8a98879c1c944ab24c0e05d502da86c7022825",
+    "experiments/attention_gate/step_11_2026-10-29/pipeline_equivalence_002/per_image.json": "5e6e56f56d32ca8773e3ca881bc04c3c61b585a7c303d3587ba570acb6d37637",
+    "experiments/attention_gate/step_11_2026-10-29/pipeline_equivalence_002/plan.json": "3c593aab48755fe12a497bf122c77d6bbb8ae90e4677d20359ac536f30165281",
+    "experiments/attention_gate/step_11_2026-10-29/demo_acceptance_002/verification.json": "6e4af01ad53a9c030468a567e2630247dd29446aea73dce78e7e6356518b0f71",
+    "experiments/attention_gate/step_11_2026-10-29/demo_acceptance_002/A_image_0.png.json": "be442b0062461556ce5e7875979b517004ae4d34963a7e4673d922dd2b0f544a",
+    "experiments/attention_gate/step_11_2026-10-29/demo_acceptance_002/A_image_0.png.evidence/A_seed42_2026-10-29_23-07-24.json": "ea5bb326c04466d2fece42b4efb0658003bc45912b8cf24af894dd771f3553f1",
+    "experiments/attention_gate/step_11_2026-10-29/demo_acceptance_002/B_image_250.png.json": "f0d9e3699459de0d18d073aa9214dfc5128b29453dbd277eaa45271333e65c7f",
+    "experiments/attention_gate/step_11_2026-10-29/demo_acceptance_002/B_image_250.png.evidence/B_seed42_2026-10-29_23-07-41.json": "65c994c9639fffaa3db29bf5a00c8128a5bb52ddc963115de0731315e8fc9bcc",
+    "experiments/attention_gate/step_11_2026-10-29/demo_acceptance_002/C_image_499.png.json": "f417d309edfaff7cec61db8b744d355cc5312588ae0dab149d7b9862347fa3fe",
+    "experiments/attention_gate/step_11_2026-10-29/demo_acceptance_002/C_image_499.png.evidence/C_seed42_2026-10-29_23-07-59.json": "8307704f8260452bd853c75e75c34a421ad7839bbca49931e613d91f0855d2b3",
+    "experiments/attention_gate/step_11_2026-10-29/demo_acceptance_002/B_constructed_video_overlay.mp4.json": "c7bafc492282dfafe5e8cf7b5c4dc2e58b3238b5fc59824daf9358563d632a0d",
+    "experiments/attention_gate/step_11_2026-10-29/demo_acceptance_002/B_constructed_video_overlay.mp4.evidence/B_seed42_2026-10-29_23-08-16.json": "caab00af497889b5159c3e44d6b2094793759cface48e7de35f632036bb6f760"
+  },
+  "constructed_video_only": true,
+  "constructed_video_frames": 32,
+  "long_duration_stability_checked": false,
+  "formal_pipeline_comparison_complete": false,
+  "self_collected_dataset_required": false,
+  "claim": "Functional interface and exact preprocessing proof; no new accuracy, natural-video temporal or formal FPS claim"
+}

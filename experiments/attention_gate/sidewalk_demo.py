@@ -12,7 +12,8 @@ import time
 import cv2
 import numpy as np
 from PIL import Image
-import onnxruntime as ort
+from deployment_pipeline import read_bgr, preprocess_bgr, binary_mask, restore_mask, overlay_bgr
+from verified_deployment_runtime import VerifiedRuntime
 
 
 def main():
@@ -24,34 +25,29 @@ def main():
     p.add_argument('--backend', choices=('cpu', 'cuda'), default='cpu')
     p.add_argument('--headless', action='store_true')
     p.add_argument('--max-frames', type=int)
+    p.add_argument('--source-note', default='User-provided media', help='Describe constructed validation clips honestly')
     a = p.parse_args()
+    run(a)
+
+
+def run(a):
+    evidence=a.output.with_suffix(a.output.suffix+'.evidence')
+    with VerifiedRuntime(a.models,a.backend,evidence) as runtime:
+        process(a,runtime)
+
+
+def process(a,runtime):
     if a.output.exists() or a.output.with_suffix(a.output.suffix + '.json').exists():
         raise FileExistsError('Use a new output file; existing results are preserved')
     if not a.input.is_file():
         raise FileNotFoundError(a.input)
-    config = json.loads(a.models.read_text(encoding='utf-8'))
-    models = config['models']
+    config=runtime.config
+    models=runtime.models
     assert 0 <= a.model_index < len(models)
-    a.output.parent.mkdir(parents=True, exist_ok=True)
-    provider = 'CUDAExecutionProvider' if a.backend == 'cuda' else 'CPUExecutionProvider'
-    if provider not in ort.get_available_providers():
-        raise RuntimeError('Requested backend unavailable')
-    sessions = {}
-    def session_for(index):
-        if index not in sessions:
-            item = models[index]
-            assert hashlib.sha256(Path(item['onnx']).read_bytes()).hexdigest() == item['onnx_sha256']
-            opts = ort.SessionOptions(); opts.intra_op_num_threads = 2; opts.inter_op_num_threads = 1
-            if a.backend == 'cuda':
-                opts.add_session_config_entry('session.disable_cpu_ep_fallback', '1')
-            sessions[index] = ort.InferenceSession(item['onnx'], sess_options=opts, providers=[provider])
-            if sessions[index].get_providers()[0] != provider:
-                raise RuntimeError('Backend initialization fell back; refuse misleading label')
-        return sessions[index]
-    mean = np.asarray(config['mean'], dtype=np.float32).reshape(1, 1, 3)
-    std = np.asarray(config['std'], dtype=np.float32).reshape(1, 1, 3)
-    # Build initial session outside per-frame inference timing; switches may load another session.
-    session_for(a.model_index)
+    a.output.parent.mkdir(parents=True,exist_ok=True)
+    provider=runtime.provider
+    cv2.setNumThreads(1)
+    runtime.session_for(a.model_index)
     image_mode = a.input.suffix.lower() in ('.jpg', '.jpeg', '.png', '.bmp', '.webp')
     capture, writer = None, None
     if not image_mode:
@@ -62,9 +58,10 @@ def main():
     index = a.model_index
     try:
         while True:
+            runtime.session_for(index)
             began = time.perf_counter()
             if image_mode:
-                frame = cv2.imdecode(np.fromfile(a.input, dtype=np.uint8), cv2.IMREAD_COLOR)
+                frame = read_bgr(a.input)
                 ok = frame is not None
             else:
                 ok, frame = capture.read()
@@ -72,19 +69,15 @@ def main():
                 if not records:
                     raise RuntimeError('No readable frames')
                 break
-            rgb = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)).resize((config['width'], config['height']), Image.BILINEAR)
-            array = (np.asarray(rgb, dtype=np.float32) / 255.0 - mean) / std
-            tensor = np.ascontiguousarray(array.transpose(2, 0, 1)[None])
-            runtime = session_for(index)
+            tensor = preprocess_bgr(frame)
             infer_start = time.perf_counter()
-            logits = runtime.run(['logits'], {'image': tensor})[0]
+            logits = runtime.infer(index,tensor)
             infer_ms = (time.perf_counter() - infer_start) * 1000
             assert np.isfinite(logits).all()
-            mask = logits.argmax(1)[0].astype(np.uint8)
-            mask = cv2.resize(mask, (frame.shape[1], frame.shape[0]), interpolation=cv2.INTER_NEAREST)
-            overlay = frame.copy()
-            selected = mask == 1
-            overlay[selected] = (0.6 * overlay[selected] + 0.4 * np.array([40, 210, 40])).astype(np.uint8)
+            low_resolution_mask=binary_mask(logits)
+            mask=restore_mask(low_resolution_mask,frame)
+            selected=mask==1
+            overlay=overlay_bgr(frame,mask)
             processing_ms = (time.perf_counter() - began) * 1000
             font = min(0.65, max(0.35, frame.shape[1] / 1800))
             panel = overlay.copy()
@@ -97,7 +90,8 @@ def main():
                 cv2.putText(overlay, label, (10, 21 + 23 * line_number), cv2.FONT_HERSHEY_SIMPLEX,
                     font, (255, 255, 255), 1, cv2.LINE_AA)
             records.append({'frame': len(records), 'model': models[index]['name'], 'inference_ms': infer_ms,
-                'read_preprocess_infer_overlay_ms': processing_ms, 'foreground_fraction': float(selected.mean())})
+                'read_preprocess_infer_overlay_ms': processing_ms, 'foreground_fraction': float(selected.mean()),
+                'mask_sha256': hashlib.sha256(low_resolution_mask.tobytes()).hexdigest()})
             if image_mode:
                 success, encoded = cv2.imencode(a.output.suffix, overlay)
                 if not success: raise RuntimeError('Image encoder failed')
@@ -125,7 +119,10 @@ def main():
     report = {'input': str(a.input.resolve()), 'output': str(a.output.resolve()), 'backend_requested': provider,
         'frames': records, 'speed_is_not_a_controlled_benchmark': True,
         'processing_excludes_video_write_display_and_session_initialization': True,
-        'semantic_sidewalk_only_not_safe_path_planning': True}
+        'semantic_sidewalk_only_not_safe_path_planning': True,
+        'execution_verified': runtime.proofs, 'models_manifest_sha256': runtime.manifest_hash,
+        'pipeline': 'exact_tensor_LUT_preprocess_binary_compare_LUT_overlay',
+        'CPU_full500_validated': False, 'source_note': a.source_note}
     a.output.with_suffix(a.output.suffix + '.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
     print(json.dumps({'frames': len(records), 'output': str(a.output)}, ensure_ascii=False))
 

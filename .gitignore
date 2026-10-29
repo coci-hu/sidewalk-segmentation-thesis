@@ -59,3 +59,4 @@ secrets*.json
 !/experiments/attention_gate/step_06_2026-10-14/preparation_001/author_reference/source.json
 /experiments/attention_gate/current_*_job.json
 /experiments/attention_gate/README.md
+/experiments/attention_gate/demo_outputs/

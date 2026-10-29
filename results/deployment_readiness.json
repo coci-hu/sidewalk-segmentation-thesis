@@ -51,11 +51,11 @@
           }
         },
         "absolute_metric_difference_pp": {
-          "sidewalk_iou_pct": 0.0,
-          "boundary_iou_pct": 0.0
+          "sidewalk_iou_pct": 0,
+          "boundary_iou_pct": 0
         },
-        "argmax_disagreement_fraction": 0.0,
-        "maximum_absolute_logit_error": 5.257129669189453e-05,
+        "argmax_disagreement_fraction": 0,
+        "maximum_absolute_logit_error": 0.00005257129669189453,
         "name": "A_seed42",
         "variant": "A",
         "seed": 42,
@@ -124,11 +124,11 @@
           }
         },
         "absolute_metric_difference_pp": {
-          "sidewalk_iou_pct": 0.0,
-          "boundary_iou_pct": 0.0
+          "sidewalk_iou_pct": 0,
+          "boundary_iou_pct": 0
         },
-        "argmax_disagreement_fraction": 0.0,
-        "maximum_absolute_logit_error": 4.113838076591492e-05,
+        "argmax_disagreement_fraction": 0,
+        "maximum_absolute_logit_error": 0.00004113838076591492,
         "name": "C_seed42",
         "variant": "C",
         "seed": 42,
@@ -221,16 +221,16 @@
     "experiments\\attention_gate\\step_10_2026-10-27\\gpu_guard_check_002\\verification.json": "cfd4c93a89edf1d976a84e6e8cba437ab24ee0df16d8206c3d6c3069317237d9"
   },
   "next_steps": [
-    "Use accepted FP32 configuration in prototype",
-    "Isolated FP32 latency/memory comparison under fixed measured power conditions",
-    "Application stability and human-reviewed local image validation"
+    "One bounded exact-output pipeline timing comparison",
+    "One30-minute repeat-input stability check on existing material",
+    "Transparent validation-set success/failure figures and experimental freeze"
   ],
   "documentation_checked": [
     "https://onnxruntime.ai/docs/api/python/api_summary.html",
     "https://onnxruntime.ai/docs/performance/tune-performance/profiling-tools.html",
     "https://onnxruntime.ai/docs/execution-providers/CUDA-ExecutionProvider.html#use_tf32"
   ],
-  "limitations": "CPU pilot evidence is historical; latest CUDA full-validation state is reported separately. NoFPS or physical embedded-device claim.",
+  "limitations": "Historical CPU pilot retained; formal FP32 GPU timing and functional demo are reported in linked evidence. No physical embedded-device or natural-video temporal claim. Self-collected dataset canceled.",
   "additional_pilots": [
     {
       "pilot": {
@@ -284,11 +284,11 @@
               }
             },
             "absolute_metric_difference_pp": {
-              "sidewalk_iou_pct": 0.0,
-              "boundary_iou_pct": 0.0
+              "sidewalk_iou_pct": 0,
+              "boundary_iou_pct": 0
             },
-            "argmax_disagreement_fraction": 0.0,
-            "maximum_absolute_logit_error": 5.650520324707031e-05,
+            "argmax_disagreement_fraction": 0,
+            "maximum_absolute_logit_error": 0.00005650520324707031,
             "name": "B_seed42",
             "variant": "B",
             "seed": 42,
@@ -370,5 +370,19 @@
     "mode": "pilot",
     "decision": "retain_accepted_FP32_no_FP16_search",
     "full500_acceptance_passed": false
+  },
+  "latest_fp32_benchmark": {
+    "path": "results/deployment_benchmark.json",
+    "sha256": "945662df3698e4c70cfa0f5603e193fc9f49d7a87f49a4d94328745b5463b1c2",
+    "status": "pass",
+    "sessions": 9
+  },
+  "latest_application_validation": {
+    "path": "results/application_validation.json",
+    "sha256": "8a3b4878db8ba08614b4d0a1eb85caa0ce84f7548b22d493d2513591f4441faa",
+    "status": "pass",
+    "full500_exact_input": true,
+    "constructed_video_frames": 32,
+    "long_duration_stability_checked": false
   }
 }

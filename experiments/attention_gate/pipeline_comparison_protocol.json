@@ -1,0 +1,20 @@
+{
+  "protocol_id": "B42_exact_pipeline_pair_v1_20261029",
+  "declared_before_comparative_timing": true,
+  "candidate_budget": 1,
+  "reason": "Stage profile identified decode/preprocess/postprocess overhead; two-week experimental cutoff excludes new model training",
+  "model": "B seed42 selected epoch84, accepted preserved-BN FP32 CUDA",
+  "pipelines": {
+    "original": "PIL PNG decode, frozen torchvision resize/normalize, binary np.argmax, nearest-neighbor mask restoration, NumPy boolean-index float64 overlay",
+    "optimized": "OpenCV PNG decode, same PIL bilinear resize, exact float32 normalization LUT, strict channel1>channel0, identical nearest-neighbor restoration, exact uint8 overlay LUT and copyTo"
+  },
+  "gate": "Require500-image CPU proof of decoded-pixel/input-tensor equality and synthetic exact postprocessing including class0 ties; require matched prediction and overlay hashes for all measured inputs",
+  "round_orders": [["original", "optimized"], ["optimized", "original"], ["original", "optimized"]],
+  "warmup": 50,
+  "measured_images": 500,
+  "input_order": "All500 Cityscapes validation PNGs, original sorted order, no cached decoded arrays",
+  "runtime": "New process/session per pipeline per round; TF32 off; no CPU fallback; disabled ConvBNFusion and ConvActivationFusion; one CPU thread; same AC/power-saver condition as the accepted timing",
+  "timing": "Read/decode through RGB overlay creation in both pipelines; include candidate BGR-to-RGB conversion. Exclude initialization, profile capture, output hash/check bookkeeping and output saving from sample latency. Actual loop FPS includes bookkeeping. Save all sample and stage timings. No timing concurrently with training or gaming.",
+  "interpretation": "One bundled implementation comparison, not a new neural architecture or isolated causal effect for each component. PNG throughput does not establish camera/video real-time performance.",
+  "decision": "Retain candidate only if correctness passes; report measured gain or lack of gain. Do not change thresholds, resolution, masks or input set to obtain positive results."
+}

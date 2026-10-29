@@ -1,0 +1,35 @@
+{
+  "revised_on": "2026-10-29",
+  "reason": "User has two weeks until experimental cutoff; thesis writing has additional time; user explicitly cancels self-collected dataset",
+  "supersedes_scope_only": "Earlier six-month work plan; historical protocols and measured results remain unchanged",
+  "experimental_window_days": 14,
+  "retained_model": "B seed42 is the provisional demo choice based on completed three-seed accuracy evidence; A/C retained in comparison tables",
+  "do_now": [
+    "Independently reconstruct the completed9 FP32 timing sessions",
+    "Align demo execution with the full500-accepted FP32 settings and GPU lock",
+    "Profile the existing end-to-end pipeline and allow exactly one bounded engineering optimization preserving segmentation input and output",
+    "Verify image and video interfaces using existing Cityscapes material, explicitly labeling any constructed clip"
+  ],
+  "remaining_schedule": [
+    {"days": "1-3", "deliverable": "Final accuracy/deployment tables; profile bottleneck; one optimized pipeline correctness and matched timing comparison"},
+    {"days": "4-6", "deliverable": "Working image/video demo and one30-minute repeat-input stability test; report construction and lack of temporal ground truth"},
+    {"days": "7-9", "deliverable": "Representative successes/failures selected transparently from the existing validation set; final figures and interpretation"},
+    {"days": "10-12", "deliverable": "Fix only defects exposed by required checks; freeze runnable code, protocol, result tables and artifact hashes"},
+    {"days": "13-14", "deliverable": "Buffer for necessary reruns or supervisor corrections; no new research branch"}
+  ],
+  "stop_rules": [
+    "No new architecture, backbone, dataset, training seed, distillation, boundary loss, FP16 search or INT8 experiment",
+    "No external hardware purchases or server rental",
+    "No self-built dataset or new manual annotation task",
+    "Keep negative D/E and FP16 results; do not rerun to seek positive outcomes",
+    "If the one bounded pipeline optimization cannot preserve semantic correctness, retain the verified implementation and report its measured throughput"
+  ],
+  "claim_boundaries": [
+    "Cityscapes validation is reused for checkpoint selection, not independent test data",
+    "Local RTX4060 Laptop prototype, not physical embedded-device or second-dataset validation",
+    "Visible sidewalk semantic segmentation, not proven physical traversability or safety",
+    "Model-only FPS and complete PNG/video pipeline FPS are reported separately",
+    "Experimental cutoff is not the thesis submission deadline"
+  ],
+  "user_action": "No new data collection required. Keep power context consistent during formal timing and report any supervisor-mandated experimental requirement before cutoff."
+}
