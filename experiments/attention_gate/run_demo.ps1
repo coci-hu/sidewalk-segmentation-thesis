@@ -14,7 +14,7 @@ $extension=[IO.Path]::GetExtension($inputFile).ToLowerInvariant()
 $isImage=$extension -in @('.jpg','.jpeg','.png','.bmp','.webp')
 $outputFile=Join-Path $demoFolder $(if ($isImage) {'overlay.png'} else {'overlay.mp4'})
 $modelIndex=@{A=0;B=1;C=2}[$Model]
-$demoArguments=@((Join-Path $PSScriptRoot 'sidewalk_demo.py'),'--models',$ModelsPath,'--input',$inputFile,
+$demoArguments=@((Join-Path $PSScriptRoot 'sidewalk_demo_reference.py'),'--models',$ModelsPath,'--input',$inputFile,
     '--output',$outputFile,'--backend','cuda','--model-index',[string]$modelIndex)
 if ($Headless) { $demoArguments+='--headless' }
 & $Python @demoArguments

@@ -1,0 +1,221 @@
+{
+  "status": "pass",
+  "reference_demo": {
+    "pipeline": "reference_torchvision_argmax_numpy_overlay",
+    "source_input_exact_indices": [
+      0,
+      207,
+      499
+    ],
+    "GPU_lock_rejected": true,
+    "media": [
+      {
+        "path": "experiments/attention_gate/step_11_2026-10-30/reference_demo_acceptance_001/A_image_0.png",
+        "sha256": "7b6db16fce1cd90bed1e24d2ccc77cf2afec2a45c697e631e650ad75b4a3297e",
+        "frames": 1
+      },
+      {
+        "path": "experiments/attention_gate/step_11_2026-10-30/reference_demo_acceptance_001/B_image_250.png",
+        "sha256": "7e27420e69aa68a55d4f99baf99e0256bbf5b7f688aeb7737f2572712aeb8de1",
+        "frames": 1
+      },
+      {
+        "path": "experiments/attention_gate/step_11_2026-10-30/reference_demo_acceptance_001/C_image_499.png",
+        "sha256": "0585132b6b05a651429d46e664a642d590616b465ec7674144f010868f06c512",
+        "frames": 1
+      },
+      {
+        "path": "experiments/attention_gate/step_11_2026-10-30/reference_demo_acceptance_001/B_constructed_video_overlay.mp4",
+        "sha256": "7147b0de231d11cb358ef2c5788ea321b1115b6fdea4faace3845e28d5a876a5",
+        "frames": 32
+      }
+    ],
+    "constructed_video_only": true,
+    "long_duration_checked": false
+  },
+  "case_selection": {
+    "rule": "Sort historical B42 ONNX per-image sidewalkIoU among GT-positive images; tie by index; ranks round(q*(n-1)) at q=[0,.1,.25,.5,.75,1]. Fixed before rendering.",
+    "eligible_images": 466,
+    "excluded_GT_empty_images": 34,
+    "rows": [
+      {
+        "quantile": 0,
+        "rank_zero_based": 0,
+        "index": 94,
+        "iou": 0.0,
+        "current_iou_pct": 0.0,
+        "current_boundary_iou_pct": 0.0,
+        "historical_iou_pct": 0.0,
+        "current_minus_historical_iou_pp": 0.0,
+        "confusion": [
+          [
+            786270,
+            0
+          ],
+          [
+            162,
+            0
+          ]
+        ],
+        "image": "dataset\\cityscapes\\leftImg8bit\\val\\frankfurt\\frankfurt_000001_015328_leftImg8bit.png",
+        "label": "dataset\\cityscapes\\gtFine\\val\\frankfurt\\frankfurt_000001_015328_gtFine_labelIds.png",
+        "mask_file": "case_94_masks.npz",
+        "mask_file_sha256": "979456583ed66503356c1db3d9e787e784d549408c03f3d104b3e1665c21f4a8"
+      },
+      {
+        "quantile": 0.1,
+        "rank_zero_based": 46,
+        "index": 67,
+        "iou": 0.19951697303099422,
+        "current_iou_pct": 19.951697303099422,
+        "current_boundary_iou_pct": 19.608964867411498,
+        "historical_iou_pct": 19.951697303099422,
+        "current_minus_historical_iou_pp": 0.0,
+        "confusion": [
+          [
+            756620,
+            10715
+          ],
+          [
+            13149,
+            5948
+          ]
+        ],
+        "image": "dataset\\cityscapes\\leftImg8bit\\val\\frankfurt\\frankfurt_000001_007857_leftImg8bit.png",
+        "label": "dataset\\cityscapes\\gtFine\\val\\frankfurt\\frankfurt_000001_007857_gtFine_labelIds.png",
+        "mask_file": "case_67_masks.npz",
+        "mask_file_sha256": "e2776db347b8bfc054f19345cd43daafe7991c17d0fc920c4da6fc0e811c7718"
+      },
+      {
+        "quantile": 0.25,
+        "rank_zero_based": 116,
+        "index": 198,
+        "iou": 0.4597758822545576,
+        "current_iou_pct": 45.97758822545576,
+        "current_boundary_iou_pct": 45.97758822545576,
+        "historical_iou_pct": 45.97758822545576,
+        "current_minus_historical_iou_pp": 0.0,
+        "confusion": [
+          [
+            774474,
+            1837
+          ],
+          [
+            4623,
+            5498
+          ]
+        ],
+        "image": "dataset\\cityscapes\\leftImg8bit\\val\\frankfurt\\frankfurt_000001_057478_leftImg8bit.png",
+        "label": "dataset\\cityscapes\\gtFine\\val\\frankfurt\\frankfurt_000001_057478_gtFine_labelIds.png",
+        "mask_file": "case_198_masks.npz",
+        "mask_file_sha256": "97b8d066e350bca00f6556e37a18cb81e790dd26c17817a2a1c2f81f11bbc6fb"
+      },
+      {
+        "quantile": 0.5,
+        "rank_zero_based": 232,
+        "index": 359,
+        "iou": 0.6839124212064923,
+        "current_iou_pct": 68.39124212064924,
+        "current_boundary_iou_pct": 66.81311784089125,
+        "historical_iou_pct": 68.39124212064924,
+        "current_minus_historical_iou_pp": 0.0,
+        "confusion": [
+          [
+            753593,
+            8351
+          ],
+          [
+            2029,
+            22459
+          ]
+        ],
+        "image": "dataset\\cityscapes\\leftImg8bit\\val\\munster\\munster_000033_000019_leftImg8bit.png",
+        "label": "dataset\\cityscapes\\gtFine\\val\\munster\\munster_000033_000019_gtFine_labelIds.png",
+        "mask_file": "case_359_masks.npz",
+        "mask_file_sha256": "e1e20ac64e0c169c5de633d180f7eb5b5d277a209b9ead0853b15cae7434ad0f"
+      },
+      {
+        "quantile": 0.75,
+        "rank_zero_based": 349,
+        "index": 270,
+        "iou": 0.8217726647103124,
+        "current_iou_pct": 82.17726647103125,
+        "current_boundary_iou_pct": 70.09253411680716,
+        "historical_iou_pct": 82.17726647103125,
+        "current_minus_historical_iou_pp": 0.0,
+        "confusion": [
+          [
+            747925,
+            5852
+          ],
+          [
+            1011,
+            31644
+          ]
+        ],
+        "image": "dataset\\cityscapes\\leftImg8bit\\val\\lindau\\lindau_000003_000019_leftImg8bit.png",
+        "label": "dataset\\cityscapes\\gtFine\\val\\lindau\\lindau_000003_000019_gtFine_labelIds.png",
+        "mask_file": "case_270_masks.npz",
+        "mask_file_sha256": "8f3022fdf8c0df668e9fca0a933c715263a59950dcad093e035bda6df0b6d274"
+      },
+      {
+        "quantile": 1,
+        "rank_zero_based": 465,
+        "index": 422,
+        "iou": 0.9662401351044136,
+        "current_iou_pct": 96.62401351044136,
+        "current_boundary_iou_pct": 91.05939045959039,
+        "historical_iou_pct": 96.62401351044136,
+        "current_minus_historical_iou_pp": 0.0,
+        "confusion": [
+          [
+            724850,
+            1188
+          ],
+          [
+            891,
+            59503
+          ]
+        ],
+        "image": "dataset\\cityscapes\\leftImg8bit\\val\\munster\\munster_000096_000019_leftImg8bit.png",
+        "label": "dataset\\cityscapes\\gtFine\\val\\munster\\munster_000096_000019_gtFine_labelIds.png",
+        "mask_file": "case_422_masks.npz",
+        "mask_file_sha256": "a3536c9ac0a2e1c779e5939719d49db219edfc102be9c5829646a42620d5435d"
+      }
+    ],
+    "figure": "experiments/attention_gate/step_11_2026-10-30/validation_cases_001/B42_validation_cases.png",
+    "figure_sha256": "26d1f4b705ae8cbeb74d6780622876189aa232572a354bf3a1887b3ed394857c",
+    "label_metrics_independently_reconstructed": true,
+    "validation_reused_for_selection": true
+  },
+  "source_hashes": {
+    "experiments/attention_gate/verify_reference_demo.py": "dace59a36a16fd00178c7240fe63e3899da2c0f5dd1f172e334271e6782fac4d",
+    "experiments/attention_gate/sidewalk_demo_reference.py": "0db98cf7e698f3377bb44215b9f8620fce2ddb3c3bd0c8e772adbdce73fec7ab",
+    "experiments/attention_gate/deployment_pipeline.py": "d5e749a84aaef8edf54cda00e68432cb10796802a6f88b63d8639119468bdd5e",
+    "experiments/attention_gate/reference_deployment_pipeline.py": "bc11790e7e80c7f861328953c419a90674d4fd40e563dbadd598f26cae0a5925",
+    "experiments/attention_gate/common_runner.py": "2d0ba323e7638538b9c4c2f3b229213a5b92d5232c856f9bd536534e8fcd49f0",
+    "experiments/attention_gate/verified_deployment_runtime.py": "1f74fddc21a42ab3f0b374fc25fd97531fabc3761f1043f5a3b1c9e58752cfd9",
+    "experiments/attention_gate/build_validation_cases.py": "87fc7a2421cec0e5f49206071b11d798553af2a55336f03f282cc56805e0d611",
+    "experiments/attention_gate/metrics_v1.py": "2426f7838b90cce6f11b11315828c740846f735ffcba4523972fbce9a4ee2751"
+  },
+  "sources": {
+    "experiments/attention_gate/step_11_2026-10-30/reference_demo_acceptance_001/verification.json": "2d11ef3a8dacbb9ddeac6c9e24456123eca316f7c0ec53209dac4c6c5e9672eb",
+    "experiments/attention_gate/step_11_2026-10-30/validation_cases_001/result.json": "d64550312d1ace890584047ea1b9319a84c30c21df861f52cec4320401e9b650",
+    "experiments/attention_gate/step_11_2026-10-30/validation_cases_001/selection.json": "bb1cea946d4f5271e9a253d6759bce80224b6efd62384846676aea86b91d1f2e",
+    "experiments/attention_gate/step_11_2026-10-30/reference_demo_acceptance_001/A_image_0.png.evidence/A_seed42_2026-10-30_00-11-20.json": "5e740a3e53b0962d5f4b2fd4dc3f24cb85a94d31d6d54dc8cea03350972c5922",
+    "experiments/attention_gate/step_11_2026-10-30/reference_demo_acceptance_001/A_image_0.png.json": "8f2542f5f2489c43265052e7854b98e2af2dfb8ab7e5ed8bbdcff0147660405f",
+    "experiments/attention_gate/step_11_2026-10-30/reference_demo_acceptance_001/B_image_250.png.evidence/B_seed42_2026-10-30_00-11-46.json": "40745f60a0c50009895f1342eec1f4656eff0904c21ef04079edb90f92ea5443",
+    "experiments/attention_gate/step_11_2026-10-30/reference_demo_acceptance_001/B_image_250.png.json": "06216e490948c2146b232f2b393d679c47bf660f1f9994ea8d2bd278fed95480",
+    "experiments/attention_gate/step_11_2026-10-30/reference_demo_acceptance_001/C_image_499.png.evidence/C_seed42_2026-10-30_00-12-13.json": "5887d27110414bed7cf2d73abbd25e6e1a23dcb5f0c8f4ae94fbfec242345e94",
+    "experiments/attention_gate/step_11_2026-10-30/reference_demo_acceptance_001/C_image_499.png.json": "43cb132c7ddaed39b79ff7a4d6bf196a8650ae36218909f5d16902cab6570bc4",
+    "experiments/attention_gate/step_11_2026-10-30/reference_demo_acceptance_001/B_constructed_video_overlay.mp4.evidence/B_seed42_2026-10-30_00-12-41.json": "dd695737ba88588fe79c1d6bc085256da901baf23c5c008aa0d8b0020252e5d1",
+    "experiments/attention_gate/step_11_2026-10-30/reference_demo_acceptance_001/B_constructed_video_overlay.mp4.json": "804b0bbee88de2e4eaf343f302926714d57890a2c20f24f880ff64332eff8fff",
+    "experiments/attention_gate/step_11_2026-10-30/validation_cases_001/case_94_masks.npz": "979456583ed66503356c1db3d9e787e784d549408c03f3d104b3e1665c21f4a8",
+    "experiments/attention_gate/step_11_2026-10-30/validation_cases_001/case_67_masks.npz": "e2776db347b8bfc054f19345cd43daafe7991c17d0fc920c4da6fc0e811c7718",
+    "experiments/attention_gate/step_11_2026-10-30/validation_cases_001/case_198_masks.npz": "97b8d066e350bca00f6556e37a18cb81e790dd26c17817a2a1c2f81f11bbc6fb",
+    "experiments/attention_gate/step_11_2026-10-30/validation_cases_001/case_359_masks.npz": "e1e20ac64e0c169c5de633d180f7eb5b5d277a209b9ead0853b15cae7434ad0f",
+    "experiments/attention_gate/step_11_2026-10-30/validation_cases_001/case_270_masks.npz": "8f3022fdf8c0df668e9fca0a933c715263a59950dcad093e035bda6df0b6d274",
+    "experiments/attention_gate/step_11_2026-10-30/validation_cases_001/case_422_masks.npz": "a3536c9ac0a2e1c779e5939719d49db219edfc102be9c5829646a42620d5435d"
+  },
+  "exporter_sha256": "382d36bfb5404688bfed91f14e94b32c5a06fa1ffef1791fa6865367ec121f5b"
+}

@@ -1,0 +1,86 @@
+{
+  "status": "failed_acceptance",
+  "audit_status": "pass",
+  "candidate_accepted": false,
+  "formal_three_round_comparison_complete": false,
+  "completed_sessions": 4,
+  "planned_sessions": 6,
+  "mismatched_image_indices": {
+    "round1_original_vs_round1_optimized": [],
+    "round2_original_vs_round2_optimized": [
+      207
+    ],
+    "round1_original_vs_round2_original": [
+      207
+    ],
+    "round1_optimized_vs_round2_optimized": []
+  },
+  "partial_sessions": [
+    {
+      "session": "round1_original",
+      "images": 500,
+      "mean_ms": 339.14251980000057,
+      "p95_ms": 385.765069999988,
+      "actual_loop_fps": 2.773695460503718,
+      "scope": "Partial run only; failed overall acceptance"
+    },
+    {
+      "session": "round1_optimized",
+      "images": 500,
+      "mean_ms": 256.30480640000025,
+      "p95_ms": 298.62301500000467,
+      "actual_loop_fps": 3.6817303542409925,
+      "scope": "Partial run only; failed overall acceptance"
+    },
+    {
+      "session": "round2_optimized",
+      "images": 500,
+      "mean_ms": 256.2938736000007,
+      "p95_ms": 297.9164699999984,
+      "actual_loop_fps": 3.6827162556666573,
+      "scope": "Partial run only; failed overall acceptance"
+    },
+    {
+      "session": "round2_original",
+      "images": 500,
+      "mean_ms": 337.01722579999944,
+      "p95_ms": 380.9308099999953,
+      "actual_loop_fps": 2.795733408208889,
+      "scope": "Partial run only; failed overall acceptance"
+    }
+  ],
+  "decision": "stop_candidate_branch_use_reference_pre_and_postprocessing",
+  "inference": "The original pipeline also changed across sessions on index207. This does not isolate the optimized implementation as the cause. Raw masks/logits were not stored, so changed-pixel counts cannot be recovered from hashes.",
+  "no_threshold_or_weights_changed": true,
+  "no_third_round_or_speedup_claim": true,
+  "source_hashes": {
+    "experiments/attention_gate/benchmark_pipeline_pair.py": "f85ce7a617757947ac120b454665db2142c6f82103e54af2e357ec71ec41bee6",
+    "experiments/attention_gate/pipeline_comparison_protocol.json": "3a5d2f53681ef5f5e7ab362e3d2108d6220e1681570ceb5e3fd2a2a74f4d9685",
+    "experiments/attention_gate/deployment_pipeline.py": "d5e749a84aaef8edf54cda00e68432cb10796802a6f88b63d8639119468bdd5e",
+    "experiments/attention_gate/verified_deployment_runtime.py": "1f74fddc21a42ab3f0b374fc25fd97531fabc3761f1043f5a3b1c9e58752cfd9",
+    "experiments/attention_gate/common_runner.py": "2d0ba323e7638538b9c4c2f3b229213a5b92d5232c856f9bd536534e8fcd49f0",
+    "experiments/attention_gate/common_runner_v2.py": "03a7238c77ec95ecde1480bd10c807ff5ee93e7072db6fdb93506cd85f05d5f4",
+    "experiments/attention_gate/benchmark_verified_fp32.py": "c56f4cf3c965fdc3f136d56e285b7f1a420a1ac49f1f5244bdcc852866a37fab"
+  },
+  "sources": {
+    "experiments/attention_gate/step_11_2026-10-29/pipeline_pair_full_001/failure.json": "ff612d2d7bcab9296a9be8034df77152920285c8a7e4ef787542d5367939b0b2",
+    "experiments/attention_gate/step_11_2026-10-29/pipeline_pair_full_001/plan.json": "ce029d550fb46b3d8a1ebf88c662748f952f50fa4f382f71cf84d629e0908115",
+    "experiments/attention_gate/step_11_2026-10-29/pipeline_pair_full_001/round1_original/result.json": "bdfbdb79b2da9fda644f6ec2ada0abe3ec6523c5a6d3a59e2f2c2022683464a6",
+    "experiments/attention_gate/step_11_2026-10-29/pipeline_pair_full_001/round1_original/samples.json": "79b23d2e7313a81b11c54cdcf3af377c69d2452d928749151c2275cf23a96813",
+    "experiments/attention_gate/step_11_2026-10-29/pipeline_pair_full_001/round1_original/plan.json": "348f098ad9d15b520fab03047e6e6ef97dbd76a524620a8937a09d200daefed0",
+    "experiments/attention_gate/step_11_2026-10-29/pipeline_pair_full_001/round1_original/provider_evidence/B_seed42_2026-10-29_23-21-46.json": "01d1db3982b37ade286e12e9c1ea8d61ca77288ae728af21eb62856be8d318ff",
+    "experiments/attention_gate/step_11_2026-10-29/pipeline_pair_full_001/round1_optimized/result.json": "119025745337f24917b695471bcc3d1ab2183a71b736572ff74fe4318f5febea",
+    "experiments/attention_gate/step_11_2026-10-29/pipeline_pair_full_001/round1_optimized/samples.json": "3cb0f851915704bec5f8c4377bfc19ebc1b31e4122d3eae2372ffbae2a006a57",
+    "experiments/attention_gate/step_11_2026-10-29/pipeline_pair_full_001/round1_optimized/plan.json": "939f8af6d07cbb4fc1bd475375b6d887aee68bf0aa2acd7aa578cb96080103a0",
+    "experiments/attention_gate/step_11_2026-10-29/pipeline_pair_full_001/round1_optimized/provider_evidence/B_seed42_2026-10-29_23-25-41.json": "fe191c4fb48b55dd02a3f294e9cbcb90d50553d28a92bbc15beaf5ed1b865c5c",
+    "experiments/attention_gate/step_11_2026-10-29/pipeline_pair_full_001/round2_optimized/result.json": "da19119354411a84bec912323db19d0e27b9148fd0764eaace73b09741c6e878",
+    "experiments/attention_gate/step_11_2026-10-29/pipeline_pair_full_001/round2_optimized/samples.json": "040ca59da87138f5a21f9aa54314f0014b9037fc33b1bae3afee8f4c01edd313",
+    "experiments/attention_gate/step_11_2026-10-29/pipeline_pair_full_001/round2_optimized/plan.json": "99464c137f49390041b6aaa5ae6820af8487af860dd52a1adee868ff6738c003",
+    "experiments/attention_gate/step_11_2026-10-29/pipeline_pair_full_001/round2_optimized/provider_evidence/B_seed42_2026-10-29_23-28-46.json": "8a44bef8f17fed8bed2ddfaa05201ab9f5db712ae9267e1c1c13f2308f88d974",
+    "experiments/attention_gate/step_11_2026-10-29/pipeline_pair_full_001/round2_original/result.json": "5072d1faae0daf4471d26ae1b5939b018504f770afa73099a84b672916ab74bc",
+    "experiments/attention_gate/step_11_2026-10-29/pipeline_pair_full_001/round2_original/samples.json": "ee6f31dc24d4cd0840ad0dd7101692bdd7d78314027f1e341f3ad392cb3a2ab9",
+    "experiments/attention_gate/step_11_2026-10-29/pipeline_pair_full_001/round2_original/plan.json": "4cfced280c9b5b5706b29676bfb928cc1a0e65badf31f7cb96830e55d512e262",
+    "experiments/attention_gate/step_11_2026-10-29/pipeline_pair_full_001/round2_original/provider_evidence/B_seed42_2026-10-29_23-31-52.json": "faf03b3e7ca1a50ddab0dd5650bc21e3df116970821e8c33a98d40577c5ff0cc"
+  },
+  "reviewer_sha256": "fa2a6c142cd0ff0785e2668e298b8ecc79ce7613f632e16452eac1457ef2bbc7"
+}

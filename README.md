@@ -6,7 +6,7 @@
 
 ## 当前进度
 
-截至 2026-10-29，A/B/C 各三个配对种子（42、43、44），共 9 次 100 轮训练已完成且通过完整性核验。以下使用各自最早达到最高验证集 global mIoU 的同一权重，报告均值 ± 样本标准差，单位为百分数。
+截至 2026-10-30，A/B/C 各三个配对种子（42、43、44），共 9 次 100 轮训练已完成且通过完整性核验。以下使用各自最早达到最高验证集 global mIoU 的同一权重，报告均值 ± 样本标准差，单位为百分数。
 
 | 方案 | global mIoU | 人行道 IoU | 人行道 Boundary IoU |
 |---|---:|---:|---:|
@@ -46,7 +46,7 @@ CPU 预检、GPU 并发保护和最新阶段入口见[部署准备结果](result
 
 ## 实验收尾与本机演示
 
-两周指实验截止窗口，论文写作另有时间。按[收尾范围](experiments/attention_gate/experiment_closeout_plan.json)只补流程优化的配对测速、一次 30 分钟重复输入稳定性检查、已有验证集案例与结果归档。11 次受控 100 轮训练已经结束；不新增模型、数据集、训练种子、精度搜索或硬件。
+两周指实验截止窗口，论文写作另有时间。按[收尾范围](experiments/attention_gate/experiment_closeout_plan.json)流程优化的配对测速因精确输出检查未通过而结束；固定分位数案例已完成，目前只补一次 30 分钟重复输入稳定性检查及结果归档。11 次受控 100 轮训练已经结束；不新增模型、数据集、训练种子、精度搜索或硬件。
 
 [正式测速](results/deployment_benchmark.json)已独立重算全部原始延迟和实际 CUDA 节点。每个模型 3 个独立会话，每会话各预热 50 次、测量 500 次；下表汇总各 1500 次测量，FPS 按实际循环总时间计算。
 
@@ -58,9 +58,9 @@ CPU 预检、GPU 并发保护和最新阶段入口见[部署准备结果](result
 
 纯推理采用驻留 GPU 的固定输入，完整 PNG 包含原始 2048×1024 图片解码、预处理、传输、推理、掩码恢复及叠加，排除保存和界面。接通电源、Windows 节能模式，CPU 一线程；不把约 90 FPS 写成整套系统或摄像头实时帧率。三模型进程专用显存快照最大值均约 448.8 MiB，非真实瞬时峰值。
 
-瓶颈分析后只实现一组 CPU 流程优化：PNG 解码、保持同一 PIL 缩放的精确查表归一化、二分类比较和查表叠加。500 张图的解码像素与输入张量逐位相同，结构化掩码叠加及并列类别处理一致；没有改权重、输入大小、标签或评估标准。独立的[配对测速协议](experiments/attention_gate/pipeline_comparison_protocol.json)将在同一 B42 权重上运行 3 轮、每组 500 图，并逐图核对实际预测与叠加哈希；当前不预填优化幅度。
+瓶颈分析后只实现一组 CPU 流程优化：PNG 解码、保持同一 PIL 缩放的精确查表归一化、二分类比较和查表叠加。500 张图的解码像素与输入张量逐位相同，结构化掩码叠加及并列类别处理一致；没有改权重、输入大小、标签或评估标准。按独立的[配对测速协议](experiments/attention_gate/pipeline_comparison_protocol.json)执行时，第一轮 500 图全部一致；第二轮第 207 张预测与叠加哈希不同，提前停止，完成了计划 6 个会话中的 4 个。原流程自身在两轮间也仅该图不同，现有记录不能把差异归因于优化实现；原始哈希不能还原差异像素数量。[失败复核](results/pipeline_comparison_review.json)保留所有部分结果。按原规则不接受此候选、不降低阈值、不续跑第三轮，不发布完整三轮加速结论，默认演示改回原 torchvision、argmax 和 NumPy 叠加流程。
 
-演示沿用已验收的 FP32、关闭 TF32 与两种融合、禁止 CUDA 任务静默回退 CPU，并使用训练同一互斥锁。真实 CLI 已通过 A/B/C 各一张图片和 B 的 32 帧视频读写、重新解码验收，证据见[应用验证](results/application_validation.json)。该视频由 8 张现有验证图片各重复 4 次构成，仅检查视频接口，不是自然时序视频、第二数据集或泛化实验。启动后的第一帧含 CUDA 首次执行与取证开销，演示叠字的逐帧时间不是正式性能数据。
+演示沿用已验收的 FP32、关闭 TF32 与两种融合、禁止 CUDA 任务静默回退 CPU，并使用训练同一互斥锁。原优化版的[应用验证](results/application_validation.json)作为历史证据保留。当前原流程入口 sidewalk_demo_reference.py 已重新通过 A/B/C 各一张图片、B 的 32 帧视频读写及 GPU 占用拒绝检查，证据见[原流程演示与案例](results/reference_application.json)。该视频由 8 张现有验证图片各重复 4 次构成，仅检查视频接口，不是自然时序视频、第二数据集或泛化实验。启动后的第一帧含 CUDA 首次执行与取证开销，演示叠字的逐帧时间不是正式性能数据。
 
 本机已配置环境下，从项目根目录启动（默认 B，输出自动使用新目录）：
 
@@ -69,6 +69,10 @@ CPU 预检、GPU 并发保护和最新阶段入口见[部署准备结果](result
 ```
 
 去掉 -Headless 可显示窗口；1/2/3 切换 A/B/C，Q 退出。数据、ONNX 和环境需要本地准备；克隆仓库本身不会下载模型或验证图。
+
+案例按历史 B42 验证结果中有标注人行道的 466 张图排序（另有 34 张标注前景为空），在 0%、10%、25%、50%、75%、100% 秩位置固定选取 6 张，再运行可视化。ID 依次为 94、67、198、359、270、422，IoU 为 0.00%、19.95%、45.98%、68.39%、82.18%、96.62%；六图当前指标与历史值相同。图中包含输入、标注、预测及漏检/误检，图像与掩码保留本地。最差例只有 162 个前景像素，不能将其 0% 推广为总体效果，也不能用最好例代表整个验证集。
+
+[稳定性协议](experiments/attention_gate/stability_protocol.json)固定为同一 B42 会话循环处理 8 张已有图片 1800 秒，记录异常、输出变化与内存快照。5 秒预检已完成 12 帧、无掩码变化；正式运行结果仍待完成，不把预检当作 30 分钟结果。该观察不包含自然视频时序精度、长期视频写盘或 GUI 稳定性，也不证明所有输入均无内存泄漏。
 
 ## 固定实验条件
 
@@ -99,7 +103,7 @@ python tools/verify_repository.py
 python experiments/attention_gate/common_runner_v2.py --help
 python experiments/attention_gate/common_runner_c.py --help
 python experiments/attention_gate/common_runner_mixed.py --help
-python experiments/attention_gate/sidewalk_demo.py --help
+python experiments/attention_gate/sidewalk_demo_reference.py --help
 python experiments/attention_gate/validate_deployment_fp32.py --help
 python experiments/attention_gate/export_selected_fp32.py --help
 python experiments/attention_gate/validate_deployment_fp32_preserved_bn.py --help

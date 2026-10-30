@@ -1,5 +1,5 @@
 {
-  "snapshot_date": "2026-10-29",
+  "snapshot_date": "2026-10-30",
   "pilot": {
     "results": [
       {
@@ -221,9 +221,8 @@
     "experiments\\attention_gate\\step_10_2026-10-27\\gpu_guard_check_002\\verification.json": "cfd4c93a89edf1d976a84e6e8cba437ab24ee0df16d8206c3d6c3069317237d9"
   },
   "next_steps": [
-    "One bounded exact-output pipeline timing comparison",
-    "One30-minute repeat-input stability check on existing material",
-    "Transparent validation-set success/failure figures and experimental freeze"
+    "Review one30-minute repeat-input stability result",
+    "Freeze experimental artifacts and compact result tables"
   ],
   "documentation_checked": [
     "https://onnxruntime.ai/docs/api/python/api_summary.html",
@@ -384,5 +383,18 @@
     "full500_exact_input": true,
     "constructed_video_frames": 32,
     "long_duration_stability_checked": false
+  },
+  "pipeline_comparison": {
+    "path": "results/pipeline_comparison_review.json",
+    "sha256": "e065b0946fbfdcb7997fbdf07d87df01c7f69ea263933e7349b2f972eb4c59b5",
+    "candidate_accepted": false,
+    "decision": "reference preprocessing/postprocessing retained"
+  },
+  "current_application": {
+    "path": "results/reference_application.json",
+    "sha256": "f89f56418544da41699b48fcd45ba6191b99b6ee905d613fef9e14b0629cc0f0",
+    "status": "pass",
+    "default_entry": "experiments/attention_gate/sidewalk_demo_reference.py",
+    "fixed_rank_cases": 6
   }
 }

@@ -226,6 +226,36 @@ def main():
         for case in application['demo_cases']:
             assert set(case['provider']['node_executions'])=={'CUDAExecutionProvider'}
         print('PASS: exact500-input implementation, actual CLI CUDA proofs and constructed-video scope.')
+    if (ROOT/'results/pipeline_comparison_review.json').exists():
+        review=read('results/pipeline_comparison_review.json')
+        assert review['audit_status']=='pass' and review['status']=='failed_acceptance'
+        assert not review['candidate_accepted'] and not review['formal_three_round_comparison_complete']
+        assert review['completed_sessions']==4 and review['planned_sessions']==6
+        assert review['mismatched_image_indices']['round2_original_vs_round2_optimized']==[207]
+        assert review['mismatched_image_indices']['round1_original_vs_round2_original']==[207]
+        for p,h in review['source_hashes'].items(): assert hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h
+        assert hashlib.sha256((ROOT/'tools/review_pipeline_comparison.py').read_bytes()).hexdigest()==review['reviewer_sha256']
+        print('PASS: failed exact-output comparison retained; no partial timing promoted as acceptance.')
+    if (ROOT/'results/reference_application.json').exists():
+        application=read('results/reference_application.json')
+        assert application['status']=='pass' and application['reference_demo']['GPU_lock_rejected']
+        assert sorted(x['frames'] for x in application['reference_demo']['media'])==[1,1,1,32]
+        cases=application['case_selection']; assert len(cases['rows'])==6 and cases['label_metrics_independently_reconstructed']
+        assert cases['eligible_images']+cases['excluded_GT_empty_images']==500
+        for row in cases['rows']:
+            c=row['confusion']; assert sum(map(sum,c))==768*1024
+            assert abs(row['current_iou_pct']-100*c[1][1]/(c[1][1]+c[0][1]+c[1][0]))<1e-8
+        for p,h in application['source_hashes'].items(): assert hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h
+        assert hashlib.sha256((ROOT/'tools/export_closeout_evidence.py').read_bytes()).hexdigest()==application['exporter_sha256']
+        print('PASS: reference demo scope and six fixed-rank examples with reconstructed metrics.')
+    if (ROOT/'results/deployment_stability.json').exists():
+        stability=read('results/deployment_stability.json')
+        assert stability['status']=='pass' and stability['full30_minutes'] and stability['duration_seconds']>=1800
+        assert stability['mode']=='full' and stability['frames']>=100 and stability['raw_frame_records_reconstructed']
+        assert stability['exact_repeat_masks']==(stability['changed_frames']==0) and not stability['formal_FPS_claim']
+        for p,h in stability['source_hashes'].items(): assert hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h
+        assert hashlib.sha256((ROOT/'tools/export_stability.py').read_bytes()).hexdigest()==stability['exporter_sha256']
+        print('PASS: thirty-minute repeated-input observation; no formal FPS or natural-video claim.')
     print(f'PASS: {len(hashes)} exact-byte source hashes, loader proof, 9 results and paired statistics.')
 
 

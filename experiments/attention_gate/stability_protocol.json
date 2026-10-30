@@ -1,0 +1,16 @@
+{
+  "protocol_id": "B42_reference_repeat_input_30min_v1_20261030",
+  "declared_before_execution": true,
+  "pipeline": "reference_torchvision_argmax_numpy_overlay",
+  "model": "B seed42 epoch84, accepted FP32 preserved-BN graph",
+  "duration_seconds": 1800,
+  "warmup_frames": 20,
+  "image_indices": [0,75,150,207,250,375,450,499],
+  "input_scope": "Repeated existing Cityscapes validation stills in fixed cyclic order; index207 retained after cross-session hash mismatch. No natural video, new dataset or independent test.",
+  "execution": "One process/session; actual CUDA nodes; TF32 off; two original fusion exclusions; same GPU lock. Read/decode, frozen preprocessing, inference, argmax, restored mask and overlay each iteration.",
+  "completion_checks": ["At least1800 measured seconds after warmup", "All8 inputs visited and total frames at least100", "No exception or nonfinite/invalid-shape output", "Input, model and source hashes unchanged", "Provider verified as CUDA"],
+  "observations": "Record every frame hash and changed pixels against the first measured output of that same image. Report exact-repeat consistency separately; do not silently discard changes or infer universal determinism. Record process working-set/private bytes each60seconds and GPU process memory start/end snapshots. Memory drift is descriptive, not a leak-free proof.",
+  "scope_limits": "Continuous processing stability only. No formal FPS, camera timing, GUI stability, long output-video write, or natural temporal-accuracy claim.",
+  "stop_rule": "STOP_REQUESTED checked each frame. Preserve incomplete output; no automatic retry. A runtime error or hash change stops the run and requires review.",
+  "smoke_mode": "5seconds,2warmups,explicitly not the30minute result"
+}
