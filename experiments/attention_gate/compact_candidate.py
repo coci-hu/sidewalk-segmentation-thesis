@@ -49,11 +49,11 @@ def build_compact(variant, seed=42):
     if variant not in ('L0', 'L1'):
         raise ValueError(variant)
     with torch.random.fork_rng(devices=[]):
-        torch.manual_seed(seed)
+        torch.random.default_generator.manual_seed(seed)
         baseline = CompactENet(False)
         if variant == 'L0':
             return baseline
-        torch.manual_seed(seed + 10000)
+        torch.random.default_generator.manual_seed(seed + 10000)
         model = CompactENet(True)
     state = model.state_dict()
     for name, tensor in baseline.state_dict().items():

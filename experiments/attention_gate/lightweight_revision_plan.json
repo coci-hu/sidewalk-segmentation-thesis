@@ -1,13 +1,30 @@
 {
   "revision": "supervisor-lightweight-2026-11-01",
-  "status": "active_plan_architecture_precheck_complete_training_pending",
+  "status": "active_GPU_mechanics_running_guarded_seed42_queue_waiting",
   "supervisor_requirement_verbatim": "只要flops和params明显下降即可，最多再加开发一个应用软件把算法整合下",
-  "required": ["参数量明显下降", "同输入和同统计口径下计算量明显下降", "报告压缩后的分割精度和边界表现，避免仅凭体积宣称改进"],
-  "not_required": ["嵌入式设备实测", "租服务器或购买硬件", "自采数据集", "新数据集", "大型软件系统"],
-  "optional": ["基于已有图片与视频推理原型，增加简单文件选择、模型选择、结果叠加、保存和耗时显示"],
+  "required": [
+    "参数量明显下降",
+    "同输入和同统计口径下计算量明显下降",
+    "报告压缩后的分割精度和边界表现，避免仅凭体积宣称改进"
+  ],
+  "not_required": [
+    "嵌入式设备实测",
+    "租服务器或购买硬件",
+    "自采数据集",
+    "新数据集",
+    "大型软件系统"
+  ],
+  "optional": [
+    "基于已有图片与视频推理原型，增加简单文件选择、模型选择、结果叠加、保存和耗时显示"
+  ],
   "original_title_retained": "基于轻量化语义分割的城市可通行区域识别与边缘部署研究",
   "title_note": "不擅自变更学校登记题目。若保留边缘部署措辞，正文明确仅有RTX4060本机验证；正式改题需另行确认。",
-  "historical_snapshot": {"revision": "19ee2c32a6880fa8067d9555b66bfe91ef0fb638", "manifest": "results/experiment_freeze_20261101.json", "completed_runs": 11, "preserve_all_original_weights_results_and_protocols": true},
+  "historical_snapshot": {
+    "revision": "19ee2c32a6880fa8067d9555b66bfe91ef0fb638",
+    "manifest": "results/experiment_freeze_20261101.json",
+    "completed_runs": 11,
+    "preserve_all_original_weights_results_and_protocols": true
+  },
   "baseline_decision": "导师未明确比较对象，工作方案采用较严格的直接基线A（本仓库精简ENet）；同时报告对B的差异。U-Net、DeepLabv3+只作为背景，不通过挑大模型证明本方法压缩成功。",
   "working_targets_not_supervisor_thresholds": {
     "params_reduction_vs_A_percent_at_least": 20,
@@ -17,41 +34,138 @@
     "note": "这是预先提出的项目筛选目标，不是老师已指定的百分比，不是已达到的精度结论。所有失败也报告。"
   },
   "complexity_protocol": {
-    "input": [1, 3, 768, 1024], "classes": 2, "mode": "eval", "dtype": "float32",
+    "input": [
+      1,
+      3,
+      768,
+      1024
+    ],
+    "classes": 2,
+    "mode": "eval",
+    "dtype": "float32",
     "params": "全部模型参数元素数，包含注意力和归一化可训练参数，不计BN运行缓冲区",
     "primary_count": "Conv2d/ConvTranspose2d/Linear FLOPs，1 MAC=2 FLOPs，卷积bias加法不计；PyTorch算子计数与逐层公式交叉核对",
     "must_disclose": "此口径不含BN、激活、池化、均值、残差加法、注意力乘法及插值，不能标为完整算子FLOPs；正式表给出统计工具、覆盖范围和额外算子审计。",
-    "no_shortcuts": ["不靠缩小输入分辨率证明结构计算下降", "不把FP16或INT8等同于参数数量减少", "不以置零权重当作稠密FLOPs下降", "不把FLOPs下降等同于FPS上升"]
+    "no_shortcuts": [
+      "不靠缩小输入分辨率证明结构计算下降",
+      "不把FP16或INT8等同于参数数量减少",
+      "不以置零权重当作稠密FLOPs下降",
+      "不把FLOPs下降等同于FPS上升"
+    ]
   },
   "candidate_route": {
     "method": "一次通道缩减，保留分辨率、层数、感受野配置、解码路径和任务定义",
-    "old_channels": [16, 64, 128, 64, 16], "new_channels": [16, 48, 96, 48, 16],
+    "old_channels": [
+      16,
+      64,
+      128,
+      64,
+      16
+    ],
+    "new_channels": [
+      16,
+      48,
+      96,
+      48,
+      16
+    ],
     "L0": "缩减通道的ENet，不含注意力",
     "L1": "与L0相同骨干，加已有ReLU坐标注意力",
-    "comparisons": ["A与L0：通道缩减影响", "L0与L1：压缩后注意力作用", "B与L1：同类注意力下的轻量化收益"],
+    "comparisons": [
+      "A与L0：通道缩减影响",
+      "L0与L1：压缩后注意力作用",
+      "B与L1：同类注意力下的轻量化收益"
+    ],
     "innovation_limit": "通道缩减和CA均为已有方法；研究贡献是任务适配、受控组合与精度效率分析，不能宣称新基础网络或新注意力公式。",
-    "precheck": "results/lightweight_profile_20261101.json",
-    "candidate_weights_exist": false,
-    "candidate_accuracy_verified": false
+    "precheck": "results/lightweight_profile_20261101_v2.json",
+    "candidate_weights_exist": true,
+    "candidate_accuracy_verified": false,
+    "weights_scope": "Only mechanics smoke weights currently; no formal trained accuracy claim"
   },
   "training_controls": {
     "reference_protocol": "experiments/attention_gate/protocol_v1_2.json",
-    "keep": ["Cityscapes2975训练/500验证", "768x1024输入和原标签映射", "100轮、batch4、AdamW及原学习率/衰减/损失/调度", "相同种子和样本顺序", "L0/L1共享部分初始化完全相同", "验证集最早最高global mIoU选择权重", "验证集重复使用的局限"],
-    "seeds": [42, 43, 44],
+    "keep": [
+      "Cityscapes2975训练/500验证",
+      "768x1024输入和原标签映射",
+      "100轮、batch4、AdamW及原学习率/衰减/损失/调度",
+      "相同种子和样本顺序",
+      "L0/L1共享部分初始化完全相同",
+      "验证集最早最高global mIoU选择权重",
+      "验证集重复使用的局限"
+    ],
+    "seeds": [
+      42,
+      43,
+      44
+    ],
     "first": "L0/L1种子42各完整100轮作为预先声明的筛选；不以两组一轮精度挑模型",
     "then": "通过筛选的方案补43/44；若两者均通过，最多6次正式训练。披露筛选及全部结果，不选择性隐藏种子。",
     "frozen_evaluation": "500张统一区域/边界评价；主结论报告三个种子均值与样本标准差；速度只在固定代表种子上比较",
-    "runner_status": "尚未接入正式训练入口，禁止用旧脚本冒充L0/L1或覆盖旧权重",
-    "preflight_required": ["完整输入前向与反向", "训练入口参数和实际优化器核验", "保存恢复完整状态一致性", "新输出目录与GPU互斥锁", "每组一轮完整训练及验证耗时测量"]
+    "runner_status": "common_runner_compact.py ready; independent fresh-process CUDA recovery acceptance is running",
+    "preflight_required": [
+      "完整输入前向与反向",
+      "训练入口参数和实际优化器核验",
+      "保存恢复完整状态一致性",
+      "新输出目录与GPU互斥锁",
+      "每组一轮完整训练及验证耗时测量"
+    ],
+    "active_preflight": "experiments/attention_gate/step_12_2026-11-01/compact_preflight_002",
+    "guarded_queue": "experiments/attention_gate/step_12_2026-11-01/compact_seed42_001",
+    "queue_policy": "Acceptance pass -> full epoch L0/L1 with unchanged 100-epoch schedule -> measured pair time plus25% margin <=48h -> resume each to100; no failure retries; repeats require later review"
   },
   "tasks": [
-    {"id": "R1", "status": "partial", "task": "复杂度和结构预检", "done": "A/B/L0/L1参数与Conv/Linear FLOPs交叉计数及全尺寸CPU前向已通过", "next": "补算子覆盖审计；落实统一论文统计口径", "estimate": "0.5天"},
-    {"id": "R2", "status": "pending", "task": "版本化训练适配、恢复测试和两组完整一轮耗时", "estimate": "0.5至1天", "exit": "检查通过且预算覆盖后才启动正式训练"},
-    {"id": "R3", "status": "pending", "task": "L0/L1种子42各100轮及统一评价", "estimate": "参考历史约27小时GPU任务，按新实测更新", "exit": "至少一个方案满足预先声明的结构下降和精度保留目标"},
-    {"id": "R4", "status": "conditional", "task": "通过筛选的方案补43/44并完成结果统计", "estimate": "每个方案额外约27小时，最多约54小时", "exit": "完整多种子表和相对A/B差异，不把单种子优势写成稳定改进"},
-    {"id": "R5", "status": "pending_after_model_selection", "task": "选定模型导出一致性和本机速度验证", "estimate": "0.5至1天", "exit": "固定输入、预热和重复顺序，区分模型与完整流程耗时"},
-    {"id": "R6", "status": "optional", "task": "复用已有原型做简单本地应用界面", "estimate": "0.5至1天", "exit": "仅文件选择、模型选择、叠加与保存、耗时显示及错误提示；不做账号、数据库、云服务或手机适配"},
-    {"id": "R7", "status": "pending", "task": "新旧结果区分、论文图表、工作记录、Git同步与第二阶段冻结", "estimate": "0.5天"}
+    {
+      "id": "R1",
+      "status": "complete_declared_scope",
+      "task": "复杂度和结构预检",
+      "done": "Exact parameters and Conv/Linear FLOPs cross-checked; operator inventory explicitly lists excluded arithmetic",
+      "next": "Use the same disclosed partial-operator convention in thesis tables",
+      "estimate": "0.5天",
+      "proof": "results/lightweight_operator_coverage_20261101_v2.json"
+    },
+    {
+      "id": "R2",
+      "status": "GPU_preflight_running",
+      "task": "版本化训练适配、恢复测试和两组完整一轮耗时",
+      "estimate": "0.5至1天",
+      "exit": "检查通过且预算覆盖后才启动正式训练",
+      "done": "New versioned runner, paired CPU-only initialization, protected outputs and acceptance-gated background queue implemented",
+      "next": "Finish fresh-process exact resume checks and measure two full epochs"
+    },
+    {
+      "id": "R3",
+      "status": "queued_conditional_on_acceptance_and_measured_budget",
+      "task": "L0/L1种子42各100轮及统一评价",
+      "estimate": "参考历史约27小时GPU任务，按新实测更新",
+      "exit": "至少一个方案满足预先声明的结构下降和精度保留目标"
+    },
+    {
+      "id": "R4",
+      "status": "conditional",
+      "task": "通过筛选的方案补43/44并完成结果统计",
+      "estimate": "每个方案额外约27小时，最多约54小时",
+      "exit": "完整多种子表和相对A/B差异，不把单种子优势写成稳定改进"
+    },
+    {
+      "id": "R5",
+      "status": "pending_after_model_selection",
+      "task": "选定模型导出一致性和本机速度验证",
+      "estimate": "0.5至1天",
+      "exit": "固定输入、预热和重复顺序，区分模型与完整流程耗时"
+    },
+    {
+      "id": "R6",
+      "status": "optional",
+      "task": "复用已有原型做简单本地应用界面",
+      "estimate": "0.5至1天",
+      "exit": "仅文件选择、模型选择、叠加与保存、耗时显示及错误提示；不做账号、数据库、云服务或手机适配"
+    },
+    {
+      "id": "R7",
+      "status": "pending",
+      "task": "新旧结果区分、论文图表、工作记录、Git同步与第二阶段冻结",
+      "estimate": "0.5天"
+    }
   ],
   "time_budget": {
     "historical_A_100epoch_reference_hours": 13.31,
@@ -60,6 +174,14 @@
     "eight_hours_per_day_note": "仅训练即约10天，整体可能超过两周，必须按R2实测缩减条件性任务，不能假定通道减少必然同比加速",
     "deadline_note": "用户给的是实验截止窗口，未给确切日历日期；不重置原两周窗口，正式运行前按当时剩余天数核对预算"
   },
-  "stop_rules": ["不租硬件、不花钱", "不新增数据集", "不同时做剪枝、蒸馏、量化和多个新骨干", "L0/L1均失败时先报告，不自动开启无界架构搜索", "不自动重启历史训练", "不覆盖旧冻结清单和原始证据"],
-  "next_action": "完成R1剩余计数覆盖审计，然后R2训练入口及完整一轮预检；本次只完成计划修改与结构复杂度预检，未启动正式训练"
+  "stop_rules": [
+    "不租硬件、不花钱",
+    "不新增数据集",
+    "不同时做剪枝、蒸馏、量化和多个新骨干",
+    "L0/L1均失败时先报告，不自动开启无界架构搜索",
+    "不自动重启历史训练",
+    "不覆盖旧冻结清单和原始证据"
+  ],
+  "next_action": "Background queue waits for current GPU acceptance, then measures L0/L1 epoch1 and resumes epochs2-100 if the measured time budget fits. No seed43/44 automatic launch.",
+  "preflight_interruption_note": "001 stopped intentionally before completion to restrict model initialization RNG to CPU; retained. 002 uses corrected candidate. Architecture and complexity values unchanged; new profile v2 binds corrected source."
 }
