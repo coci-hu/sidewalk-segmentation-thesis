@@ -55,7 +55,7 @@
           "boundary_iou_pct": 0
         },
         "argmax_disagreement_fraction": 0,
-        "maximum_absolute_logit_error": 0.00005257129669189453,
+        "maximum_absolute_logit_error": 5.257129669189453e-05,
         "name": "A_seed42",
         "variant": "A",
         "seed": 42,
@@ -128,7 +128,7 @@
           "boundary_iou_pct": 0
         },
         "argmax_disagreement_fraction": 0,
-        "maximum_absolute_logit_error": 0.00004113838076591492,
+        "maximum_absolute_logit_error": 4.113838076591492e-05,
         "name": "C_seed42",
         "variant": "C",
         "seed": 42,
@@ -221,8 +221,9 @@
     "experiments\\attention_gate\\step_10_2026-10-27\\gpu_guard_check_002\\verification.json": "cfd4c93a89edf1d976a84e6e8cba437ab24ee0df16d8206c3d6c3069317237d9"
   },
   "next_steps": [
-    "Experimental scope complete; review frozen results for thesis and demonstration",
-    "Reopen only for a verified defect or explicit supervisor requirement"
+    "Follow experiments/attention_gate/lightweight_revision_plan.json",
+    "Existing deployment evidence remains valid for historical A/B/C only",
+    "L0/L1 not trained or deployment-validated; no edge hardware rental required"
   ],
   "documentation_checked": [
     "https://onnxruntime.ai/docs/api/python/api_summary.html",
@@ -287,7 +288,7 @@
               "boundary_iou_pct": 0
             },
             "argmax_disagreement_fraction": 0,
-            "maximum_absolute_logit_error": 0.00005650520324707031,
+            "maximum_absolute_logit_error": 5.650520324707031e-05,
             "name": "B_seed42",
             "variant": "B",
             "seed": 42,
@@ -404,5 +405,10 @@
     "duration_seconds": 1800.0567791,
     "frames": 4476,
     "changed_frames": 0
+  },
+  "scope_revision_20261101": {
+    "active_plan": "experiments/attention_gate/lightweight_revision_plan.json",
+    "existing_evidence_unchanged": true,
+    "new_lightweight_acceptance_pending": true
   }
 }

@@ -53,5 +53,13 @@
     "remaining_required_experiments": [],
     "next": "Freeze evidence and proceed to thesis result interpretation; optional correction buffer only",
     "snapshot": "results/experiment_freeze_20261101.json"
+  },
+  "document_status": "historical_scope_superseded_by_supervisor_requirement",
+  "active_plan": "experiments/attention_gate/lightweight_revision_plan.json",
+  "revision_20261101": {
+    "reason": "Supervisor requires Params/FLOPs reduction; embedded hardware optional",
+    "historical_do_now_schedule_and_stop_rules_not_current": true,
+    "new_required_experiments_pending": true,
+    "preserve_completion_record_as_historical": true
   }
 }
