@@ -1,5 +1,5 @@
 {
-  "snapshot_date": "2026-10-30",
+  "snapshot_date": "2026-11-01",
   "pilot": {
     "results": [
       {
@@ -221,8 +221,8 @@
     "experiments\\attention_gate\\step_10_2026-10-27\\gpu_guard_check_002\\verification.json": "cfd4c93a89edf1d976a84e6e8cba437ab24ee0df16d8206c3d6c3069317237d9"
   },
   "next_steps": [
-    "Review one30-minute repeat-input stability result",
-    "Freeze experimental artifacts and compact result tables"
+    "Experimental scope complete; review frozen results for thesis and demonstration",
+    "Reopen only for a verified defect or explicit supervisor requirement"
   ],
   "documentation_checked": [
     "https://onnxruntime.ai/docs/api/python/api_summary.html",
@@ -396,5 +396,13 @@
     "status": "pass",
     "default_entry": "experiments/attention_gate/sidewalk_demo_reference.py",
     "fixed_rank_cases": 6
+  },
+  "latest_stability": {
+    "path": "results/deployment_stability.json",
+    "sha256": "af5657c5b1aa3a7f6c48ef89034a3e94291b23fe0d858bcc014a84a695084a53",
+    "status": "pass",
+    "duration_seconds": 1800.0567791,
+    "frames": 4476,
+    "changed_frames": 0
   }
 }

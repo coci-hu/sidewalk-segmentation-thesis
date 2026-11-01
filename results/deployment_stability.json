@@ -1,0 +1,146 @@
+{
+  "status": "pass",
+  "mode": "full",
+  "full30_minutes": true,
+  "duration_seconds": 1800.0567790999999,
+  "frames": 4476,
+  "image_indices": [
+    0,
+    75,
+    150,
+    207,
+    250,
+    375,
+    450,
+    499
+  ],
+  "exact_repeat_masks": true,
+  "changed_frames": 0,
+  "maximum_changed_pixels_per_frame": 0,
+  "process_memory": {
+    "working_set_bytes": {
+      "start": 1131118592,
+      "end": 1017577472,
+      "maximum_observed": 1145974784,
+      "end_minus_start": -113541120
+    },
+    "private_bytes": {
+      "start": 1860423680,
+      "end": 1875480576,
+      "maximum_observed": 1875517440,
+      "end_minus_start": 15056896
+    }
+  },
+  "GPU_memory_before": {
+    "status": "available",
+    "samples": [
+      {
+        "status": 0,
+        "path": "\\\\kitty\\gpu process memory(pid_130464_luid_0x00000000_0x00012a78_phys_0)\\dedicated usage",
+        "bytes": 382517248
+      },
+      {
+        "status": 0,
+        "path": "\\\\kitty\\gpu process memory(pid_130464_luid_0x00000000_0x00012a78_phys_0)\\shared usage",
+        "bytes": 79691776
+      }
+    ],
+    "dedicated_bytes": 382517248,
+    "shared_bytes": 79691776,
+    "scope": "process across reported adapters; snapshot only, not true peak"
+  },
+  "GPU_memory_after": {
+    "status": "available",
+    "samples": [
+      {
+        "status": 0,
+        "path": "\\\\kitty\\gpu process memory(pid_130464_luid_0x00000000_0x00012a78_phys_0)\\dedicated usage",
+        "bytes": 382517248
+      },
+      {
+        "status": 0,
+        "path": "\\\\kitty\\gpu process memory(pid_130464_luid_0x00000000_0x00012a78_phys_0)\\shared usage",
+        "bytes": 79691776
+      }
+    ],
+    "dedicated_bytes": 382517248,
+    "shared_bytes": 79691776,
+    "scope": "process across reported adapters; snapshot only, not true peak"
+  },
+  "execution": {
+    "provider_evidence": {
+      "provider": "CUDAExecutionProvider",
+      "node_executions": {
+        "CUDAExecutionProvider": 202
+      },
+      "unique_node_names": 202
+    },
+    "profile_sha256": "06d831d24cd2ac3f00472d3c1c5df147369cd4d24d9fca934dd4f85e6f63c37f",
+    "provider_options": {
+      "CUDAExecutionProvider": {
+        "device_id": "0",
+        "has_user_compute_stream": "0",
+        "cudnn_conv1d_pad_to_nc1d": "0",
+        "user_compute_stream": "0",
+        "gpu_external_alloc": "0",
+        "gpu_mem_limit": "18446744073709551615",
+        "enable_cuda_graph": "0",
+        "gpu_external_free": "0",
+        "gpu_external_empty_cache": "0",
+        "arena_extend_strategy": "kNextPowerOfTwo",
+        "cudnn_conv_algo_search": "EXHAUSTIVE",
+        "do_copy_in_default_stream": "1",
+        "cudnn_conv_use_max_workspace": "1",
+        "tunable_op_enable": "0",
+        "tunable_op_tuning_enable": "0",
+        "tunable_op_max_tuning_duration_ms": "0",
+        "enable_skip_layer_norm_strict_mode": "0",
+        "prefer_nhwc": "0",
+        "use_ep_level_unified_stream": "0",
+        "use_tf32": "0",
+        "sdpa_kernel": "0"
+      },
+      "CPUExecutionProvider": {}
+    },
+    "model": {
+      "name": "B_seed42",
+      "variant": "B",
+      "seed": 42,
+      "selected_epoch": 84,
+      "onnx": "experiments/attention_gate/step_10_2026-10-28/preserved_bn_reexport_cpu_001/B_seed42_fp32.onnx",
+      "onnx_sha256": "e2f3daa6d168781fd99535327fbbb90969aa98118c1a3742361c93e1eb22d0a4",
+      "weights": "experiments/attention_gate/step_05_2026-10-14/seed42_training_003/B_seed42_epochs002_100/best_weights/epoch_084.pth",
+      "weights_sha256": "2af2d3f8b2ece6ea1aab1d6224260e92e77070207177b030a00dd822715687f7",
+      "max_absolute_logit_error_CPU": 5.052424967288971e-05,
+      "argmax_disagreement_fraction_CPU": 0.0,
+      "images_checked": 1,
+      "backend": "CPUExecutionProvider"
+    },
+    "disabled_optimizers": [
+      "ConvBNFusion",
+      "ConvActivationFusion"
+    ]
+  },
+  "source_hashes": {
+    "experiments/attention_gate/check_reference_stability.py": "67fafe1c1316b81ff4dd0b5aaccf149b5bd958f5cd33ab746089b12b70996396",
+    "experiments/attention_gate/stability_protocol.json": "917d3d3295fe8f5d19b801d96c28d1921441fa572ed28b15e92270bf658078a9",
+    "experiments/attention_gate/reference_deployment_pipeline.py": "bc11790e7e80c7f861328953c419a90674d4fd40e563dbadd598f26cae0a5925",
+    "experiments/attention_gate/verified_deployment_runtime.py": "1f74fddc21a42ab3f0b374fc25fd97531fabc3761f1043f5a3b1c9e58752cfd9",
+    "experiments/attention_gate/common_runner.py": "2d0ba323e7638538b9c4c2f3b229213a5b92d5232c856f9bd536534e8fcd49f0",
+    "experiments/attention_gate/common_runner_v2.py": "03a7238c77ec95ecde1480bd10c807ff5ee93e7072db6fdb93506cd85f05d5f4"
+  },
+  "sources": {
+    "experiments/attention_gate/step_11_2026-10-30/reference_stability_full_001/result.json": "c5bba0138e4bd401f573ef4e6e9d951676b2382262b266cd94d827120f8c16fe",
+    "experiments/attention_gate/step_11_2026-10-30/reference_stability_full_001/plan.json": "11d983e305e436bf3d6c0c0a710068d3e37a062cf9cfcc120d9be8915d1636a2",
+    "experiments/attention_gate/step_11_2026-10-30/reference_stability_full_001/frames.jsonl": "31ab69c002ef965c58a775c02d92e442064316c344e65572fc9dcff1d8fe9b34",
+    "experiments/attention_gate/step_11_2026-10-30/reference_stability_full_001/provider_evidence/B_seed42_2026-10-30_18-47-26.json": "06d831d24cd2ac3f00472d3c1c5df147369cd4d24d9fca934dd4f85e6f63c37f"
+  },
+  "exporter_sha256": "1895b614fe1efca245f738ad343d52b79b0cb3d3fab6f2a1dc258bb360532448",
+  "raw_frame_records_reconstructed": true,
+  "formal_FPS_claim": false,
+  "limitations": [
+    "Repeated eight existing still images; no natural temporal accuracy",
+    "Processing loop only; excludes GUI and long output-video writing",
+    "Memory snapshots and repeat observations do not prove leak-free or universally deterministic execution"
+  ]
+}
