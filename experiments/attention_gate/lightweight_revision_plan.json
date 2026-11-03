@@ -1,6 +1,6 @@
 {
   "revision": "supervisor-lightweight-2026-11-01",
-  "status": "active_GPU_mechanics_running_guarded_seed42_queue_waiting",
+  "status": "seed42_training_complete_next_experiments_await_user_confirmation",
   "supervisor_requirement_verbatim": "只要flops和params明显下降即可，最多再加开发一个应用软件把算法整合下",
   "required": [
     "参数量明显下降",
@@ -80,7 +80,7 @@
     "precheck": "results/lightweight_profile_20261101_v2.json",
     "candidate_weights_exist": true,
     "candidate_accuracy_verified": false,
-    "weights_scope": "Only mechanics smoke weights currently; no formal trained accuracy claim"
+    "weights_scope": "L0/L1 seed42 both100 epochs complete; training-log audit passed; independent best-weight reevaluation pending"
   },
   "training_controls": {
     "reference_protocol": "experiments/attention_gate/protocol_v1_2.json",
@@ -101,7 +101,7 @@
     "first": "L0/L1种子42各完整100轮作为预先声明的筛选；不以两组一轮精度挑模型",
     "then": "通过筛选的方案补43/44；若两者均通过，最多6次正式训练。披露筛选及全部结果，不选择性隐藏种子。",
     "frozen_evaluation": "500张统一区域/边界评价；主结论报告三个种子均值与样本标准差；速度只在固定代表种子上比较",
-    "runner_status": "common_runner_compact.py ready; independent fresh-process CUDA recovery acceptance is running",
+    "runner_status": "GPU full-size and exact recovery accepted; both seed42 full training complete",
     "preflight_required": [
       "完整输入前向与反向",
       "训练入口参数和实际优化器核验",
@@ -111,7 +111,7 @@
     ],
     "active_preflight": "experiments/attention_gate/step_12_2026-11-01/compact_preflight_002",
     "guarded_queue": "experiments/attention_gate/step_12_2026-11-01/compact_seed42_001",
-    "queue_policy": "Acceptance pass -> full epoch L0/L1 with unchanged 100-epoch schedule -> measured pair time plus25% margin <=48h -> resume each to100; no failure retries; repeats require later review"
+    "queue_policy": "Original queue stopped at L1 epoch72 on user pause; separate verified resume73-100 complete. No remaining auto-launch. Future experiments need user confirmation."
   },
   "tasks": [
     {
@@ -125,54 +125,69 @@
     },
     {
       "id": "R2",
-      "status": "GPU_preflight_running",
+      "status": "complete",
       "task": "版本化训练适配、恢复测试和两组完整一轮耗时",
       "estimate": "0.5至1天",
       "exit": "检查通过且预算覆盖后才启动正式训练",
-      "done": "New versioned runner, paired CPU-only initialization, protected outputs and acceptance-gated background queue implemented",
-      "next": "Finish fresh-process exact resume checks and measure two full epochs"
+      "done": "GPU recovery and two full epoch pilots passed; epoch1 reused without schedule changes",
+      "next": "None"
     },
     {
       "id": "R3",
-      "status": "queued_conditional_on_acceptance_and_measured_budget",
+      "status": "training_complete_reevaluation_awaiting_confirmation",
       "task": "L0/L1种子42各100轮及统一评价",
-      "estimate": "参考历史约27小时GPU任务，按新实测更新",
-      "exit": "至少一个方案满足预先声明的结构下降和精度保留目标"
+      "estimate": "训练已结束；复评与结果核验预计0.5至1小时",
+      "exit": "至少一个方案满足预先声明的结构下降和精度保留目标",
+      "done": "Both100 epochs and saved best weights audited on CPU; both meet original targets in training logs",
+      "next": "After user confirms, independently evaluate selected L0/L1 weights on all500 validation images"
     },
     {
       "id": "R4",
-      "status": "conditional",
+      "status": "proposed_awaiting_confirmation_and_reevaluation",
       "task": "通过筛选的方案补43/44并完成结果统计",
-      "estimate": "每个方案额外约27小时，最多约54小时",
-      "exit": "完整多种子表和相对A/B差异，不把单种子优势写成稳定改进"
+      "estimate": "若两组复评通过，四次100轮约44至52小时GPU时间，另留20%缓冲",
+      "exit": "完整多种子表和相对A/B差异，不把单种子优势写成稳定改进",
+      "next": "推荐L0/L1均补43/44，以检验压缩后注意力作用，不用种子42挑赢者后隐藏另一组"
     },
     {
       "id": "R5",
-      "status": "pending_after_model_selection",
+      "status": "proposed_after_confirmation_and_model_selection",
       "task": "选定模型导出一致性和本机速度验证",
-      "estimate": "0.5至1天",
-      "exit": "固定输入、预热和重复顺序，区分模型与完整流程耗时"
+      "estimate": "0.5至1天，含适配、检查和计时",
+      "exit": "固定输入、预热和重复顺序，区分模型与完整流程耗时",
+      "next": "选定候选做500图导出一致性；A与候选在同条件下重复测速，分模型耗时与完整流程耗时"
     },
     {
       "id": "R6",
-      "status": "optional",
+      "status": "optional_separate_confirmation",
       "task": "复用已有原型做简单本地应用界面",
       "estimate": "0.5至1天",
-      "exit": "仅文件选择、模型选择、叠加与保存、耗时显示及错误提示；不做账号、数据库、云服务或手机适配"
+      "exit": "仅文件选择、模型选择、叠加与保存、耗时显示及错误提示；不做账号、数据库、云服务或手机适配",
+      "next": "不纳入本次推荐必需实验，仅有时间且用户确认后整合简单界面"
     },
     {
       "id": "R7",
-      "status": "pending",
+      "status": "proposed_after_confirmation",
       "task": "新旧结果区分、论文图表、工作记录、Git同步与第二阶段冻结",
-      "estimate": "0.5天"
+      "estimate": "0.5天",
+      "next": "多种子汇总、配对差异、案例与局限、代码结果同步及第二阶段冻结"
     }
   ],
   "time_budget": {
     "historical_A_100epoch_reference_hours": 13.31,
     "max_six_new_runs_reference_hours": 79.86,
     "expected_calendar_days_with_long_daily_GPU_access": "6至9天，含检查、评估和缓冲；不是完成保证",
-    "eight_hours_per_day_note": "仅训练即约10天，整体可能超过两周，必须按R2实测缩减条件性任务，不能假定通道减少必然同比加速",
-    "deadline_note": "用户给的是实验截止窗口，未给确切日历日期；不重置原两周窗口，正式运行前按当时剩余天数核对预算"
+    "eight_hours_per_day_note": "仅四次补种子约5.5至6.5天，连同检查约7至9天；须核对原实验截止窗口，不重置两周。",
+    "deadline_note": "用户给的是实验截止窗口，未给确切日历日期；不重置原两周窗口，正式运行前按当时剩余天数核对预算",
+    "remaining_four_runs_estimate_hours": [
+      44,
+      52
+    ],
+    "remaining_four_runs_with_margin_hours": [
+      53,
+      63
+    ],
+    "remaining_calendar_after_confirmation": "连续开机优先预计4至6天，含复评、44至52GPU小时训练、部署验证与缓冲；确认等待和游戏暂停另计"
   },
   "stop_rules": [
     "不租硬件、不花钱",
@@ -182,6 +197,38 @@
     "不自动重启历史训练",
     "不覆盖旧冻结清单和原始证据"
   ],
-  "next_action": "Background queue waits for current GPU acceptance, then measures L0/L1 epoch1 and resumes epochs2-100 if the measured time budget fits. No seed43/44 automatic launch.",
-  "preflight_interruption_note": "001 stopped intentionally before completion to restrict model initialization RNG to CPU; retained. 002 uses corrected candidate. Architecture and complexity values unchanged; new profile v2 binds corrected source."
+  "next_action": "等待用户确认下列方案；确认后先独立复评L0/L1最佳权重，再按原筛选目标决定43/44；当前不启动任何后续实验。",
+  "preflight_interruption_note": "001 stopped intentionally before completion to restrict model initialization RNG to CPU; retained. 002 uses corrected candidate. Architecture and complexity values unchanged; new profile v2 binds corrected source.",
+  "latest_user_constraint": "2026-11-03：实验完成后继续后续规划，我确定后执行",
+  "execution_authorized": false,
+  "seed42_audit": "results/compact_seed42_audit_20261103.json",
+  "proposal_options": [
+    {
+      "name": "推荐完整对照",
+      "tasks": [
+        "L0/L1独立复评",
+        "两组均通过则各补43/44",
+        "选定模型导出及本机测速",
+        "整理冻结"
+      ],
+      "reason": "延续预先声明的筛选规则，能够检验注意力在压缩后是否有稳定贡献",
+      "estimated_gpu_hours": [
+        44,
+        52
+      ]
+    },
+    {
+      "name": "时间紧时缩减",
+      "tasks": [
+        "独立复评",
+        "仅L0补43/44",
+        "导出测速及整理"
+      ],
+      "reason": "约少22至26GPU小时，但L1只有探索性单种子，必须明确方案修订，不能作稳定注意力比较结论",
+      "estimated_gpu_hours": [
+        22,
+        26
+      ]
+    }
+  ]
 }

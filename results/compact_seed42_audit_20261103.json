@@ -1,0 +1,140 @@
+{
+  "status": "pass",
+  "scope": "CPU artifact integrity and training-log screening only",
+  "training_complete": true,
+  "independent_best_weight_reevaluation_complete": false,
+  "pending_user_confirmation": true,
+  "automatic_next_experiments": false,
+  "results": {
+    "L0": {
+      "seed": 42,
+      "epochs": 100,
+      "best_epoch": 88,
+      "global_miou_pct": 81.30650128847161,
+      "sidewalk_iou_pct": 64.7092696324492,
+      "boundary_iou_pct": 52.660927299727646,
+      "delta_vs_baseline_pp": {
+        "A": {
+          "global_miou_pct": 0.27382306799682965,
+          "sidewalk_iou_pct": 0.4866310328079777,
+          "boundary_iou_pct": -0.38222174176532775
+        },
+        "B": {
+          "global_miou_pct": -0.3132512823833764,
+          "sidewalk_iou_pct": -0.5997570339038845,
+          "boundary_iou_pct": -0.9060586728890172
+        }
+      },
+      "params": 161688,
+      "conv_linear_gflops": 7.156137984,
+      "reduction_vs_A_percent": {
+        "params": 38.67091488393264,
+        "conv_linear_flops": 28.00743700304601
+      },
+      "predeclared_targets_met_in_training_log": true,
+      "best_weights": "experiments/attention_gate/step_12_2026-11-01/compact_seed42_001/L0_epochs002_100/best_weights/epoch_088.pth",
+      "best_weights_sha256": "6e9a8d7f83c67b9b6e7bdc5ee0039788f1dea5faa01cb8a70ba2029a36c8c5c1",
+      "final_checkpoint": "experiments/attention_gate/step_12_2026-11-01/compact_seed42_001/L0_epochs002_100/checkpoints/epoch_100.pth",
+      "final_checkpoint_sha256": "1255422e3dec8421f5f23ddd1cd398dc260044f201fbe5e08d98610aebdbb756",
+      "source_status": "experiments/attention_gate/step_12_2026-11-01/compact_seed42_001/L0_epochs002_100/status.json",
+      "status_sha256": "1bd66d061ef58a325af09037b7eea3bd4caf7a69d554acd04d058a872a84ee87",
+      "metrics_sha256": "51f58985db18792fc44397f8d5f447c2c0fdaa0b43bf5801e55dbd32032c0f4a",
+      "initial_backbone_sha256": "014a6bdccb26a37e16a3fd507f58fb5244f7657e57f2da42505c8eb2ff239a7f",
+      "recent_epoch_seconds": 449.0468386399974
+    },
+    "L1": {
+      "seed": 42,
+      "epochs": 100,
+      "best_epoch": 81,
+      "global_miou_pct": 81.08062864134455,
+      "sidewalk_iou_pct": 64.28377591988311,
+      "boundary_iou_pct": 52.6912801382509,
+      "delta_vs_baseline_pp": {
+        "A": {
+          "global_miou_pct": 0.04795042086976764,
+          "sidewalk_iou_pct": 0.06113732024188323,
+          "boundary_iou_pct": -0.351868903242071
+        },
+        "B": {
+          "global_miou_pct": -0.5391239295104384,
+          "sidewalk_iou_pct": -1.025250746469979,
+          "boundary_iou_pct": -0.8757058343657604
+        }
+      },
+      "params": 164208,
+      "conv_linear_gflops": 7.156826112,
+      "reduction_vs_A_percent": {
+        "params": 37.71506599908967,
+        "conv_linear_flops": 28.00051426084893
+      },
+      "predeclared_targets_met_in_training_log": true,
+      "best_weights": "experiments/attention_gate/step_12_2026-11-02/L1_seed42_recovery_001/L1_epochs073_100/best_weights/epoch_081.pth",
+      "best_weights_sha256": "a3fcb11b25cc04f098326e58f53e57b3d745cb986f065f8fbbd5c29ff8af097d",
+      "final_checkpoint": "experiments/attention_gate/step_12_2026-11-02/L1_seed42_recovery_001/L1_epochs073_100/checkpoints/epoch_100.pth",
+      "final_checkpoint_sha256": "a827d475b696d3a5dde750e3c0e3fed4a80629906c9433545033f421023b9c70",
+      "source_status": "experiments/attention_gate/step_12_2026-11-02/L1_seed42_recovery_001/L1_epochs073_100/status.json",
+      "status_sha256": "1acc8e90f7cd7dcc39817cee75657e8b35dc466ddae8ca8d6c38fd0d69ce78c0",
+      "metrics_sha256": "046573d9507b620c5127991a49add2afe748bf2c721027bb0ac2a9f36c4ad0b6",
+      "initial_backbone_sha256": "014a6bdccb26a37e16a3fd507f58fb5244f7657e57f2da42505c8eb2ff239a7f",
+      "recent_epoch_seconds": 399.75695138000026
+    }
+  },
+  "reference_seed42": {
+    "A": {
+      "variant": "A",
+      "seed": 42,
+      "epochs": 100,
+      "best_epoch": 92,
+      "best_global_miou_pct": 81.03267822047478,
+      "best_sidewalk_iou_pct": 64.22263859964123,
+      "best_boundary_iou_pct": 53.043149041492974,
+      "best_weights": "experiments/attention_gate/step_05_2026-10-14/seed42_training_003/A_seed42_epochs002_100/best_weights/epoch_092.pth",
+      "final_checkpoint": "experiments/attention_gate/step_05_2026-10-14/seed42_training_003/A_seed42_epochs002_100/checkpoints/epoch_100.pth",
+      "final_checkpoint_sha256": "68c2424d7142fa747e04c7c569430cba03f54b0ccc779e48be4d30c5bc3bdf21",
+      "best_weights_sha256": "71ca9c869b1aec4ee5fc6eaa637e98cb3e2e0ab10ccedf5a1adbc8c4261f8218"
+    },
+    "B": {
+      "variant": "B",
+      "seed": 42,
+      "epochs": 100,
+      "best_epoch": 84,
+      "best_global_miou_pct": 81.61975257085498,
+      "best_sidewalk_iou_pct": 65.30902666635309,
+      "best_boundary_iou_pct": 53.56698597261666,
+      "best_weights": "experiments/attention_gate/step_05_2026-10-14/seed42_training_003/B_seed42_epochs002_100/best_weights/epoch_084.pth",
+      "final_checkpoint": "experiments/attention_gate/step_05_2026-10-14/seed42_training_003/B_seed42_epochs002_100/checkpoints/epoch_100.pth",
+      "final_checkpoint_sha256": "d10dfe37e8d5dbe7c5f4754ec781edbc95fd39a0df120352b6b1db36eef9d770",
+      "best_weights_sha256": "2af2d3f8b2ece6ea1aab1d6224260e92e77070207177b030a00dd822715687f7"
+    }
+  },
+  "checks": [
+    "100 epochs and dataset counts",
+    "same fixed protocol and manifest as A/B42",
+    "CSV and checkpoint metrics exact",
+    "global metrics reconstructed from confusion matrices",
+    "earliest maximum mIoU selects same stored best weights",
+    "full optimizer/scheduler history",
+    "paired initialization, 100 sample orders and final RNG equal",
+    "L1 resume prefix72 preserved"
+  ],
+  "screening_rule": "Predeclared >=20% Params and Conv/Linear FLOPs reduction vs A; sidewalk and boundary IoU loss <=1 percentage point vs paired A42. Working targets, not supervisor-specified thresholds.",
+  "interpretation": "Both pass training-log targets. L1 has lower sidewalk IoU than L0 in this single seed; no stable attention benefit or failure conclusion. No independent test-set claim.",
+  "source_hashes": {
+    "experiments\\attention_gate\\common_runner.py": "2d0ba323e7638538b9c4c2f3b229213a5b92d5232c856f9bd536534e8fcd49f0",
+    "experiments\\attention_gate\\metrics_v1.py": "2426f7838b90cce6f11b11315828c740846f735ffcba4523972fbce9a4ee2751",
+    "experiments\\attention_gate\\protocol_v1_1.json": "3990842dd4f56304506fb6d4abe5b3a8b3f8e5628675a3e412ea81419a377d58",
+    "code\\model_enet.py": "e0b99d9d862b09eec0781f374071a8f9b7c584d537d3f4761bc5d0c4d4da909b",
+    "code\\model_enet_ca.py": "a875c11bd9d95e8235622677d47cd7ea88c0064e283e0a53320fcd5a3f44b945",
+    "code\\components\\ca_attention.py": "b676ac179e5ee2e9c5bfefbc7f4837aee08832e713fe48f927ed576bf06ab322",
+    "experiments\\attention_gate\\common_runner_v2.py": "03a7238c77ec95ecde1480bd10c807ff5ee93e7072db6fdb93506cd85f05d5f4",
+    "experiments\\attention_gate\\protocol_v1_2.json": "2c50a1cbabfe3b4c4f0258dbbd7e976cbe80ca14fbc170c6e2b8b68e338e9765",
+    "experiments\\attention_gate\\step_05_2026-10-14\\loader_optimization_001\\verification.json": "8e594844a9ce77ed7188671d34814f57f9648ee841ef0a9dc4e63f92bb9887c0",
+    "experiments\\attention_gate\\common_runner_compact.py": "c139edce93d8ad2e11a280a50c9c32819c44c4eb1942d1c05729406c53016a26",
+    "experiments\\attention_gate\\compact_candidate.py": "f7a348bc4f840b57f446f096b0831911b2db345a2208d451f6c99db941af7831",
+    "experiments\\attention_gate\\common_runner_c.py": "05c9f3dcfbcdbb620882e57bef7a7409c2cd765176388bfe7c18565b57f24fbc",
+    "experiments\\attention_gate\\safe_progress_io.py": "409794a6c9b5ccecfd1a65c7f2a0691b51e6b182f4dc86d54281c825139f69f8"
+  },
+  "audit_source_sha256": "fbeff54be465bfcee47f59932244d05e7b459026e3b57a625f0cd09632548c63",
+  "profile_sha256": "48b238deee6e5e8e2109c140cd9c43a4bee6e10d66e10bc32c4e29d52dd919da",
+  "reference_summary_sha256": "0380173dbbc7a185db69b2f625211bddb48fbe110a33e4a81c74f41185b9ff78"
+}
