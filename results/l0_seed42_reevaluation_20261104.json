@@ -1,0 +1,105 @@
+{
+  "status": "pass",
+  "variant": "L0",
+  "seed": 42,
+  "best_epoch": 88,
+  "weights_sha256": "6e9a8d7f83c67b9b6e7bdc5ee0039788f1dea5faa01cb8a70ba2029a36c8c5c1",
+  "source_hashes": {
+    "experiments\\attention_gate\\common_runner.py": "2d0ba323e7638538b9c4c2f3b229213a5b92d5232c856f9bd536534e8fcd49f0",
+    "experiments\\attention_gate\\metrics_v1.py": "2426f7838b90cce6f11b11315828c740846f735ffcba4523972fbce9a4ee2751",
+    "experiments\\attention_gate\\protocol_v1_1.json": "3990842dd4f56304506fb6d4abe5b3a8b3f8e5628675a3e412ea81419a377d58",
+    "code\\model_enet.py": "e0b99d9d862b09eec0781f374071a8f9b7c584d537d3f4761bc5d0c4d4da909b",
+    "code\\model_enet_ca.py": "a875c11bd9d95e8235622677d47cd7ea88c0064e283e0a53320fcd5a3f44b945",
+    "code\\components\\ca_attention.py": "b676ac179e5ee2e9c5bfefbc7f4837aee08832e713fe48f927ed576bf06ab322",
+    "experiments\\attention_gate\\common_runner_v2.py": "03a7238c77ec95ecde1480bd10c807ff5ee93e7072db6fdb93506cd85f05d5f4",
+    "experiments\\attention_gate\\protocol_v1_2.json": "2c50a1cbabfe3b4c4f0258dbbd7e976cbe80ca14fbc170c6e2b8b68e338e9765",
+    "experiments\\attention_gate\\step_05_2026-10-14\\loader_optimization_001\\verification.json": "8e594844a9ce77ed7188671d34814f57f9648ee841ef0a9dc4e63f92bb9887c0",
+    "experiments\\attention_gate\\common_runner_compact.py": "c139edce93d8ad2e11a280a50c9c32819c44c4eb1942d1c05729406c53016a26",
+    "experiments\\attention_gate\\compact_candidate.py": "f7a348bc4f840b57f446f096b0831911b2db345a2208d451f6c99db941af7831",
+    "experiments\\attention_gate\\common_runner_c.py": "05c9f3dcfbcdbb620882e57bef7a7409c2cd765176388bfe7c18565b57f24fbc",
+    "experiments\\attention_gate\\safe_progress_io.py": "409794a6c9b5ccecfd1a65c7f2a0691b51e6b182f4dc86d54281c825139f69f8",
+    "experiments\\attention_gate\\evaluate_compact_selected.py": "3cff3924e9489faae1408547f620996a7a944e34eca3dd518cfe673ae42aa5e6"
+  },
+  "absolute_tolerance_fraction": 1e-06,
+  "manifest_sha256": "ac07685502da45bd3092627af838ca7ca87f6d4652887cf6e4336df9f6a13ffd",
+  "actual": {
+    "val_loss": 0.13932890062965453,
+    "val_images": 500,
+    "val_miou_global": 0.8130650128847161,
+    "val_iou_sidewalk_global": 0.6470926963244921,
+    "val_pixel_accuracy_global": 0.9798132527669271,
+    "val_boundary_iou_author_fg_mean": 0.5266092729972764,
+    "boundary_valid_images": 498,
+    "val_confusion": [
+      [
+        370723544,
+        3939108
+      ],
+      [
+        3998644,
+        14554704
+      ]
+    ]
+  },
+  "expected": {
+    "val_loss": 0.13932890062965453,
+    "val_miou_global": 0.8130650128847161,
+    "val_iou_sidewalk_global": 0.6470926963244921,
+    "val_boundary_iou_author_fg_mean": 0.5266092729972764,
+    "val_pixel_accuracy_global": 0.9798132527669271
+  },
+  "metric_differences": {
+    "val_loss": 0.0,
+    "val_miou_global": 0.0,
+    "val_iou_sidewalk_global": 0.0,
+    "val_boundary_iou_author_fg_mean": 0.0,
+    "val_pixel_accuracy_global": 0.0
+  },
+  "confusion_exact": true,
+  "model_unchanged": true,
+  "dataset_unchanged": true,
+  "wall_seconds": 141.0650141,
+  "weights": "experiments/attention_gate/step_12_2026-11-01/compact_seed42_001/L0_epochs002_100/best_weights/epoch_088.pth",
+  "raw_verification": "experiments/attention_gate/step_12_2026-11-04/L0_repeats_001/L0_seed42_reevaluation/verification.json",
+  "raw_verification_sha256": "6fe93dde7f91dfcd4bb0254e4d3da70ebcff46acfe1684b16ee3a52be36daf03",
+  "pre_inference_plan_sha256": "203ff2670bceb03c463e64c30aac7b148130bb08210e40f6bfba0ed745d7fc55",
+  "repeat_gate": {
+    "status": "pass",
+    "variant": "L0",
+    "seed42_reevaluation_passed": true,
+    "target": {
+      "params_reduction_vs_A_percent_at_least": 20,
+      "conv_linear_flops_reduction_vs_A_percent_at_least": 20,
+      "sidewalk_iou_loss_vs_A_pp_at_most": 1.0,
+      "boundary_iou_26_loss_vs_A_pp_at_most": 1.0,
+      "note": "这是预先提出的项目筛选目标，不是老师已指定的百分比，不是已达到的精度结论。所有失败也报告。"
+    },
+    "actual": {
+      "val_loss": 0.13932890062965453,
+      "val_images": 500,
+      "val_miou_global": 0.8130650128847161,
+      "val_iou_sidewalk_global": 0.6470926963244921,
+      "val_pixel_accuracy_global": 0.9798132527669271,
+      "val_boundary_iou_author_fg_mean": 0.5266092729972764,
+      "boundary_valid_images": 498,
+      "val_confusion": [
+        [
+          370723544,
+          3939108
+        ],
+        [
+          3998644,
+          14554704
+        ]
+      ]
+    },
+    "repeat_seeds": [
+      43,
+      44
+    ],
+    "L1_repeats": false
+  },
+  "repeat_gate_sha256": "dbec58c92ae2ee7a62be6b0ba9d8ef4c913ff7d2d0664fa78ef127f1bb48445d",
+  "exporter_sha256": "28f260b9bb5cb661cc1437597d372bc5c374ce63b2cad31d1aa4215ea3de075a",
+  "scope": "Fresh-process selected-weight reevaluation on same500 validation images; not an independent test set. Exact aggregate metrics/confusion do not assert pixelwise identical masks."
+}
