@@ -1,0 +1,200 @@
+{
+  "status": "pass",
+  "results": [
+    {
+      "variant": "L0",
+      "seed": 42,
+      "epochs": 100,
+      "best_epoch": 88,
+      "best_weights": "experiments/attention_gate/step_12_2026-11-01/compact_seed42_001/L0_epochs002_100/best_weights/epoch_088.pth",
+      "best_weights_sha256": "6e9a8d7f83c67b9b6e7bdc5ee0039788f1dea5faa01cb8a70ba2029a36c8c5c1",
+      "metrics_pct": {
+        "miou": 81.30650128847161,
+        "sidewalk": 64.7092696324492,
+        "boundary": 52.660927299727646
+      },
+      "manifest_sha256": "ac07685502da45bd3092627af838ca7ca87f6d4652887cf6e4336df9f6a13ffd",
+      "reevaluation_passed": true,
+      "paired_changes_pp": {
+        "A": {
+          "miou": 0.27382306799682965,
+          "sidewalk": 0.4866310328079777,
+          "boundary": -0.38222174176532775
+        },
+        "B": {
+          "miou": -0.3132512823833764,
+          "sidewalk": -0.5997570339038845,
+          "boundary": -0.9060586728890172
+        }
+      },
+      "best_global_miou_pct": 81.30650128847161,
+      "best_sidewalk_iou_pct": 64.7092696324492,
+      "best_boundary_iou_pct": 52.660927299727646
+    },
+    {
+      "variant": "L0",
+      "seed": 43,
+      "epochs": 100,
+      "best_epoch": 65,
+      "best_weights": "experiments/attention_gate/step_12_2026-11-04/L0_repeats_001/L0_seed43_epochs001_100/best_weights/epoch_065.pth",
+      "best_weights_sha256": "c97eabad9e9bfc59edb332930916b8c659e2b2b5bbeaed69136bb47f9c86fb92",
+      "metrics_pct": {
+        "miou": 80.38576650735926,
+        "sidewalk": 63.042455640812975,
+        "boundary": 51.913834547147076
+      },
+      "manifest_sha256": "ac07685502da45bd3092627af838ca7ca87f6d4652887cf6e4336df9f6a13ffd",
+      "reevaluation_passed": true,
+      "paired_changes_pp": {
+        "A": {
+          "miou": -0.6283399130768572,
+          "sidewalk": -1.1316621701554652,
+          "boundary": -0.8157245685055301
+        },
+        "B": {
+          "miou": -1.1078187233637067,
+          "sidewalk": -2.0896779365528033,
+          "boundary": -1.3900844230928726
+        }
+      },
+      "best_global_miou_pct": 80.38576650735926,
+      "best_sidewalk_iou_pct": 63.042455640812975,
+      "best_boundary_iou_pct": 51.913834547147076
+    },
+    {
+      "variant": "L0",
+      "seed": 44,
+      "epochs": 100,
+      "best_epoch": 57,
+      "best_weights": "experiments/attention_gate/step_12_2026-11-04/L0_repeats_001/L0_seed44_epochs001_100/best_weights/epoch_057.pth",
+      "best_weights_sha256": "e52e8b05a487b78946df86c79e0f587ff120a629b572afc464336a23b61cc0ec",
+      "metrics_pct": {
+        "miou": 80.48863874007193,
+        "sidewalk": 63.202761199747584,
+        "boundary": 51.31430255993271
+      },
+      "manifest_sha256": "ac07685502da45bd3092627af838ca7ca87f6d4652887cf6e4336df9f6a13ffd",
+      "reevaluation_passed": true,
+      "paired_changes_pp": {
+        "A": {
+          "miou": -0.5294728738172125,
+          "sidewalk": -0.9913181275414331,
+          "boundary": -1.6779612690164925
+        },
+        "B": {
+          "miou": -1.215627268089591,
+          "sidewalk": -2.2603628291992237,
+          "boundary": -2.294223581126843
+        }
+      },
+      "best_global_miou_pct": 80.48863874007193,
+      "best_sidewalk_iou_pct": 63.202761199747584,
+      "best_boundary_iou_pct": 51.31430255993271
+    }
+  ],
+  "summary": {
+    "L0": {
+      "miou": {
+        "mean_pct": 80.72696884530093,
+        "sample_std_pct": 0.5045186454248735
+      },
+      "sidewalk": {
+        "mean_pct": 63.65149549100325,
+        "sample_std_pct": 0.9195591709020818
+      },
+      "boundary": {
+        "mean_pct": 51.963021468935814,
+        "sample_std_pct": 0.6746584783527375
+      }
+    },
+    "A": {
+      "miou": {
+        "mean_pct": 81.02163208493334,
+        "sample_std_pct": 0.009773598439099402
+      },
+      "sidewalk": {
+        "mean_pct": 64.19694524596623,
+        "sample_std_pct": 0.024387022178930705
+      },
+      "boundary": {
+        "mean_pct": 52.92165732869826,
+        "sample_std_pct": 0.16829622338426614
+      }
+    },
+    "B": {
+      "miou": {
+        "mean_pct": 81.60586793657983,
+        "sample_std_pct": 0.10602445377008356
+      },
+      "sidewalk": {
+        "mean_pct": 65.30142809088856,
+        "sample_std_pct": 0.16562600496682647
+      },
+      "boundary": {
+        "mean_pct": 53.493143694638725,
+        "sample_std_pct": 0.1651844231197666
+      }
+    }
+  },
+  "mean_changes_pp": {
+    "A": {
+      "miou": -0.29466323963241337,
+      "sidewalk": -0.5454497549629806,
+      "boundary": -0.9586358597624454
+    },
+    "B": {
+      "miou": -0.8788990912788961,
+      "sidewalk": -1.649932599885311,
+      "boundary": -1.530122225702911
+    }
+  },
+  "precision_loss_target_pp": 1.0,
+  "descriptive_mean_within_target_vs_A": {
+    "sidewalk": true,
+    "boundary": true
+  },
+  "each_seed_within_target_vs_A": {
+    "42": {
+      "sidewalk": true,
+      "boundary": true
+    },
+    "43": {
+      "sidewalk": false,
+      "boundary": true
+    },
+    "44": {
+      "sidewalk": true,
+      "boundary": false
+    }
+  },
+  "interpretation": "All seeds retained. Mean precision loss is within the working 1pp target, but individual seeds fail and variability increases. This is not an every-seed guarantee, statistical significance, independent test evaluation, or accuracy improvement. The original seed42 screening gate is preserved; mean comparison is descriptive.",
+  "L1_scope": "Seed42 only, no repeat or stable attention-effect claim.",
+  "deployment_seed": 42,
+  "deployment_selection": "Fixed before repeats, not the best seed chosen afterwards.",
+  "evidence_sha256": {
+    "results\\abc_summary.json": "0380173dbbc7a185db69b2f625211bddb48fbe110a33e4a81c74f41185b9ff78",
+    "experiments\\attention_gate\\step_12_2026-11-04\\L0_repeats_001\\L0_seed42_reevaluation\\verification.json": "6fe93dde7f91dfcd4bb0254e4d3da70ebcff46acfe1684b16ee3a52be36daf03",
+    "experiments\\attention_gate\\step_12_2026-11-04\\L0_repeats_001\\L0_seed43_epochs001_100\\completion_audit.json": "011cb75e2b9bd9f1bdd3273f06e993c4b8e97a04bfb041f35d7f5a30105cdb44",
+    "experiments\\attention_gate\\step_12_2026-11-04\\L0_repeats_001\\L0_seed43_reevaluation\\verification.json": "c37d73e7603fe5e50847d1ccf49c2933aecf5d05db25119c155bd8fecea4b4d8",
+    "experiments\\attention_gate\\step_12_2026-11-04\\L0_repeats_001\\L0_seed44_epochs001_100\\completion_audit.json": "817bf99983c52fbdc2e74527071b8613bac3d90dec93939a3d3f424630157a5a",
+    "experiments\\attention_gate\\step_12_2026-11-04\\L0_repeats_001\\L0_seed44_reevaluation\\verification.json": "50eeca3f4deeab93bddcdd06ca0aeec07344ca571981ebb31bdc60cd65b4eca1"
+  },
+  "source_hashes": {
+    "experiments\\attention_gate\\common_runner.py": "2d0ba323e7638538b9c4c2f3b229213a5b92d5232c856f9bd536534e8fcd49f0",
+    "experiments\\attention_gate\\metrics_v1.py": "2426f7838b90cce6f11b11315828c740846f735ffcba4523972fbce9a4ee2751",
+    "experiments\\attention_gate\\protocol_v1_1.json": "3990842dd4f56304506fb6d4abe5b3a8b3f8e5628675a3e412ea81419a377d58",
+    "code\\model_enet.py": "e0b99d9d862b09eec0781f374071a8f9b7c584d537d3f4761bc5d0c4d4da909b",
+    "code\\model_enet_ca.py": "a875c11bd9d95e8235622677d47cd7ea88c0064e283e0a53320fcd5a3f44b945",
+    "code\\components\\ca_attention.py": "b676ac179e5ee2e9c5bfefbc7f4837aee08832e713fe48f927ed576bf06ab322",
+    "experiments\\attention_gate\\common_runner_v2.py": "03a7238c77ec95ecde1480bd10c807ff5ee93e7072db6fdb93506cd85f05d5f4",
+    "experiments\\attention_gate\\protocol_v1_2.json": "2c50a1cbabfe3b4c4f0258dbbd7e976cbe80ca14fbc170c6e2b8b68e338e9765",
+    "experiments\\attention_gate\\step_05_2026-10-14\\loader_optimization_001\\verification.json": "8e594844a9ce77ed7188671d34814f57f9648ee841ef0a9dc4e63f92bb9887c0",
+    "experiments\\attention_gate\\common_runner_compact.py": "c139edce93d8ad2e11a280a50c9c32819c44c4eb1942d1c05729406c53016a26",
+    "experiments\\attention_gate\\compact_candidate.py": "f7a348bc4f840b57f446f096b0831911b2db345a2208d451f6c99db941af7831",
+    "experiments\\attention_gate\\common_runner_c.py": "05c9f3dcfbcdbb620882e57bef7a7409c2cd765176388bfe7c18565b57f24fbc",
+    "experiments\\attention_gate\\safe_progress_io.py": "409794a6c9b5ccecfd1a65c7f2a0691b51e6b182f4dc86d54281c825139f69f8",
+    "experiments\\attention_gate\\run_l0_repeats.py": "31e8d2a7c18b8c7e6eef29fe1d3cfdf635c8cd7391634b98b2d22da0dc0bcede",
+    "experiments\\attention_gate\\evaluate_compact_selected.py": "3cff3924e9489faae1408547f620996a7a944e34eca3dd518cfe673ae42aa5e6"
+  },
+  "exporter_sha256": "145f5d453e1b49c866a4edb30ca8025a8022d9600dcd9667ae0ed8f162d475be"
+}

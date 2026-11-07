@@ -1,6 +1,6 @@
 {
   "revision": "supervisor-lightweight-2026-11-01",
-  "status": "L0_seed42_reevaluation_passed_seed43_training_seed44_queued",
+  "status": "L0_three_seeds_complete_A_L0_deployment_started",
   "supervisor_requirement_verbatim": "只要flops和params明显下降即可，最多再加开发一个应用软件把算法整合下",
   "required": [
     "参数量明显下降",
@@ -79,10 +79,12 @@
     "innovation_limit": "通道缩减和CA均为已有方法；研究贡献是任务适配、受控组合与精度效率分析，不能宣称新基础网络或新注意力公式。",
     "precheck": "results/lightweight_profile_20261101_v2.json",
     "candidate_weights_exist": true,
-    "candidate_accuracy_verified": false,
-    "weights_scope": "L0/L1 seed42 both100 epochs complete; training-log audit passed; independent best-weight reevaluation pending",
+    "candidate_accuracy_verified": true,
+    "weights_scope": "L0 seeds42/43/44 complete100 and full500 reevaluated; L1 seed42 training-log audit only",
     "verified_candidates": [
-      "L0_seed42"
+      "L0_seed42",
+      "L0_seed43",
+      "L0_seed44"
     ]
   },
   "training_controls": {
@@ -104,7 +106,7 @@
     "first": "L0/L1种子42各完整100轮作为预先声明的筛选；不以两组一轮精度挑模型",
     "then": "仅L0补43/44；L1保留种子42，不再补跑。两次L0均保留，不因某一种子精度差取消另一次。",
     "frozen_evaluation": "L0三个种子均完整500张复评，报告均值与样本标准差及对A/B的配对差异；L1仅保留单种子探索。速度固定代表种子42。",
-    "runner_status": "GPU full-size and exact recovery accepted; both seed42 full training complete",
+    "runner_status": "Approved L0-only training scope complete; no further training scheduled",
     "preflight_required": [
       "完整输入前向与反向",
       "训练入口参数和实际优化器核验",
@@ -147,19 +149,21 @@
     },
     {
       "id": "R4",
-      "status": "seed43_running_seed44_queued_L0_only",
+      "status": "complete",
       "task": "仅L0补43/44并复评，形成三个种子统计",
       "estimate": "约22至26GPU小时，另留启动及约20%系统波动余量",
       "exit": "完整多种子表和相对A/B差异，不把单种子优势写成稳定改进",
-      "next": "顺序跑43和44；任何异常停止，低精度种子不隐藏"
+      "next": "None",
+      "done": "All three selected weights reevaluated on500 images; source/checkpoint and paired sample-order audits pass; all seeds retained.",
+      "proof": "results/l0_three_seed_review_20261107.json"
     },
     {
       "id": "R5",
-      "status": "pending_L0_three_seed_review",
+      "status": "running_export_acceptance",
       "task": "选定模型导出一致性和本机速度验证",
       "estimate": "0.5至1天，含适配、检查和计时",
       "exit": "固定输入、预热和重复顺序，区分模型与完整流程耗时",
-      "next": "完成L0三种子统计后检查目标是否满足，再做L0导出一致性与同条件测速"
+      "next": "A/L0 seed42 export, CPU check, CUDA3-image pilot and full500, then four balanced paired timing rounds; stop on failure, no retry or relaxed limits."
     },
     {
       "id": "R6",
@@ -193,14 +197,14 @@
     ],
     "remaining_calendar_after_confirmation": "连续开机优先预计4至6天，含复评、44至52GPU小时训练、部署验证与缓冲；确认等待和游戏暂停另计",
     "active_remaining_training_hours": [
-      22,
-      26
+      0,
+      0
     ],
     "active_training_with_margin_hours": [
-      27,
-      32
+      0,
+      0
     ],
-    "active_remaining_calendar": "两次L0训练完成后继续导出与测速、图表和冻结；连续开机约3至4天，暂停另计，原实验截止窗口不重置"
+    "active_remaining_calendar": "2026-11-07: validation and timing about40-60min uninterrupted; review/application integration/archive reserve1-2workdays, no new training or dataset. Original deadline window not reset."
   },
   "stop_rules": [
     "不租硬件、不花钱",
@@ -210,7 +214,7 @@
     "不自动重启历史训练",
     "不覆盖旧冻结清单和原始证据"
   ],
-  "next_action": "L0种子43正在训练；完成及复评后顺序运行44并复评，形成三种子统计。随后核验对照差异，继续导出、本机测速和第二阶段整理。",
+  "next_action": "Complete A/L0 full500 export acceptance and balanced local timing; independently review raw samples, integrate existing demo only after acceptance, then figures and second-stage freeze.",
   "preflight_interruption_note": "001 stopped intentionally before completion to restrict model initialization RNG to CPU; retained. 002 uses corrected candidate. Architecture and complexity values unchanged; new profile v2 binds corrected source.",
   "latest_user_constraint": "用户选择只补L0，随后要求检查进度并继续完善课题；L1不补43/44。",
   "execution_authorized": true,
@@ -262,5 +266,14 @@
     "previous_options_preserved": true,
     "core_training_protocol_unchanged": true
   },
-  "proposal_options_status": "历史备选，已由用户选择L0_only；不再执行完整L0/L1补种子方案"
+  "proposal_options_status": "历史备选，已由用户选择L0_only；不再执行完整L0/L1补种子方案",
+  "three_seed_review": {
+    "proof": "results/l0_three_seed_review_20261107.json",
+    "mean_loss_vs_A_pp": {
+      "sidewalk": 0.5454497549629806,
+      "boundary": 0.9586358597624454
+    },
+    "limitation": "Mean differences within working target, but seed43 sidewalk loss and seed44 boundary loss exceed1pp. Higher variation; no every-seed guarantee. L0 not more accurate than A/B."
+  },
+  "active_deployment_job": "experiments/attention_gate/step_13_2026-11-07/A_L0_deployment_001"
 }

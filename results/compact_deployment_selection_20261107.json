@@ -1,0 +1,52 @@
+{
+  "results": [
+    {
+      "variant": "A",
+      "seed": 42,
+      "epochs": 100,
+      "best_epoch": 92,
+      "best_global_miou_pct": 81.03267822047478,
+      "best_sidewalk_iou_pct": 64.22263859964123,
+      "best_boundary_iou_pct": 53.043149041492974,
+      "best_weights": "experiments/attention_gate/step_05_2026-10-14/seed42_training_003/A_seed42_epochs002_100/best_weights/epoch_092.pth",
+      "final_checkpoint": "experiments/attention_gate/step_05_2026-10-14/seed42_training_003/A_seed42_epochs002_100/checkpoints/epoch_100.pth",
+      "final_checkpoint_sha256": "68c2424d7142fa747e04c7c569430cba03f54b0ccc779e48be4d30c5bc3bdf21",
+      "best_weights_sha256": "71ca9c869b1aec4ee5fc6eaa637e98cb3e2e0ab10ccedf5a1adbc8c4261f8218"
+    },
+    {
+      "variant": "L0",
+      "seed": 42,
+      "epochs": 100,
+      "best_epoch": 88,
+      "best_weights": "experiments/attention_gate/step_12_2026-11-01/compact_seed42_001/L0_epochs002_100/best_weights/epoch_088.pth",
+      "best_weights_sha256": "6e9a8d7f83c67b9b6e7bdc5ee0039788f1dea5faa01cb8a70ba2029a36c8c5c1",
+      "metrics_pct": {
+        "miou": 81.30650128847161,
+        "sidewalk": 64.7092696324492,
+        "boundary": 52.660927299727646
+      },
+      "manifest_sha256": "ac07685502da45bd3092627af838ca7ca87f6d4652887cf6e4336df9f6a13ffd",
+      "reevaluation_passed": true,
+      "paired_changes_pp": {
+        "A": {
+          "miou": 0.27382306799682965,
+          "sidewalk": 0.4866310328079777,
+          "boundary": -0.38222174176532775
+        },
+        "B": {
+          "miou": -0.3132512823833764,
+          "sidewalk": -0.5997570339038845,
+          "boundary": -0.9060586728890172
+        }
+      },
+      "best_global_miou_pct": 81.30650128847161,
+      "best_sidewalk_iou_pct": 64.7092696324492,
+      "best_boundary_iou_pct": 52.660927299727646
+    }
+  ],
+  "selection": "Seed42 predeclared; earliest best validation mIoU within each 100-epoch run; no reselection",
+  "sources": {
+    "results/abc_summary.json": "0380173dbbc7a185db69b2f625211bddb48fbe110a33e4a81c74f41185b9ff78",
+    "results/l0_three_seed_review_20261107.json": "180194719a9ee7d0bb5c5c3cfe97c4adf755cfcb80fce5705e232709c8ec481c"
+  }
+}
