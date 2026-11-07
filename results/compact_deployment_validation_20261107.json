@@ -1,0 +1,304 @@
+{
+  "status": "pass",
+  "snapshot_date": "2026-11-07",
+  "results": [
+    {
+      "status": "pass",
+      "images": 500,
+      "limits": {
+        "logit_rtol": 0.001,
+        "logit_atol": 0.0001,
+        "argmax_disagreement_fraction": 0.001,
+        "metric_difference_pp": 0.05
+      },
+      "checks": {
+        "logits_allclose": true,
+        "argmax_disagreement": true,
+        "regional_metrics": true
+      },
+      "metrics": {
+        "pytorch": {
+          "confusion": [
+            [
+              370391197,
+              4271455
+            ],
+            [
+              3894488,
+              14658860
+            ]
+          ],
+          "sidewalk_iou_pct": 64.2233801535987,
+          "boundary_iou_pct": 53.04386229310948,
+          "boundary_valid_images": 496,
+          "boundary_excluded_images": 4
+        },
+        "onnx": {
+          "confusion": [
+            [
+              370391198,
+              4271454
+            ],
+            [
+              3894488,
+              14658860
+            ]
+          ],
+          "sidewalk_iou_pct": 64.22338296735279,
+          "boundary_iou_pct": 53.043851830861364,
+          "boundary_valid_images": 496,
+          "boundary_excluded_images": 4
+        }
+      },
+      "absolute_metric_difference_pp": {
+        "sidewalk_iou_pct": 2.8137540937223093e-06,
+        "boundary_iou_pct": 1.0462248113185524e-05
+      },
+      "argmax_disagreement_fraction": 2.5431315104166666e-09,
+      "maximum_absolute_logit_error": 2.288818359375e-05,
+      "name": "A_seed42",
+      "variant": "A",
+      "seed": 42,
+      "selected_epoch": 92,
+      "weights_sha256": "71ca9c869b1aec4ee5fc6eaa637e98cb3e2e0ab10ccedf5a1adbc8c4261f8218",
+      "onnx_sha256": "2c702720842bd016aa3db3abb9563e06119d8608d6b598a10fb5e28434fc9386",
+      "provider_evidence": {
+        "provider": "CUDAExecutionProvider",
+        "node_executions": {
+          "CUDAExecutionProvider": 187
+        },
+        "unique_node_names": 187
+      },
+      "provider_options": {
+        "CUDAExecutionProvider": {
+          "device_id": "0",
+          "has_user_compute_stream": "0",
+          "cudnn_conv1d_pad_to_nc1d": "0",
+          "user_compute_stream": "0",
+          "gpu_external_alloc": "0",
+          "gpu_mem_limit": "18446744073709551615",
+          "enable_cuda_graph": "0",
+          "gpu_external_free": "0",
+          "gpu_external_empty_cache": "0",
+          "arena_extend_strategy": "kNextPowerOfTwo",
+          "cudnn_conv_algo_search": "EXHAUSTIVE",
+          "do_copy_in_default_stream": "1",
+          "cudnn_conv_use_max_workspace": "1",
+          "tunable_op_enable": "0",
+          "tunable_op_tuning_enable": "0",
+          "tunable_op_max_tuning_duration_ms": "0",
+          "enable_skip_layer_norm_strict_mode": "0",
+          "prefer_nhwc": "0",
+          "use_ep_level_unified_stream": "0",
+          "use_tf32": "0",
+          "sdpa_kernel": "0"
+        },
+        "CPUExecutionProvider": {}
+      },
+      "profiled_images": 1,
+      "profile_sha256": "3e0bd06cb7b60fc035bf2bff32bbffa1b079c461ba061bb896d45aeb9db7e05e",
+      "disabled_optimizers": [
+        "ConvBNFusion",
+        "ConvActivationFusion"
+      ],
+      "original_BN_nodes": 54,
+      "optimized_BN_nodes": 54,
+      "signed_vs_frozen_selected_metrics_pp": {
+        "pytorch": {
+          "sidewalk_iou": 0.0007415539574679997,
+          "boundary_iou": 0.0007132516165029301
+        },
+        "onnx": {
+          "sidewalk_iou": 0.000744367711561722,
+          "boundary_iou": 0.0007027893683897446
+        }
+      }
+    },
+    {
+      "status": "pass",
+      "images": 500,
+      "limits": {
+        "logit_rtol": 0.001,
+        "logit_atol": 0.0001,
+        "argmax_disagreement_fraction": 0.001,
+        "metric_difference_pp": 0.05
+      },
+      "checks": {
+        "logits_allclose": true,
+        "argmax_disagreement": true,
+        "regional_metrics": true
+      },
+      "metrics": {
+        "pytorch": {
+          "confusion": [
+            [
+              370726084,
+              3936568
+            ],
+            [
+              4000112,
+              14553236
+            ]
+          ],
+          "sidewalk_iou_pct": 64.71005049551985,
+          "boundary_iou_pct": 52.663124967409146,
+          "boundary_valid_images": 498,
+          "boundary_excluded_images": 2
+        },
+        "onnx": {
+          "confusion": [
+            [
+              370726085,
+              3936567
+            ],
+            [
+              4000111,
+              14553237
+            ]
+          ],
+          "sidewalk_iou_pct": 64.7100578192492,
+          "boundary_iou_pct": 52.66313175910275,
+          "boundary_valid_images": 498,
+          "boundary_excluded_images": 2
+        }
+      },
+      "absolute_metric_difference_pp": {
+        "sidewalk_iou_pct": 7.323729349195673e-06,
+        "boundary_iou_pct": 6.791693600405324e-06
+      },
+      "argmax_disagreement_fraction": 5.086263020833333e-09,
+      "maximum_absolute_logit_error": 1.8715858459472656e-05,
+      "name": "L0_seed42",
+      "variant": "L0",
+      "seed": 42,
+      "selected_epoch": 88,
+      "weights_sha256": "6e9a8d7f83c67b9b6e7bdc5ee0039788f1dea5faa01cb8a70ba2029a36c8c5c1",
+      "onnx_sha256": "df198224d0789e698947caccec2984da0870cdf4eabd1c6dd0f17fc60811b5cf",
+      "provider_evidence": {
+        "provider": "CUDAExecutionProvider",
+        "node_executions": {
+          "CUDAExecutionProvider": 187
+        },
+        "unique_node_names": 187
+      },
+      "provider_options": {
+        "CUDAExecutionProvider": {
+          "device_id": "0",
+          "has_user_compute_stream": "0",
+          "cudnn_conv1d_pad_to_nc1d": "0",
+          "user_compute_stream": "0",
+          "gpu_external_alloc": "0",
+          "gpu_mem_limit": "18446744073709551615",
+          "enable_cuda_graph": "0",
+          "gpu_external_free": "0",
+          "gpu_external_empty_cache": "0",
+          "arena_extend_strategy": "kNextPowerOfTwo",
+          "cudnn_conv_algo_search": "EXHAUSTIVE",
+          "do_copy_in_default_stream": "1",
+          "cudnn_conv_use_max_workspace": "1",
+          "tunable_op_enable": "0",
+          "tunable_op_tuning_enable": "0",
+          "tunable_op_max_tuning_duration_ms": "0",
+          "enable_skip_layer_norm_strict_mode": "0",
+          "prefer_nhwc": "0",
+          "use_ep_level_unified_stream": "0",
+          "use_tf32": "0",
+          "sdpa_kernel": "0"
+        },
+        "CPUExecutionProvider": {}
+      },
+      "profiled_images": 1,
+      "profile_sha256": "492e54cbd9a091462f8f292dde1ba01c60ba6d7bcc4add9b130bf3ad238aaf6e",
+      "disabled_optimizers": [
+        "ConvBNFusion",
+        "ConvActivationFusion"
+      ],
+      "original_BN_nodes": 54,
+      "optimized_BN_nodes": 54,
+      "signed_vs_frozen_selected_metrics_pp": {
+        "pytorch": {
+          "sidewalk_iou": 0.0007808630706449549,
+          "boundary_iou": 0.002197667681500093
+        },
+        "onnx": {
+          "sidewalk_iou": 0.0007881867999941505,
+          "boundary_iou": 0.002204459375100498
+        }
+      }
+    }
+  ],
+  "verification": {
+    "status": "pass",
+    "mode": "full",
+    "backend": "cuda",
+    "models": 2,
+    "images_per_model": 500,
+    "source_hashes": {
+      "experiments\\attention_gate\\common_runner.py": "2d0ba323e7638538b9c4c2f3b229213a5b92d5232c856f9bd536534e8fcd49f0",
+      "experiments\\attention_gate\\metrics_v1.py": "2426f7838b90cce6f11b11315828c740846f735ffcba4523972fbce9a4ee2751",
+      "experiments\\attention_gate\\protocol_v1_1.json": "3990842dd4f56304506fb6d4abe5b3a8b3f8e5628675a3e412ea81419a377d58",
+      "code\\model_enet.py": "e0b99d9d862b09eec0781f374071a8f9b7c584d537d3f4761bc5d0c4d4da909b",
+      "code\\model_enet_ca.py": "a875c11bd9d95e8235622677d47cd7ea88c0064e283e0a53320fcd5a3f44b945",
+      "code\\components\\ca_attention.py": "b676ac179e5ee2e9c5bfefbc7f4837aee08832e713fe48f927ed576bf06ab322",
+      "experiments\\attention_gate\\common_runner_v2.py": "03a7238c77ec95ecde1480bd10c807ff5ee93e7072db6fdb93506cd85f05d5f4",
+      "experiments\\attention_gate\\protocol_v1_2.json": "2c50a1cbabfe3b4c4f0258dbbd7e976cbe80ca14fbc170c6e2b8b68e338e9765",
+      "experiments\\attention_gate\\step_05_2026-10-14\\loader_optimization_001\\verification.json": "8e594844a9ce77ed7188671d34814f57f9648ee841ef0a9dc4e63f92bb9887c0",
+      "experiments\\attention_gate\\common_runner_c.py": "05c9f3dcfbcdbb620882e57bef7a7409c2cd765176388bfe7c18565b57f24fbc",
+      "experiments\\attention_gate\\ca_hswish_control.py": "75d16afe2e9922df2d366d50eaa841321cfef2bba841da959d3818164b8be416",
+      "experiments\\attention_gate\\step_06_2026-10-14\\preparation_001\\author_reference\\coordatt.py": "c40cc881d0a23b64c886274a9d8df7d13f04b6ec4fc935c3b281a82998f9ebfc",
+      "experiments\\attention_gate\\step_06_2026-10-14\\preparation_001\\author_reference\\source.json": "59cabe2e37b1b258b72eab764202330be0187cab5063d5f2b738faa98bf80a6a",
+      "experiments\\attention_gate\\common_runner_mixed.py": "5baf19ff803717d7eebf27a5555ddf16728ad6eb152d8e749780540a9bc58fd5",
+      "experiments\\attention_gate\\mixed_ca_candidate.py": "9546a2381bdbff95969695747a454ac748c5c025584a1db35402fb89356c3d35",
+      "experiments\\attention_gate\\validate_compact_fp32.py": "15d7bf60445d38d6b7cbe897e58392d035a4d54d06d611aa77cb3a0c83992a37",
+      "experiments\\attention_gate\\deployment_equivalence.py": "036bd43c2046809452cc4cf290dc2b29a25498934fffa14a209cb5512f3c870d",
+      "experiments\\attention_gate\\validate_deployment_fp32.py": "89cf966c3124bd75166b77000f60259bec0cdf5b8118860bab71bbc802a9b0fb",
+      "experiments\\attention_gate\\compact_candidate.py": "f7a348bc4f840b57f446f096b0831911b2db345a2208d451f6c99db941af7831"
+    },
+    "model_and_graph_hashes_unchanged": true,
+    "export_variant": "preserved_BN",
+    "disabled_optimizers": [
+      "ConvBNFusion",
+      "ConvActivationFusion"
+    ],
+    "same_input_metrics_and_actual_node_provider_checked": true,
+    "full500_metrics_verified": true,
+    "GPU_verified": true,
+    "latency_measured": false,
+    "training_modified": false
+  },
+  "precision": {
+    "dtype": "float32",
+    "pytorch_tf32": false,
+    "onnx_cuda_use_tf32": 0
+  },
+  "versions": {
+    "torch": "2.5.1+cu121",
+    "onnx": "1.19.1",
+    "onnxruntime": "1.19.2"
+  },
+  "execution": {
+    "export_variant": "preserved_BN",
+    "disabled_optimizers": [
+      "ConvBNFusion",
+      "ConvActivationFusion"
+    ]
+  },
+  "raw_aggregate_reconstruction_passed": true,
+  "actual_cuda_nodes_verified": true,
+  "full500_acceptance_passed": true,
+  "FP16_may_start": false,
+  "latency_measured": false,
+  "scope": "Two fixed seed42 A/L0 models, same500 validation inputs, PyTorch versus ONNX FP32 on local RTX4060. NoFPS or physical embedded-device claim.",
+  "sources": {
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\full\\verification.json": "d45e77893d8b414192ccf7190e72763bcff186a908c242f858e053ae78da2826",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\full\\results.json": "517d786a7634ca896e6a76fd454854cb7b91bd80e63b4961d9c3bf2f63849325",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\full\\plan.json": "8a95befb0fb88b7ffb844aedd4c04a5a0345fb5b091c007445dc0a7781ecebcd",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\export\\models.json": "324e189c0eee5e778947fed7828dd7d2cc08469b67c03e06d7af41f36f0997f6",
+    "results\\compact_deployment_selection_20261107.json": "13285b77c2adb4a1b83a8c0ef84a6e5860769c988d63148f64aaea9858dc35f6",
+    "tools\\export_compact_validation.py": "40832963452395b68ea93b780fd83737671297c9a0cf6f4c8d45d7dd7eb76729",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\full\\A_seed42_per_image.json": "a7a90c5069631ff2bac83527adfdbec4302731c57bbf2beb4bcf80b015f45a09",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\full\\A_seed42_provider_2026-11-07_12-08-50.json": "3e0bd06cb7b60fc035bf2bff32bbffa1b079c461ba061bb896d45aeb9db7e05e",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\full\\L0_seed42_per_image.json": "a97368c60104329f1c0c3eb8fb4b405255d10523fc5ca05f79345cfcef09a81f",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\full\\L0_seed42_provider_2026-11-07_12-13-46.json": "492e54cbd9a091462f8f292dde1ba01c60ba6d7bcc4add9b130bf3ad238aaf6e"
+  }
+}

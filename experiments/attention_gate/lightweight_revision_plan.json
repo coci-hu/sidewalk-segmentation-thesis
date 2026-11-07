@@ -1,6 +1,6 @@
 {
   "revision": "supervisor-lightweight-2026-11-01",
-  "status": "L0_three_seeds_complete_A_L0_deployment_started",
+  "status": "approved_experimental_scope_complete",
   "supervisor_requirement_verbatim": "只要flops和params明显下降即可，最多再加开发一个应用软件把算法整合下",
   "required": [
     "参数量明显下降",
@@ -159,26 +159,32 @@
     },
     {
       "id": "R5",
-      "status": "running_export_acceptance",
+      "status": "complete",
       "task": "选定模型导出一致性和本机速度验证",
       "estimate": "0.5至1天，含适配、检查和计时",
       "exit": "固定输入、预热和重复顺序，区分模型与完整流程耗时",
-      "next": "A/L0 seed42 export, CPU check, CUDA3-image pilot and full500, then four balanced paired timing rounds; stop on failure, no retry or relaxed limits."
+      "next": "None",
+      "done": "A/L0 full500 acceptance independently reconstructed;8 timing sessions independently recomputed with actualCUDA and source/weight/power checks.",
+      "proof": "results/compact_benchmark_20261107.json"
     },
     {
       "id": "R6",
-      "status": "optional_separate_confirmation",
+      "status": "existing_demo_integrated_new_GUI_optional",
       "task": "复用已有原型做简单本地应用界面",
       "estimate": "0.5至1天",
       "exit": "仅文件选择、模型选择、叠加与保存、耗时显示及错误提示；不做账号、数据库、云服务或手机适配",
-      "next": "不纳入本次推荐必需实验，仅有时间且用户确认后整合简单界面"
+      "next": "No new GUI required in the approved experimental scope",
+      "done": "Existing image/video demo adapted to A/L0 and checked through actual CLI;2 images,32 constructed frames,GPU lock refusal.",
+      "proof": "results/compact_application_20261107.json"
     },
     {
       "id": "R7",
-      "status": "pending_final_evidence",
+      "status": "complete_in_final_snapshot",
       "task": "新旧结果区分、论文图表、工作记录、Git同步与第二阶段冻结",
       "estimate": "0.5天",
-      "next": "整理L0三种子与A/B同种子比较、L1单种子限制、图表和第二阶段冻结"
+      "next": "Use frozen evidence for thesis and defense",
+      "done": "Positive and negative outcomes collected;aggregate PNG/PDF figure and immutable second-stage snapshot prepared for Git synchronization.",
+      "proof": "results/compact_experiment_freeze_20261107.json"
     }
   ],
   "time_budget": {
@@ -204,7 +210,7 @@
       0,
       0
     ],
-    "active_remaining_calendar": "2026-11-07: validation and timing about40-60min uninterrupted; review/application integration/archive reserve1-2workdays, no new training or dataset. Original deadline window not reset."
+    "active_remaining_calendar": "必做实验剩余0天；论文写作与答辩准备另行安排，不再重置实验窗口。"
   },
   "stop_rules": [
     "不租硬件、不花钱",
@@ -214,7 +220,7 @@
     "不自动重启历史训练",
     "不覆盖旧冻结清单和原始证据"
   ],
-  "next_action": "Complete A/L0 full500 export acceptance and balanced local timing; independently review raw samples, integrate existing demo only after acceptance, then figures and second-stage freeze.",
+  "next_action": "实验范围已完成；进入方法、实验结果和局限章节写作及答辩展示，不自动新增训练。",
   "preflight_interruption_note": "001 stopped intentionally before completion to restrict model initialization RNG to CPU; retained. 002 uses corrected candidate. Architecture and complexity values unchanged; new profile v2 binds corrected source.",
   "latest_user_constraint": "用户选择只补L0，随后要求检查进度并继续完善课题；L1不补43/44。",
   "execution_authorized": true,
@@ -275,5 +281,26 @@
     },
     "limitation": "Mean differences within working target, but seed43 sidewalk loss and seed44 boundary loss exceed1pp. Higher variation; no every-seed guarantee. L0 not more accurate than A/B."
   },
-  "active_deployment_job": "experiments/attention_gate/step_13_2026-11-07/A_L0_deployment_001"
+  "active_deployment_job": "experiments/attention_gate/step_13_2026-11-07/A_L0_deployment_001",
+  "completed_on": "2026-11-07",
+  "final_effect": "results/compact_final_effect_20261107.json",
+  "freeze_manifest": "results/compact_experiment_freeze_20261107.json",
+  "remaining_required_experiments": [],
+  "writing_plan": [
+    {
+      "order": 1,
+      "task": "整理网络结构、训练协议与评价定义",
+      "estimate": "半天至1天"
+    },
+    {
+      "order": 2,
+      "task": "根据冻结表图写实验结果、注意力适配与精度效率取舍，明确负结果",
+      "estimate": "1至2天"
+    },
+    {
+      "order": 3,
+      "task": "整理论文格式、引用、答辩截图与讲稿",
+      "estimate": "1至2天，按学校模板及导师意见调整"
+    }
+  ]
 }

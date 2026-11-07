@@ -1,0 +1,1197 @@
+{
+  "status": "pass",
+  "snapshot_date": "2026-11-07",
+  "sessions": 8,
+  "samples_per_pipeline": 4000,
+  "summary": {
+    "A": {
+      "model_only": {
+        "frames": 2000,
+        "mean_ms": 9.172346399999917,
+        "median_ms": 8.590699999999174,
+        "p95_ms": 9.533575000003577,
+        "actual_fps": 108.09445957577714,
+        "session_mean_ms_sd": 0.1888498026902811
+      },
+      "end_to_end": {
+        "frames": 2000,
+        "mean_ms": 333.22999425,
+        "median_ms": 324.6844000000024,
+        "p95_ms": 386.73858500000193,
+        "actual_fps": 2.9864166052600805,
+        "session_mean_ms_sd": 4.817575997457001
+      },
+      "onnx_bytes": 1158950,
+      "weights_file_bytes": 1188666,
+      "max_observed_dedicated_MiB": 448.796875,
+      "max_observed_shared_MiB": 76.0
+    },
+    "L0": {
+      "model_only": {
+        "frames": 2000,
+        "mean_ms": 8.382068899999974,
+        "median_ms": 7.800149999997785,
+        "p95_ms": 8.498934999999364,
+        "actual_fps": 118.18436946003376,
+        "session_mean_ms_sd": 0.21228642723310437
+      },
+      "end_to_end": {
+        "frames": 2000,
+        "mean_ms": 345.09763819999995,
+        "median_ms": 343.6160999999913,
+        "p95_ms": 365.61638500000095,
+        "actual_fps": 2.884478111747339,
+        "session_mean_ms_sd": 2.4424588212221683
+      },
+      "onnx_bytes": 746323,
+      "weights_file_bytes": 773434,
+      "max_observed_dedicated_MiB": 318.80078125,
+      "max_observed_shared_MiB": 76.0
+    }
+  },
+  "session_results": [
+    {
+      "variant": "A",
+      "round": 1,
+      "model_only": {
+        "mean_ms": 9.016619399999854,
+        "median_ms": 8.5581000000019,
+        "p95_ms": 9.165429999998041,
+        "actual_fps": 109.96899512157734,
+        "loop_wall_seconds": 4.546736100000004,
+        "frames": 500
+      },
+      "end_to_end": {
+        "mean_ms": 340.2974125999992,
+        "median_ms": 329.9522999999951,
+        "p95_ms": 398.83901500000144,
+        "actual_fps": 2.9245366552463588,
+        "loop_wall_seconds": 170.9672536,
+        "frames": 500
+      },
+      "memory_snapshots": {
+        "before_session": {
+          "status": "available",
+          "samples": [
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_186904_luid_0x00000000_0x00012a78_phys_0)\\dedicated usage",
+              "bytes": 24576
+            },
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_186904_luid_0x00000000_0x00012a78_phys_0)\\shared usage",
+              "bytes": 0
+            }
+          ],
+          "dedicated_bytes": 24576,
+          "shared_bytes": 0,
+          "scope": "process across reported adapters; snapshot only, not true peak"
+        },
+        "after_model_warmup": {
+          "status": "available",
+          "samples": [
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_186904_luid_0x00000000_0x00012a78_phys_0)\\dedicated usage",
+              "bytes": 470597632
+            },
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_186904_luid_0x00000000_0x00012a78_phys_0)\\shared usage",
+              "bytes": 79691776
+            }
+          ],
+          "dedicated_bytes": 470597632,
+          "shared_bytes": 79691776,
+          "scope": "process across reported adapters; snapshot only, not true peak"
+        },
+        "after_pipeline_warmup": {
+          "status": "available",
+          "samples": [
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_186904_luid_0x00000000_0x00012a78_phys_0)\\dedicated usage",
+              "bytes": 470597632
+            },
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_186904_luid_0x00000000_0x00012a78_phys_0)\\shared usage",
+              "bytes": 79691776
+            }
+          ],
+          "dedicated_bytes": 470597632,
+          "shared_bytes": 79691776,
+          "scope": "process across reported adapters; snapshot only, not true peak"
+        },
+        "after_measurement": {
+          "status": "available",
+          "samples": [
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_186904_luid_0x00000000_0x00012a78_phys_0)\\dedicated usage",
+              "bytes": 470597632
+            },
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_186904_luid_0x00000000_0x00012a78_phys_0)\\shared usage",
+              "bytes": 79691776
+            }
+          ],
+          "dedicated_bytes": 470597632,
+          "shared_bytes": 79691776,
+          "scope": "process across reported adapters; snapshot only, not true peak"
+        }
+      },
+      "power_before": {
+        "AC": 1,
+        "battery_percent": 100,
+        "scheme": "a1841308-3541-4fab-bc81-f71556f20b4a"
+      },
+      "power_after": {
+        "AC": 1,
+        "battery_percent": 100,
+        "scheme": "a1841308-3541-4fab-bc81-f71556f20b4a"
+      },
+      "provider": {
+        "provider": "CUDAExecutionProvider",
+        "node_executions": {
+          "CUDAExecutionProvider": 374
+        },
+        "unique_node_names": 187
+      },
+      "model_identity": {
+        "name": "A_seed42",
+        "variant": "A",
+        "seed": 42,
+        "selected_epoch": 92,
+        "onnx": "experiments/attention_gate/step_13_2026-11-07/A_L0_deployment_001/export/A_seed42_fp32.onnx",
+        "onnx_sha256": "2c702720842bd016aa3db3abb9563e06119d8608d6b598a10fb5e28434fc9386",
+        "weights": "experiments/attention_gate/step_05_2026-10-14/seed42_training_003/A_seed42_epochs002_100/best_weights/epoch_092.pth",
+        "weights_sha256": "71ca9c869b1aec4ee5fc6eaa637e98cb3e2e0ab10ccedf5a1adbc8c4261f8218",
+        "max_absolute_logit_error_CPU": 5.352497100830078e-05,
+        "argmax_disagreement_fraction_CPU": 0.0,
+        "images_checked": 1,
+        "backend": "CPUExecutionProvider"
+      }
+    },
+    {
+      "variant": "L0",
+      "round": 1,
+      "model_only": {
+        "mean_ms": 8.238423399999874,
+        "median_ms": 7.638499999998771,
+        "p95_ms": 8.45650500000339,
+        "actual_fps": 120.25675201376545,
+        "loop_wall_seconds": 4.1577707,
+        "frames": 500
+      },
+      "end_to_end": {
+        "mean_ms": 348.1201251999998,
+        "median_ms": 346.39665000000264,
+        "p95_ms": 373.9207200000045,
+        "actual_fps": 2.85957884575717,
+        "loop_wall_seconds": 174.85092279999998,
+        "frames": 500
+      },
+      "memory_snapshots": {
+        "before_session": {
+          "status": "available",
+          "samples": [
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_147340_luid_0x00000000_0x00012a78_phys_0)\\dedicated usage",
+              "bytes": 24576
+            },
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_147340_luid_0x00000000_0x00012a78_phys_0)\\shared usage",
+              "bytes": 0
+            }
+          ],
+          "dedicated_bytes": 24576,
+          "shared_bytes": 0,
+          "scope": "process across reported adapters; snapshot only, not true peak"
+        },
+        "after_model_warmup": {
+          "status": "available",
+          "samples": [
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_147340_luid_0x00000000_0x00012a78_phys_0)\\dedicated usage",
+              "bytes": 334286848
+            },
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_147340_luid_0x00000000_0x00012a78_phys_0)\\shared usage",
+              "bytes": 79691776
+            }
+          ],
+          "dedicated_bytes": 334286848,
+          "shared_bytes": 79691776,
+          "scope": "process across reported adapters; snapshot only, not true peak"
+        },
+        "after_pipeline_warmup": {
+          "status": "available",
+          "samples": [
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_147340_luid_0x00000000_0x00012a78_phys_0)\\dedicated usage",
+              "bytes": 334286848
+            },
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_147340_luid_0x00000000_0x00012a78_phys_0)\\shared usage",
+              "bytes": 79691776
+            }
+          ],
+          "dedicated_bytes": 334286848,
+          "shared_bytes": 79691776,
+          "scope": "process across reported adapters; snapshot only, not true peak"
+        },
+        "after_measurement": {
+          "status": "available",
+          "samples": [
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_147340_luid_0x00000000_0x00012a78_phys_0)\\dedicated usage",
+              "bytes": 334286848
+            },
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_147340_luid_0x00000000_0x00012a78_phys_0)\\shared usage",
+              "bytes": 79691776
+            }
+          ],
+          "dedicated_bytes": 334286848,
+          "shared_bytes": 79691776,
+          "scope": "process across reported adapters; snapshot only, not true peak"
+        }
+      },
+      "power_before": {
+        "AC": 1,
+        "battery_percent": 100,
+        "scheme": "a1841308-3541-4fab-bc81-f71556f20b4a"
+      },
+      "power_after": {
+        "AC": 1,
+        "battery_percent": 100,
+        "scheme": "a1841308-3541-4fab-bc81-f71556f20b4a"
+      },
+      "provider": {
+        "provider": "CUDAExecutionProvider",
+        "node_executions": {
+          "CUDAExecutionProvider": 374
+        },
+        "unique_node_names": 187
+      },
+      "model_identity": {
+        "name": "L0_seed42",
+        "variant": "L0",
+        "seed": 42,
+        "selected_epoch": 88,
+        "onnx": "experiments/attention_gate/step_13_2026-11-07/A_L0_deployment_001/export/L0_seed42_fp32.onnx",
+        "onnx_sha256": "df198224d0789e698947caccec2984da0870cdf4eabd1c6dd0f17fc60811b5cf",
+        "weights": "experiments/attention_gate/step_12_2026-11-01/compact_seed42_001/L0_epochs002_100/best_weights/epoch_088.pth",
+        "weights_sha256": "6e9a8d7f83c67b9b6e7bdc5ee0039788f1dea5faa01cb8a70ba2029a36c8c5c1",
+        "max_absolute_logit_error_CPU": 3.528967499732971e-05,
+        "argmax_disagreement_fraction_CPU": 0.0,
+        "images_checked": 1,
+        "backend": "CPUExecutionProvider"
+      }
+    },
+    {
+      "variant": "L0",
+      "round": 2,
+      "model_only": {
+        "mean_ms": 8.553141200000027,
+        "median_ms": 7.998700000001691,
+        "p95_ms": 8.46991000000159,
+        "actual_fps": 115.77667439005127,
+        "loop_wall_seconds": 4.318659200000006,
+        "frames": 500
+      },
+      "end_to_end": {
+        "mean_ms": 344.86738620000017,
+        "median_ms": 343.23059999999117,
+        "p95_ms": 362.7395349999958,
+        "actual_fps": 2.886230137685028,
+        "loop_wall_seconds": 173.23635890000003,
+        "frames": 500
+      },
+      "memory_snapshots": {
+        "before_session": {
+          "status": "available",
+          "samples": [
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_175156_luid_0x00000000_0x00012a78_phys_0)\\dedicated usage",
+              "bytes": 24576
+            },
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_175156_luid_0x00000000_0x00012a78_phys_0)\\shared usage",
+              "bytes": 0
+            }
+          ],
+          "dedicated_bytes": 24576,
+          "shared_bytes": 0,
+          "scope": "process across reported adapters; snapshot only, not true peak"
+        },
+        "after_model_warmup": {
+          "status": "available",
+          "samples": [
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_175156_luid_0x00000000_0x00012a78_phys_0)\\dedicated usage",
+              "bytes": 334286848
+            },
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_175156_luid_0x00000000_0x00012a78_phys_0)\\shared usage",
+              "bytes": 79691776
+            }
+          ],
+          "dedicated_bytes": 334286848,
+          "shared_bytes": 79691776,
+          "scope": "process across reported adapters; snapshot only, not true peak"
+        },
+        "after_pipeline_warmup": {
+          "status": "available",
+          "samples": [
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_175156_luid_0x00000000_0x00012a78_phys_0)\\dedicated usage",
+              "bytes": 334286848
+            },
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_175156_luid_0x00000000_0x00012a78_phys_0)\\shared usage",
+              "bytes": 79691776
+            }
+          ],
+          "dedicated_bytes": 334286848,
+          "shared_bytes": 79691776,
+          "scope": "process across reported adapters; snapshot only, not true peak"
+        },
+        "after_measurement": {
+          "status": "available",
+          "samples": [
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_175156_luid_0x00000000_0x00012a78_phys_0)\\dedicated usage",
+              "bytes": 334286848
+            },
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_175156_luid_0x00000000_0x00012a78_phys_0)\\shared usage",
+              "bytes": 79691776
+            }
+          ],
+          "dedicated_bytes": 334286848,
+          "shared_bytes": 79691776,
+          "scope": "process across reported adapters; snapshot only, not true peak"
+        }
+      },
+      "power_before": {
+        "AC": 1,
+        "battery_percent": 100,
+        "scheme": "a1841308-3541-4fab-bc81-f71556f20b4a"
+      },
+      "power_after": {
+        "AC": 1,
+        "battery_percent": 100,
+        "scheme": "a1841308-3541-4fab-bc81-f71556f20b4a"
+      },
+      "provider": {
+        "provider": "CUDAExecutionProvider",
+        "node_executions": {
+          "CUDAExecutionProvider": 374
+        },
+        "unique_node_names": 187
+      },
+      "model_identity": {
+        "name": "L0_seed42",
+        "variant": "L0",
+        "seed": 42,
+        "selected_epoch": 88,
+        "onnx": "experiments/attention_gate/step_13_2026-11-07/A_L0_deployment_001/export/L0_seed42_fp32.onnx",
+        "onnx_sha256": "df198224d0789e698947caccec2984da0870cdf4eabd1c6dd0f17fc60811b5cf",
+        "weights": "experiments/attention_gate/step_12_2026-11-01/compact_seed42_001/L0_epochs002_100/best_weights/epoch_088.pth",
+        "weights_sha256": "6e9a8d7f83c67b9b6e7bdc5ee0039788f1dea5faa01cb8a70ba2029a36c8c5c1",
+        "max_absolute_logit_error_CPU": 3.528967499732971e-05,
+        "argmax_disagreement_fraction_CPU": 0.0,
+        "images_checked": 1,
+        "backend": "CPUExecutionProvider"
+      }
+    },
+    {
+      "variant": "A",
+      "round": 2,
+      "model_only": {
+        "mean_ms": 9.047077000000016,
+        "median_ms": 8.59970000000132,
+        "p95_ms": 9.14484999999807,
+        "actual_fps": 109.54595982121485,
+        "loop_wall_seconds": 4.5642943,
+        "frames": 500
+      },
+      "end_to_end": {
+        "mean_ms": 331.90001139999936,
+        "median_ms": 323.52369999999553,
+        "p95_ms": 384.2867449999815,
+        "actual_fps": 2.998362956191868,
+        "loop_wall_seconds": 166.75766320000002,
+        "frames": 500
+      },
+      "memory_snapshots": {
+        "before_session": {
+          "status": "available",
+          "samples": [
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_181220_luid_0x00000000_0x00012a78_phys_0)\\dedicated usage",
+              "bytes": 24576
+            },
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_181220_luid_0x00000000_0x00012a78_phys_0)\\shared usage",
+              "bytes": 0
+            }
+          ],
+          "dedicated_bytes": 24576,
+          "shared_bytes": 0,
+          "scope": "process across reported adapters; snapshot only, not true peak"
+        },
+        "after_model_warmup": {
+          "status": "available",
+          "samples": [
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_181220_luid_0x00000000_0x00012a78_phys_0)\\dedicated usage",
+              "bytes": 470597632
+            },
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_181220_luid_0x00000000_0x00012a78_phys_0)\\shared usage",
+              "bytes": 79691776
+            }
+          ],
+          "dedicated_bytes": 470597632,
+          "shared_bytes": 79691776,
+          "scope": "process across reported adapters; snapshot only, not true peak"
+        },
+        "after_pipeline_warmup": {
+          "status": "available",
+          "samples": [
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_181220_luid_0x00000000_0x00012a78_phys_0)\\dedicated usage",
+              "bytes": 470597632
+            },
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_181220_luid_0x00000000_0x00012a78_phys_0)\\shared usage",
+              "bytes": 79691776
+            }
+          ],
+          "dedicated_bytes": 470597632,
+          "shared_bytes": 79691776,
+          "scope": "process across reported adapters; snapshot only, not true peak"
+        },
+        "after_measurement": {
+          "status": "available",
+          "samples": [
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_181220_luid_0x00000000_0x00012a78_phys_0)\\dedicated usage",
+              "bytes": 470597632
+            },
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_181220_luid_0x00000000_0x00012a78_phys_0)\\shared usage",
+              "bytes": 79691776
+            }
+          ],
+          "dedicated_bytes": 470597632,
+          "shared_bytes": 79691776,
+          "scope": "process across reported adapters; snapshot only, not true peak"
+        }
+      },
+      "power_before": {
+        "AC": 1,
+        "battery_percent": 100,
+        "scheme": "a1841308-3541-4fab-bc81-f71556f20b4a"
+      },
+      "power_after": {
+        "AC": 1,
+        "battery_percent": 100,
+        "scheme": "a1841308-3541-4fab-bc81-f71556f20b4a"
+      },
+      "provider": {
+        "provider": "CUDAExecutionProvider",
+        "node_executions": {
+          "CUDAExecutionProvider": 374
+        },
+        "unique_node_names": 187
+      },
+      "model_identity": {
+        "name": "A_seed42",
+        "variant": "A",
+        "seed": 42,
+        "selected_epoch": 92,
+        "onnx": "experiments/attention_gate/step_13_2026-11-07/A_L0_deployment_001/export/A_seed42_fp32.onnx",
+        "onnx_sha256": "2c702720842bd016aa3db3abb9563e06119d8608d6b598a10fb5e28434fc9386",
+        "weights": "experiments/attention_gate/step_05_2026-10-14/seed42_training_003/A_seed42_epochs002_100/best_weights/epoch_092.pth",
+        "weights_sha256": "71ca9c869b1aec4ee5fc6eaa637e98cb3e2e0ab10ccedf5a1adbc8c4261f8218",
+        "max_absolute_logit_error_CPU": 5.352497100830078e-05,
+        "argmax_disagreement_fraction_CPU": 0.0,
+        "images_checked": 1,
+        "backend": "CPUExecutionProvider"
+      }
+    },
+    {
+      "variant": "A",
+      "round": 3,
+      "model_only": {
+        "mean_ms": 9.43025399999975,
+        "median_ms": 8.594849999997933,
+        "p95_ms": 9.988260000002565,
+        "actual_fps": 105.1825150140678,
+        "loop_wall_seconds": 4.753641799999997,
+        "frames": 500
+      },
+      "end_to_end": {
+        "mean_ms": 331.21297360000074,
+        "median_ms": 324.3008999999901,
+        "p95_ms": 379.4560999999966,
+        "actual_fps": 3.004381425832208,
+        "loop_wall_seconds": 166.4236091,
+        "frames": 500
+      },
+      "memory_snapshots": {
+        "before_session": {
+          "status": "available",
+          "samples": [
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_169916_luid_0x00000000_0x00012a78_phys_0)\\dedicated usage",
+              "bytes": 24576
+            },
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_169916_luid_0x00000000_0x00012a78_phys_0)\\shared usage",
+              "bytes": 0
+            }
+          ],
+          "dedicated_bytes": 24576,
+          "shared_bytes": 0,
+          "scope": "process across reported adapters; snapshot only, not true peak"
+        },
+        "after_model_warmup": {
+          "status": "available",
+          "samples": [
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_169916_luid_0x00000000_0x00012a78_phys_0)\\dedicated usage",
+              "bytes": 470597632
+            },
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_169916_luid_0x00000000_0x00012a78_phys_0)\\shared usage",
+              "bytes": 79691776
+            }
+          ],
+          "dedicated_bytes": 470597632,
+          "shared_bytes": 79691776,
+          "scope": "process across reported adapters; snapshot only, not true peak"
+        },
+        "after_pipeline_warmup": {
+          "status": "available",
+          "samples": [
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_169916_luid_0x00000000_0x00012a78_phys_0)\\dedicated usage",
+              "bytes": 470597632
+            },
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_169916_luid_0x00000000_0x00012a78_phys_0)\\shared usage",
+              "bytes": 79691776
+            }
+          ],
+          "dedicated_bytes": 470597632,
+          "shared_bytes": 79691776,
+          "scope": "process across reported adapters; snapshot only, not true peak"
+        },
+        "after_measurement": {
+          "status": "available",
+          "samples": [
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_169916_luid_0x00000000_0x00012a78_phys_0)\\dedicated usage",
+              "bytes": 470597632
+            },
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_169916_luid_0x00000000_0x00012a78_phys_0)\\shared usage",
+              "bytes": 79691776
+            }
+          ],
+          "dedicated_bytes": 470597632,
+          "shared_bytes": 79691776,
+          "scope": "process across reported adapters; snapshot only, not true peak"
+        }
+      },
+      "power_before": {
+        "AC": 1,
+        "battery_percent": 100,
+        "scheme": "a1841308-3541-4fab-bc81-f71556f20b4a"
+      },
+      "power_after": {
+        "AC": 1,
+        "battery_percent": 100,
+        "scheme": "a1841308-3541-4fab-bc81-f71556f20b4a"
+      },
+      "provider": {
+        "provider": "CUDAExecutionProvider",
+        "node_executions": {
+          "CUDAExecutionProvider": 374
+        },
+        "unique_node_names": 187
+      },
+      "model_identity": {
+        "name": "A_seed42",
+        "variant": "A",
+        "seed": 42,
+        "selected_epoch": 92,
+        "onnx": "experiments/attention_gate/step_13_2026-11-07/A_L0_deployment_001/export/A_seed42_fp32.onnx",
+        "onnx_sha256": "2c702720842bd016aa3db3abb9563e06119d8608d6b598a10fb5e28434fc9386",
+        "weights": "experiments/attention_gate/step_05_2026-10-14/seed42_training_003/A_seed42_epochs002_100/best_weights/epoch_092.pth",
+        "weights_sha256": "71ca9c869b1aec4ee5fc6eaa637e98cb3e2e0ab10ccedf5a1adbc8c4261f8218",
+        "max_absolute_logit_error_CPU": 5.352497100830078e-05,
+        "argmax_disagreement_fraction_CPU": 0.0,
+        "images_checked": 1,
+        "backend": "CPUExecutionProvider"
+      }
+    },
+    {
+      "variant": "L0",
+      "round": 3,
+      "model_only": {
+        "mean_ms": 8.162296400000159,
+        "median_ms": 7.773549999999574,
+        "p95_ms": 8.46463000000348,
+        "actual_fps": 121.36646993970999,
+        "loop_wall_seconds": 4.119754,
+        "frames": 500
+      },
+      "end_to_end": {
+        "mean_ms": 345.2523403999993,
+        "median_ms": 344.1451999999998,
+        "p95_ms": 363.26064999999517,
+        "actual_fps": 2.883243315103641,
+        "loop_wall_seconds": 173.4158187,
+        "frames": 500
+      },
+      "memory_snapshots": {
+        "before_session": {
+          "status": "available",
+          "samples": [
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_176200_luid_0x00000000_0x00012a78_phys_0)\\dedicated usage",
+              "bytes": 24576
+            },
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_176200_luid_0x00000000_0x00012a78_phys_0)\\shared usage",
+              "bytes": 0
+            }
+          ],
+          "dedicated_bytes": 24576,
+          "shared_bytes": 0,
+          "scope": "process across reported adapters; snapshot only, not true peak"
+        },
+        "after_model_warmup": {
+          "status": "available",
+          "samples": [
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_176200_luid_0x00000000_0x00012a78_phys_0)\\dedicated usage",
+              "bytes": 334286848
+            },
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_176200_luid_0x00000000_0x00012a78_phys_0)\\shared usage",
+              "bytes": 79691776
+            }
+          ],
+          "dedicated_bytes": 334286848,
+          "shared_bytes": 79691776,
+          "scope": "process across reported adapters; snapshot only, not true peak"
+        },
+        "after_pipeline_warmup": {
+          "status": "available",
+          "samples": [
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_176200_luid_0x00000000_0x00012a78_phys_0)\\dedicated usage",
+              "bytes": 334286848
+            },
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_176200_luid_0x00000000_0x00012a78_phys_0)\\shared usage",
+              "bytes": 79691776
+            }
+          ],
+          "dedicated_bytes": 334286848,
+          "shared_bytes": 79691776,
+          "scope": "process across reported adapters; snapshot only, not true peak"
+        },
+        "after_measurement": {
+          "status": "available",
+          "samples": [
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_176200_luid_0x00000000_0x00012a78_phys_0)\\dedicated usage",
+              "bytes": 334286848
+            },
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_176200_luid_0x00000000_0x00012a78_phys_0)\\shared usage",
+              "bytes": 79691776
+            }
+          ],
+          "dedicated_bytes": 334286848,
+          "shared_bytes": 79691776,
+          "scope": "process across reported adapters; snapshot only, not true peak"
+        }
+      },
+      "power_before": {
+        "AC": 1,
+        "battery_percent": 100,
+        "scheme": "a1841308-3541-4fab-bc81-f71556f20b4a"
+      },
+      "power_after": {
+        "AC": 1,
+        "battery_percent": 100,
+        "scheme": "a1841308-3541-4fab-bc81-f71556f20b4a"
+      },
+      "provider": {
+        "provider": "CUDAExecutionProvider",
+        "node_executions": {
+          "CUDAExecutionProvider": 374
+        },
+        "unique_node_names": 187
+      },
+      "model_identity": {
+        "name": "L0_seed42",
+        "variant": "L0",
+        "seed": 42,
+        "selected_epoch": 88,
+        "onnx": "experiments/attention_gate/step_13_2026-11-07/A_L0_deployment_001/export/L0_seed42_fp32.onnx",
+        "onnx_sha256": "df198224d0789e698947caccec2984da0870cdf4eabd1c6dd0f17fc60811b5cf",
+        "weights": "experiments/attention_gate/step_12_2026-11-01/compact_seed42_001/L0_epochs002_100/best_weights/epoch_088.pth",
+        "weights_sha256": "6e9a8d7f83c67b9b6e7bdc5ee0039788f1dea5faa01cb8a70ba2029a36c8c5c1",
+        "max_absolute_logit_error_CPU": 3.528967499732971e-05,
+        "argmax_disagreement_fraction_CPU": 0.0,
+        "images_checked": 1,
+        "backend": "CPUExecutionProvider"
+      }
+    },
+    {
+      "variant": "L0",
+      "round": 4,
+      "model_only": {
+        "mean_ms": 8.574414599999825,
+        "median_ms": 7.840949999998514,
+        "p95_ms": 9.22880999999691,
+        "actual_fps": 115.56611552492777,
+        "loop_wall_seconds": 4.3265277,
+        "frames": 500
+      },
+      "end_to_end": {
+        "mean_ms": 342.15070100000037,
+        "median_ms": 341.2773499999986,
+        "p95_ms": 359.3237250000044,
+        "actual_fps": 2.909290157593036,
+        "loop_wall_seconds": 171.8632288,
+        "frames": 500
+      },
+      "memory_snapshots": {
+        "before_session": {
+          "status": "available",
+          "samples": [
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_183004_luid_0x00000000_0x00012a78_phys_0)\\dedicated usage",
+              "bytes": 24576
+            },
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_183004_luid_0x00000000_0x00012a78_phys_0)\\shared usage",
+              "bytes": 0
+            }
+          ],
+          "dedicated_bytes": 24576,
+          "shared_bytes": 0,
+          "scope": "process across reported adapters; snapshot only, not true peak"
+        },
+        "after_model_warmup": {
+          "status": "available",
+          "samples": [
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_183004_luid_0x00000000_0x00012a78_phys_0)\\dedicated usage",
+              "bytes": 334286848
+            },
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_183004_luid_0x00000000_0x00012a78_phys_0)\\shared usage",
+              "bytes": 79691776
+            }
+          ],
+          "dedicated_bytes": 334286848,
+          "shared_bytes": 79691776,
+          "scope": "process across reported adapters; snapshot only, not true peak"
+        },
+        "after_pipeline_warmup": {
+          "status": "available",
+          "samples": [
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_183004_luid_0x00000000_0x00012a78_phys_0)\\dedicated usage",
+              "bytes": 334286848
+            },
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_183004_luid_0x00000000_0x00012a78_phys_0)\\shared usage",
+              "bytes": 79691776
+            }
+          ],
+          "dedicated_bytes": 334286848,
+          "shared_bytes": 79691776,
+          "scope": "process across reported adapters; snapshot only, not true peak"
+        },
+        "after_measurement": {
+          "status": "available",
+          "samples": [
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_183004_luid_0x00000000_0x00012a78_phys_0)\\dedicated usage",
+              "bytes": 334286848
+            },
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_183004_luid_0x00000000_0x00012a78_phys_0)\\shared usage",
+              "bytes": 79691776
+            }
+          ],
+          "dedicated_bytes": 334286848,
+          "shared_bytes": 79691776,
+          "scope": "process across reported adapters; snapshot only, not true peak"
+        }
+      },
+      "power_before": {
+        "AC": 1,
+        "battery_percent": 100,
+        "scheme": "a1841308-3541-4fab-bc81-f71556f20b4a"
+      },
+      "power_after": {
+        "AC": 1,
+        "battery_percent": 100,
+        "scheme": "a1841308-3541-4fab-bc81-f71556f20b4a"
+      },
+      "provider": {
+        "provider": "CUDAExecutionProvider",
+        "node_executions": {
+          "CUDAExecutionProvider": 374
+        },
+        "unique_node_names": 187
+      },
+      "model_identity": {
+        "name": "L0_seed42",
+        "variant": "L0",
+        "seed": 42,
+        "selected_epoch": 88,
+        "onnx": "experiments/attention_gate/step_13_2026-11-07/A_L0_deployment_001/export/L0_seed42_fp32.onnx",
+        "onnx_sha256": "df198224d0789e698947caccec2984da0870cdf4eabd1c6dd0f17fc60811b5cf",
+        "weights": "experiments/attention_gate/step_12_2026-11-01/compact_seed42_001/L0_epochs002_100/best_weights/epoch_088.pth",
+        "weights_sha256": "6e9a8d7f83c67b9b6e7bdc5ee0039788f1dea5faa01cb8a70ba2029a36c8c5c1",
+        "max_absolute_logit_error_CPU": 3.528967499732971e-05,
+        "argmax_disagreement_fraction_CPU": 0.0,
+        "images_checked": 1,
+        "backend": "CPUExecutionProvider"
+      }
+    },
+    {
+      "variant": "A",
+      "round": 4,
+      "model_only": {
+        "mean_ms": 9.195435200000047,
+        "median_ms": 8.613350000000963,
+        "p95_ms": 9.445450000003316,
+        "actual_fps": 107.81290588189917,
+        "loop_wall_seconds": 4.637663699999997,
+        "frames": 500
+      },
+      "end_to_end": {
+        "mean_ms": 329.50957940000046,
+        "median_ms": 322.03655,
+        "p95_ms": 378.25746999999336,
+        "actual_fps": 3.020228237149848,
+        "loop_wall_seconds": 165.5504024,
+        "frames": 500
+      },
+      "memory_snapshots": {
+        "before_session": {
+          "status": "available",
+          "samples": [
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_180088_luid_0x00000000_0x00012a78_phys_0)\\dedicated usage",
+              "bytes": 24576
+            },
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_180088_luid_0x00000000_0x00012a78_phys_0)\\shared usage",
+              "bytes": 0
+            }
+          ],
+          "dedicated_bytes": 24576,
+          "shared_bytes": 0,
+          "scope": "process across reported adapters; snapshot only, not true peak"
+        },
+        "after_model_warmup": {
+          "status": "available",
+          "samples": [
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_180088_luid_0x00000000_0x00012a78_phys_0)\\dedicated usage",
+              "bytes": 470597632
+            },
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_180088_luid_0x00000000_0x00012a78_phys_0)\\shared usage",
+              "bytes": 79691776
+            }
+          ],
+          "dedicated_bytes": 470597632,
+          "shared_bytes": 79691776,
+          "scope": "process across reported adapters; snapshot only, not true peak"
+        },
+        "after_pipeline_warmup": {
+          "status": "available",
+          "samples": [
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_180088_luid_0x00000000_0x00012a78_phys_0)\\dedicated usage",
+              "bytes": 470597632
+            },
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_180088_luid_0x00000000_0x00012a78_phys_0)\\shared usage",
+              "bytes": 79691776
+            }
+          ],
+          "dedicated_bytes": 470597632,
+          "shared_bytes": 79691776,
+          "scope": "process across reported adapters; snapshot only, not true peak"
+        },
+        "after_measurement": {
+          "status": "available",
+          "samples": [
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_180088_luid_0x00000000_0x00012a78_phys_0)\\dedicated usage",
+              "bytes": 470597632
+            },
+            {
+              "status": 0,
+              "path": "\\\\kitty\\gpu process memory(pid_180088_luid_0x00000000_0x00012a78_phys_0)\\shared usage",
+              "bytes": 79691776
+            }
+          ],
+          "dedicated_bytes": 470597632,
+          "shared_bytes": 79691776,
+          "scope": "process across reported adapters; snapshot only, not true peak"
+        }
+      },
+      "power_before": {
+        "AC": 1,
+        "battery_percent": 100,
+        "scheme": "a1841308-3541-4fab-bc81-f71556f20b4a"
+      },
+      "power_after": {
+        "AC": 1,
+        "battery_percent": 100,
+        "scheme": "a1841308-3541-4fab-bc81-f71556f20b4a"
+      },
+      "provider": {
+        "provider": "CUDAExecutionProvider",
+        "node_executions": {
+          "CUDAExecutionProvider": 374
+        },
+        "unique_node_names": 187
+      },
+      "model_identity": {
+        "name": "A_seed42",
+        "variant": "A",
+        "seed": 42,
+        "selected_epoch": 92,
+        "onnx": "experiments/attention_gate/step_13_2026-11-07/A_L0_deployment_001/export/A_seed42_fp32.onnx",
+        "onnx_sha256": "2c702720842bd016aa3db3abb9563e06119d8608d6b598a10fb5e28434fc9386",
+        "weights": "experiments/attention_gate/step_05_2026-10-14/seed42_training_003/A_seed42_epochs002_100/best_weights/epoch_092.pth",
+        "weights_sha256": "71ca9c869b1aec4ee5fc6eaa637e98cb3e2e0ab10ccedf5a1adbc8c4261f8218",
+        "max_absolute_logit_error_CPU": 5.352497100830078e-05,
+        "argmax_disagreement_fraction_CPU": 0.0,
+        "images_checked": 1,
+        "backend": "CPUExecutionProvider"
+      }
+    }
+  ],
+  "protocol": {
+    "protocol_id": "ort_fp32_A_L0_20261107",
+    "declared_before_timing": true,
+    "models": [
+      "A_seed42",
+      "L0_seed42"
+    ],
+    "precision": "Previously full500-accepted preserved-BN FP32 only, TF32 off",
+    "round_orders": [
+      [
+        "A",
+        "L0"
+      ],
+      [
+        "L0",
+        "A"
+      ],
+      [
+        "A",
+        "L0"
+      ],
+      [
+        "L0",
+        "A"
+      ]
+    ],
+    "warmup_each_pipeline": 50,
+    "measured_frames_each_pipeline": 500,
+    "sessions": "Fresh Python process and ORT session for each model in each round",
+    "batch": 1,
+    "height": 768,
+    "width": 1024,
+    "power": "Keep observed AC connection and Windows power-saver scheme a1841308-3541-4fab-bc81-f71556f20b4a unchanged. No maximum-hardware-performance claim.",
+    "model_only": "Repeat fixed validation image0 tensor500 times, resident CUDA input and preallocated CUDA output via IOBinding. Synchronize CUDA before and after every sample. Excludes transfers, preprocessing, argmax and session construction; includes Python run dispatch and synchronization.",
+    "end_to_end": "Read/decode all500 validation PNGs in original sorted order. Use frozen dataset PIL/torchvision preprocessing, H2D, inference, D2H, argmax, restore mask to original image size, and blend overlay. Excludes labels, file saving, UI, model load. First50 images are also warmup images; OS disk cache is not cleared. This is local PNG pipeline latency, not camera/video throughput.",
+    "statistics": [
+      "mean_ms",
+      "median_ms",
+      "p95_ms",
+      "actual_frames_divided_by_loop_wall_seconds"
+    ],
+    "memory": "Windows GPU Process Memory dedicated/shared snapshots before session, after warmup and after run; aggregate adapters explicitly. Report maximum observed snapshot, never true peak or PyTorch allocator memory. NVIDIA device totals are context only.",
+    "acceptance": "Full500 FP32 acceptance identity, first-image IOBinding and ordinary ORT output agreement, actual CUDA nodes, no CPU fallback, same power and AC, unchanged source/model/data hashes, exactly8 sessions with500 samples per pipeline",
+    "exclusions": "No concurrent project training/GPU validation. Preserve rejected or interrupted jobs. No FPS claim from smoke mode. Other desktop background processes are recorded, not killed.",
+    "primary_source": "https://onnxruntime.ai/docs/performance/tune-performance/iobinding.html",
+    "design_note": "Four paired rounds balance each model first/second twice. Seed42 fixed before repeats; no seed selection by accuracy. Old timing loops and limits retained. Compare new A/L0 sessions, not historical A versus new L0.",
+    "derivation": {
+      "export_compact_fp32.py": {
+        "parent": "export_selected_fp32.py",
+        "parent_sha256": "36e8a91e22e6d98b0c1dc026b2f9c42a7d031932cb7cd2e0ed22770ad5a5bfc1",
+        "adapter_sha256": "345ea918ced61267d09c464ba2857213f69a6c6db3bb4b51516994c202edc5cc"
+      },
+      "validate_compact_fp32.py": {
+        "parent": "validate_deployment_fp32_preserved_bn.py",
+        "parent_sha256": "e16b9396043e12ffdf74fa4723a04c7ca6b069a6a86eacd10bcde8002b172f01",
+        "adapter_sha256": "15d7bf60445d38d6b7cbe897e58392d035a4d54d06d611aa77cb3a0c83992a37"
+      },
+      "benchmark_compact_fp32.py": {
+        "parent": "benchmark_verified_fp32.py",
+        "parent_sha256": "c56f4cf3c965fdc3f136d56e285b7f1a420a1ac49f1f5244bdcc852866a37fab",
+        "adapter_sha256": "eb9369c68f5a560f966a24d9d6474c3f67c14eeae709c6a63b6c45b2c3e602eb"
+      }
+    }
+  },
+  "source_hashes": {
+    "experiments\\attention_gate\\benchmark_compact_fp32.py": "eb9369c68f5a560f966a24d9d6474c3f67c14eeae709c6a63b6c45b2c3e602eb",
+    "experiments\\attention_gate\\benchmark_compact_protocol.json": "4f1578a4b74fe21756fb1aa8ef7c0f03025c0e2d9efe74ed7b4e8b26528d32ea",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\export\\models.json": "324e189c0eee5e778947fed7828dd7d2cc08469b67c03e06d7af41f36f0997f6",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\accepted.json": "9cdfdc5b48e9840e9e2f39e70d0f654d9543eec195bc180aefcd954fb4eab33b",
+    "experiments\\attention_gate\\common_runner.py": "2d0ba323e7638538b9c4c2f3b229213a5b92d5232c856f9bd536534e8fcd49f0",
+    "experiments\\attention_gate\\common_runner_v2.py": "03a7238c77ec95ecde1480bd10c807ff5ee93e7072db6fdb93506cd85f05d5f4",
+    "experiments\\attention_gate\\deployment_equivalence.py": "036bd43c2046809452cc4cf290dc2b29a25498934fffa14a209cb5512f3c870d"
+  },
+  "sources": {
+    "tools\\export_compact_benchmark.py": "a430e29f8a88215bca96ac85bb533b6169987319e9df93380daa290052eda2de",
+    "experiments\\attention_gate\\benchmark_compact_protocol.json": "4f1578a4b74fe21756fb1aa8ef7c0f03025c0e2d9efe74ed7b4e8b26528d32ea",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\results.json": "f54f64c1bf62b703a2723365d747d2e0031116773f7da00d0759d77a3a93192c",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\plan.json": "48f90540b67bb7a6dce75bf47e5a3ae691093743c8ce276f0ee105d4ffd88bed",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\status.json": "2d02f616a6545469787e703452ede4b1f1a1a20f67c202109caa03d73eea0f3f",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\round1_A\\result.json": "386da3ff53f3da1eea367bf837ebf225e7945eb1e37a0f1cb8dcf4f924f6ee51",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\round1_A\\plan.json": "8f2711c06e2fd85f79e69303cf153eecc2c24d0e7b9648a3dd8640b226935f83",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\round1_A\\samples.json": "83629985eafdbdc2adf8f87f7a261b65c79a89fec553163c1fe1e0a97a0f0d76",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\round1_A\\provider_2026-11-07_12-20-20.json": "c7400a2fa1d6f471c02d9b934787b14afa843e57deaf3fad3e63c3249a4d40fc",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\round1_L0\\result.json": "379ed602217bb5f8eb6e82fa62bc5d10ed173114fe3a454e47e13b3140c64828",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\round1_L0\\plan.json": "8ba1413abc19d0b86186306f8751316ad8abe512fe80e12af0a3d7ef2a8da363",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\round1_L0\\samples.json": "7629928b964f4dfbea8956b16c70a45971bf6c6bf19f764289e65c09e8a60815",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\round1_L0\\provider_2026-11-07_12-24-25.json": "e917fa196a79f0e28acda5ed15a4ab9fcae23cf98dcc29d7ecff0f3bd65e96ed",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\round2_L0\\result.json": "0ce3f438be3d7e7eff3f31512befb2e67c5eb37ef4fa6bf9e5faa37d5c6659ab",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\round2_L0\\plan.json": "dd2ce47a621128ed9aa27baa1c41ce721c5d82ca2fc5db7ad68d65f777793c56",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\round2_L0\\samples.json": "df391290b84c0420489334cd2d76bb8d433fd18e1c3ec0691365005d6b0a4321",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\round2_L0\\provider_2026-11-07_12-28-31.json": "d76ee1d93cbee13e9c5042c7ac55c1eed652fb6394c05f35e6535fc178365f40",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\round2_A\\result.json": "05cd0d7f5351ec19547e28c5d385d40a65fc51323f703bbe229b69e57a1be579",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\round2_A\\plan.json": "7770b0944a26c6d3212f5b7c6718c19870cb852b21c78572274a98aee1a48165",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\round2_A\\samples.json": "6f52eae284e152230a7f6c716067e26af6a29d5fcef02b3fe631d8fb9f6f3a00",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\round2_A\\provider_2026-11-07_12-32-35.json": "a3a20be2d800c8b07f908b0a99715b9bce627293ef9c48719fdbea5116bc3793",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\round3_A\\result.json": "8278c8c95c916f463a26a765676e213a59516ccd9888d652a8496e0029f66e7a",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\round3_A\\plan.json": "5531f8899db418cc7289b63c64a9c772db50c0ae9a2f2f10080488d006c9b4ee",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\round3_A\\samples.json": "8d9bd4a45b14af1a77254279b4efdef42d4c5134db504309ece0ab7bf10d2366",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\round3_A\\provider_2026-11-07_12-36-34.json": "8112c3f2d2cca1dbaf690acc115449d7fab5bfe1f3125324ac2debf9a8a393bd",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\round3_L0\\result.json": "fb032bbb15524f3c7d1fb778fa54e8ba3a1380e7fde773c906975ebb978d93c9",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\round3_L0\\plan.json": "5af83372ba130f72295419ca1cea34243e6b62672a09da7ea8c8bdac5b59285a",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\round3_L0\\samples.json": "86e7662e9933afabd3cec237a29f64b981eea17a15ec7ec337d65f6ce70c7b34",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\round3_L0\\provider_2026-11-07_12-40-32.json": "93583551519d2251e62e481829f072c9ceb23b6e456b5c16f9244a14bc0380ee",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\round4_L0\\result.json": "e8bedbce58a976d8cb66e57b155a60c9f4045fb199b324aa0f70e98608de7b66",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\round4_L0\\plan.json": "c40c15a97c0d38dc509fede9e1885c236c07185cf2127d06d7e957ad3ad63e46",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\round4_L0\\samples.json": "20412e9b913af37cd98a5d963f46c20b2290d3ff7189dac83ecbe422d5d541b9",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\round4_L0\\provider_2026-11-07_12-44-37.json": "3e4386d2cd874ad492f097c7e94df54efcd128dc18f9d4bdd9a5627ea4e06f48",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\round4_A\\result.json": "aa2a0223e22932879139b3bbe51a0831b066c084be8bfb90b33c0b92ca24fb48",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\round4_A\\plan.json": "3e41982d333481175626514c19958746f7c8ee45c76776ac5e3852444c7e7447",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\round4_A\\samples.json": "9a022d5a383df078e87d3216fd767687b039c7c46a41773c522ebffda671e8e1",
+    "experiments\\attention_gate\\step_13_2026-11-07\\A_L0_deployment_001\\timing_full\\round4_A\\provider_2026-11-07_12-48-41.json": "717c5d04b0d635d124f07769f670739a07529d604fc0163b3f96c03eebef75e5"
+  },
+  "raw_statistics_and_provider_reconstructed": true,
+  "training_or_weights_changed": false,
+  "limitations": [
+    "Windows power-saver mode on AC; no maximum-performance claim",
+    "Model-only uses one resident fixed tensor; PNG pipeline includes decoding all500 full-size images",
+    "No camera/video end-to-end or embedded-device performance claim",
+    "Process GPU memory snapshots across adapters, not a true peak; device totals are not process memory"
+  ],
+  "paired_round_changes": [
+    {
+      "round": 1,
+      "model_latency_reduction_pct": 8.630684799671062,
+      "png_latency_change_pct": 2.2987869758491986
+    },
+    {
+      "round": 2,
+      "model_latency_reduction_pct": 5.459617509610981,
+      "png_latency_change_pct": 3.9070124599582368
+    },
+    {
+      "round": 3,
+      "model_latency_reduction_pct": 13.445635716700998,
+      "png_latency_change_pct": 4.2387732121126565
+    },
+    {
+      "round": 4,
+      "model_latency_reduction_pct": 6.75357486071152,
+      "png_latency_change_pct": 3.8363441885416405
+    }
+  ],
+  "interpretation": "Model-only speed and PNG pipeline speed are separate outcomes. Report slower full pipeline if observed; do not infer end-to-end acceleration from reduced FLOPs."
+}

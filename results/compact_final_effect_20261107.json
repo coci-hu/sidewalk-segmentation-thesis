@@ -1,0 +1,134 @@
+{
+  "status": "pass",
+  "changes_vs_A": {
+    "params_reduction_pct": 38.67091488393264,
+    "conv_linear_flops_reduction_pct": 28.00743700304601,
+    "model_latency_reduction_pct": 8.615870634802347,
+    "model_fps_increase_pct": 9.334345093962316,
+    "png_latency_increase_pct": 3.56139727959075,
+    "png_fps_change_pct": -3.413404992899971,
+    "observed_gpu_memory_reduction_pct": 28.96546321763047,
+    "accuracy_changes_pp": {
+      "miou": -0.29466323963241337,
+      "sidewalk": -0.5454497549629806,
+      "boundary": -0.9586358597624454
+    }
+  },
+  "accuracy_summary": {
+    "L0": {
+      "miou": {
+        "mean_pct": 80.72696884530093,
+        "sample_std_pct": 0.5045186454248735
+      },
+      "sidewalk": {
+        "mean_pct": 63.65149549100325,
+        "sample_std_pct": 0.9195591709020818
+      },
+      "boundary": {
+        "mean_pct": 51.963021468935814,
+        "sample_std_pct": 0.6746584783527375
+      }
+    },
+    "A": {
+      "miou": {
+        "mean_pct": 81.02163208493334,
+        "sample_std_pct": 0.009773598439099402
+      },
+      "sidewalk": {
+        "mean_pct": 64.19694524596623,
+        "sample_std_pct": 0.024387022178930705
+      },
+      "boundary": {
+        "mean_pct": 52.92165732869826,
+        "sample_std_pct": 0.16829622338426614
+      }
+    },
+    "B": {
+      "miou": {
+        "mean_pct": 81.60586793657983,
+        "sample_std_pct": 0.10602445377008356
+      },
+      "sidewalk": {
+        "mean_pct": 65.30142809088856,
+        "sample_std_pct": 0.16562600496682647
+      },
+      "boundary": {
+        "mean_pct": 53.493143694638725,
+        "sample_std_pct": 0.1651844231197666
+      }
+    }
+  },
+  "timing_summary": {
+    "A": {
+      "model_only": {
+        "frames": 2000,
+        "mean_ms": 9.172346399999917,
+        "median_ms": 8.590699999999174,
+        "p95_ms": 9.533575000003577,
+        "actual_fps": 108.09445957577714,
+        "session_mean_ms_sd": 0.1888498026902811
+      },
+      "end_to_end": {
+        "frames": 2000,
+        "mean_ms": 333.22999425,
+        "median_ms": 324.6844000000024,
+        "p95_ms": 386.73858500000193,
+        "actual_fps": 2.9864166052600805,
+        "session_mean_ms_sd": 4.817575997457001
+      },
+      "onnx_bytes": 1158950,
+      "weights_file_bytes": 1188666,
+      "max_observed_dedicated_MiB": 448.796875,
+      "max_observed_shared_MiB": 76.0
+    },
+    "L0": {
+      "model_only": {
+        "frames": 2000,
+        "mean_ms": 8.382068899999974,
+        "median_ms": 7.800149999997785,
+        "p95_ms": 8.498934999999364,
+        "actual_fps": 118.18436946003376,
+        "session_mean_ms_sd": 0.21228642723310437
+      },
+      "end_to_end": {
+        "frames": 2000,
+        "mean_ms": 345.09763819999995,
+        "median_ms": 343.6160999999913,
+        "p95_ms": 365.61638500000095,
+        "actual_fps": 2.884478111747339,
+        "session_mean_ms_sd": 2.4424588212221683
+      },
+      "onnx_bytes": 746323,
+      "weights_file_bytes": 773434,
+      "max_observed_dedicated_MiB": 318.80078125,
+      "max_observed_shared_MiB": 76.0
+    }
+  },
+  "conclusions": [
+    "Parameters and counted FLOPs reduced substantially.",
+    "All L0 seeds retained; lower mean accuracy and higher seed variability.",
+    "Model-only latency lower in all four paired rounds; complete PNG mean latency higher in all four.",
+    "A/L0 full500 export acceptance and CLI media/lock checks passed."
+  ],
+  "limits": [
+    "Partial operator FLOPs, not full operator cost.",
+    "Memory counters are snapshots, not true peaks.",
+    "PNG throughput did not improve; no causal stage profiling or optimization claimed.",
+    "Fixed tensor model-only FPS is not complete application FPS or embedded-board evidence.",
+    "No natural-video temporal/generalization test or L0 long-duration stability test.",
+    "No new operator or universal attention-failure claim; L1 seed42 exploratory only."
+  ],
+  "inputs_sha256": {
+    "results/l0_three_seed_review_20261107.json": "180194719a9ee7d0bb5c5c3cfe97c4adf755cfcb80fce5705e232709c8ec481c",
+    "results/compact_benchmark_20261107.json": "2a9091dc5cdc1e36d47ec3e2eab0ea01dc7dc63c3b526fa1e4ebbcf0b64106ac",
+    "results/compact_deployment_validation_20261107.json": "87676b468872278c6c2b0371f0034ae1bdd67e96a6b3ca1e75fa24c418070a6d",
+    "results/compact_application_20261107.json": "aa3293cd7b81129ca6df7400760d3c37830322298531f5f6df570667d3623269",
+    "results/lightweight_profile_20261101_v2.json": "48b238deee6e5e8e2109c140cd9c43a4bee6e10d66e10bc32c4e29d52dd919da",
+    "results/lightweight_operator_coverage_20261101_v2.json": "9d66395509e18fd6e2714c0bdd21d5f43f1fff41628528e2ec10c7b9cdf30a4f"
+  },
+  "figures": {
+    "results\\figures\\compact_tradeoff_20261107.png": "6ab7ad7bbdd7b7eb3378a12c87a988224e9146d8b21a30a3e1379978a5519a13",
+    "results\\figures\\compact_tradeoff_20261107.pdf": "0900f3489fb935184d00271903cadf94a9984361967215f8bb3efbcaf7554490"
+  },
+  "exporter_sha256": "ae6995e696a9863f5955749e05c96c4d361789c3b15d843ea4bce6a76d9c2cb8"
+}

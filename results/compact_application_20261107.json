@@ -1,0 +1,91 @@
+{
+  "status": "pass",
+  "verification": {
+    "status": "pass",
+    "reference_input_exact_indices": [
+      0,
+      207,
+      499
+    ],
+    "pipeline": "reference_torchvision_argmax_numpy_overlay",
+    "GPU_lock_rejected_before_inference": true,
+    "image_cases": [
+      {
+        "variant": "A",
+        "image_id": 0,
+        "output": "experiments/attention_gate/step_13_2026-11-07/compact_demo_acceptance_001/A_image_0.png",
+        "report_sha256": "33213fba008d62493eff1d03bcff7853ba4aa481a4c5d19249bbf669548d822d"
+      },
+      {
+        "variant": "L0",
+        "image_id": 499,
+        "output": "experiments/attention_gate/step_13_2026-11-07/compact_demo_acceptance_001/L0_image_499.png",
+        "report_sha256": "fcfe9a0f6e564233a01777f26ec1449b9154cf724a79c4e02fa705bbbdc577be"
+      }
+    ],
+    "constructed_video": {
+      "source": "experiments/attention_gate/step_13_2026-11-07/compact_demo_acceptance_001/constructed_validation_clip.mp4",
+      "output": "experiments/attention_gate/step_13_2026-11-07/compact_demo_acceptance_001/L0_constructed_video_overlay.mp4",
+      "frames": 32,
+      "image_ids": [
+        0,
+        75,
+        150,
+        225,
+        300,
+        375,
+        450,
+        499
+      ],
+      "fps_metadata": 8,
+      "source_note": "Constructed clip from8 existing Cityscapes validation still images,4 repeats each; no natural temporal sequence or new dataset",
+      "all_output_frames_decoded": true,
+      "report_sha256": "9585dcf825d5e9ec8c395d638c5a64cb6506693bb2d2c46e530d77a11f98a781"
+    },
+    "model_parameter_counts": {
+      "A": 263640,
+      "L0": 161688
+    },
+    "source_hashes": {
+      "experiments\\attention_gate\\verify_compact_demo.py": "771ce66f62082672031584aee0b7c3189af9c87a0db81bdc1a5f0da19b8bea89",
+      "experiments\\attention_gate\\sidewalk_demo_compact.py": "d8e0fc83ebe902e5c97ad130af55333cab53b38d541a7dedbae3633a0da240b4",
+      "experiments\\attention_gate\\deployment_pipeline.py": "d5e749a84aaef8edf54cda00e68432cb10796802a6f88b63d8639119468bdd5e",
+      "experiments\\attention_gate\\reference_deployment_pipeline.py": "bc11790e7e80c7f861328953c419a90674d4fd40e563dbadd598f26cae0a5925",
+      "experiments\\attention_gate\\common_runner.py": "2d0ba323e7638538b9c4c2f3b229213a5b92d5232c856f9bd536534e8fcd49f0",
+      "experiments\\attention_gate\\verified_compact_runtime.py": "38eb8e0a0513a6a2279af3fc8144029f1a8e5a0adb18f1f4edb2d8ec111c5897",
+      "experiments\\attention_gate\\sidewalk_demo_reference.py": "0db98cf7e698f3377bb44215b9f8620fce2ddb3c3bd0c8e772adbdce73fec7ab",
+      "experiments\\attention_gate\\compact_candidate.py": "f7a348bc4f840b57f446f096b0831911b2db345a2208d451f6c99db941af7831",
+      "results\\compact_deployment_validation_20261107.json": "87676b468872278c6c2b0371f0034ae1bdd67e96a6b3ca1e75fa24c418070a6d"
+    },
+    "formal_FPS_claim": false,
+    "long_duration_stability_checked": false,
+    "self_collected_or_independent_dataset": false
+  },
+  "media": [
+    {
+      "path": "experiments\\attention_gate\\step_13_2026-11-07\\compact_demo_acceptance_001\\A_image_0.png",
+      "sha256": "2351343bb6d0fb0cd9ee66b84f68fb1b9a64735b640726ce03408aad446b1ef0",
+      "frames": 1
+    },
+    {
+      "path": "experiments\\attention_gate\\step_13_2026-11-07\\compact_demo_acceptance_001\\L0_image_499.png",
+      "sha256": "1206a929c585fb92d3b90bd61c938058156d8644159f2e39a57487e29ab86b38",
+      "frames": 1
+    },
+    {
+      "path": "experiments\\attention_gate\\step_13_2026-11-07\\compact_demo_acceptance_001\\L0_constructed_video_overlay.mp4",
+      "sha256": "75dd10c654d5c6fe43b8051c232b3d0fecdec8b4567fe6815de6a7655ad359c9",
+      "frames": 32
+    }
+  ],
+  "sources": {
+    "experiments\\attention_gate\\step_13_2026-11-07\\compact_demo_acceptance_001\\verification.json": "2cd96d08ffd7410e4e7194be7287745868d73cc6b77cc2f5224cb493232242a4",
+    "experiments\\attention_gate\\step_13_2026-11-07\\compact_demo_acceptance_001\\A_image_0.png.evidence\\A_seed42_2026-11-07_18-19-51.json": "8d02eccd9d7d03bd0888596ca6791039723235ce59ed24415a7dd854229db793",
+    "experiments\\attention_gate\\step_13_2026-11-07\\compact_demo_acceptance_001\\A_image_0.png.json": "33213fba008d62493eff1d03bcff7853ba4aa481a4c5d19249bbf669548d822d",
+    "experiments\\attention_gate\\step_13_2026-11-07\\compact_demo_acceptance_001\\L0_image_499.png.evidence\\L0_seed42_2026-11-07_18-20-25.json": "87b57c34708cab4a55cd15f5fd85512e193a69bed32048e16acff7792ea28f00",
+    "experiments\\attention_gate\\step_13_2026-11-07\\compact_demo_acceptance_001\\L0_image_499.png.json": "fcfe9a0f6e564233a01777f26ec1449b9154cf724a79c4e02fa705bbbdc577be",
+    "experiments\\attention_gate\\step_13_2026-11-07\\compact_demo_acceptance_001\\L0_constructed_video_overlay.mp4.evidence\\L0_seed42_2026-11-07_18-20-59.json": "b50fe06254c63b90b463ae299600decd6693e184e3771a8013c68fe0d1559f98",
+    "experiments\\attention_gate\\step_13_2026-11-07\\compact_demo_acceptance_001\\L0_constructed_video_overlay.mp4.json": "9585dcf825d5e9ec8c395d638c5a64cb6506693bb2d2c46e530d77a11f98a781"
+  },
+  "acceptance_scope": "Real CLI image/video and GPU-lock rejection. No new GUI, natural-video accuracy, or L0 long-duration stability claim."
+}
