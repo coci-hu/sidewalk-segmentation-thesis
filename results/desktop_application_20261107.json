@@ -1,0 +1,54 @@
+{
+  "status": "pass",
+  "application": "Windows local sidewalk segmentation desktop application",
+  "evidence": {
+    "status": "pass",
+    "actual_Tk_UI_start_and_cancel_tested": true,
+    "UI_recovers_after_cancel": true,
+    "image_models": [
+      "A",
+      "L0"
+    ],
+    "full_constructed_video_frames": 32,
+    "missing_input_handled": true,
+    "GPU_lock_refused": true,
+    "existing_result_overwrite_refused": true,
+    "original_input_unchanged": true,
+    "media_jobs": [
+      "experiments\\attention_gate\\desktop_outputs\\20261107_211642_43729031",
+      "experiments\\attention_gate\\step_14_2026-11-07\\desktop_acceptance_002\\baseline_image",
+      "experiments\\attention_gate\\step_14_2026-11-07\\desktop_acceptance_002\\full_video"
+    ],
+    "cancel_job": "experiments\\attention_gate\\desktop_outputs\\20261107_211714_0fff0063",
+    "screenshot": "experiments\\attention_gate\\step_14_2026-11-07\\desktop_acceptance_002\\desktop_verified.png",
+    "screenshot_sha256": "ebf88307034859ea3b0e0985ec44562d78bc78de6a370a2a7c8bed4c36243d93",
+    "source_hashes": {
+      "applications\\sidewalk_desktop\\app.py": "a226efc57c7663a4c7993c123e5a69d1135da08db899617a18a99c4021e5fa00",
+      "applications\\sidewalk_desktop\\worker.py": "6b0cca99e6066d083b1191f56aecd6bcea2cdb672dbed65f0d8a93eff7386848",
+      "applications\\sidewalk_desktop\\verify_app.py": "814beb626823a4bb4a1434a4b8174f5f9c97b11739a31be77e2d4ef6b0abc811",
+      "applications\\sidewalk_desktop\\启动人行道识别.cmd": "b3b813b912ae20d462d9fad2237026a00ff88e7ca9ef90d3a8a684de499203a8",
+      "experiments\\attention_gate\\verified_compact_runtime.py": "38eb8e0a0513a6a2279af3fc8144029f1a8e5a0adb18f1f4edb2d8ec111c5897",
+      "experiments\\attention_gate\\reference_deployment_pipeline.py": "bc11790e7e80c7f861328953c419a90674d4fd40e563dbadd598f26cae0a5925"
+    },
+    "scope": "Existing configured Windows environment; constructed validation clip only. Not a fresh-machine installer or long-duration test."
+  },
+  "local_artifacts_sha256": {
+    "experiments\\attention_gate\\step_14_2026-11-07\\desktop_acceptance_002\\verification.json": "3dae50fa76ba3ae97fb92eb5f364cde5aa1f38b56bf414d106db6980034595c5",
+    "experiments\\attention_gate\\desktop_outputs\\20261107_211642_43729031\\result.json": "25110a108db2c46fdd783f27ff191eb53079b956864d5c22d8742f9e85090cb1",
+    "experiments\\attention_gate\\desktop_outputs\\20261107_211642_43729031\\overlay.png": "70e4e173ea5b34d7463dbe0c38eccaae5881be6962067d0be3276139f3da99b2",
+    "experiments\\attention_gate\\desktop_outputs\\20261107_211642_43729031\\mask.png": "7f9416b2c5d97fee2310e5d490284b8f07ea26ce520b2d8c9717e14249a72051",
+    "experiments\\attention_gate\\step_14_2026-11-07\\desktop_acceptance_002\\baseline_image\\result.json": "49d095a4b33142511ce6cf7eb91479dd924588309293938c37f4459383be7576",
+    "experiments\\attention_gate\\step_14_2026-11-07\\desktop_acceptance_002\\baseline_image\\overlay.png": "c2793574ffee657591650cde28f2b3e83480400e036d7bb74149b7a1d07894c6",
+    "experiments\\attention_gate\\step_14_2026-11-07\\desktop_acceptance_002\\baseline_image\\mask.png": "a743ffe5f414c2fc2f63f6008581be7224add1e6b6bb590d15c5884f1fe48981",
+    "experiments\\attention_gate\\step_14_2026-11-07\\desktop_acceptance_002\\full_video\\result.json": "5e06010181326fa94458a283ec64afde172251f28f0370bc06fa5fb47e6d5cb4",
+    "experiments\\attention_gate\\step_14_2026-11-07\\desktop_acceptance_002\\full_video\\overlay.mp4": "afb479d6a183d7e9318262457dba002e62c8f22849ecd6917f4d1bfcdbdbee13"
+  },
+  "entry": "applications/sidewalk_desktop/启动人行道识别.cmd",
+  "experimental_snapshot_commit": "39f89ffaaaea77832ec6a5a945e5f2329a2223fa",
+  "screenshot_review": "Window-owned GDI screenshot visually inspected; direct screen capture unavailable in this session.",
+  "preliminary_attempt": "desktop_acceptance_001 stopped at screen-capture failure after successful image inference; retained;002 uses GDI fallback and completes full suite.",
+  "scope": "Configured existing Windows machine only; not a standalone EXE installer, new dataset or long-duration stability experiment.",
+  "scientific_models_unchanged": true,
+  "software_cost_cny": 0,
+  "exporter_sha256": "61af9dbb798ee54fc76498eb33ac1125043fe33d08719a253dab5f26d15f65e4"
+}

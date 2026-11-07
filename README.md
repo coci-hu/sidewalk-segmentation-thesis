@@ -6,6 +6,15 @@
 
 ## 当前进度和导师要求
 
+**最新补充：用户转述导师要求增加应用软件，已交付中文Windows桌面版。** 双击本机“桌面/毕设/人行道识别应用”快捷方式，或运行[启动器](applications/sidewalk_desktop/启动人行道识别.cmd)。软件支持图片/视频选择、A/L0切换、原图和结果对照、进度、取消与保存。[使用说明](applications/sidewalk_desktop/README.md)及[功能验收](results/desktop_application_20261107.json)已记录；需要现有本地模型与环境，尚未打包成独立EXE。没有重训或修改已冻结实验。
+
+创新表述按[贡献复核](results/contribution_review_20261107.json)限定为：轻量化任务适配与精度效率分析、注意力的受控研究、验证部署及软件整合。它们是应用改进、实证研究和工程成果，不是三个原创基础算法。D/E未通过筛选，不写成成功创新。参数与同口径计算量下降支持导师已明确提出的要求；学校评分细则未核实，不能保证具体等级。
+
+原算法实验冻结保留在`39f89ffaaaea77832ec6a5a945e5f2329a2223fa`；之后的应用工作以[软件交付计划](experiments/attention_gate/desktop_application_plan_20261107.json)为准。现在旧冻结清单应通过`python tools/verify_compact_archived_snapshot.py --local`核验历史提交与本地证据，不要求新README等同于旧README。
+
+以下保留算法实验阶段的范围与结果，阶段中“软件可选/未开发新GUI”描述的是本次补充前的状态。
+
+
 2026-11-01按导师新意见重新开启**轻量化补充实验**：核心要求为Params和FLOPs明显下降，嵌入式设备验证不再是必做项，应用软件只作可选整合。**2026-11-07：已批准的训练、复评、导出、本机测速与已有演示整合全部完成，进入论文与答辩整理。**原11次训练、权重、负结果与部署证据均保留，不再安排硬件租用、自采数据或新数据集。
 
 当前唯一执行计划是[轻量化修订计划](experiments/attention_gate/lightweight_revision_plan.json)。导师没有指定比较对象和下降比例；本方案先采用较严格的A（本仓库精简ENet）作直接对照，同时报告相对B的差异。Params及同口径计算量至少下降20%、人行道IoU和Boundary IoU较A下降不超过1个百分点，是项目预先提出的筛选目标，**不是导师指定阈值或已取得结论**。

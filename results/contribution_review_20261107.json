@@ -1,0 +1,36 @@
+{
+  "basis": "Frozen local experiment evidence and supervisor requirements reported by the user; not a university grading certification or exhaustive novelty search",
+  "institutional_rubric_verified": false,
+  "completed_core_experiments": true,
+  "new_delivery_requirement": "Desktop application integration; separate from previously completed CLI prototype",
+  "recommended_main_contributions": [
+    {
+      "name": "Task-adapted lightweight model and quantified accuracy-efficiency tradeoff",
+      "type": "incremental architecture adaptation and empirical contribution",
+      "evidence": "L0:38.67% fewer parameters and28.01% fewer counted Conv/Linear FLOPs; three seeds,0.545pp mean sidewalk IoU loss and0.959pp boundary loss;8.62% lower model-only latency",
+      "limits": "Width reduction is established, not a new operator. Seed variability rises; complete PNG latency increases3.56%.",
+      "source": "results/compact_final_effect_20261107.json"
+    },
+    {
+      "name": "Controlled analysis of attention implementation and task suitability",
+      "type": "research finding and experimental methodology contribution",
+      "evidence": "A/B/C each three seeds; fixed training conditions, selected-weight interventions and sensitivity analysis; B improves all three seeds versus A, h-swish does not improve mean performance over ReLU CA",
+      "limits": "No universal attention failure or proven universal causal mechanism; L1 is single-seed exploratory only.",
+      "source": "results/abc_summary.json"
+    },
+    {
+      "name": "Verified model export and usable local application integration",
+      "type": "engineering/application contribution",
+      "evidence": "Full500 CUDA export validation, eight paired timing sessions, desktop image/video workflow",
+      "limits": "Reuse of established ONNX/Tkinter methods, not algorithmic novelty; local RTX4060 only, no embedded-board or safety-validation claim.",
+      "source": "results/desktop_application_20261107.json"
+    }
+  ],
+  "do_not_count_as_successful_algorithmic_innovation": [
+    "Fixed/learnable mixed gates D/E: exploratory negative screening outcome, not an accepted superior module",
+    "Replacing an activation or adding existing CA by itself",
+    "Multi-seed repetitions, logging and standard metrics as standalone novel algorithms",
+    "A second dataset, a new dataset, real embedded deployment or full-system acceleration that was not performed"
+  ],
+  "assessment": "Evidence supports the supervisor's stated parameter/FLOP reduction requirement and a substantive application-oriented undergraduate project once software integration is accepted. Contribution strength is incremental/empirical/engineering, not three original algorithms. Final grading depends on school rubric, thesis quality and supervisor review."
+}

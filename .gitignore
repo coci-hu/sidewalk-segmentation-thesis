@@ -60,3 +60,4 @@ secrets*.json
 /experiments/attention_gate/current_*_job.json
 /experiments/attention_gate/README.md
 /experiments/attention_gate/demo_outputs/
+/experiments/attention_gate/desktop_outputs/

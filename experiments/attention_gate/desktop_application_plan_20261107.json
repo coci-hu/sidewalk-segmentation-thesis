@@ -1,0 +1,44 @@
+{
+  "revision": "desktop-application-2026-11-07",
+  "trigger": "User relayed supervisor request to develop an application integrating the algorithm",
+  "previous_experimental_scope": "complete and preserved at39f89ffaaaea77832ec6a5a945e5f2329a2223fa",
+  "scope": "Windows desktop application using frozen A/L0 models and existing verified environment",
+  "required_features": [
+    "local image/video selection",
+    "A/L0 model choice",
+    "original and overlay previews",
+    "progress and cancellation",
+    "image mask/overlay and video saving",
+    "clear errors and GPU-lock handling"
+  ],
+  "implementation": "Tkinter interface and isolated Python worker; no new paid dependency or service",
+  "scientific_protocol_changes": false,
+  "new_training_required": false,
+  "new_dataset_required": false,
+  "not_in_scope": [
+    "standalone cross-machine EXE installer",
+    "cloud accounts",
+    "mobile application",
+    "camera realtime claim",
+    "new long-duration stability claim"
+  ],
+  "acceptance": [
+    "actual Tk start/cancel and UI recovery",
+    "A/L0 image outputs",
+    "32-frame constructed video read/write",
+    "missing-input error",
+    "occupied GPU lock refusal",
+    "existing output overwrite refusal",
+    "visual inspection"
+  ],
+  "proof": "results/desktop_application_20261107.json",
+  "journal": "User-designated work record only; local raw tests remain ignored by Git",
+  "status": "complete_verified_on_existing_machine",
+  "remaining_required_application_tasks": [],
+  "next_steps": [
+    "User tries a local image/video through the desktop shortcut",
+    "Use approved contribution statements and application screenshots in thesis",
+    "Supervisor reviews final scope and school rubric"
+  ],
+  "new_algorithm_experiments_scheduled": false
+}
