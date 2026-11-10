@@ -10,7 +10,8 @@ import traceback
 ROOT=Path(__file__).resolve().parents[2]
 EXP=ROOT/'experiments/attention_gate'
 sys.path.insert(0,str(EXP))
-DEFAULT_MODELS=EXP/'step_13_2026-11-07/A_L0_deployment_001/export/models.json'
+from model_catalog import default_models,resolve_models
+DEFAULT_MODELS=default_models()
 IMAGE_EXT={'.png','.jpg','.jpeg','.bmp','.webp'}
 VIDEO_EXT={'.mp4','.avi','.mov','.mkv','.m4v'}
 
@@ -38,7 +39,8 @@ def run(a):
         from reference_deployment_pipeline import read_bgr,preprocess_bgr,binary_mask,restore_mask,overlay_bgr
         cv2.setNumThreads(1)
         image_mode=suffix in IMAGE_EXT
-        manifest=json.loads(a.models.read_text(encoding='utf-8'))
+        resolved=resolve_models(a.models,folder)
+        manifest=json.loads(resolved.read_text(encoding='utf-8'))
         index=next(i for i,m in enumerate(manifest['models']) if m['variant']==a.model)
         if not image_mode:
             capture=cv2.VideoCapture(str(a.input))
@@ -48,7 +50,7 @@ def run(a):
             if not np.isfinite(fps) or fps<=0:fps=25.
         else:total=1
         began=time.perf_counter()
-        with VerifiedCompactRuntime(a.models,'cuda',folder/'runtime_evidence') as runtime:
+        with VerifiedCompactRuntime(resolved,'cuda',folder/'runtime_evidence') as runtime:
             while True:
                 if (folder/'CANCEL_REQUESTED').exists():
                     write_status(folder,state='cancelled',message='已取消；未完成输出保留在本次目录',frames=frames,total=total)
@@ -77,7 +79,7 @@ def run(a):
                     writer.write(overlay)
                 # Save bounded previews; UI reads only after the atomic status notification.
                 if frames==1 or frames%10==0 or image_mode:
-                    for name,value in [('input_preview.jpg',frame),('output_preview.jpg',overlay)]:
+                    for name,value in [('input_preview.jpg',frame),('output_preview.jpg',overlay),('mask_preview.jpg',cv2.cvtColor(mask*255,cv2.COLOR_GRAY2BGR))]:
                         h,w=value.shape[:2];value=cv2.resize(value,(min(840,w),max(1,round(h*min(840,w)/w))))
                         ok,encoded=cv2.imencode('.jpg',value)
                         if not ok:raise RuntimeError('预览生成失败。')

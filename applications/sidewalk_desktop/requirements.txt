@@ -1,0 +1,6 @@
+# Suggested clean environment; see README for observed vs proposed versions.
+# Install torch/torchvision with the CUDA 12.1 index separately.
+numpy==1.26.4
+Pillow==9.3.0
+opencv-python==4.10.0.84
+onnxruntime-gpu==1.19.2

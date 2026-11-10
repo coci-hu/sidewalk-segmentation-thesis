@@ -1,0 +1,51 @@
+{
+  "models": [
+    {
+      "name": "A_seed42",
+      "variant": "A",
+      "seed": 42,
+      "selected_epoch": 92,
+      "onnx": "A_seed42.onnx",
+      "onnx_sha256": "2c702720842bd016aa3db3abb9563e06119d8608d6b598a10fb5e28434fc9386",
+      "weights": "A_seed42.pth",
+      "weights_sha256": "71ca9c869b1aec4ee5fc6eaa637e98cb3e2e0ab10ccedf5a1adbc8c4261f8218",
+      "max_absolute_logit_error_CPU": 5.352497100830078e-05,
+      "argmax_disagreement_fraction_CPU": 0.0,
+      "images_checked": 1,
+      "backend": "CPUExecutionProvider"
+    },
+    {
+      "name": "L0_seed42",
+      "variant": "L0",
+      "seed": 42,
+      "selected_epoch": 88,
+      "onnx": "L0_seed42.onnx",
+      "onnx_sha256": "df198224d0789e698947caccec2984da0870cdf4eabd1c6dd0f17fc60811b5cf",
+      "weights": "L0_seed42.pth",
+      "weights_sha256": "6e9a8d7f83c67b9b6e7bdc5ee0039788f1dea5faa01cb8a70ba2029a36c8c5c1",
+      "max_absolute_logit_error_CPU": 3.528967499732971e-05,
+      "argmax_disagreement_fraction_CPU": 0.0,
+      "images_checked": 1,
+      "backend": "CPUExecutionProvider"
+    }
+  ],
+  "height": 768,
+  "width": 1024,
+  "mean": [
+    0.485,
+    0.456,
+    0.406
+  ],
+  "std": [
+    0.229,
+    0.224,
+    0.225
+  ],
+  "execution": {
+    "disabled_optimizers": [
+      "ConvBNFusion",
+      "ConvActivationFusion"
+    ]
+  },
+  "scope": "Portable copy of A/L0 seed42 FP32 models; full500 CUDA acceptance in results/compact_deployment_validation_20261107.json."
+}

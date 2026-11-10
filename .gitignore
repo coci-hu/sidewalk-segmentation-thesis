@@ -61,3 +61,9 @@ secrets*.json
 /experiments/attention_gate/README.md
 /experiments/attention_gate/demo_outputs/
 /experiments/attention_gate/desktop_outputs/
+
+# Approved portable A/L0 inference assets only; all other checkpoints stay local.
+!/applications/sidewalk_desktop/models/A_seed42.onnx
+!/applications/sidewalk_desktop/models/L0_seed42.onnx
+!/applications/sidewalk_desktop/models/A_seed42.pth
+!/applications/sidewalk_desktop/models/L0_seed42.pth

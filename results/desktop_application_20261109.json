@@ -1,0 +1,81 @@
+{
+  "status": "pass",
+  "release": "algorithm_desktop_20261109",
+  "GUI": {
+    "status": "pass",
+    "algorithm_cards_switch_verified": true,
+    "binary_mask_view_verified": true,
+    "screenshots": {
+      "algorithm_comparison.png": "6798f1168298c9c28bb64b750bacbbd608920ae3cf1ec9ebb63c610b1f964241",
+      "desktop_mask.png": "7e927774cf81306abaf8526de77cef5b575f237861ceb116f2d5ed88d877ee2b",
+      "desktop_verified.png": "a475b8c78a54ee80fc21f0d150449fac131badddf5b3901199b124626d9c0066"
+    },
+    "actual_Tk_UI_start_and_cancel_tested": true,
+    "UI_recovers_after_cancel": true,
+    "image_models": [
+      "A",
+      "L0"
+    ],
+    "full_constructed_video_frames": 32,
+    "missing_input_handled": true,
+    "GPU_lock_refused": true,
+    "existing_result_overwrite_refused": true,
+    "original_input_unchanged": true,
+    "media_jobs": [
+      "experiments\\attention_gate\\desktop_outputs\\20261109_200129_692be30d",
+      "experiments\\attention_gate\\step_15_2026-11-09\\desktop_release_002\\baseline_image",
+      "experiments\\attention_gate\\step_15_2026-11-09\\desktop_release_002\\full_video"
+    ],
+    "cancel_job": "experiments\\attention_gate\\desktop_outputs\\20261109_200208_2e61ceef",
+    "screenshot": "experiments\\attention_gate\\step_15_2026-11-09\\desktop_release_002\\desktop_verified.png",
+    "screenshot_sha256": "a475b8c78a54ee80fc21f0d150449fac131badddf5b3901199b124626d9c0066",
+    "source_hashes": {
+      "applications\\sidewalk_desktop\\app.py": "8f666a48bcd83af52b52f8592f18001505bbe8fc20d88aa62b949f1f932827e8",
+      "applications\\sidewalk_desktop\\worker.py": "27efb7e7131bb60e4b01d2ac8c547e83e423281a758389a6d1a6f812b58f2483",
+      "applications\\sidewalk_desktop\\verify_app.py": "30c2b4b71ffb44d63832b594705d868b4dfc720bb581f0c8d0fe75a96b3a7538",
+      "applications\\sidewalk_desktop\\启动人行道识别.cmd": "b4f13af9cf0c55ac8ddc613c75b15d8a5646569cc2580442c32f95c2bb0d4466",
+      "applications\\sidewalk_desktop\\model_catalog.py": "158531dfab28b0d8d377d901284b4989571f7ef3b0b322e029674b395290c837",
+      "experiments\\attention_gate\\verified_compact_runtime.py": "38eb8e0a0513a6a2279af3fc8144029f1a8e5a0adb18f1f4edb2d8ec111c5897",
+      "experiments\\attention_gate\\reference_deployment_pipeline.py": "bc11790e7e80c7f861328953c419a90674d4fd40e563dbadd598f26cae0a5925"
+    },
+    "scope": "Existing configured Windows environment; constructed validation clip only. Not a fresh-machine installer or long-duration test."
+  },
+  "relocation_checks": [
+    {
+      "variant": "L0",
+      "pass_": true,
+      "mask_and_overlay_identical": true,
+      "output_model_paths_inside_relocated_root": true
+    },
+    {
+      "variant": "A",
+      "pass_": true,
+      "mask_and_overlay_identical": true,
+      "output_model_paths_inside_relocated_root": true
+    }
+  ],
+  "fresh_install_validated": false,
+  "new_training_performed": false,
+  "original_models_copied_not_modified": true,
+  "screenshots_are_real_app_captures": true,
+  "screenshot_display_note": "Input field displays filename without machine directory after processing.",
+  "sources": {
+    "applications/sidewalk_desktop/app.py": "8f666a48bcd83af52b52f8592f18001505bbe8fc20d88aa62b949f1f932827e8",
+    "applications/sidewalk_desktop/model_catalog.py": "158531dfab28b0d8d377d901284b4989571f7ef3b0b322e029674b395290c837",
+    "applications/sidewalk_desktop/prepare_models.py": "7aa41fa9cd0a16121e2161604f8c5e96e6c2ff9e8aa3cf74b1829636876d4417",
+    "applications/sidewalk_desktop/README.md": "a0b94089cb1299301ccb2478add0cf5457cbdce298a3a419c9844887430051da",
+    "applications/sidewalk_desktop/requirements.txt": "1e9964be4c5dd26c9f682893c4e913c1385c642eaf80d2d84ef4b22af5c1d87d",
+    "applications/sidewalk_desktop/verify_app.py": "30c2b4b71ffb44d63832b594705d868b4dfc720bb581f0c8d0fe75a96b3a7538",
+    "applications/sidewalk_desktop/worker.py": "27efb7e7131bb60e4b01d2ac8c547e83e423281a758389a6d1a6f812b58f2483",
+    "applications/sidewalk_desktop/启动人行道识别.cmd": "b4f13af9cf0c55ac8ddc613c75b15d8a5646569cc2580442c32f95c2bb0d4466",
+    "applications/sidewalk_desktop/models/A_seed42.onnx": "2c702720842bd016aa3db3abb9563e06119d8608d6b598a10fb5e28434fc9386",
+    "applications/sidewalk_desktop/models/A_seed42.pth": "71ca9c869b1aec4ee5fc6eaa637e98cb3e2e0ab10ccedf5a1adbc8c4261f8218",
+    "applications/sidewalk_desktop/models/L0_seed42.onnx": "df198224d0789e698947caccec2984da0870cdf4eabd1c6dd0f17fc60811b5cf",
+    "applications/sidewalk_desktop/models/L0_seed42.pth": "6e9a8d7f83c67b9b6e7bdc5ee0039788f1dea5faa01cb8a70ba2029a36c8c5c1",
+    "applications/sidewalk_desktop/models/models.json": "e61ee580002cf6b598fa17c539ef6427d6322ee0f60e3a09f0d53247fcaf8181",
+    "applications/sidewalk_desktop/screenshots/algorithm_comparison.png": "6798f1168298c9c28bb64b750bacbbd608920ae3cf1ec9ebb63c610b1f964241",
+    "applications/sidewalk_desktop/screenshots/desktop_mask.png": "7e927774cf81306abaf8526de77cef5b575f237861ceb116f2d5ed88d877ee2b",
+    "applications/sidewalk_desktop/screenshots/desktop_verified.png": "a475b8c78a54ee80fc21f0d150449fac131badddf5b3901199b124626d9c0066"
+  },
+  "scope": "Windows existing CUDA environment; A/L0 image and constructed 32-frame video functional checks, cancellation, binary mask preview, algorithm display and relocation. No independent-machine, embedded-device, natural-video or long-duration claim."
+}

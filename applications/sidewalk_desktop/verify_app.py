@@ -55,7 +55,7 @@ def main(a):
     images=sorted((ROOT/'dataset/cityscapes/leftImg8bit/val').glob('*/*_leftImg8bit.png'))
     source=images[499];original=sha(source)
     source_hashes={str(p.relative_to(ROOT)):sha(p) for p in [HERE/'app.py',HERE/'worker.py',Path(__file__),
-        HERE/'启动人行道识别.cmd',EXP/'verified_compact_runtime.py',EXP/'reference_deployment_pipeline.py']}
+        HERE/'启动人行道识别.cmd',HERE/'model_catalog.py',EXP/'verified_compact_runtime.py',EXP/'reference_deployment_pipeline.py']}
     window=tk.Tk();window.withdraw();app=App(window)
     app.input_path.set(str(source));app.start()
     deadline=time.monotonic()+240
@@ -69,11 +69,28 @@ def main(a):
         assert Path(result['output']).is_file() and Path(result['mask']).is_file()
         with Image.open(result['output']) as im:assert im.size==(2048,1024)
         assert sha(source)==original
-        window.deiconify();window.geometry('1160x790+30+30');window.update()
+        from model_catalog import algorithm
+        assert algorithm('A')['params']==263640 and algorithm('L0')['params']==161688
+        assert '161,688' in app.algorithm_text.get()
+        app.model.set('A 基线模型');app.update_algorithm();assert '263,640' in app.algorithm_text.get()
+        assert app.output_label.get()=='算法输出 · L0', 'Selecting next model must not relabel the completed output'
+        app.model.set('L0 轻量模型');app.update_algorithm()
+        # Display the processed filename, omitting the local machine directory in public screenshots.
+        app.input_path.set(source.name)
+        window.deiconify();window.geometry('1200x900+30+30');window.update()
         app.show_previews();window.update();time.sleep(.4)
         box=(window.winfo_rootx(),window.winfo_rooty(),window.winfo_rootx()+window.winfo_width(),window.winfo_rooty()+window.winfo_height())
         try:ImageGrab.grab(bbox=box).save(out/'desktop_verified.png')
         except OSError:capture_window(window,out/'desktop_verified.png')
+        app.result_view.set('二值分割掩码');app.show_previews();window.update()
+        assert (image_job/'mask_preview.jpg').is_file()
+        with Image.open(result['mask']) as im:
+            import numpy as np
+            assert set(np.unique(np.asarray(im))).issubset({0,255})
+        capture_window(window,out/'desktop_mask.png')
+        app.result_view.set('人行道叠加');app.show_previews()
+        dialog=app.compare();window.update();time.sleep(.5);window.update()
+        capture_window(dialog,out/'algorithm_comparison.png');dialog.destroy()
         window.withdraw()
         # Actual UI cancellation request after at least one video frame.
         app.input_path.set(str(clip));app.start();deadline=time.monotonic()+240;cancelled=False
@@ -122,7 +139,9 @@ def main(a):
         report=read(job/'result.json')
         for p in report['execution_verified'].values():
             assert set(p['provider_evidence']['node_executions'])=={'CUDAExecutionProvider'}
-    proof=dict(status='pass',actual_Tk_UI_start_and_cancel_tested=True,UI_recovers_after_cancel=True,
+    proof=dict(status='pass',algorithm_cards_switch_verified=True,binary_mask_view_verified=True,
+        screenshots={p.name:sha(p) for p in out.glob('*.png')},
+        actual_Tk_UI_start_and_cancel_tested=True,UI_recovers_after_cancel=True,
         image_models=['A','L0'],full_constructed_video_frames=32,missing_input_handled=True,
         GPU_lock_refused=True,existing_result_overwrite_refused=True,original_input_unchanged=True,
         media_jobs=[str(p.relative_to(ROOT)) for p in (image_job,baseline,video)],cancel_job=str(cancel_job.relative_to(ROOT)),
