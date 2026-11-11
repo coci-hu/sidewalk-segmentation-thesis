@@ -2,6 +2,56 @@
 
 基于 Cityscapes 的人行道二分类研究：对精简 ENet 进行通道缩减，比较注意力机制的实际收益，并将已验证的 A/L0 模型集成到 Windows 桌面软件中。
 
+## 项目目录
+
+下面展示 GitHub 仓库的主要结构；应用目录的逐文件说明见[软件代码导航](applications/sidewalk_desktop/README.md#软件目录与文件职责)。
+
+```text
+sidewalk-segmentation-thesis/
+├── README.md                         # 项目入口：成果、目录、下载和运行
+├── applications/
+│   └── sidewalk_desktop/             # Windows NVIDIA GPU 桌面软件
+│       ├── app.py                    # 中文界面与任务管理
+│       ├── worker.py                 # 图片/视频推理工作进程
+│       ├── model_catalog.py          # 算法指标与模型路径管理
+│       ├── models/                   # A/L0 ONNX、权重和模型清单
+│       ├── screenshots/              # 实际运行界面截图
+│       ├── package_entry.py          # EXE 启动与子进程分派
+│       ├── gpu_windows.spec          # PyInstaller 打包配置
+│       ├── build_gpu.ps1             # GPU 可执行版构建入口
+│       ├── prepare_models.py         # 核验并复制模型包
+│       ├── verify_app.py             # 桌面功能验收（需本地测试素材）
+│       ├── requirements.txt          # 新环境依赖建议
+│       ├── 启动人行道识别.cmd          # 源码版 Windows 启动器
+│       └── README.md                 # 安装、使用、代码与打包说明
+├── code/                             # 基线网络、组件及历史研究脚本
+├── experiments/attention_gate/       # 受控训练、轻量化算法、评估与部署模块
+├── results/                          # 最终结果、图表和验证证据
+├── tools/                            # 复杂度统计、汇总和历史冻结核验
+├── archive/                          # 已归档图表及配置，不作为最终主结果
+├── code_sam/                         # 历史标注/数据准备工具，不是当前应用依赖
+├── run.ps1                           # 历史研究脚本选择器，不是桌面软件启动器
+├── .gitignore                        # 排除本地数据、日志和大型构建产物
+└── .gitattributes                    # 保持实验文件的原始字节与换行
+```
+
+数据集、完整训练日志和大型可执行 ZIP 不包含在上述源码下载中。`models/` 中的两组部署模型是明确随仓库提供的例外。最终证据位于 `results/`；`archive/` 与 `code_sam/` 供历史追溯，不能当作新增数据集或最终实验成果。
+
+**阅读顺序：** 想看效果，查看下方[软件展示](#软件展示)；想运行，查看[下载与运行](#下载与运行)；想读代码，从 `app.py → worker.py → 已验证推理模块` 入手；想看算法，从 [L0 网络结构](experiments/attention_gate/compact_candidate.py)和 [A 基线](code/model_enet.py)入手。
+
+## 开发语言与技术组成
+
+| 部分 | 技术 | 在本项目中的作用 |
+|---|---|---|
+| 应用逻辑 | Python | 界面事件、模型选择、任务调度和结果保存 |
+| 桌面界面 | Python 的 Tkinter/ttk（调用 Tcl/Tk） | 窗口、按钮、进度和图像预览 |
+| 算法研究 | Python + PyTorch | 网络定义、训练、评估与导出 |
+| 软件推理 | ONNX Runtime GPU + CUDA/cuDNN | 调用已导出模型进行 NVIDIA GPU 计算 |
+| 图像与视频 | OpenCV、Pillow、NumPy | 读取、预处理、掩码与叠加图处理 |
+| 启动与打包 | PowerShell、CMD、PyInstaller | Windows 启动器及可执行包构建 |
+
+本项目自编应用代码以 Python 为主，没有另外编写 Web 前端或 C++ 应用层。GitHub 的 Languages 使用 Linguist 根据仓库文件识别语言，因此语言栏不是运行时依赖清单，也不表示计算全部由 Python 解释器完成；C/C++/CUDA 等底层实现主要来自第三方库，不算作本项目自行开发的代码。[GitHub 语言统计说明](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-repository-languages)
+
 **适用范围：NVIDIA GPU 专用的 Windows 桌面应用。** 面向具有兼容 NVIDIA 显卡、驱动及 CUDA/cuDNN 运行库的使用环境，不提供 CPU、AMD、macOS 或 Linux 版本。不是面向任意电脑的通用软件。已实际验证 RTX 4060 Laptop 8GB；其他型号需单独检查兼容性。
 
 **L0 相对 A：参数量减少 38.67%，统计计算量减少 28.01%，人行道 IoU 三种子均值下降 0.545 个百分点。** 软件展示算法结构、精度与效率取舍，支持图片和视频识别、叠加预览、二值掩码及结果导出。

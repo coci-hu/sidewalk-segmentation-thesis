@@ -2,6 +2,79 @@
 
 Windows / Tkinter 桌面界面，算法为精简 ENet 基线 A 与通道缩减模型 L0；推理使用已验证的 FP32 ONNX Runtime CUDA 路径。界面、模型清单和算法结果读取都相对于项目位置定位，支持移动项目目录。
 
+## 软件目录与文件职责
+
+```text
+applications/sidewalk_desktop/
+├── app.py
+├── worker.py
+├── model_catalog.py
+├── models/
+│   ├── models.json                   # 相对路径、模型身份和 SHA-256
+│   ├── A_seed42.onnx                 # A 的 FP32 推理图
+│   ├── A_seed42.pth                  # A 原训练权重，用于身份核验
+│   ├── L0_seed42.onnx                # L0 的 FP32 推理图
+│   └── L0_seed42.pth                 # L0 原训练权重，用于身份核验
+├── screenshots/
+│   ├── desktop_verified.png         # 原图与人行道叠加
+│   ├── desktop_mask.png             # 二值掩码预览
+│   └── algorithm_comparison.png     # A/L0 对照表
+├── package_entry.py
+├── gpu_windows.spec
+├── build_gpu.ps1
+├── prepare_models.py
+├── verify_app.py
+├── requirements.txt
+├── 启动人行道识别.cmd
+└── README.md
+```
+
+| 文件 | 职责与使用方式 |
+|---|---|
+| [app.py](app.py) | 源码版界面入口。处理选择文件、算法切换、预览、开始/取消任务；用 `python applications/sidewalk_desktop/app.py` 启动。推理在独立子进程运行。 |
+| [worker.py](worker.py) | 图片/视频解码、调用固定推理流程、导出结果和写进度；通常由界面调用，也支持下方命令行入口。 |
+| [model_catalog.py](model_catalog.py) | 从结果 JSON 读取算法指标，将模型相对路径解析为实际路径；由程序导入，不需单独执行。 |
+| [models/models.json](models/models.json) | 指定 A/L0 模型文件、种子、所选轮次与哈希；是配置和身份清单，不是训练代码。 |
+| [package_entry.py](package_entry.py) | EXE 内部入口，区分窗口启动和 `--worker` 子进程；仅供构建后的程序使用，不直接当 Python 源码入口运行。 |
+| [gpu_windows.spec](gpu_windows.spec) | Python 语法的 PyInstaller 配置，定义要收集的依赖、模型、结果文件和科学模块。 |
+| [build_gpu.ps1](build_gpu.ps1) | 构建入口；要求新的输出目录，生成完整 `dist/SidewalkGPU/` 文件夹。具体命令见下方。 |
+| [prepare_models.py](prepare_models.py) | 维护者工具，先核验模型哈希再复制到新的模型目录；普通用户已随仓库取得模型，无需重跑。 |
+| [verify_app.py](verify_app.py) | 实际 GUI、图片/视频、取消、错误及锁冲突验收；依赖原本地 Cityscapes 验证素材，源码下载者不必执行。 |
+| [requirements.txt](requirements.txt) | 新环境依赖建议；CUDA 版 PyTorch/torchvision 另按环境安装命令安装，不是全部研究环境的锁定文件。 |
+| [启动人行道识别.cmd](启动人行道识别.cmd) | 双击启动源码版，选择 Python 环境并在失败时保留终端错误信息。 |
+| [screenshots/](screenshots/) | README 使用的真实界面截图，不参与模型推理。 |
+
+### 软件如何调用算法
+
+界面 `app.py` 启动 `worker.py`，工作进程经 `model_catalog.py` 定位模型，再调用以下位于项目根目录其他位置的模块。因此源码使用时应保留整个仓库的目录结构。
+
+| 共用模块 | 作用 |
+|---|---|
+| [verified_compact_runtime.py](../../experiments/attention_gate/verified_compact_runtime.py) | 验证模型身份、创建 ORT 会话、GPU 互斥与实际 CUDA 执行取证 |
+| [reference_deployment_pipeline.py](../../experiments/attention_gate/reference_deployment_pipeline.py) | 已验证的预处理、argmax 掩码恢复和叠加流程 |
+| [deployment_pipeline.py](../../experiments/attention_gate/deployment_pipeline.py) | 当前运行时从中读取固定输入与归一化常量；不代表启用历史候选优化流程 |
+| [deployment_equivalence.py](../../experiments/attention_gate/deployment_equivalence.py)、[metrics_v1.py](../../experiments/attention_gate/metrics_v1.py) | 执行提供者证据与评估工具依赖 |
+| [results/](../../results/) | 算法展示指标和已通过的模型验收身份；这些静态指标不等于用户输入图片的精度 |
+
+网络结构定义在 [compact_candidate.py](../../experiments/attention_gate/compact_candidate.py)（L0/L1）和 [model_enet.py](../../code/model_enet.py)（A）。桌面推理加载已经导出的 ONNX，不在点击识别时重新训练网络。
+
+### 源码包与可执行包的结构区别
+
+源码包就是上面的仓库结构，使用 Python 入口；可执行包解压后结构如下（运行库文件省略）：
+
+```text
+SidewalkGPU/
+├── SidewalkGPU.exe                   # 用户双击的入口
+├── 使用说明.txt                       # 环境要求与操作提示
+└── _internal/                       # PyInstaller 收集的 Python 与原生运行库
+    └── project/                    # 保留相对布局的应用、模型和验证文件
+        ├── applications/sidewalk_desktop/
+        ├── experiments/attention_gate/
+        └── results/
+```
+
+完整分发 `SidewalkGPU/`，不能只发 EXE。构建目录的 `build/` 是打包中间产物，`dist/SidewalkGPU/` 才是可执行目录；压缩目录形成交付 ZIP 是另一步，`build_gpu.ps1` 本身不生成 ZIP、Setup 安装向导或 GitHub Release。
+
 ## 支持范围与论文表述
 
 本软件定位为 **Windows NVIDIA GPU 专用应用**，不要求支持无独显电脑，也不提供 CPU、AMD、macOS 或 Linux 推理版本。适用电脑必须具备兼容的 NVIDIA GPU、驱动和匹配的 CUDA/cuDNN 运行库；仅安装任意版本 CUDA Toolkit 不代表满足依赖。
@@ -27,7 +100,7 @@ Windows / Tkinter 桌面界面，算法为精简 ENet 基线 A 与通道缩减�
 在已配置并核验的 Windows CUDA 环境中，另行安装 PyInstaller 6.16.0（推荐独立工具目录，不改变实验依赖），运行：
 
 ```powershell
-.\\applications\\sidewalk_desktop\\build_gpu.ps1 -Python '你的环境/python.exe' -OutputDirectory '新的构建输出目录' -PackagingTools '独立打包工具目录'
+.\applications\sidewalk_desktop\build_gpu.ps1 -Python '你的环境/python.exe' -OutputDirectory '新的构建输出目录' -PackagingTools '独立打包工具目录'
 ```
 
 如果 PyInstaller 已在当前构建环境中可用，省略 `-PackagingTools`。输出为 `dist/SidewalkGPU/`，应完整分发该目录。构建过程读取固定模型和科学代码，不重训；主程序会把推理派发给自身的工作进程。验证范围与文件校验值见[打包验收](../../results/gpu_package_20261111.json)。
