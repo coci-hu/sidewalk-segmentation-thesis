@@ -2,11 +2,13 @@
 
 基于 Cityscapes 的人行道二分类研究：对精简 ENet 进行通道缩减，比较注意力机制的实际收益，并将已验证的 A/L0 模型集成到 Windows 桌面软件中。
 
+**适用范围：NVIDIA GPU 专用的 Windows 桌面应用。** 面向具有兼容 NVIDIA 显卡、驱动及 CUDA/cuDNN 运行库的使用环境，不提供 CPU、AMD、macOS 或 Linux 版本。不是面向任意电脑的通用软件。已实际验证 RTX 4060 Laptop 8GB；其他型号需单独检查兼容性。
+
 **L0 相对 A：参数量减少 38.67%，统计计算量减少 28.01%，人行道 IoU 三种子均值下降 0.545 个百分点。** 软件展示算法结构、精度与效率取舍，支持图片和视频识别、叠加预览、二值掩码及结果导出。
 
 [下载源码与模型](https://github.com/coci-hu/sidewalk-segmentation-thesis/archive/refs/heads/main.zip) · [软件使用说明](applications/sidewalk_desktop/README.md) · [最终实验结果](results/compact_final_effect_20261107.json) · [算法实现](experiments/attention_gate/compact_candidate.py)
 
-> 当前为私有仓库，有访问权限的账号才能查看和下载。交付形式为源码与已验证模型，不是独立 EXE 安装包。实际推理需 Windows、Python 和 NVIDIA CUDA 环境；仅看本页截图不需要安装。
+> 当前为私有仓库，有访问权限的账号才能查看和下载。上面的源码下载包含代码与模型，需要配置 Python/CUDA 环境。另有已完成本机验收的 Windows GPU 可执行压缩包；它与源码 ZIP 不同，尚未作为 GitHub Release 附件发布。仅看本页截图不需要安装。
 
 ## 软件展示
 
@@ -72,6 +74,12 @@ L0 的纯推理平均延迟降低 8.62%，但完整 PNG 流程平均延迟增加
 项目成果是轻量化任务适配与取舍分析、注意力受控实验、经数值验证的部署和软件整合。语义人行道识别不等同于安全通行判断；未验证嵌入式实机、路径规划或避障能力。
 
 ## 下载与运行
+
+### Windows GPU 可执行版
+
+可执行交付文件名为 `SidewalkGPU_Windows_x64_20261111.zip`，由维护者单独提供；**当前源码下载按钮不包含这个程序包，也没有已发布的 Release 下载链接**。完整解压后双击 `SidewalkGPU.exe`，保留同目录的 `_internal` 文件夹。包内附带 Python 与推理运行库，目标电脑仍需兼容的 NVIDIA GPU 和驱动；这是免安装压缩包，不是 Setup 安装向导。
+
+已在本机移除测试进程的外部 Python/Conda 搜索路径后，验证窗口、A/L0 CUDA 图像推理与构造视频读写；尚未在另一台干净 Windows 电脑验收。文件大小、SHA-256 与测试范围见[可执行版本证据](results/gpu_package_20261111.json)。[适用环境与详细说明](applications/sidewalk_desktop/README.md#支持范围与论文表述)
 
 ### 1. 获取项目
 

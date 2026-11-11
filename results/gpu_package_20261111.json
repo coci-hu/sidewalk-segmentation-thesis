@@ -1,0 +1,40 @@
+{
+  "status": "pass",
+  "platform": "Windows 11 build 26200, RTX 4060 Laptop 8GB, driver 610.62",
+  "external_python_and_conda_paths_removed": true,
+  "frozen_GUI_launch_and_worker_dispatch": true,
+  "cases": [
+    {
+      "variant": "L0",
+      "mask_and_overlay_identical": true,
+      "actual_CUDA": true
+    },
+    {
+      "variant": "A",
+      "mask_and_overlay_identical": true,
+      "actual_CUDA": true
+    }
+  ],
+  "exe_sha256": "ae449c7e1d529a19259d1cb53a370f202b4b833c5377ab0d0f5b038dedd7f7d1",
+  "independent_machine_validated": false,
+  "scope": "Current host, packaged executable without Python/Conda PATH. Not all NVIDIA models or clean OS certification.",
+  "constructed_video_readback_frames": 32,
+  "archive_name": "SidewalkGPU_Windows_x64_20261111.zip",
+  "archive_bytes": 3069646059,
+  "archive_sha256": "cd7887727455047d5c60debf5fe0d96c690bf2b743ac88266032d3648e1e786f",
+  "archive_CRC_verified": true,
+  "distribution": "Portable ZIP with executable, not a Setup wizard. GitHub Release asset upload not performed.",
+  "sources": {
+    "applications/sidewalk_desktop/app.py": "4a8efd2f02bd1085c1542e26f73f5fd742211e382a7c76f958fb5ba6e285801c",
+    "applications/sidewalk_desktop/build_gpu.ps1": "7fe90ff7936c898d37b73af58003054ccddfb3d42f31b083299930fa107eaae2",
+    "applications/sidewalk_desktop/gpu_windows.spec": "2e892a5aadb16f7c3ac931722101ad8653a79547186f4dd9f549a52bba938481",
+    "applications/sidewalk_desktop/model_catalog.py": "158531dfab28b0d8d377d901284b4989571f7ef3b0b322e029674b395290c837",
+    "applications/sidewalk_desktop/package_entry.py": "da0f509b8cbb318260044c940e9b525c7856b77260c061e7bfbb66cae837b330",
+    "applications/sidewalk_desktop/prepare_models.py": "7aa41fa9cd0a16121e2161604f8c5e96e6c2ff9e8aa3cf74b1829636876d4417",
+    "applications/sidewalk_desktop/README.md": "77ede10fc8c62352b2064eaa0efd8a800e5fba2556bec94f7eb8bf00c405d77c",
+    "applications/sidewalk_desktop/requirements.txt": "1e9964be4c5dd26c9f682893c4e913c1385c642eaf80d2d84ef4b22af5c1d87d",
+    "applications/sidewalk_desktop/verify_app.py": "30c2b4b71ffb44d63832b594705d868b4dfc720bb581f0c8d0fe75a96b3a7538",
+    "applications/sidewalk_desktop/worker.py": "27efb7e7131bb60e4b01d2ac8c547e83e423281a758389a6d1a6f812b58f2483",
+    "applications/sidewalk_desktop/启动人行道识别.cmd": "b4f13af9cf0c55ac8ddc613c75b15d8a5646569cc2580442c32f95c2bb0d4466"
+  }
+}

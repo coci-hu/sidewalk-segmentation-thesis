@@ -102,14 +102,16 @@ class App:
         source=Path(self.input_path.get().strip())
         if not source.is_file():messagebox.showerror('无法开始','请先选择一个存在的图片或视频文件。');return
         if not default_models().is_file():messagebox.showerror('缺少推理模型','请按 README 的模型获取说明准备 A/L0 模型包。');return
-        output=ROOT/'experiments/attention_gate/desktop_outputs'/(datetime.now().strftime('%Y%m%d_%H%M%S')+'_'+uuid.uuid4().hex[:8])
+        base=Path(os.environ.get('LOCALAPPDATA',str(Path.home())))/'SidewalkSegmentation/results' if getattr(sys,'frozen',False) else ROOT/'experiments/attention_gate/desktop_outputs'
+        output=base/(datetime.now().strftime('%Y%m%d_%H%M%S')+'_'+uuid.uuid4().hex[:8])
         output.mkdir(parents=True);self.job=output;self.preview_version=None
         self.photos=[]
         for widget in (self.left,self.right):widget.configure(image='',text='正在准备…')
         self.log_handles=[(output/'stdout.log').open('wb'),(output/'stderr.log').open('wb')]
         variant='L0' if self.model.get().startswith('L0') else 'A'
         self.output_label.set('算法输出 · '+variant)
-        command=[sys.executable,str(HERE/'worker.py'),'--input',str(source.resolve()),'--output',str(output),'--model',variant]
+        entry=[sys.executable,'--worker'] if getattr(sys,'frozen',False) else [sys.executable,str(HERE/'worker.py')]
+        command=entry+['--input',str(source.resolve()),'--output',str(output),'--model',variant]
         try:
             self.process=subprocess.Popen(command,stdout=self.log_handles[0],stderr=self.log_handles[1],
                 env=dict(os.environ,PYTHONUTF8='1',PYTHONIOENCODING='utf-8'),creationflags=subprocess.CREATE_NO_WINDOW)

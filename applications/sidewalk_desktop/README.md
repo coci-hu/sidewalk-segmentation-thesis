@@ -2,6 +2,14 @@
 
 Windows / Tkinter 桌面界面，算法为精简 ENet 基线 A 与通道缩减模型 L0；推理使用已验证的 FP32 ONNX Runtime CUDA 路径。界面、模型清单和算法结果读取都相对于项目位置定位，支持移动项目目录。
 
+## 支持范围与论文表述
+
+本软件定位为 **Windows NVIDIA GPU 专用应用**，不要求支持无独显电脑，也不提供 CPU、AMD、macOS 或 Linux 推理版本。适用电脑必须具备兼容的 NVIDIA GPU、驱动和匹配的 CUDA/cuDNN 运行库；仅安装任意版本 CUDA Toolkit 不代表满足依赖。
+
+已验证设备为 RTX 4060 Laptop 8GB，当前打包检查平台为 Windows 11（系统构建 26200）、NVIDIA 驱动 610.62。该驱动是本机观察值，不是经测试确定的最低版本。源码推理使用 PyTorch 2.5.1+cu121、ONNX Runtime GPU 1.19.2（CUDA 12.x / cuDNN 9）。尚未完成其他型号显卡和独立电脑的兼容性矩阵测试。
+
+论文可表述为：“开发面向 Windows 与 NVIDIA CUDA 环境的人行道语义分割桌面应用，集成基线与轻量化模型，实现图像及视频文件输入、预测可视化和结果保存，并在 RTX 4060 Laptop 平台进行功能验证。”不据此宣称跨平台适配、全部 NVIDIA 显卡兼容或嵌入式实机验证。
+
 ![算法识别界面](screenshots/desktop_verified.png)
 
 ## 下载内容
@@ -10,7 +18,19 @@ Windows / Tkinter 桌面界面，算法为精简 ENet 基线 A 与通道缩减�
 
 `models/` 内有 `A_seed42.onnx`、`L0_seed42.onnx`、对应的两个 `.pth` 和 `models.json`。二者分别使用种子 42 的第 92 / 88 轮已选定权重。清单使用相对路径；运行时核对实际文件 SHA-256 与冻结验收结果。原训练权重一并提供用于身份核验，推理执行 ONNX 图。无需重训或下载 Cityscapes。
 
-没有独立 EXE 安装包、自动下载器或云端接口；用户选择的图片和视频在本机处理。
+源码下载不包含预编译 EXE。维护者另提供 `SidewalkGPU_Windows_x64_20261111.zip`：完整解压到当前用户可写目录后，双击 `SidewalkGPU.exe`，无需另装 Python，不能删除 `_internal`。这是免安装可执行包，不是 Setup 安装向导；没有自动下载器或云端接口。用户图片与视频在本机处理。
+
+程序包附带推理所需运行库，但不附带显卡驱动；仅在上文指定本机完成验收。程序未做代码签名，分发时应附 SHA-256 校验值，不要求用户关闭系统安全防护。可执行版结果保存在 `%LOCALAPPDATA%/SidewalkSegmentation/results`，源码版输出位置见下文。预编译包尚未上传 GitHub Releases，不要将源码 ZIP 当作可执行包。
+
+### 从源码构建 GPU 可执行包
+
+在已配置并核验的 Windows CUDA 环境中，另行安装 PyInstaller 6.16.0（推荐独立工具目录，不改变实验依赖），运行：
+
+```powershell
+.\\applications\\sidewalk_desktop\\build_gpu.ps1 -Python '你的环境/python.exe' -OutputDirectory '新的构建输出目录' -PackagingTools '独立打包工具目录'
+```
+
+如果 PyInstaller 已在当前构建环境中可用，省略 `-PackagingTools`。输出为 `dist/SidewalkGPU/`，应完整分发该目录。构建过程读取固定模型和科学代码，不重训；主程序会把推理派发给自身的工作进程。验证范围与文件校验值见[打包验收](../../results/gpu_package_20261111.json)。
 
 ## 环境安装
 
